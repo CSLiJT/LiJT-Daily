@@ -1,7 +1,9 @@
 # 欢迎来到LiJT的小窝！
 
 ## About Me
-<img align="left" src="./title.jpg" width="30%">
+<img align="right" src="./title.jpg" width="20%">
+* 来自广东广州，曾在河北、安徽住过
+* 喜欢吃饭和散步
 * Wechat: Sato_sa_sa_ra
 * E-mail1: <a href="mailto:satosasara@mail.ustc.edu.cn"> satosasara@mail.ustc.edu.cn </a>
 * E-mail2: <a href="mailto:lijt.ustc@gmail.com"> lijt.ustc@gmail.com </a>
@@ -27,3 +29,4 @@
 
 
 ## 一株野草的遐想
+* 2020-11-18 要是我也是一株野草就好了。
