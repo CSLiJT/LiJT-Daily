@@ -3,8 +3,8 @@
 ## About Me
 
 * Wechat: Sato_sa_sa_ra
-* E-mail1: <a href="satosasara@mail.ustc.edu.cn">
-* E-mail2: <a href="lijt.ustc@gmail.com">
+* E-mail1: <p><a href="mailto:satosasara@mail.ustc.edu.cn"> satosasara@mail.ustc.edu.cn </a></p>
+* E-mail2: <p><a href="mailto:lijt.ustc@gmail.com"> lijt.ustc@gmail.com </a></p>
 
 
 ## Daily Life
