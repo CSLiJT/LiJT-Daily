@@ -1,7 +1,7 @@
 # 欢迎来到LiJT的小窝！
 
 ## About Me
-<img align="right" src="./title.jpg" width="15%">
+<img align="left" src="./title.jpg" width="30%">
 * Wechat: Sato_sa_sa_ra
 * E-mail1: <a href="mailto:satosasara@mail.ustc.edu.cn"> satosasara@mail.ustc.edu.cn </a>
 * E-mail2: <a href="mailto:lijt.ustc@gmail.com"> lijt.ustc@gmail.com </a>
@@ -20,5 +20,10 @@
 
 
 ## 读闲书
+### 阅读清单
+* 德川家康.6.[日]山冈庄八
+* 自卑与超越.[奥地利] 阿尔弗雷德·阿德勒
+* 枕草子.[日]清少纳言
+
 
 ## 一株野草的遐想
