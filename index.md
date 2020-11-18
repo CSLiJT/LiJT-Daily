@@ -2,7 +2,9 @@
 
 ## About Me
 
-* E-mail: lijt.ustc@gmail.com
+* Wechat: Sato_sa_sa_ra
+* E-mail1: <a href="satosasara@mail.ustc.edu.cn">
+* E-mail2: <a href="lijt.ustc@gmail.com">
 
 
 ## Daily Life
