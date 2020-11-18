@@ -2,6 +2,9 @@
 
 ## About Me
 
+* E-mail: lijt.ustc@gmail.com
+
+
 ## Daily Life
 
 ## 读闲书
