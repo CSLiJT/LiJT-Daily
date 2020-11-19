@@ -58,5 +58,3 @@ $$
 $$
 
 [Hello world!](./Learning/LearningPage.md)
-
-[back](./../index.md)
