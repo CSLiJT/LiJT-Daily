@@ -39,10 +39,12 @@ Boost公式推导里的一些符号还没看懂。
 
 
 ## 读闲书
-### 阅读清单
+#### 阅读中
 * 德川家康.6.[日]山冈庄八
 * 自卑与超越.[奥地利]阿尔弗雷德·阿德勒
 * 枕草子.[日]清少纳言
+
+#### 已完成
 
 
 ## 一株野草的遐想
@@ -58,3 +60,11 @@ $$
 $$
 
 [Hello world!](./Learning/LearningPage.md)
+
+```{c}
+#include<stdio.h>
+int main(void){
+    printf("Hello world!");
+    return 0;
+}
+```
