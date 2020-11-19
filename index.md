@@ -57,4 +57,4 @@ $$
 \max J(\beta) = \log L(\beta) = \sum_{i=1}^{n}\left( y_i \log \left( \frac{1}{1+e^{-x_i\beta}} \right) + \left( 1-y_i \right) \log \left( 1 - \frac{1}{1+e^{-x_i\beta}} \right) \right)
 $$
 
-[Hello world!](./Learning/LearningPage.html)
+[Hello world!](./Learning/LearningPage.md)
