@@ -1,1 +1,5 @@
-#Hello! This is LiJT's learning page!
+---
+layout: default
+---
+# Header 1
+ ## Header 2

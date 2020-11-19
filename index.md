@@ -48,7 +48,7 @@ Boost公式推导里的一些符号还没看懂。
 ## 一株野草的遐想
 * 2020-11-18 要是一株野草就好了。
 
-## 公式功能测试
+## 功能测试
 ABCabc123
 
 $ABCabc123$
@@ -57,4 +57,4 @@ $$
 \max J(\beta) = \log L(\beta) = \sum_{i=1}^{n}\left( y_i \log \left( \frac{1}{1+e^{-x_i\beta}} \right) + \left( 1-y_i \right) \log \left( 1 - \frac{1}{1+e^{-x_i\beta}} \right) \right)
 $$
 
-hello world!
+[Hello world!](./Learning/LearningPage.html)
