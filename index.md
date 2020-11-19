@@ -61,7 +61,7 @@ $$
 
 [Hello world!](./Learning/LearningPage.md)
 
-```{c}
+```c
 #include<stdio.h>
 int main(void){
     printf("Hello world!");
