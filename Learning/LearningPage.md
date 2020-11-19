@@ -6,5 +6,5 @@ layout: default
 
 ## Header 2
 
-[back](./../index.md)
+[back](../index.md)
 
