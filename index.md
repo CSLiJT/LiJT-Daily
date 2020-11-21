@@ -37,34 +37,24 @@ Boost公式推导里的一些符号还没看懂。
 #### 2020-11-19
 学会添加新页面了。其实没有网上说的复杂。Markdown真好用。
 
+#### 2020-11-21
+作业卡壳，我好难过錒。
+
 
 ## Reading List
-#### Reading
+### Reading
 * 德川家康.6.[日]山冈庄八
 * 自卑与超越.[奥地利]阿尔弗雷德·阿德勒
 * 枕草子.[日]清少纳言
 
-#### Completed
+### Completed
 
 
 ## Grass 
 * 2020-11-18 要是一株野草就好了。
 
-## Test
-ABCabc123
+## Learning Record
 
-$ABCabc123$
-
-$$
-\max J(\beta) = \log L(\beta) = \sum_{i=1}^{n}\left( y_i \log \left( \frac{1}{1+e^{-x_i\beta}} \right) + \left( 1-y_i \right) \log \left( 1 - \frac{1}{1+e^{-x_i\beta}} \right) \right)
-$$
-
-[Hello world!](./Learning/LearningPage.md)
-
-```c
-#include<stdio.h>
-int main(void){
-    printf("Hello world!");
-    return 0;
-}
-```
+* ### [多元统计分析](./Learning/MA_index.md)
+* ### [算法基础](./Learning/AL_index.md)
+* ### [运筹学](./Learning/OR_index.md)
