@@ -20,10 +20,10 @@ layout: default
 
 ## About Me
 <img align="right" src="./title.jpg" width="20%">
+
 * 一名学生
 * 喜欢吃饭，散步，喝咖啡
-* E-mail1: <a href="mailto:satosasara@mail.ustc.edu.cn"> satosasara@mail.ustc.edu.cn </a>
-* E-mail2: <a href="mailto:lijt.ustc@gmail.com"> lijt.ustc@gmail.com </a>
+* E-mail: <a href="mailto:satosasara@mail.ustc.edu.cn"> satosasara@mail.ustc.edu.cn </a>
 
 
 ## Daily Life
@@ -40,21 +40,13 @@ Boost公式推导里的一些符号还没看懂。
 #### 2020-11-21
 作业卡壳，我好难过錒。
 
+#### 2021-09-20
+时隔10月，重返日常主页！
+
 
 ## Reading List
-### Reading
 * 德川家康.6.[日]山冈庄八
 * 自卑与超越.[奥地利]阿尔弗雷德·阿德勒
 * 枕草子.[日]清少纳言
+* Les Miserables.Victor Hugo
 
-### Completed
-
-
-## Grass 
-* 2020-11-18 要是一株野草就好了。
-
-## Learning Record
-
-* ### [多元统计分析](./Learning/MA_index.md)
-* ### [算法基础](./Learning/AL_index.md)
-* ### [运筹学](./Learning/OR_index.md)
