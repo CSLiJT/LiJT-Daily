@@ -18,15 +18,15 @@ layout: default
 
 # 欢迎来到LiJT的小窝！
 
-## About Me
+## 关于我
 <img align="right" src="./title.jpg" width="20%">
 
 * 一名学生
-* 喜欢吃饭，散步，喝咖啡
+* 喜欢吃饭，做饭，散步，喝咖啡
 * E-mail: <a href="mailto:satosasara@mail.ustc.edu.cn"> satosasara@mail.ustc.edu.cn </a>
 
 
-## Daily Life
+## 日常
 #### 2020-11-18
 今天第一次发现可以用Github搭建个人主页！
 
@@ -43,8 +43,10 @@ Boost公式推导里的一些符号还没看懂。
 #### 2021-09-20
 时隔10月，重返日常主页！
 
+## 纪行
+[实习纪行]()
 
-## Reading List
+## 阅读
 * 德川家康.6.[日]山冈庄八
 * 自卑与超越.[奥地利]阿尔弗雷德·阿德勒
 * 枕草子.[日]清少纳言
