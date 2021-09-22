@@ -1,5 +1,6 @@
 markdown: kramdown
 theme: jekyll-theme-minimal
 title: LiJT的个人主页
+logo: ./title.jpg
 description: Booooooooooooom!!!!!!!!!
 encoding: utf-8

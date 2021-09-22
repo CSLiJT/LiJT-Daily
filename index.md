@@ -19,7 +19,6 @@ layout: default
 # 欢迎来到LiJT的小窝！
 
 ## 关于我
-<img align="right" src="./title.jpg" width="20%">
 
 * 一名学生
 * 喜欢吃饭，做饭，散步，喝咖啡
