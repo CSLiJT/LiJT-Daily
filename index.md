@@ -23,7 +23,7 @@ article_header:
 
 * 一名学生
 * 喜欢吃饭，做饭，散步，喝咖啡
-* E-mail: <a href="mailto:satosasara@mail.ustc.edu.cn"> satosasara@mail.ustc.edu.cn </a>
+* <i class="far fa-envelope"></i> <satosasara@mail.ustc.edu.cn>
 
 
 ## 日常
