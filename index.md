@@ -55,7 +55,7 @@ Boost公式推导里的一些符号还没看懂。
             repo: 'LiJT-Daily-Comments',
             owner: 'CSLiJT',
             admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: '{{comment_id}}',
+            id: md5(location.pathname),
             distractionFreeMode: false // Facebook-like distraction free mode
         });
         gitalk.render('gitalk-container');
