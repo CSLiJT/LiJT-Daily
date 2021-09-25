@@ -25,7 +25,6 @@ article_header:
 * 喜欢吃饭，做饭，散步，喝咖啡
 * <i class="far fa-envelope"></i> <satosasara@mail.ustc.edu.cn>
 
-
 ## 日常
 #### 2020-11-18
 今天第一次发现可以用Github搭建个人主页！
@@ -50,7 +49,12 @@ Boost公式推导里的一些符号还没看懂。
 
 #### 2021-09-25
 实习进入尾声，回顾两月经历；
+
 更换TeXt模板，ruby真香！
+
+尝试插入视频，腾格尔-天堂（2018 歌手）
+
+<div>{%- include extensions/bilibili.html id='BV1F4411g7mC' -%}</div>
 
 ## 阅读
 * 德川家康.6.[日]山冈庄八
