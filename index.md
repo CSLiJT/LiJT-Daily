@@ -3,21 +3,18 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: article
-title: "LiJT的小窝"
-description: "Hello world!"
+title: "欢迎来到LiJT的小窝!"
+aside:
+  toc: true
+mode: immersive
 header:
   theme: dark
-  background: 'linear-gradient(135deg, rgb(34, 139, 87), rgb(139, 34, 139))'
 article_header:
-  type: overlay
-  theme: dark
-  background_color: '#203028'
-  background_image:
-    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
-    src: /docs/assets/images/cover3.jpg
----
+  type: cover
+  image:
+    src: ./images/IMG_20210321_185143_edit.jpg
 
-# 欢迎来到LiJT的小窝！
+---
 
 ## 关于我
 <img class="image image--sm" src="./title.jpg" align="right"/>
