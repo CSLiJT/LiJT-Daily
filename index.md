@@ -43,9 +43,14 @@ Boost公式推导里的一些符号还没看懂。
 #### 2021-09-20
 时隔10月，重返日常主页。
 
+#### 2021-09-24
+谢谢各位大佬！！！十分幸运能够遇到一群有趣的伙伴。
+
+夕阳很美，烤肉很香。有缘再见！
+
 #### 2021-09-25
 实习进入尾声，回顾两月经历；
-更换TeXt模板，更加美观！
+更换TeXt模板，ruby真香！
 
 ## 阅读
 * 德川家康.6.[日]山冈庄八
@@ -54,7 +59,6 @@ Boost公式推导里的一些符号还没看懂。
 * Les Miserables.Victor Hugo
 
 <section class="post-full-comments">
-    {{!-- gittalk --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
     <div id="gitalk-container"></div>
