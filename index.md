@@ -2,24 +2,15 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-layout: default
+layout: home
+title: "LiJT的小窝"
+sidebar:
+  nav: docs-zh
 ---
-<head>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-            inlineMath: [['$','$']]
-            } 
-        });
-    </script>
-</head>
-
 # 欢迎来到LiJT的小窝！
 
 ## 关于我
-
+<img class="image image--sm" src="./title.jpg" align="right"/>
 * 一名学生
 * 喜欢吃饭，做饭，散步，喝咖啡
 * E-mail: <a href="mailto:satosasara@mail.ustc.edu.cn"> satosasara@mail.ustc.edu.cn </a>
