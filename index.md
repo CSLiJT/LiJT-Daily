@@ -17,7 +17,10 @@ article_header:
 ---
 
 ## 关于我
-<img class="image image--sm" src="./title.jpg" align="right"/>
+<div style="width:100px; height:100px; border-radius:100%; overflow:hidden; float:right">
+<img class="image" src="./images/title.jpg"/>
+</div>
+
 * 一名学生
 * 喜欢吃饭，做饭，散步，喝咖啡
 * E-mail: <a href="mailto:satosasara@mail.ustc.edu.cn"> satosasara@mail.ustc.edu.cn </a>
