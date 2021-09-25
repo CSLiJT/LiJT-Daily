@@ -12,7 +12,7 @@ header:
 article_header:
   type: cover
   image:
-    src: ./images/IMG_20210321_185143_edit.jpg
+    src: ./images/IMG_20210405_134319.jpg
 
 ---
 
