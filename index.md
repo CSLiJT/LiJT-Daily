@@ -13,7 +13,6 @@ article_header:
   type: cover
   image:
     src: ./images/IMG_20210405_134319.jpg
-
 ---
 
 ## 关于我
