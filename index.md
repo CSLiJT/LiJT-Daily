@@ -24,39 +24,108 @@ article_header:
 * 喜欢吃饭，做饭，散步，喝咖啡
 * <i class="far fa-envelope"></i> <satosasara@mail.ustc.edu.cn>
 
-## 日常
-#### 2020-11-18
-今天第一次发现可以用Github搭建个人主页！
 
-岐山臊子面的味道很棒———特别是加了醋和油泼辣子。
+## 时光轴
 
-Boost公式推导里的一些符号还没看懂。
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600'>
 
-#### 2020-11-19
-学会添加新页面了。其实没有网上说的复杂。Markdown真好用。
+  <link rel="stylesheet" href="timeline-css/style.css">
 
-#### 2020-11-21
-作业卡壳，我好难过錒。
+  <div class="timeline">
+  <div class="entry">
+    <div class="title">
+      <h3>2021.09.30</h3>
+      <p>安徽，合肥</p>
+    </div>
+    <div class="body">
+      <p>时光轴建立</p>
+      <ul>
+        <li>提前祝大家国庆节快乐！爱我中华！</li>
+        <li>最近换了thinkpad。只用了7天便深陷小红点不能自拔。可能这才是生产力的高级形态吧！</li>
+      </ul>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">
+      <h3>2021.09.29</h3>
+      <p>安徽，合肥</p>
+    </div>
+    <div class="body">
+      <p>开始恢复锻炼（咸鱼复健）。今晚跑步2km，以后争取每天跑步20min, 以及若干器材训练</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">
+      <h3>2021.09.25</h3>
+      <p>上海，上海市</p>
+    </div>
+    <div class="body">
+      <p>北风守护流浪归来</p>
+      <ul>
+       <li>实习进入尾声，回顾两月经历</li>
+       <li>更换TeXt模板，ruby真香！</li>
+       <li>推荐，腾格尔-天堂（歌手2018）</li>
+       <div>{%- include extensions/bilibili.html id='BV1F4411g7mC' -%}</div>
+      </ul>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">
+      <h3>2021.09.24</h3>
+      <p>上海，上海市</p>
+    </div>
+    <div class="body">
+      <p>别了</p>
+      <ul>
+       <li>谢谢各位大佬！！！十分幸运能够遇到一群有趣的伙伴。</li>
+       <li>夕阳很美，烤肉很香。有缘再见！</li>
+      </ul>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">
+      <h3>2021.09.20</h3>
+      <p>上海，上海市</p>
+    </div>
+    <div class="body">
+      <p>时隔10月，重返日常主页</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">
+      <h3>2020.11.21</h3>
+      <p>安徽，合肥</p>
+    </div>
+    <div class="body">
+      <p>作业卡壳，我好难过錒</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">
+      <h3>2020.11.19</h3>
+      <p>安徽，合肥</p>
+    </div>
+    <div class="body">
+      <p>学会添加新页面了。其实没有网上说的复杂。Markdown真好用。</p>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">
+      <h3>2020.11.18</h3>
+      <p>安徽，合肥</p>
+    </div>
+    <div class="body">
+      <p>梦的开始</p>
+      <ul>
+       <li>今天第一次发现可以用Github搭建个人主页！</li>
+       <li>岐山臊子面的味道很棒———特别是加了醋和油泼辣子。</li>
+       <li>Boost公式推导里的一些符号还没看懂。</li>
+      </ul>
+    </div>
+  </div>
 
-#### 2021-09-20
-时隔10月，重返日常主页。
+  </div>
 
-#### 2021-09-24
-谢谢各位大佬！！！十分幸运能够遇到一群有趣的伙伴。
-
-夕阳很美，烤肉很香。有缘再见！
-
-#### 2021-09-25
-实习进入尾声，回顾两月经历；
-
-更换TeXt模板，ruby真香！
-
-尝试插入视频，腾格尔-天堂（2018 歌手）
-
-<div>{%- include extensions/bilibili.html id='BV1F4411g7mC' -%}</div>
-
-#### 2021-09-29
-开始恢复锻炼（咸鱼复健）。今晚跑步2km，以后争取每天跑步20min, 以及若干器材训练。
 
 ## 阅读
 * 德川家康.6.[日]山冈庄八
