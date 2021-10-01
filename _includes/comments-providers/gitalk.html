@@ -31,7 +31,7 @@
 				owner: '{{ site.comments.gitalk.owner }}',
 				admin: [{{ _admin }}],
 				id: '{{ page.key }}',
-				proxy: https://netnr-proxy.cloudno.de/https://github.com/login/oauth/access_token
+				proxy: 'https://netnr-proxy.cloudno.de/https://github.com/login/oauth/access_token'
 			});
 			gitalk.render('js-gitalk-container');
 		});
