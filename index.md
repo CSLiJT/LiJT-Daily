@@ -3,7 +3,7 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: article
-title: "欢迎来到LiJT的小窝!"
+title: "欢迎来到LiJT的灵质空间!"
 aside:
   toc: true
 mode: immersive
