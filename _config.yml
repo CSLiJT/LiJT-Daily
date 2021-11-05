@@ -172,7 +172,7 @@ analytics:
 
   ## Google Analytics
   google:
-    tracking_id : G-FC6GPXL8N1 # Google Analytics id for the site
+    tracking_id : UA-183507292-2 # Google Analytics id for the site
     anonymize_ip: false # Anonymize IP tracking for Analytics
 
 
