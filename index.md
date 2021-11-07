@@ -20,9 +20,10 @@ article_header:
 <img class="image" src="./images/title.jpg"/>
 </div>
 
-* 一名学生
+* 一位漫步者
 * 喜欢吃饭，做饭，散步，喝咖啡
 * <i class="far fa-envelope"></i> <satosasara@mail.ustc.edu.cn>
+* 如果想点击文章左下角的小信号图标订阅我的博客，请先戳[这里](https://zhuanlan.zhihu.com/p/64457116)。
 
 
 ## 时光轴
