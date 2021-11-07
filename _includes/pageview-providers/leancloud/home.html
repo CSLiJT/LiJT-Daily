@@ -8,10 +8,8 @@
 {%- if _LEANCLOUD_APP_ID and
   _LEANCLOUD_APP_KEY and
   _LEANCLOUD_APP_CLASS -%}
-
-  <script>
-    {%- include pageview-providers/leancloud/leancloud.js -%}
-  </script>
+{%- include pageview-providers/leancloud/leancloud.js -%}
+  
   <script>
     window.Lazyload.js(['{{ _sources.jquery }}', '{{ _sources.leancloud_js_sdk}}'], function() {
       var pageview = window.pageview(AV, {
