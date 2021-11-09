@@ -41,6 +41,7 @@ article_header:
     <div class="body">
       <p>凛冬将至</p>
       <ul>
+        <li>不想coding时就来这里发发牢骚</li>
         <li>春天是三月的狮子，冬天是十月的孤狼</li>
         <li>冬季的烈风很冷，但是阳光依然灿烂 :-)</li>
       </ul>
