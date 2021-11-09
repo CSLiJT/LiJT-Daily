@@ -35,14 +35,27 @@ article_header:
   <div class="timeline">
   <div class="entry">
     <div class="title">
+      <h3>2021.11.09</h3>
+      <p>安徽，合肥</p>
+    </div>
+    <div class="body">
+      <p>凛冬将至</p>
+      <ul>
+        <li>春天是三月的狮子，冬天是十月的孤狼</li>
+        <li>冬季的烈风很冷，但是阳光依然灿烂 :-)</li>
+      </ul>
+    </div>
+  </div>
+  <div class="entry">
+    <div class="title">
       <h3>2021.09.30</h3>
       <p>安徽，合肥</p>
     </div>
     <div class="body">
       <p>时光轴建立</p>
       <ul>
-        <li>提前祝大家国庆节快乐！爱我中华！</li>
-        <li>最近换了thinkpad。只用了7天便深陷小红点不能自拔。可能这才是生产力的高级形态吧！</li>
+        <li>提前祝大家国庆节快乐，爱我中华。</li>
+        <li>电脑更新thinkpad。深陷小红点不能自拔。可能这才是生产力的高级形态吧。</li>
       </ul>
     </div>
   </div>
@@ -52,7 +65,7 @@ article_header:
       <p>安徽，合肥</p>
     </div>
     <div class="body">
-      <p>开始恢复锻炼（咸鱼复健）。今晚跑步2km，以后争取每天跑步20min, 以及若干器材训练</p>
+      <p>开始恢复锻炼。今晚跑步2km，以后争取每天跑步20min, 以及若干器材训练</p>
     </div>
   </div>
   <div class="entry">
@@ -63,8 +76,8 @@ article_header:
     <div class="body">
       <p>北风守护流浪归来</p>
       <ul>
-       <li>实习进入尾声，回顾两月经历</li>
-       <li>更换TeXt模板，ruby真香！</li>
+       <li>尾声，回顾两月经历</li>
+       <li>更换模板，ruby真香。</li>
        <li>推荐，腾格尔-天堂（歌手2018）</li>
        <div>{%- include extensions/bilibili.html id='BV1F4411g7mC' -%}</div>
       </ul>
@@ -78,8 +91,8 @@ article_header:
     <div class="body">
       <p>别了</p>
       <ul>
-       <li>谢谢各位大佬！！！十分幸运能够遇到一群有趣的伙伴。</li>
-       <li>夕阳很美，烤肉很香。有缘再见！</li>
+       <li>谢谢大家，十分幸运能够遇到一群有趣的伙伴。</li>
+       <li>夕阳很美，烤肉很香。有趣的人，有缘再见！</li>
       </ul>
     </div>
   </div>
@@ -94,32 +107,14 @@ article_header:
   </div>
   <div class="entry">
     <div class="title">
-      <h3>2020.11.21</h3>
-      <p>安徽，合肥</p>
-    </div>
-    <div class="body">
-      <p>作业卡壳，我好难过錒</p>
-    </div>
-  </div>
-  <div class="entry">
-    <div class="title">
-      <h3>2020.11.19</h3>
-      <p>安徽，合肥</p>
-    </div>
-    <div class="body">
-      <p>学会添加新页面了。其实没有网上说的复杂。Markdown真好用。</p>
-    </div>
-  </div>
-  <div class="entry">
-    <div class="title">
       <h3>2020.11.18</h3>
       <p>安徽，合肥</p>
     </div>
     <div class="body">
-      <p>梦的开始</p>
+      <p>路的开始</p>
       <ul>
-       <li>今天第一次发现可以用Github搭建个人主页！</li>
-       <li>岐山臊子面的味道很棒———特别是加了醋和油泼辣子。</li>
+       <li>今天第一次尝试用Github搭建个人主页。</li>
+       <li>加了醋和油泼辣子的岐山臊子面味道真不错。</li>
        <li>Boost公式推导里的一些符号还没看懂。</li>
       </ul>
     </div>
