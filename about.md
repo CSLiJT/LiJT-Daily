@@ -25,6 +25,7 @@ titles:
   # @end locale config
 key: page-about
 ---
+# 关于
 
 ## 关于我
 - 一位孤独的漫步者
