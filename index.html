@@ -1,26 +1,19 @@
 ---
-layout: base
-title: LiJT
-excerpt: LiJT | JKRD
+layout: home
+articles:
+  data_source: site.posts
+  show_excerpt: true
+  show_readmore: true
+  show_info: true
+author: LiJT
+show_author_profile: true
+aside:
+  toc: true
+mode: immersive
+header:
+  theme: dark
+article_header:
+  type: cover
+  image:
+    src: ./images/IMG_20210405_134319.jpg
 ---
-
-{%- if site.author.type == 'organization' -%}
-  {%- assign _author_itemtype = 'http://schema.org/Organization' -%}
-{%- else -%}
-  {%- assign _author_itemtype = 'http://schema.org/Person' -%}
-{%- endif -%}
-
-<div itemscope itemtype="{{ _author_itemtype }}" class="layout--author">
-  <div class="main">
-    <div class="content">
-      <div class="author-avatar">
-        <img itemprop="image" alt="my photo" src="./images/title.jpg" />
-      </div>
-      <h1 itemprop="name" class="title-text">{{ site.author.name }}</h1>
-      {% include author-links.html author=site.author %}
-      <p><a itemprop="url" class="social-link blog" title="欢迎进入我的灵质空间." href="./LiJT-Daily/navigate-page/blog" target="_self">Visit My Blog</a></p>
-    </div>
-  </div>
-</div>
-<script>{%- include scripts/common.js -%}</script>
-{% include analytics.html %}
