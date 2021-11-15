@@ -17,7 +17,7 @@ LiJT:
   github    : CSLiJT # "user_name" the last part of your profile url, e.g. https://github.com/user_name
   npm       : # "user_name" the last part of your profile url, e.g. https://www.npmjs.com/~user_name
   
-嗷晕之:
+orange:
   type      : person # "person" (default), "organization"
   name      : 嗷晕之
   url       : https://cslijt.github.io/LiJT-Daily/
