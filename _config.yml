@@ -96,7 +96,7 @@ chart: # false (default), true
 ## => Paginate
 ##############################
 paginate: 6
-paginate_path: /LiJT-Daily/navigate-page/page:num # don't change this unless for special need
+paginate_path: /navigate-page/page:num # don't change this unless for special need
 
 
 ## => Sources
