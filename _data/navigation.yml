@@ -1,6 +1,6 @@
 header:
   - title: Blog
-    url: /navigate-page/blog.html
+    url: /navigate-page/index.html
 
   - titles:
       # @start locale config
