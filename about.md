@@ -22,6 +22,7 @@ article_header:
 
 * 一位漫步者
 * 喜欢吃饭，做饭，散步，喝咖啡
+* 潜在宅，隐藏月厨
 * <i class="far fa-envelope"></i> <satosasara@mail.ustc.edu.cn>
 * 如果想点击文章左下角的小信号图标订阅我的博客，请先戳[这里](https://zhuanlan.zhihu.com/p/64457116)。
 
