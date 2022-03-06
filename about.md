@@ -142,7 +142,7 @@ article_header:
 * 自卑与超越.[奥地利]阿尔弗雷德·阿德勒
 * 枕草子.[日]清少纳言
 * Les Miserables.Victor Hugo
-* 逻辑学导论.[美]柯匹·科恩
+* 逻辑学导论.[美]柯匹
 * Educational Psychology.Woolfolk
 
 <section class="post-full-comments">
