@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"cslijt.github.io","root":"/LiJT-Daily/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"cslijt.github.io","root":"/LiJT-Daily/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="本篇主要介绍一些使用的python技巧和第三方库，包括某些方法(method)的骚操作">
@@ -266,18 +266,13 @@
       
         <p>本篇主要介绍一些使用的python技巧和第三方库，包括某些方法(method)的骚操作</p>
 <span id="more"></span>
-
 <h2 id="Matplotlib-绘图库"><a href="#Matplotlib-绘图库" class="headerlink" title="Matplotlib-绘图库"></a>Matplotlib-绘图库</h2><h3 id="保存图片内容溢出的问题"><a href="#保存图片内容溢出的问题" class="headerlink" title="保存图片内容溢出的问题"></a>保存图片内容溢出的问题</h3><ul>
 <li>有些图片，如果label太长，可能会出现保存区域小于原图片大小，导致部分内容在保存文件中缺失的问题。在此情况下，使用 <code>bbox_inches = &#39;tight&#39;</code> 选项：</li>
 </ul>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 原保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修正后保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>, bbox_inches = <span class="string">&#x27;tight&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
 <h2 id="Numpy-矩阵运算库"><a href="#Numpy-矩阵运算库" class="headerlink" title="Numpy-矩阵运算库"></a>Numpy-矩阵运算库</h2><h3 id="np-unique-可以同时获取unique-key和频数"><a href="#np-unique-可以同时获取unique-key和频数" class="headerlink" title="np.unique 可以同时获取unique key和频数"></a>np.unique 可以同时获取unique key和频数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">outcome_s, frequency_s=np.unique(samples,return_counts=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="np-intersect1d-可以获取两个一维数组的交集"><a href="#np-intersect1d-可以获取两个一维数组的交集" class="headerlink" title="np.intersect1d 可以获取两个一维数组的交集"></a>np.intersect1d 可以获取两个一维数组的交集</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A=np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">B=np.array([<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">7</span>])</span><br><span class="line">C=np.intersect1d(A,B) <span class="comment"># C=[3,4]</span></span><br></pre></td></tr></table></figure>
-
 <!--more-->
-
 <h2 id="PyTorch-深度学习库"><a href="#PyTorch-深度学习库" class="headerlink" title="PyTorch-深度学习库"></a>PyTorch-深度学习库</h2><ul>
 <li>重要的事情说三遍：<ul>
 <li>不要将维数设为0！</li>
@@ -291,7 +286,6 @@
 <li>指定load模型的目标设备</li>
 </ul>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">torch.load(map_location=device)</span><br></pre></td></tr></table></figure>
-
 <h2 id="tqdm-进度条"><a href="#tqdm-进度条" class="headerlink" title="tqdm-进度条"></a>tqdm-进度条</h2><ul>
 <li>tqdm 可以枚举迭代操作，同时显示进度条——再也不用每隔多少步输出一次结果了！</li>
 <li>以下为ipython演示结果</li>
@@ -618,6 +612,8 @@
 
 
 
+
+  
 
   
 

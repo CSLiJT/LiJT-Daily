@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"cslijt.github.io","root":"/LiJT-Daily/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"cslijt.github.io","root":"/LiJT-Daily/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="前言在深度学习领域论文的实验设计中，经常看到作者提出的模型与“弱化版”模型（少了某些模块、少了参数的限制…等等）的对比，用于说明idea或者某模块的有效性，这便是直观意义上的消融实验。">
@@ -265,7 +265,6 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在深度学习领域论文的实验设计中，经常看到作者提出的模型与“弱化版”模型（少了某些模块、少了参数的限制…等等）的对比，用于说明idea或者某模块的有效性，这便是直观意义上的消融实验。</p>
 <span id="more"></span>
-
 <h2 id="定义与解释"><a href="#定义与解释" class="headerlink" title="定义与解释"></a>定义与解释</h2><p>Robert Long对消融研究（或消融实验）定义：通常用于神经网络，尤其是相对复杂的神经网络，如R-CNN。我们的想法是通过删除部分网络并研究网络的性能来了解网络<br>{:.success}</p>
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>参考<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/291655038/answer/2000381383">知乎</a>:</p>
 <p>论文提了3个贡献点，A,B,C</p>
@@ -600,6 +599,8 @@
 
 
 
+
+  
 
   
 

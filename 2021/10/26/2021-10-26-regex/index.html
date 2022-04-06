@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"cslijt.github.io","root":"/LiJT-Daily/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"cslijt.github.io","root":"/LiJT-Daily/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="基础部分 工具：egrep. egrep &#39;[regular expression]&#39; filename  行首行尾123456^ : 标记一行的开始位置$ : 标记一行的结束位置# 例子^cat : 匹配以cat为行首的行，例如 cattercat$ : 匹配以cat为结尾的行，例如 scat">
@@ -267,95 +267,94 @@
 <li>工具：egrep. <code>egrep &#39;[regular expression]&#39; filename</code></li>
 </ul>
 <h3 id="行首行尾"><a href="#行首行尾" class="headerlink" title="行首行尾"></a>行首行尾</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">^ : 标记一行的开始位置</span><br><span class="line">$ : 标记一行的结束位置</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">^cat : 匹配以cat为行首的行，例如 catter</span><br><span class="line">cat$ : 匹配以cat为结尾的行，例如 scat</span><br></pre></td></tr></table></figure>
-
 <span id="more"></span>
-
 <h3 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h3><h4 id="匹配任意字符"><a href="#匹配任意字符" class="headerlink" title="匹配任意字符"></a>匹配任意字符</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[...] : 匹配中括号中的任意一个字符，中括号称为字符类</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">gr[ea]y : 匹配 grey 或 gray, r 和 y 之间可以是e或者a</span><br><span class="line">sep[ea]r[ea]te : 匹配 seperate 或 separete 或 separate 或 seperete</span><br><span class="line">&lt;H[<span class="number">123456</span>]&gt; : 匹配 &lt;H1&gt; 到 &lt;H6&gt;， 在html匹配中常见</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- : 划定字符范围</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">[<span class="number">1</span>-<span class="number">6</span>]=[<span class="number">123456</span>]</span><br><span class="line">[<span class="number">0</span>-9a-fA-F]=[0123456789abcdefABCDEF]</span><br></pre></td></tr></table></figure>
-
 <h4 id="否定字符类"><a href="#否定字符类" class="headerlink" title="否定字符类"></a>否定字符类</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[^...] : 匹配任意不在中括号中的字符，与 [...] 相反</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子：</span></span><br><span class="line">[^<span class="number">1</span>-<span class="number">6</span>] : 匹配不在 <span class="number">1</span>-<span class="number">6</span> 中的字符</span><br><span class="line">q[^u] : 匹配包含 q~， 其中 ~ 为不是字母u的其他字符的所有行</span><br></pre></td></tr></table></figure>
 <ul>
 <li>当 ^ 在中括号外面时表示行首标识符；当 ^ 在中括号里面时表示否定运算符</li>
 </ul>
 <h3 id="使用-‘-’-匹配-任意-字符"><a href="#使用-‘-’-匹配-任意-字符" class="headerlink" title="使用 ‘.’ 匹配 任意 字符"></a>使用 ‘.’ 匹配 <em>任意</em> 字符</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">. : 匹配任意字符</span><br><span class="line">[.] : 无转义，匹配dot</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子：</span></span><br><span class="line"><span class="number">03.19</span><span class="number">.76</span> : 匹配 03~<span class="number">19</span>~<span class="number">76</span>，其中~可以是任意字符</span><br><span class="line">03[-./]<span class="number">19</span>[-./]<span class="number">76</span> : 以分隔符 . - 或 / 匹配 031976</span><br></pre></td></tr></table></figure>
-
 <h3 id="多个正则表达式"><a href="#多个正则表达式" class="headerlink" title="多个正则表达式"></a>多个正则表达式</h3><ul>
 <li>考虑如何将多个正则表达式结合到一起</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| : 或运算， a | b 表示匹配正则表达式或正则表达式b。为了限定或运算范围，必要时用小括号括起来，例如 (a|b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">gr(a|e)y = gr[ae]y</span><br><span class="line">^(From|Subject|Date): 匹配以From:或Subject:或Date:开头的行</span><br></pre></td></tr></table></figure>
-
 <h3 id="使用’-’匹配可选字符"><a href="#使用’-’匹配可选字符" class="headerlink" title="使用’?’匹配可选字符"></a>使用’?’匹配可选字符</h3><ul>
 <li>考虑匹配 colour 或 color，这里的 u 可选出现或不出现</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">? : 可选运算，u? 表示匹配出现u或不出现u，作用对象为?的前一个字符</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">colou?r = (color|colour)</span><br></pre></td></tr></table></figure>
-
 <h3 id="匹配重复字符"><a href="#匹配重复字符" class="headerlink" title="匹配重复字符"></a>匹配重复字符</h3><ul>
 <li>考虑一个字符重复多次： goooooooooooooooooood!，但是次数不定</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+ : 匹配一个字符<span class="number">1</span>次或多次（至少<span class="number">1</span>次）</span><br><span class="line">* : 匹配一个字符<span class="number">0</span>次或多次（至少<span class="number">0</span>次）</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子：</span></span><br><span class="line">goo+d: 匹配good,goood,goo...od</span><br><span class="line">goo*d: 匹配god, good, ...</span><br><span class="line">&lt;HR +SIZE *= *[<span class="number">0</span>-<span class="number">9</span>]+ *&gt;: 空格可以出现任意多次</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">运算符</th>
-<th align="left">字符最小出现次数</th>
-<th align="left">字符最大出现次数</th>
+<th style="text-align:left">运算符</th>
+<th style="text-align:left">字符最小出现次数</th>
+<th style="text-align:left">字符最大出现次数</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">?</td>
-<td align="left">0</td>
-<td align="left">1</td>
+<tbody>
+<tr>
+<td style="text-align:left">?</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
 </tr>
 <tr>
-<td align="left">+</td>
-<td align="left">1</td>
-<td align="left">无限</td>
+<td style="text-align:left">+</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">无限</td>
 </tr>
 <tr>
-<td align="left">*</td>
-<td align="left">0</td>
-<td align="left">无限</td>
+<td style="text-align:left">*</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">无限</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h4 id="自定义字符重复次数"><a href="#自定义字符重复次数" class="headerlink" title="自定义字符重复次数"></a>自定义字符重复次数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">u&#123;<span class="built_in">min</span>, <span class="built_in">max</span>&#125; : 匹配字符u最小重复<span class="built_in">min</span>次，最大重复<span class="built_in">max</span>次。尽可能多地统计</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子：</span></span><br><span class="line">[a-zA-Z]&#123;<span class="number">3</span>,<span class="number">8</span>&#125;: 匹配<span class="number">3</span>至<span class="number">8</span>个连续出现的英文字母（尽可能多）</span><br></pre></td></tr></table></figure>
-
 <h2 id="Python-re-模块要点"><a href="#Python-re-模块要点" class="headerlink" title="Python re 模块要点"></a>Python re 模块要点</h2><h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><ul>
 <li>上述正则表达式规则基于Linux的egrep。针对Python的re模块，另有一些重要的转义字符可以用</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="left">字符</th>
-<th align="left">功能</th>
+<th style="text-align:left">字符</th>
+<th style="text-align:left">功能</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">\d</td>
-<td align="left">匹配数字，即[0-9]    可以写在字符集[…]中</td>
+<tbody>
+<tr>
+<td style="text-align:left">\d</td>
+<td style="text-align:left">匹配数字，即[0-9]    可以写在字符集[…]中</td>
 </tr>
 <tr>
-<td align="left">\D</td>
-<td align="left">匹配⾮数字，即不是数字    可以写在字符集[…]中</td>
+<td style="text-align:left">\D</td>
+<td style="text-align:left">匹配⾮数字，即不是数字    可以写在字符集[…]中</td>
 </tr>
 <tr>
-<td align="left">\s</td>
-<td align="left">匹配空⽩，即空格，tab键    可以写在字符集[…]中</td>
+<td style="text-align:left">\s</td>
+<td style="text-align:left">匹配空⽩，即空格，tab键    可以写在字符集[…]中</td>
 </tr>
 <tr>
-<td align="left">\S</td>
-<td align="left">匹配⾮空⽩字符    可以写在字符集[…]中</td>
+<td style="text-align:left">\S</td>
+<td style="text-align:left">匹配⾮空⽩字符    可以写在字符集[…]中</td>
 </tr>
 <tr>
-<td align="left">\w</td>
-<td align="left">匹配单词字符，即[a-zA-Z0-9_]    可以写在字符集[…]中</td>
+<td style="text-align:left">\w</td>
+<td style="text-align:left">匹配单词字符，即[a-zA-Z0-9_]    可以写在字符集[…]中</td>
 </tr>
 <tr>
-<td align="left">\W</td>
-<td align="left">匹配⾮单词字符    可以写在字符集[…]中</td>
+<td style="text-align:left">\W</td>
+<td style="text-align:left">匹配⾮单词字符    可以写在字符集[…]中</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h3 id="re-模块常用函数及注意事项"><a href="#re-模块常用函数及注意事项" class="headerlink" title="re 模块常用函数及注意事项"></a>re 模块常用函数及注意事项</h3><p>待补充<br>{:.warning}</p>
 <h2 id="练习：常用正则表达式-Python-re格式"><a href="#练习：常用正则表达式-Python-re格式" class="headerlink" title="练习：常用正则表达式(Python re格式)"></a>练习：常用正则表达式(Python re格式)</h2><ul>
 <li>电子邮箱 <code>\w&#123;1,10&#125;\.?\w&#123;1,10&#125;@(163|gmail|qq).com</code></li>
@@ -687,6 +686,8 @@
 
 
 
+
+  
 
   
 

@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"cslijt.github.io","root":"/LiJT-Daily/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"cslijt.github.io","root":"/LiJT-Daily/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="CrossEntropyLoss, NLLLoss 和 BCELoss 本质上都是基于交叉熵(cross entropy)的分类器的损失函数。但是三个函数的输入格式、计算方法和性能（收敛速度）有很大差别。本文记录笔者对此三者的学习笔记和理解。{:.info}">
@@ -245,7 +245,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.3k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -266,26 +266,23 @@
       
         <p>CrossEntropyLoss, NLLLoss 和 BCELoss 本质上都是基于交叉熵(cross entropy)的分类器的损失函数。但是三个函数的输入格式、计算方法和性能（收敛速度）有很大差别。本文记录笔者对此三者的学习笔记和理解。<br>{:.info}</p>
 <span id="more"></span>
-
 <h2 id="交叉熵-Cross-Entropy"><a href="#交叉熵-Cross-Entropy" class="headerlink" title="交叉熵(Cross Entropy)"></a>交叉熵(Cross Entropy)</h2><p>交叉熵(Cross Entropy)是Shannon信息论中一个重要概念，主要用于度量两个概率分布间的差异性信息。或曰，概率分布 $p$ 和概率分布 $q$ 的相似程度。如果 $p$ 和 $q$ 越相似，那么越能用 $p$ 近似表示 $q$ 或用 $q$ 近似表示 $p$ 。定义交叉熵为：</p>
-<p>$$<br>H(p,q) = \sum_x p(x)\log \left(\frac{1}{q(x)}\right)<br>$$</p>
-<p>注意交叉熵不满足对称性。</p>
+<script type="math/tex; mode=display">
+H(p,q) = \sum_x p(x)\log \left(\frac{1}{q(x)}\right)</script><p>注意交叉熵不满足对称性。</p>
 <h2 id="nn-CrossEntropyLoss"><a href="#nn-CrossEntropyLoss" class="headerlink" title="nn.CrossEntropyLoss"></a>nn.CrossEntropyLoss</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.CrossEntropyLoss(weight=<span class="literal">None</span>, size_average=<span class="literal">None</span>, ignore_index=-<span class="number">100</span>, reduce=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <h3 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h3><p>根据<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html">pytorch官方文档</a>，CrossEntropyLoss的输入值为”unnormalized scores for each class”，即未限制在(0,1)上的各个类别的得分。其表达式为</p>
-<p>$$<br>loss(x,class) = -\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])} \right)<br>$$</p>
-<p>其中 $x$ 为一个样本，$class$ 为一个类别, $x[j]\in(-\infty,\infty)$ 为分类器给样本 $x$ 在类别 $j$ 上赋予的得分，或当weight不为空时，</p>
-<p>$$<br>loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])} \right)<br>$$</p>
-<p>其中 $weight[class]$ 为类别 $class$ 的权重。其值越大，总损失中 $class$ 类所占有的损失项的比重越大。</p>
+<script type="math/tex; mode=display">
+loss(x,class) = -\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])} \right)</script><p>其中 $x$ 为一个样本，$class$ 为一个类别, $x[j]\in(-\infty,\infty)$ 为分类器给样本 $x$ 在类别 $j$ 上赋予的得分，或当weight不为空时，</p>
+<script type="math/tex; mode=display">
+loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])} \right)</script><p>其中 $weight[class]$ 为类别 $class$ 的权重。其值越大，总损失中 $class$ 类所占有的损失项的比重越大。</p>
 <p>最终，总损失为每个样本$x$上的损失的加权平均，即</p>
-<p>$$<br>\mathcal{L}(X,class) = \frac{\sum_{x\in X}loss(x,class[x])}{\sum_{x\in X}weight[class[x]]}<br>$$</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<script type="math/tex; mode=display">
+\mathcal{L}(X,class) = \frac{\sum_{x\in X}loss(x,class[x])}{\sum_{x\in X}weight[class[x]]}</script><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
 <li>是否支持多类别分类：支持</li>
 <li>输入得分值域：$(-\infty,\infty)$</li>
 <li>神经网络输出层是否需要激活/归一化: 不用</li>
 </ul>
 <h2 id="nn-NLLLoss"><a href="#nn-NLLLoss" class="headerlink" title="nn.NLLLoss"></a>nn.NLLLoss</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.NLLLoss(weight=<span class="literal">None</span>, size_average=<span class="literal">None</span>, ignore_index=-<span class="number">100</span>, reduce=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <h3 id="计算方法-1"><a href="#计算方法-1" class="headerlink" title="计算方法"></a>计算方法</h3><p><code>NLLLoss</code>的用法，实际在<code>CrossEntropyLoss</code>的文档中给出：</p>
 <p>This criterion combines <strong>LogSoftmax</strong> and <strong>NLLLoss</strong> in one single class.<br>{:.success}</p>
 <p>也就是说，<code>CrossEntropyLoss</code>是<code>NLLLoss</code>和<code>LogSoftmax</code>的结合体。为看清这一点，我们回到式(2)。其中 $\log\frac{\exp(\cdot)}{\sum_j \exp(\cdot)}$ 就是LogSoftmax.</p>
@@ -296,49 +293,52 @@
 <li>神经网络输出层是否需要激活/归一化: 需要，最后一层使用LogSoftmax.也可在神经网络中使用softmax或sigmoid，在计算损失函数时显式加入torch.log计算对数</li>
 </ul>
 <h2 id="nn-BCELoss"><a href="#nn-BCELoss" class="headerlink" title="nn.BCELoss"></a>nn.BCELoss</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.BCELoss(weight=<span class="literal">None</span>, size_average=<span class="literal">None</span>, reduce=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <h3 id="计算方法-2"><a href="#计算方法-2" class="headerlink" title="计算方法"></a>计算方法</h3><p><code>BCELoss</code>是专门针对二分类问题的交叉熵损失函数。其计算形式更加接近式(1): </p>
-<p>$$<br>\mathcal{L}(x_n,y_n) = -w_n\left[y_n\cdot\log x_n + (1-y_n)\cdot\log(1-x_n)\right]<br>$$</p>
-<h3 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h3><ul>
+<script type="math/tex; mode=display">
+\mathcal{L}(x_n,y_n) = -w_n\left[y_n\cdot\log x_n + (1-y_n)\cdot\log(1-x_n)\right]</script><h3 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h3><ul>
 <li>是否支持多类别分类：不支持。只支持二分类</li>
 <li>输入得分值域：$(0,1)$。常搭配$sigmoid$一起使用</li>
 <li>神经网络输出层是否需要激活/归一化: sigmoid进行归一化处理。</li>
 </ul>
 <p>Tips: 在实际使用时，出现过使用BCELoss时算法不收敛、AUC奇低，但换成NLLLoss后一切都很好用的情况。</p>
-<h2 id="对比表格"><a href="#对比表格" class="headerlink" title="对比表格"></a>对比表格</h2><table>
+<h2 id="对比表格"><a href="#对比表格" class="headerlink" title="对比表格"></a>对比表格</h2><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="left">项目\方法</th>
-<th align="left">CrossEntropyLoss</th>
-<th align="left">NLLLoss</th>
-<th align="left">BCELoss</th>
+<th style="text-align:left">项目\方法</th>
+<th style="text-align:left">CrossEntropyLoss</th>
+<th style="text-align:left">NLLLoss</th>
+<th style="text-align:left">BCELoss</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">支持多分类</td>
-<td align="left">是</td>
-<td align="left">是</td>
-<td align="left">否</td>
+<tbody>
+<tr>
+<td style="text-align:left">支持多分类</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">否</td>
 </tr>
 <tr>
-<td align="left"><code>y_pred</code>值域</td>
-<td align="left">$(-\infty,\infty)$</td>
-<td align="left">$(-\infty,\infty)$</td>
-<td align="left">$(0,1)$</td>
+<td style="text-align:left"><code>y_pred</code>值域</td>
+<td style="text-align:left">$(-\infty,\infty)$</td>
+<td style="text-align:left">$(-\infty,\infty)$</td>
+<td style="text-align:left">$(0,1)$</td>
 </tr>
 <tr>
-<td align="left"><code>type(y_target)</code></td>
-<td align="left"><code>torch.LongTensor</code></td>
-<td align="left"><code>torch.LongTensor</code></td>
-<td align="left"><code>torch.DoubleTensor</code></td>
+<td style="text-align:left"><code>type(y_target)</code></td>
+<td style="text-align:left"><code>torch.LongTensor</code></td>
+<td style="text-align:left"><code>torch.LongTensor</code></td>
+<td style="text-align:left"><code>torch.DoubleTensor</code></td>
 </tr>
 <tr>
-<td align="left">输出层是否需要归一化</td>
-<td align="left">否</td>
-<td align="left"><code>LogSoftmax</code></td>
-<td align="left"><code>sigmoid</code></td>
+<td style="text-align:left">输出层是否需要归一化</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left"><code>LogSoftmax</code></td>
+<td style="text-align:left"><code>sigmoid</code></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 
     </div>
 
@@ -661,6 +661,8 @@
 
 
 
+
+  
 
   
 
