@@ -105,4 +105,4 @@ theme: next
 deploy:
   - type: git
     repo: git@github.com:CSLiJT/LiJT-Daily.git
-    branch: main
+    branch: deploy
