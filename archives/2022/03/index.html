@@ -510,6 +510,27 @@
 
 
 
+
+	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+	<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+	<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+    // gitalk添加所需要的配置信息
+	<script type="text/javascript">
+    		var gitalk = new Gitalk({
+		        clientID: 'e1bbf465a324641f76ce',
+		        clientSecret: 'b1ad484dc40ed6e04b5527f8cbf3bc62e663bf3d',
+		        id: md5(location.pathname),
+		        repo: 'git@github.com:CSLiJT/LiJT-Daily-Comments.git',
+		        owner: '',
+		        admin: 'CSLiJT',
+			distractionFreeMode: '',
+
+		    });
+	    gitalk.render('gitalk-container');
+	</script>
+
+
+
   
 
   
@@ -533,6 +554,7 @@ const darkmode = new Darkmode(options);
 window.darkmode = darkmode;
 darkmode.showWidget();
 </script>
+
 
   
   
