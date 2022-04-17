@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/LiJT-Daily/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/LiJT-Daily/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/LiJT-Daily/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/LiJT-Daily/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/LiJT-Daily/css/main.css">
+
+
+<link rel="stylesheet" href="/LiJT-Daily/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"cslijt.github.io","root":"/LiJT-Daily/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="最近一直在读paper。结合之前与老师、前辈、朋友讨论的经历，在此总结读paper的一些感想记录。这既是我自己的反思与总结，也可以为大家提供一些经验参考。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读Paper的一些感想记录">
+<meta property="og:url" content="https://cslijt.github.io/LiJT-Daily/2022/02/22/2022-02-22-paper/index.html">
+<meta property="og:site_name" content="LiJT的灵质空间">
+<meta property="og:description" content="最近一直在读paper。结合之前与老师、前辈、朋友讨论的经历，在此总结读paper的一些感想记录。这既是我自己的反思与总结，也可以为大家提供一些经验参考。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-06T09:50:58.025Z">
+<meta property="article:author" content="LiJT">
+<meta property="article:tag" content="科研">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://cslijt.github.io/LiJT-Daily/2022/02/22/2022-02-22-paper/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>读Paper的一些感想记录 | LiJT的灵质空间</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/LiJT-Daily/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">LiJT的灵质空间</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/LiJT-Daily/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/LiJT-Daily/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/LiJT-Daily/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/LiJT-Daily/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/LiJT-Daily/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslijt.github.io/LiJT-Daily/2022/02/22/2022-02-22-paper/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/LiJT-Daily/images/avatar.jpg">
+      <meta itemprop="name" content="LiJT">
+      <meta itemprop="description" content="LiJT的灵质空间">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LiJT的灵质空间">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          读Paper的一些感想记录
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-22 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-22T00:00:00+08:00">2022-02-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-06 17:50:58" itemprop="dateModified" datetime="2022-04-06T17:50:58+08:00">2022-04-06</time>
+              </span>
+
+          
+            <span id="/LiJT-Daily/2022/02/22/2022-02-22-paper/" class="post-meta-item leancloud_visitors" data-flag-title="读Paper的一些感想记录" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>最近一直在读paper。结合之前与老师、前辈、朋友讨论的经历，在此总结读paper的一些感想记录。这既是我自己的反思与总结，也可以为大家提供一些经验参考。</p>
+<span id="more"></span>
+<h2 id="读写paper"><a href="#读写paper" class="headerlink" title="读写paper"></a>读写paper</h2><p>在开始一个研究项目前，往往需要阅读大量领域内的paper。这一方面是为了快速了解最新研究进展，寻找idea并且避免工作重复；另一方面是为了学习优秀paper的写作风格。毕竟，读者在读你的Intro之前，并不知道你的工作内容是什么。因此在优秀的paper中，作者会让读者在进入正文之前快速了解：1. 本文研究的是什么问题；2. 该问题有什么研究挑战； 3. 我们怎样一一解决这些挑战。一言以蔽之，让读者快速了解研究工作的价值。然而，虽然优秀的paper篇篇相似，不行的paper各有各的缺点，但即便是优秀的paper也浩如烟海。因此，高效地阅读paper是一个重要的能力。为此，我主要总结了以下几点：</p>
+<ol>
+<li>外语水平：基本语言素养</li>
+<li>注意力分配：各个章节注意力占比</li>
+<li>带着问题去读</li>
+</ol>
+<h3 id="外语水平"><a href="#外语水平" class="headerlink" title="外语水平"></a>外语水平</h3><p>就个人经验而言，在cs领域，绝大部分paper用英文写成。因此高效阅读paper的基本素养便是足够过关的英文水平。</p>
+<p>首先，专业paper需要大量的词汇积累，既包括日常常见词汇，也包括领域内的专业词汇。积累词汇能极大减少查词典的时间，因此无疑能提升阅读paper效率。其次，要锻炼阅读长难句、复杂句式的能力（虽然写论文严重不建议用长难句）。如果paper作者来自于英语国家，或者研究领域在教育学、心理学等不那么理工科的专业，那么对应的英文paper常常会出现三四行一句的长难句。遇到这种情况时，我一般会手动将长难句化解为几个简单的短句，然后结合上下文分别阅读。虽然cs领域的论文鲜有长难句，但目前机器学习和其他领域的交叉十分普遍，因此免不了阅读其他领域的论文，故而必须适应阅读这类复杂句式的能力。</p>
+<p>整体而言，个人认为六级550+或托福100+是量化的必要水平（废话，国外研究生申请很多是这个bar）。在此之上，还需要大量阅读本领域的文章，从而内化paper的写作风格、积累专业表达。这样在阅读新Paper时便能快速上手。</p>
+<h3 id="注意力分配"><a href="#注意力分配" class="headerlink" title="注意力分配"></a>注意力分配</h3><p>初读paper时，我往往恨不得一字一句地都读下去，从abstract到intro到model到experiment，每一个部分都打破沙锅问到底。<strong>然而</strong>，这是一个十分低效的阅读策略。就个人经验和老师前辈们的指导而言，注意力应该多放在intro上——这一章节具体介绍了paper主要的研究方向、研究问题和解决方法。如果阅读过程中能够快速理解问题的价值和研究贡献，那么就考虑读model和experiment部分。能发出来的paper，模型结构基本七七八八，实验效果都不会差。因此没有必要花太多时间在研究模型和实验细节部分。对于个人而言，这两部分的阅读主要起到启发灵感的作用——比如模型的设计有无借鉴；实验的组织安排、性能评测指标能否参考使用等。如某友所言，写paper不是写技术文档，更不是写实验报告。创新永远是第一位的，而这一点一定会在intro中展示。</p>
+<p>总结而言，读paper的注意力分配策略实质上是一个自顶向下的层次化(hierarchical)方法。第一层，快速阅读abstract和intro，了解研究问题和创新点。第二层，根据第一层的阅读结果动态选择继续细读或快速浏览或放弃。这一自顶向下、自粗向细的方法能极大提升阅读效率，并将注意力放在与自己研究内容相关的paper上。</p>
+<h3 id="带着问题去读"><a href="#带着问题去读" class="headerlink" title="带着问题去读"></a>带着问题去读</h3><p>需要明白的是，任何一项研究工作，都需要一个动机(motivation)——每一篇paper都为解决某些专业问题而写成。而paper的创新点，则构成了解决问题的方法。不仅写paper是问题导向的，读paper也是问题导向的。如果不带着问题去读，往往会有头无尾，晕头转向——为什么这里要用LSTM而不是FC？为什么要使用强理论假设？相反，带着问题去读，逻辑便能和作者的思维贯通，也有助于读者达成自己的阅读目的（如研究paper是怎么解决问题的，从而启发灵感）。</p>
+<p>在读写论文的问题上，我曾和一位在国际学校学习过的好友聊过——他的课程中包含大量科技写作的训练。友人建议用”5W”法阅读和写作。这里进一步参考<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/5W2H%E5%88%86%E6%9E%90%E6%B3%95/8111597">百度百科</a>，总结5W2H法的问题提出方法：</p>
+<h4 id="5W2H"><a href="#5W2H" class="headerlink" title="5W2H"></a>5W2H</h4><ul>
+<li>WHAT——是什么？目的是什么？做什么工作？</li>
+<li>WHY——为什么要做？可不可以不做？有没有替代方案？</li>
+<li>WHO——谁？由谁来做？</li>
+<li>WHEN——何时？什么时间做？什么时机最适宜？</li>
+<li>WHERE——何处？在哪里做？</li>
+<li>HOW ——怎么做？如何提高效率？如何实施？方法是什么？</li>
+<li>HOW MUCH——多少？做到什么程度？数量如何？质量水平如何？费用产出如何？</li>
+</ul>
+<p>在阅读论文中，可以灵活地使用5W2H法提出和跟踪问题。带着问题去读，能帮助理清paper的逻辑和创新点，达到事半功倍的阅读效果。</p>
+<p>最后，这里推荐一篇范文——<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/433237905">《一种加辣椒的番茄炒蛋》</a>，可以从作者的角度了解一篇paper的逻辑是如何组织的。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/433237905">一种加辣椒的番茄炒蛋.Jingwei Huang.CVPR 9999 Best Paper</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/469717875">技术之外(一).Yuandong Tian</a></li>
+<li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/5W2H%E5%88%86%E6%9E%90%E6%B3%95/8111597">5W2H分析法.百度百科</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/LiJT-Daily/tags/%E7%A7%91%E7%A0%94/" rel="tag"># 科研</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/LiJT-Daily/2021/12/29/2021-12-29-fuzzy/" rel="prev" title="模糊理论及其应用简介（笔记）">
+      <i class="fa fa-chevron-left"></i> 模糊理论及其应用简介（笔记）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/LiJT-Daily/2022/03/26/2022-03-26-remind/" rel="next" title="一些杂谈.2">
+      一些杂谈.2 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E5%86%99paper"><span class="nav-number">1.</span> <span class="nav-text">读写paper</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E8%AF%AD%E6%B0%B4%E5%B9%B3"><span class="nav-number">1.1.</span> <span class="nav-text">外语水平</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%88%86%E9%85%8D"><span class="nav-number">1.2.</span> <span class="nav-text">注意力分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E7%9D%80%E9%97%AE%E9%A2%98%E5%8E%BB%E8%AF%BB"><span class="nav-number">1.3.</span> <span class="nav-text">带着问题去读</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5W2H"><span class="nav-number">1.3.1.</span> <span class="nav-text">5W2H</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">2.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LiJT"
+      src="/LiJT-Daily/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">LiJT</p>
+  <div class="site-description" itemprop="description">LiJT的灵质空间</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/LiJT-Daily/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/LiJT-Daily/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/LiJT-Daily/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiJT</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">21k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">19 分钟</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"0M5QVskfHznsnKEorguvX4Mw-gzGzoHsz","app_key":"itcxMP5f9TIHVoeItjA7Kqob","server_url":"https://0m5qvskf.lc-cn-n1-shared.com","security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/LiJT-Daily/lib/anime.min.js"></script>
+  <script src="/LiJT-Daily/lib/velocity/velocity.min.js"></script>
+  <script src="/LiJT-Daily/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/LiJT-Daily/js/utils.js"></script>
+
+<script src="/LiJT-Daily/js/motion.js"></script>
+
+
+<script src="/LiJT-Daily/js/schemes/pisces.js"></script>
+
+
+<script src="/LiJT-Daily/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/LiJT-Daily/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+  
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+  
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+  
+
+</body>
+</html>

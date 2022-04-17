@@ -15,3 +15,5 @@
 
 {% include 'tags/pdf.swig' %}
 {% include 'tags/mermaid.swig' %}
+
+{% include 'comments/gitalk.swig' %}

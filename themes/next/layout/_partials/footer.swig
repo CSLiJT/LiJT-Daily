@@ -60,7 +60,6 @@
 
 {{- next_inject('footer') }}
 
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">博客全站共{{ totalcount(site) }}字</span>
-</div>
+{% if theme.footer.counter %}
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+{% endif %}

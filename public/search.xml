@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>PyTorch踩坑记录（持续更新）</title>
+    <url>/LiJT-Daily/2021/09/27/2021-09-27-pytorch/</url>
+    <content><![CDATA[<p>本篇记录使用pytorch过程中踩到的各种坑！<br><span id="more"></span></p>
+<h2 id="声明损失函数时忘记加括号"><a href="#声明损失函数时忘记加括号" class="headerlink" title="声明损失函数时忘记加括号"></a>声明损失函数时忘记加括号</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">loss_fn = nn.BCELoss <span class="comment"># 应该是 nn.BCELoss()</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; RuntimeError: <span class="built_in">bool</span> value of Tensor <span class="keyword">with</span> more than one value <span class="keyword">is</span> ambiguous</span><br></pre></td></tr></table></figure>
+<h2 id="通过索引赋值后，梯度还能正常反向传播吗？"><a href="#通过索引赋值后，梯度还能正常反向传播吗？" class="headerlink" title="通过索引赋值后，梯度还能正常反向传播吗？"></a>通过索引赋值后，梯度还能正常反向传播吗？</h2><ul>
+<li>答案：<strong>能</strong>.</li>
+</ul>
+<h3 id="验证代码"><a href="#验证代码" class="headerlink" title="验证代码"></a>验证代码</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch </span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="comment"># x 是输入张量，可求梯度</span></span><br><span class="line">    x = torch.rand(<span class="number">4</span>)</span><br><span class="line">    x.requires_grad_(<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># cache 是中间张量，将x赋给cache</span></span><br><span class="line">    cache = torch.zeros(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">    optim = torch.optim.Adam([x],lr=<span class="number">1e-2</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        <span class="comment"># 按索引赋值</span></span><br><span class="line">        cache[<span class="number">1</span>,:] = x </span><br><span class="line">        result = cache * <span class="number">2</span></span><br><span class="line">        result = result.view(-<span class="number">1</span>)</span><br><span class="line">        <span class="comment"># 求损失函数</span></span><br><span class="line">        <span class="built_in">sum</span> = torch.<span class="built_in">sum</span>(result, dim = <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">print</span>(x.data)</span><br><span class="line">        optim.zero_grad()</span><br><span class="line">        <span class="built_in">sum</span>.backward(retain_graph = <span class="literal">True</span>)</span><br><span class="line">        optim.step()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h3 id="验证输出"><a href="#验证输出" class="headerlink" title="验证输出"></a>验证输出</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tensor([0.3073, 0.0680, 0.3627, 0.0659])</span><br><span class="line">tensor([0.2973, 0.0580, 0.3527, 0.0559])</span><br><span class="line">tensor([0.2873, 0.0480, 0.3427, 0.0459])</span><br><span class="line">tensor([0.2773, 0.0380, 0.3327, 0.0359])</span><br><span class="line">tensor([0.2673, 0.0280, 0.3227, 0.0259])</span><br><span class="line">tensor([0.2573, 0.0180, 0.3127, 0.0159])</span><br><span class="line">tensor([0.2473, 0.0080, 0.3027, 0.0059])</span><br><span class="line">tensor([ 0.2373, -0.0020,  0.2927, -0.0041])</span><br><span class="line">tensor([ 0.2273, -0.0120,  0.2827, -0.0141])</span><br><span class="line">tensor([ 0.2173, -0.0220,  0.2727, -0.0241])</span><br></pre></td></tr></table></figure>
+<p>经过 x -&gt; cache -&gt; sum 的计算并反向传播后，可见x的值如上所示有所变化，因此索引将前向传播中间结果赋给Tensor，再在Tensor上做后续运算，能够实现到达输入张量的反向传播！</p>
+]]></content>
+      <tags>
+        <tag>pytorch</tag>
+        <tag>深度学习</tag>
+        <tag>coding</tag>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>美食的记录</title>
+    <url>/LiJT-Daily/2021/09/29/2021-09-29-food/</url>
+    <content><![CDATA[<h2 id="煲王"><a href="#煲王" class="headerlink" title="煲王"></a>煲王</h2><ul>
+<li>猪脚煲的味道很棒，想起了以前吃过的发财猪手。骨髓浓香四溢，但考虑到健康，未敢多吃。</li>
+<li>咖喱牛腩的味道很正，有澳门风味。猪肚鸡的汤底调味很好，可惜猪肚太少，仅三两片，怎能够吃？</li>
+<li>煲仔饭和卤水拼盘味道不错。卤水拼盘改良过，热吃，色浓，摆盘也更加粗犷。更喜欢吃潮汕的蘸白醋的卤水狮头鹅！</li>
+<li>茄子煲调味很好，但火候不够，茄子不入味。叉烧包实属鸡肋！过量的面和少量的肉馅… 但是可以把面撕下来，包猪手吃，极美。</li>
+</ul>
+<span id="more"></span>
+<h2 id="卜一帆"><a href="#卜一帆" class="headerlink" title="卜一帆"></a>卜一帆</h2><ul>
+<li>京葱鸡肉串极鲜美。咸鲜、多汁、皮微焦的鸡肉，焦黄、冲香的葱，实在是相得益彰。</li>
+<li>烤五花味道浓香，脆骨爽口，但肉略微有些干，或许是没有刷油。</li>
+<li>青花鱼，熟悉的味道。不加任何调料烤制，挤上几滴柠檬汁，鲜美而浓郁。配上一碗米饭和沙拉就是完美的午餐。</li>
+<li>寿喜锅，久闻大名却第一次吃。日料虽然只有甜酱油、味增、味淋、昆布高汤等几种调味料，但甜酱油和高汤真的很适合火锅。牛肉多汁入味嫩而不烂，吸满汤汁的白菜、金针菇、魔芋丝和豆腐是米饭的绝配。看着咕嘟嘟的小锅和冒出的白雾，如果这是在冬天，想必一定是非常幸福的时刻吧。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>美食</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【连载】鲸的语言？（一）</title>
+    <url>/LiJT-Daily/2021/10/01/2021-10-01-whale01/</url>
+    <content><![CDATA[<p>一块雷雨云逼近了波多黎各的库莱布拉岛（Culebra）南部，威胁着要把小保罗·纳普（Paul Knapp Jr.）和他那艘18英尺充气小艇“小罗盘”号（Little Compass）上的三名乘客淋个透心凉。他船舵上的贴纸上写着： “我会说鲸鱼的语言。”</p>
+<span id="more"></span>
+<p>鲸的语言？</p>
+<p>保罗纳普开始吟唱起不知名的咏叹调，在即将掀起的狂风暴雨中，咏叹调连1米外的乘客都听不见。</p>
+<p>狂风将他刚写好的纸张带入海里，很快不见踪影。</p>
+<p>他拿起挂在脖子上的喇叭，屹立在充气小艇的前端，继续开始他的人类音频咏叹调。</p>
+<p>这是鲸的语言吗？</p>
+<p>乘客A用他深蓝色的眼眸死死的盯着保罗纳普，有关海洋生物交流频率的研究在他脑海中不停穿插。</p>
+<p>海水一层层一层的荡漾过来，随时可以将气垫船掀翻。</p>
+]]></content>
+      <tags>
+        <tag>小说</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>红烩羊肉</title>
+    <url>/LiJT-Daily/2021/10/01/2021-10-01-stewlamb/</url>
+    <content><![CDATA[<p>祝祖国母亲生日快乐！祝大家节日安康！</p>
+<p>今天在思考番茄酱和番茄沙司的用法，忽然灵光一闪——红烩羊肉，let’s do this!<br><span id="more"></span></p>
+<h2 id="原料"><a href="#原料" class="headerlink" title="原料"></a>原料</h2><ul>
+<li>羊肋排（手动去骨，切二指粗）一小盆</li>
+<li>番茄沙司</li>
+<li>番茄2枚</li>
+<li>红烧酱油/冰糖</li>
+<li>大葱、葱、姜、蒜、料酒</li>
+<li>盐、胡椒粉</li>
+</ul>
+<h2 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h2><h3 id="焯水"><a href="#焯水" class="headerlink" title="焯水"></a>焯水</h3><ul>
+<li>羊肋排去骨切块洗净，冷水下锅，一并放入葱、姜、一勺料酒。大火煮开，转小火滚五分钟。期间打去血沫。捞起，温水洗净羊肉，去葱姜。</li>
+</ul>
+<h3 id="煎制、熬酱"><a href="#煎制、熬酱" class="headerlink" title="煎制、熬酱"></a>煎制、熬酱</h3><ul>
+<li>番茄洗净切块备用，葱姜蒜洗净切片备用</li>
+<li>热锅凉油，下葱姜蒜小火慢炸直至蒜微黄，下羊排煎制，至表面金黄色，下番茄全部、番茄酱若干。继续小火翻炒，至番茄大量出水，加入开水，没过食材</li>
+</ul>
+<h3 id="红烩"><a href="#红烩" class="headerlink" title="红烩"></a>红烩</h3><ul>
+<li>加入少许红烧酱油调色，或炒糖色。转大火烧开五分钟给羊肉上色</li>
+<li>转小火慢炖10分钟</li>
+<li>调味，加入盐、胡椒粉。继续炖20分钟，让羊肉入味</li>
+<li>至临出锅前15分钟，下入洋葱或粉丝等辅料，继续小火</li>
+<li>大火收汁至汤汁挂线</li>
+<li>出锅，礼成</li>
+</ul>
+<h2 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h2><ul>
+<li>羊味十足而不腥膻，大抵是由于羊油去的干净、焯水焯得彻底</li>
+<li>番茄的使用十分得当。慢炖40分钟后，番茄已完全化入汤中，汤汁变浓，无需勾芡</li>
+<li>可以加入洋葱，必能提味</li>
+<li>味酸甜又有咸香。注意番茄和番茄酱的用量</li>
+<li>盐可以分几次放，让羊肉充分入味</li>
+<li>好吃！</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>美食</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PyTorch: CrossEntropyLoss vs. NLLLoss vs. BCELoss</title>
+    <url>/LiJT-Daily/2021/10/07/2021-10-07-pytorch/</url>
+    <content><![CDATA[<p>CrossEntropyLoss, NLLLoss 和 BCELoss 本质上都是基于交叉熵(cross entropy)的分类器的损失函数。但是三个函数的输入格式、计算方法和性能（收敛速度）有很大差别。本文记录笔者对此三者的学习笔记和理解。<br>{:.info}</p>
+<span id="more"></span>
+<h2 id="交叉熵-Cross-Entropy"><a href="#交叉熵-Cross-Entropy" class="headerlink" title="交叉熵(Cross Entropy)"></a>交叉熵(Cross Entropy)</h2><p>交叉熵(Cross Entropy)是Shannon信息论中一个重要概念，主要用于度量两个概率分布间的差异性信息。或曰，概率分布 $p$ 和概率分布 $q$ 的相似程度。如果 $p$ 和 $q$ 越相似，那么越能用 $p$ 近似表示 $q$ 或用 $q$ 近似表示 $p$ 。定义交叉熵为：</p>
+<script type="math/tex; mode=display">
+H(p,q) = \sum_x p(x)\log \left(\frac{1}{q(x)}\right)</script><p>注意交叉熵不满足对称性。</p>
+<h2 id="nn-CrossEntropyLoss"><a href="#nn-CrossEntropyLoss" class="headerlink" title="nn.CrossEntropyLoss"></a>nn.CrossEntropyLoss</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.nn.CrossEntropyLoss(weight=<span class="literal">None</span>, size_average=<span class="literal">None</span>, ignore_index=-<span class="number">100</span>, reduce=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h3><p>根据<a href="https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html">pytorch官方文档</a>，CrossEntropyLoss的输入值为”unnormalized scores for each class”，即未限制在(0,1)上的各个类别的得分。其表达式为</p>
+<script type="math/tex; mode=display">
+loss(x,class) = -\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])} \right)</script><p>其中 $x$ 为一个样本，$class$ 为一个类别, $x[j]\in(-\infty,\infty)$ 为分类器给样本 $x$ 在类别 $j$ 上赋予的得分，或当weight不为空时，</p>
+<script type="math/tex; mode=display">
+loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])} \right)</script><p>其中 $weight[class]$ 为类别 $class$ 的权重。其值越大，总损失中 $class$ 类所占有的损失项的比重越大。</p>
+<p>最终，总损失为每个样本$x$上的损失的加权平均，即</p>
+<script type="math/tex; mode=display">
+\mathcal{L}(X,class) = \frac{\sum_{x\in X}loss(x,class[x])}{\sum_{x\in X}weight[class[x]]}</script><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>是否支持多类别分类：支持</li>
+<li>输入得分值域：$(-\infty,\infty)$</li>
+<li>神经网络输出层是否需要激活/归一化: 不用</li>
+</ul>
+<h2 id="nn-NLLLoss"><a href="#nn-NLLLoss" class="headerlink" title="nn.NLLLoss"></a>nn.NLLLoss</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.nn.NLLLoss(weight=<span class="literal">None</span>, size_average=<span class="literal">None</span>, ignore_index=-<span class="number">100</span>, reduce=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="计算方法-1"><a href="#计算方法-1" class="headerlink" title="计算方法"></a>计算方法</h3><p><code>NLLLoss</code>的用法，实际在<code>CrossEntropyLoss</code>的文档中给出：</p>
+<p>This criterion combines <strong>LogSoftmax</strong> and <strong>NLLLoss</strong> in one single class.<br>{:.success}</p>
+<p>也就是说，<code>CrossEntropyLoss</code>是<code>NLLLoss</code>和<code>LogSoftmax</code>的结合体。为看清这一点，我们回到式(2)。其中 $\log\frac{\exp(\cdot)}{\sum_j \exp(\cdot)}$ 就是LogSoftmax.</p>
+<p>因此，如果<code>CrossEntropyLoss</code>的输入值是 $(x,class)$， 那么 <code>NLLLoss</code> 的输入值就是 $LogSoftmax(x), class$。其中 $LogSoftmax(\cdot)$ 需要对 $x$ 的每个分量计算一次，最终 $dim(LogSoftmax(x)) = dim(x)$。除此之外，<code>NLLLoss</code> 在其他部分的计算过程与 <code>CrossEntropyLoss</code> 完全一致。</p>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>是否支持多类别分类：支持</li>
+<li>输入得分值域：$(-\infty,\infty)$</li>
+<li>神经网络输出层是否需要激活/归一化: 需要，最后一层使用LogSoftmax.也可在神经网络中使用softmax或sigmoid，在计算损失函数时显式加入torch.log计算对数</li>
+</ul>
+<h2 id="nn-BCELoss"><a href="#nn-BCELoss" class="headerlink" title="nn.BCELoss"></a>nn.BCELoss</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">torch.nn.BCELoss(weight=<span class="literal">None</span>, size_average=<span class="literal">None</span>, reduce=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="计算方法-2"><a href="#计算方法-2" class="headerlink" title="计算方法"></a>计算方法</h3><p><code>BCELoss</code>是专门针对二分类问题的交叉熵损失函数。其计算形式更加接近式(1): </p>
+<script type="math/tex; mode=display">
+\mathcal{L}(x_n,y_n) = -w_n\left[y_n\cdot\log x_n + (1-y_n)\cdot\log(1-x_n)\right]</script><h3 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>是否支持多类别分类：不支持。只支持二分类</li>
+<li>输入得分值域：$(0,1)$。常搭配$sigmoid$一起使用</li>
+<li>神经网络输出层是否需要激活/归一化: sigmoid进行归一化处理。</li>
+</ul>
+<p>Tips: 在实际使用时，出现过使用BCELoss时算法不收敛、AUC奇低，但换成NLLLoss后一切都很好用的情况。</p>
+<h2 id="对比表格"><a href="#对比表格" class="headerlink" title="对比表格"></a>对比表格</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">项目\方法</th>
+<th style="text-align:left">CrossEntropyLoss</th>
+<th style="text-align:left">NLLLoss</th>
+<th style="text-align:left">BCELoss</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">支持多分类</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">否</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>y_pred</code>值域</td>
+<td style="text-align:left">$(-\infty,\infty)$</td>
+<td style="text-align:left">$(-\infty,\infty)$</td>
+<td style="text-align:left">$(0,1)$</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>type(y_target)</code></td>
+<td style="text-align:left"><code>torch.LongTensor</code></td>
+<td style="text-align:left"><code>torch.LongTensor</code></td>
+<td style="text-align:left"><code>torch.DoubleTensor</code></td>
+</tr>
+<tr>
+<td style="text-align:left">输出层是否需要归一化</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left"><code>LogSoftmax</code></td>
+<td style="text-align:left"><code>sigmoid</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+]]></content>
+      <tags>
+        <tag>pytorch</tag>
+        <tag>深度学习</tag>
+        <tag>coding</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python踩坑记录&amp;小技巧(持续更新)</title>
+    <url>/LiJT-Daily/2021/10/25/2021-10-25-python/</url>
+    <content><![CDATA[<p>本篇主要介绍一些使用的python技巧和第三方库，包括某些方法(method)的骚操作</p>
+<span id="more"></span>
+<h2 id="Matplotlib-绘图库"><a href="#Matplotlib-绘图库" class="headerlink" title="Matplotlib-绘图库"></a>Matplotlib-绘图库</h2><h3 id="保存图片内容溢出的问题"><a href="#保存图片内容溢出的问题" class="headerlink" title="保存图片内容溢出的问题"></a>保存图片内容溢出的问题</h3><ul>
+<li>有些图片，如果label太长，可能会出现保存区域小于原图片大小，导致部分内容在保存文件中缺失的问题。在此情况下，使用 <code>bbox_inches = &#39;tight&#39;</code> 选项：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 原保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修正后保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>, bbox_inches = <span class="string">&#x27;tight&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Numpy-矩阵运算库"><a href="#Numpy-矩阵运算库" class="headerlink" title="Numpy-矩阵运算库"></a>Numpy-矩阵运算库</h2><h3 id="np-unique-可以同时获取unique-key和频数"><a href="#np-unique-可以同时获取unique-key和频数" class="headerlink" title="np.unique 可以同时获取unique key和频数"></a>np.unique 可以同时获取unique key和频数</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">outcome_s, frequency_s=np.unique(samples,return_counts=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="np-intersect1d-可以获取两个一维数组的交集"><a href="#np-intersect1d-可以获取两个一维数组的交集" class="headerlink" title="np.intersect1d 可以获取两个一维数组的交集"></a>np.intersect1d 可以获取两个一维数组的交集</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A=np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">B=np.array([<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">7</span>])</span><br><span class="line">C=np.intersect1d(A,B) <span class="comment"># C=[3,4]</span></span><br></pre></td></tr></table></figure>
+<!--more-->
+<h2 id="PyTorch-深度学习库"><a href="#PyTorch-深度学习库" class="headerlink" title="PyTorch-深度学习库"></a>PyTorch-深度学习库</h2><ul>
+<li>重要的事情说三遍：<ul>
+<li>不要将维数设为0！</li>
+<li>不要将维数设为0！</li>
+<li>不要将维度设为0！</li>
+</ul>
+</li>
+</ul>
+<p>在深度学习的消融实验中，常常需要去掉某个模块来验证其有效性。不要简单地将位数设为0！维度最少要为1.这是因为在某些版本的torch中，如果模型参数是 (N,0) 维的，那么使用torch.save()时会保存N个相应的参数值；但在torch.load()阶段，模型期望接收参数数量为0，所以模型load不进去！<br>{:.error}</p>
+<ul>
+<li>指定load模型的目标设备</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">torch.load(map_location=device)</span><br></pre></td></tr></table></figure>
+<h2 id="tqdm-进度条"><a href="#tqdm-进度条" class="headerlink" title="tqdm-进度条"></a>tqdm-进度条</h2><ul>
+<li>tqdm 可以枚举迭代操作，同时显示进度条——再也不用每隔多少步输出一次结果了！</li>
+<li>以下为ipython演示结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">22</span>]: <span class="keyword">import</span> tqdm</span><br><span class="line">    ...: li = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">999999</span>)]</span><br><span class="line">    ...: mn = <span class="number">99999999</span></span><br><span class="line">    ...: <span class="keyword">for</span> elem <span class="keyword">in</span> tqdm.tqdm(li,<span class="string">&#x27;progress:&#x27;</span>):</span><br><span class="line">    ...:   mn = <span class="built_in">min</span>(mn,elem)</span><br><span class="line">    ...:</span><br><span class="line">progress:: <span class="number">100</span>%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| <span class="number">999999</span>/<span class="number">999999</span> [<span class="number">00</span>:<span class="number">00</span>&lt;<span class="number">00</span>:<span class="number">00</span>, <span class="number">2086298.02</span>it/s]</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>coding</tag>
+        <tag>持续更新</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>正则表达式学习笔记(持续更新)</title>
+    <url>/LiJT-Daily/2021/10/26/2021-10-26-regex/</url>
+    <content><![CDATA[<h2 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h2><ul>
+<li>工具：egrep. <code>egrep &#39;[regular expression]&#39; filename</code></li>
+</ul>
+<h3 id="行首行尾"><a href="#行首行尾" class="headerlink" title="行首行尾"></a>行首行尾</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">^ : 标记一行的开始位置</span><br><span class="line">$ : 标记一行的结束位置</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">^cat : 匹配以cat为行首的行，例如 catter</span><br><span class="line">cat$ : 匹配以cat为结尾的行，例如 scat</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h3 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h3><h4 id="匹配任意字符"><a href="#匹配任意字符" class="headerlink" title="匹配任意字符"></a>匹配任意字符</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[...] : 匹配中括号中的任意一个字符，中括号称为字符类</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">gr[ea]y : 匹配 grey 或 gray, r 和 y 之间可以是e或者a</span><br><span class="line">sep[ea]r[ea]te : 匹配 seperate 或 separete 或 separate 或 seperete</span><br><span class="line">&lt;H[<span class="number">123456</span>]&gt; : 匹配 &lt;H1&gt; 到 &lt;H6&gt;， 在html匹配中常见</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">- : 划定字符范围</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">[<span class="number">1</span>-<span class="number">6</span>]=[<span class="number">123456</span>]</span><br><span class="line">[<span class="number">0</span>-9a-fA-F]=[0123456789abcdefABCDEF]</span><br></pre></td></tr></table></figure>
+<h4 id="否定字符类"><a href="#否定字符类" class="headerlink" title="否定字符类"></a>否定字符类</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[^...] : 匹配任意不在中括号中的字符，与 [...] 相反</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子：</span></span><br><span class="line">[^<span class="number">1</span>-<span class="number">6</span>] : 匹配不在 <span class="number">1</span>-<span class="number">6</span> 中的字符</span><br><span class="line">q[^u] : 匹配包含 q~， 其中 ~ 为不是字母u的其他字符的所有行</span><br></pre></td></tr></table></figure>
+<ul>
+<li>当 ^ 在中括号外面时表示行首标识符；当 ^ 在中括号里面时表示否定运算符</li>
+</ul>
+<h3 id="使用-‘-’-匹配-任意-字符"><a href="#使用-‘-’-匹配-任意-字符" class="headerlink" title="使用 ‘.’ 匹配 任意 字符"></a>使用 ‘.’ 匹配 <em>任意</em> 字符</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">. : 匹配任意字符</span><br><span class="line">[.] : 无转义，匹配dot</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子：</span></span><br><span class="line"><span class="number">03.19</span><span class="number">.76</span> : 匹配 03~<span class="number">19</span>~<span class="number">76</span>，其中~可以是任意字符</span><br><span class="line">03[-./]<span class="number">19</span>[-./]<span class="number">76</span> : 以分隔符 . - 或 / 匹配 031976</span><br></pre></td></tr></table></figure>
+<h3 id="多个正则表达式"><a href="#多个正则表达式" class="headerlink" title="多个正则表达式"></a>多个正则表达式</h3><ul>
+<li>考虑如何将多个正则表达式结合到一起</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">| : 或运算， a | b 表示匹配正则表达式或正则表达式b。为了限定或运算范围，必要时用小括号括起来，例如 (a|b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">gr(a|e)y = gr[ae]y</span><br><span class="line">^(From|Subject|Date): 匹配以From:或Subject:或Date:开头的行</span><br></pre></td></tr></table></figure>
+<h3 id="使用’-’匹配可选字符"><a href="#使用’-’匹配可选字符" class="headerlink" title="使用’?’匹配可选字符"></a>使用’?’匹配可选字符</h3><ul>
+<li>考虑匹配 colour 或 color，这里的 u 可选出现或不出现</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">? : 可选运算，u? 表示匹配出现u或不出现u，作用对象为?的前一个字符</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line">colou?r = (color|colour)</span><br></pre></td></tr></table></figure>
+<h3 id="匹配重复字符"><a href="#匹配重复字符" class="headerlink" title="匹配重复字符"></a>匹配重复字符</h3><ul>
+<li>考虑一个字符重复多次： goooooooooooooooooood!，但是次数不定</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">+ : 匹配一个字符<span class="number">1</span>次或多次（至少<span class="number">1</span>次）</span><br><span class="line">* : 匹配一个字符<span class="number">0</span>次或多次（至少<span class="number">0</span>次）</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子：</span></span><br><span class="line">goo+d: 匹配good,goood,goo...od</span><br><span class="line">goo*d: 匹配god, good, ...</span><br><span class="line">&lt;HR +SIZE *= *[<span class="number">0</span>-<span class="number">9</span>]+ *&gt;: 空格可以出现任意多次</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">运算符</th>
+<th style="text-align:left">字符最小出现次数</th>
+<th style="text-align:left">字符最大出现次数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">?</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">1</td>
+</tr>
+<tr>
+<td style="text-align:left">+</td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">无限</td>
+</tr>
+<tr>
+<td style="text-align:left">*</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">无限</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="自定义字符重复次数"><a href="#自定义字符重复次数" class="headerlink" title="自定义字符重复次数"></a>自定义字符重复次数</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">u&#123;<span class="built_in">min</span>, <span class="built_in">max</span>&#125; : 匹配字符u最小重复<span class="built_in">min</span>次，最大重复<span class="built_in">max</span>次。尽可能多地统计</span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子：</span></span><br><span class="line">[a-zA-Z]&#123;<span class="number">3</span>,<span class="number">8</span>&#125;: 匹配<span class="number">3</span>至<span class="number">8</span>个连续出现的英文字母（尽可能多）</span><br></pre></td></tr></table></figure>
+<h2 id="Python-re-模块要点"><a href="#Python-re-模块要点" class="headerlink" title="Python re 模块要点"></a>Python re 模块要点</h2><h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><ul>
+<li>上述正则表达式规则基于Linux的egrep。针对Python的re模块，另有一些重要的转义字符可以用</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字符</th>
+<th style="text-align:left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">\d</td>
+<td style="text-align:left">匹配数字，即[0-9]    可以写在字符集[…]中</td>
+</tr>
+<tr>
+<td style="text-align:left">\D</td>
+<td style="text-align:left">匹配⾮数字，即不是数字    可以写在字符集[…]中</td>
+</tr>
+<tr>
+<td style="text-align:left">\s</td>
+<td style="text-align:left">匹配空⽩，即空格，tab键    可以写在字符集[…]中</td>
+</tr>
+<tr>
+<td style="text-align:left">\S</td>
+<td style="text-align:left">匹配⾮空⽩字符    可以写在字符集[…]中</td>
+</tr>
+<tr>
+<td style="text-align:left">\w</td>
+<td style="text-align:left">匹配单词字符，即[a-zA-Z0-9_]    可以写在字符集[…]中</td>
+</tr>
+<tr>
+<td style="text-align:left">\W</td>
+<td style="text-align:left">匹配⾮单词字符    可以写在字符集[…]中</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="re-模块常用函数及注意事项"><a href="#re-模块常用函数及注意事项" class="headerlink" title="re 模块常用函数及注意事项"></a>re 模块常用函数及注意事项</h3><p>待补充<br>{:.warning}</p>
+<h2 id="练习：常用正则表达式-Python-re格式"><a href="#练习：常用正则表达式-Python-re格式" class="headerlink" title="练习：常用正则表达式(Python re格式)"></a>练习：常用正则表达式(Python re格式)</h2><ul>
+<li>电子邮箱 <code>\w&#123;1,10&#125;\.?\w&#123;1,10&#125;@(163|gmail|qq).com</code></li>
+<li>日期 <code>\d&#123;4&#125;[.-/]\d&#123;2&#125;[.-/]\d&#123;2&#125;</code></li>
+<li>HTTP/HTML URL <code>\&lt;http://[^ ]+\.html?\&gt;</code></li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>Jeffrey E.F.Friedl, Mastering Regular Expressions</li>
+<li><a href="https://blog.csdn.net/guo_qingxia/article/details/113979135">python——正则表达式(re模块)详解. 版权声明：本文为CSDN博主「nee~」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>coding</tag>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>消融实验(ablation study)</title>
+    <url>/LiJT-Daily/2021/10/18/2021-10-18-ablation/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在深度学习领域论文的实验设计中，经常看到作者提出的模型与“弱化版”模型（少了某些模块、少了参数的限制…等等）的对比，用于说明idea或者某模块的有效性，这便是直观意义上的消融实验。</p>
+<span id="more"></span>
+<h2 id="定义与解释"><a href="#定义与解释" class="headerlink" title="定义与解释"></a>定义与解释</h2><p>Robert Long对消融研究（或消融实验）定义：通常用于神经网络，尤其是相对复杂的神经网络，如R-CNN。我们的想法是通过删除部分网络并研究网络的性能来了解网络<br>{:.success}</p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>参考<a href="https://www.zhihu.com/question/291655038/answer/2000381383">知乎</a>:</p>
+<p>论文提了3个贡献点，A,B,C</p>
+<ul>
+<li><p>你去掉A，其它保持不变，发现效果降低了，那说明A确实有用。</p>
+</li>
+<li><p>你去掉B，其它保持不变，发现效果降的比A还多，说明B更重要。</p>
+</li>
+<li><p>你去掉C，其它保持不变，发现效果没变，那C就是凑字数的</p>
+</li>
+</ul>
+<h3 id="个人想法"><a href="#个人想法" class="headerlink" title="个人想法"></a>个人想法</h3><p>消融实验是一种简单直观但符合逻辑的实验方法。相比于选取经典算法作为baseline实验，消融实验排除了trick、其他结构上的不同导致的性能影响，而只专注于检验idea的有效性，相当于论文工作的“自己和自己比”，一边是加入了idea的自己，一边是没有加入idea的自己。</p>
+<p>可以把消融实验用“控制变量法”和“正交回归”类比。</p>
+]]></content>
+      <tags>
+        <tag>深度学习</tag>
+        <tag>实验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一些杂谈.1</title>
+    <url>/LiJT-Daily/2021/11/23/2021-11-23-delicacy/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">不被时间和社会所束缚</span><br><span class="line">幸福地填饱肚子的时候</span><br><span class="line">那一瞬间 他已变得唯我独尊</span><br><span class="line">自由自在</span><br><span class="line">无需介怀地大快朵颐 这种孤高的行为</span><br><span class="line">正可谓是现代人被平等赋予的</span><br><span class="line">最高治愈</span><br><span class="line">——孤独的美食家</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>最近在看《孤独的美食家》，计划从第一季一口气追到第九季。每天总是夜深人静的时间点亮屏幕，看着酥脆的可乐饼、麻辣鲜香的担担面、热气腾腾的关东煮在眼前呈现。虽然折磨，但实在是欲罢不能。</p>
+<p>真正的美食，不一定要登大雅之堂，不一定要呈现在五星级酒店，不一定非要松茸加身，鱼子酱包裹。美食可以是路边小馆的羊汤，可以是家庭餐厅的石锅拌饭。美食之美，只有自己的舌、胃、心能够体会。</p>
+]]></content>
+      <tags>
+        <tag>美食</tag>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次vscode remote-ssh登录失败的解决方案</title>
+    <url>/LiJT-Daily/2021/11/26/2021-11-26-vscode/</url>
+    <content><![CDATA[<p>我的vscode remote-ssh设置了<a href="https://www.jianshu.com/p/32aa2fa936bb">免密登录</a>，本来昨天上午还能正常登录，但昨晚开始登录失败，怀疑是vscode版本更新后动了某些配置。参考一些资料后，总结了如下的解决方案.<br><span id="more"></span></p>
+<ul>
+<li>环境：本地 win11，服务器 linux</li>
+</ul>
+<h2 id="步骤1-更改Remote-SSH设置"><a href="#步骤1-更改Remote-SSH设置" class="headerlink" title="步骤1.更改Remote-SSH设置"></a>步骤1.更改Remote-SSH设置</h2><ul>
+<li>一种可能导致登录失败的理由是，更新后的remote-ssh缺失了<code>&quot;remote.SSH.useLocalServer: true&quot;</code>的配置。为此，我们进入remote-ssh的settings.json中查看配置情况：</li>
+</ul>
+<ol>
+<li><p>点击vscode左边栏“扩展”或按<code>Ctrl+Shift+X</code>，找到remote-ssh插件，点击右下角的小齿轮，进入设置页面 </p>
+<p><img src="/LiJT-Daily/images/2021112601.png" alt="1"></p>
+</li>
+<li><p>在设置页面，找到”在settings.json编辑”按钮，点击进入</p>
+<p><img src="/LiJT-Daily/images/2021112602.png" alt="2"></p>
+</li>
+<li><p>在settings.json中，检查是否有<code>&quot;remote.SSH.useLocalServer&quot;</code>选项。如果没有，则在最外层大括号内添加<code>&quot;remote.SSH.useLocalServer&quot;: true</code>；如果有且值为<code>false</code>，则将值修改为<code>true</code>。修改后结果如下所示</p>
+<p><img src="/LiJT-Daily/images/2021112603.png" alt="3"></p>
+</li>
+<li>保存settings.json，重新启动vscode，尝试远程登录。</li>
+</ol>
+<h2 id="步骤2-清空远程-vscode-server文件夹"><a href="#步骤2-清空远程-vscode-server文件夹" class="headerlink" title="步骤2.清空远程~/.vscode-server文件夹"></a>步骤2.清空远程~/.vscode-server文件夹</h2><ul>
+<li>如果步骤1不能解决问题，则可以尝试步骤2.步骤2相比于步骤1，是强制初始化远程vscode环境。</li>
+</ul>
+<ol>
+<li><p><strong>关闭vscode server</strong>。在本地vscode中按<code>Ctrl+Shift+P</code>进入命令面板，输入<code>Kill VS Code Server on Host</code>，选中Remote-SSH中的对应命令，强制关闭对应的vscode server。这一步一定不能省略，否则下一步将无法删除 ~/.vscode-server 文件</p>
+<p><img src="/LiJT-Daily/images/2021112604.png" alt="4"></p>
+</li>
+<li>强制删除~/.vscode-server。vscode 服务器环境统一存储在~/.vscode-server中，其中~表示自己服务器账号的根目录。使用如下命令删除该文件夹：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -rf ~/.vscode-server</span><br></pre></td></tr></table></figure></li>
+<li>重新启动vscode，尝试远程登录。此时服务器会自动下载新的~/.vscode-server文件，待下载完成、配置完成后，即可使用。</li>
+</ol>
+<h2 id="更新-2021-11-27"><a href="#更新-2021-11-27" class="headerlink" title="更新 (2021.11.27)"></a>更新 (2021.11.27)</h2><ul>
+<li>当vscode remote-ssh 未关闭而电脑休眠后再唤醒时，会出现相同的登陆失败的问题。直接采用步骤2，问题解决</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://www.jianshu.com/p/32aa2fa936bb">非root用户配置VS Code Remote-SSH - - windows系统</a></li>
+<li><a href="https://www.cnblogs.com/springwind2006/p/14311454.html">Resolver error: Error: The VS Code Server failed to start 的一种解决方案</a></li>
+<li><a href="https://blog.csdn.net/weilin731/article/details/119778478">vs code远程开发 SSH连接失败</a></li>
+<li><a href="https://blog.csdn.net/myWorld001/article/details/119443079?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link">vscode ssh连接失败</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>coding</tag>
+        <tag>vscode</tag>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hadoop 实战练习记录</title>
+    <url>/LiJT-Daily/2021/12/13/2021-12-13-hadoop/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本篇记录Hadoop实战学习中的笔记以及问题分析。</p>
+<span id="more"></span>
+<h2 id="Mapreduce-实战"><a href="#Mapreduce-实战" class="headerlink" title="Mapreduce 实战"></a>Mapreduce 实战</h2><h3 id="Mapreduce-程序模型"><a href="#Mapreduce-程序模型" class="headerlink" title="Mapreduce 程序模型"></a>Mapreduce 程序模型</h3><h4 id="什么是Mapreduce"><a href="#什么是Mapreduce" class="headerlink" title="什么是Mapreduce"></a>什么是Mapreduce</h4><p>MapReduce是一种可用于数据处理的编程模型，我们现在设想一个场景，你接到一个任务，任务是：挖掘分析我国气象中心近年来的数据日志，该数据日志大小有3T,让你分析计算出每一年的最高气温，如果你现在只有一台计算机，如何处理呢？我想你应该会读取这些数据，并且将读取到的数据与目前的最大气温值进行比较。比较完所有的数据之后就可以得出最高气温了。不过以我们的经验都知道要处理这么多数据肯定是非常耗时的。</p>
+<p>如果我现在给你三台机器，你会如何处理呢？你应该想到了：最好的处理方式是将这些数据切分成三块，然后分别计算处理这些数据（Map），处理完毕之后发送到一台机器上进行合并（merge），再计算合并之后的数据，归纳（reduce）并输出。</p>
+<p>这就是一个比较完整的MapReduce的过程了。</p>
+<p><img src="/LiJT-Daily/images/2021121301.png" alt="Mapreduce原理"></p>
+<h4 id="Mapreduce程序结构-以Word-Count为例"><a href="#Mapreduce程序结构-以Word-Count为例" class="headerlink" title="Mapreduce程序结构(以Word Count为例)"></a>Mapreduce程序结构(以Word Count为例)</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.*;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.util.GenericOptionsParser;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WordCount</span> &#123;</span><br><span class="line"><span class="comment">//Mapper类</span></span><br><span class="line"><span class="comment">/*LongWritable表示每一行起始偏移量</span></span><br><span class="line"><span class="comment">第一个Text是用来接受文件中的内容，</span></span><br><span class="line"><span class="comment">第二个Text是用来输出给Reduce类的key,</span></span><br><span class="line"><span class="comment">IntWritable是用来输出给Reduce类的value*/</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">TokenizerMapper</span> </span><br><span class="line">       <span class="keyword">extends</span> <span class="title class_">Mapper</span>&lt;LongWritable, Text, Text, IntWritable&gt;&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">IntWritable</span> <span class="variable">one</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="type">Text</span> <span class="variable">word</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Text</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">map</span><span class="params">(LongWritable key, Text value, Context context</span></span><br><span class="line"><span class="params">                    )</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">      <span class="type">StringTokenizer</span> <span class="variable">itr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringTokenizer</span>(value.toString());</span><br><span class="line">      <span class="keyword">while</span> (itr.hasMoreTokens()) &#123;</span><br><span class="line">        word.set(itr.nextToken());</span><br><span class="line">        context.write(word, one);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">IntSumReducer</span> </span><br><span class="line">       <span class="keyword">extends</span> <span class="title class_">Reducer</span>&lt;Text,IntWritable,Text,IntWritable&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">IntWritable</span> <span class="variable">result</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values, </span></span><br><span class="line"><span class="params">                       Context context</span></span><br><span class="line"><span class="params">                       )</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">      <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (IntWritable val : values) &#123;</span><br><span class="line">        sum += val.get();</span><br><span class="line">      &#125;</span><br><span class="line">      result.set(sum);</span><br><span class="line">      context.write(key, result);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="comment">//创建配置对象</span></span><br><span class="line">    <span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line">    <span class="comment">//创建job对象</span></span><br><span class="line">    <span class="type">Job</span> <span class="variable">job</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Job</span>(conf, <span class="string">&quot;word count&quot;</span>);</span><br><span class="line">    <span class="comment">//设置运行job的类</span></span><br><span class="line">    job.setJarByClass(WordCount.class);</span><br><span class="line">    <span class="comment">//设置Mapper的类</span></span><br><span class="line">    job.setMapperClass(TokenizerMapper.class);</span><br><span class="line">    <span class="comment">//设置Reduce的类</span></span><br><span class="line">    job.setReducerClass(IntSumReducer.class);</span><br><span class="line">    <span class="comment">//设置输出的key value格式</span></span><br><span class="line">    job.setOutputKeyClass(Text.class);</span><br><span class="line">    job.setOutputValueClass(IntWritable.class);</span><br><span class="line">    <span class="comment">//设置输入路径</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">inputfile</span> <span class="operator">=</span> <span class="string">&quot;/usr/input&quot;</span>;</span><br><span class="line">    <span class="comment">//设置输出路径</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">outputFile</span> <span class="operator">=</span> <span class="string">&quot;/usr/output&quot;</span>;</span><br><span class="line">    <span class="comment">//执行输入</span></span><br><span class="line">    FileInputFormat.addInputPath(job, <span class="keyword">new</span> <span class="title class_">Path</span>(inputfile));</span><br><span class="line">    <span class="comment">//执行输出</span></span><br><span class="line">    FileOutputFormat.setOutputPath(job, <span class="keyword">new</span> <span class="title class_">Path</span>(outputFile));</span><br><span class="line">    <span class="comment">//是否运行成功，true输出0，false输出1</span></span><br><span class="line">    System.exit(job.waitForCompletion(<span class="literal">true</span>) ? <span class="number">0</span> : <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Hbase-实战"><a href="#Hbase-实战" class="headerlink" title="Hbase 实战"></a>Hbase 实战</h2><p>这里主要记录Hbase shell里的一些常用指令</p>
+<h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h4><p>新建一个名为<code>test</code>的表，使其中包含一个名为<code>data</code>的列，表和列族属性都为默认值：<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;data&#x27;</span></span><br></pre></td></tr></table></figure></p>
+<p>创建完成后，我们可以输入<code>list</code>来查看表是否创建成功</p>
+<h4 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h4><p>我们来给上一关创建的<code>test</code>表的列<code>data</code>添加一些数据.使用<code>put</code>命令可以用来添加数据，使用<code>get</code>命令可以获取数据。<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">put <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;row1&#x27;</span>,<span class="string">&#x27;data:1&#x27;</span>,<span class="string">&#x27;value1&#x27;</span></span><br><span class="line">put <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;row2&#x27;</span>,<span class="string">&#x27;data:2&#x27;</span>,<span class="string">&#x27;value2&#x27;</span></span><br><span class="line"><span class="keyword">get</span> <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;row1&#x27;</span></span><br></pre></td></tr></table></figure></p>
+<p>输入<code>scan</code>命令就可以查看所有的数据了</p>
+<h4 id="删除数据和表"><a href="#删除数据和表" class="headerlink" title="删除数据和表"></a>删除数据和表</h4><p>删除整行数据：<code>deleteall [表名]，[行名称]</code><br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">deleteall <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;row1&#x27;</span></span><br></pre></td></tr></table></figure></p>
+<p>删除表需要先禁用、再删除。分为两步：<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">disable 表名</span><br><span class="line">drop 表名</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <tags>
+        <tag>大数据</tag>
+        <tag>Java</tag>
+        <tag>Hadoop</tag>
+        <tag>Mapreduce</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java 常用轮子</title>
+    <url>/LiJT-Daily/2021/12/13/2021-12-13-java/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>Welcome back! （也对我自己）</p>
+<p>这一篇记录一些常用的Java工具包，与<a href="/LiJT-Daily/2021/10/25/python.html">Python技巧</a>相对应。后者也好长时间没更新了，以后会慢慢补上。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">偷偷地我走了，</span><br><span class="line">正如我偷偷地来。</span><br><span class="line">偷偷地我挥一挥手，</span><br><span class="line">不留下一篇SCI。</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="java-util"><a href="#java-util" class="headerlink" title="java.util"></a>java.util</h2><h3 id="StringTokenizer-类"><a href="#StringTokenizer-类" class="headerlink" title="StringTokenizer 类"></a>StringTokenizer 类</h3><ul>
+<li>用途：分割字符串，类似于python的 <code>re.split()</code>.</li>
+</ul>
+<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><ol>
+<li><code>StringTokenizer(String str)</code> ：构造一个用来解析 str 的 StringTokenizer 对象。java 默认的分隔符是空格(“”)、制表符(\t)、换行符(\n)、回车符(\r)。</li>
+<li><code>StringTokenizer(String str, String delim)</code> ：构造一个用来解析 str 的 StringTokenizer 对象，并提供一个指定的分隔符。</li>
+<li><code>StringTokenizer(String str, String delim, boolean returnDelims)</code> ：构造一个用来解析 str 的 StringTokenizer 对象，并提供一个指定的分隔符，同时，指定是否返回分隔符。</li>
+</ol>
+<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><ol>
+<li><code>int countTokens()</code>：返回nextToken方法被调用的次数。</li>
+<li><code>boolean hasMoreTokens()</code>：返回是否还有分隔符。</li>
+<li><code>boolean hasMoreElements()</code>：判断枚举 （Enumeration） 对象中是否还有数据。</li>
+<li><code>String nextToken()</code>：返回从当前位置到下一个分隔符的字符串。</li>
+<li><code>Object nextElement()</code>：返回枚举 （Enumeration） 对象的下一个元素。</li>
+<li><code>String nextToken(String delim)</code>：与 4 类似，以指定的分隔符返回结果。</li>
+</ol>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Hadoop WordCount中，mapper的map方法。默认用空格分隔字符串</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">map</span><span class="params">(LongWritable key, Text value, Context context</span></span><br><span class="line"><span class="params">                    )</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">    <span class="type">StringTokenizer</span> <span class="variable">itr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringTokenizer</span>(value.toString());</span><br><span class="line">    word.set(itr.nextToken());</span><br><span class="line">    context.write(word, one);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>大数据 Java Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>模糊理论及其应用简介（笔记）</title>
+    <url>/LiJT-Daily/2021/12/29/2021-12-29-fuzzy/</url>
+    <content><![CDATA[<p>模糊理论（Fuzzy Theory）是指用到了<strong>模糊集合</strong>的基本概念或<strong>连续隶属度函数</strong>的理论。它可分类为模糊数学，模糊系统，不确定性和信息，模糊决策，模糊逻辑与人工智能这五个分支，它们并不是完全独立的，它们之间有紧密的联系。例如，模糊控制就会用到模糊数学和模糊逻辑中的概念。从实际应用的观点来看，模糊理论的应用大部分集中在<strong>模糊系统</strong>上，尤其集中在模糊控制上。也有一些模糊专家系统应用于医疗诊断和决策支持。由于模糊理论从理论和实践的角度看仍然是新生事物，所以我们期望，随着模糊领域的成熟，将会出现更多可靠的实际应用。 （摘自百度百科）</p>
+<span id="more"></span>
+<h2 id="什么是模糊理论"><a href="#什么是模糊理论" class="headerlink" title="什么是模糊理论"></a>什么是模糊理论</h2><h3 id="模糊"><a href="#模糊" class="headerlink" title="模糊"></a>模糊</h3><p>介绍模糊理论之前，我们首先直观地理解<strong>模糊</strong>这一概念。例如小明<strong>十分喜欢吃牛肉和鸡蛋</strong>，<strong>特别讨厌番茄和甜食</strong>。那么可以明确地说，小明喜欢吃牛肉滑蛋饭但很讨厌吃糖拌西红柿。但如果给小明做一份<strong>番茄炖牛肉</strong>，我们就不能确定小明是喜欢还是不喜欢。在这一场景下，小明对番茄炖牛肉的态度就是“模糊”的。</p>
+<h3 id="模糊逻辑"><a href="#模糊逻辑" class="headerlink" title="模糊逻辑"></a>模糊逻辑</h3><p>更一般地，我们引入<strong>模糊逻辑</strong>的概念。在经典二值逻辑中，我们用1表示真（喜欢），0表示假（不喜欢），那么命题1（小明喜欢牛肉滑蛋饭）的值为1，命题2（小明喜欢糖拌西红柿）的值为假。对于命题3（小明喜欢番茄炖牛肉），我们使用介于0和1之间的<strong>隶属度</strong>表示这两个值之间的过渡状态，例如命题3的值=0.7，表示小明有点喜欢番茄炖牛肉。使用隶属度值<strong>消除二值之间非此即彼的对立，这就是模糊逻辑</strong>。</p>
+<h3 id="模糊集合"><a href="#模糊集合" class="headerlink" title="模糊集合"></a>模糊集合</h3><p>接下来，我们更进一步地引入<strong>模糊集合</strong>的概念。在古典集合中，对于任意全域<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex" xmlns="http://www.w3.org/2000/svg" width="1.735ex" height="1.595ex" role="img" focusable="false" viewBox="0 -683 767 705"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D448" d="M107 637Q73 637 71 641Q70 643 70 649Q70 673 81 682Q83 683 98 683Q139 681 234 681Q268 681 297 681T342 682T362 682Q378 682 378 672Q378 670 376 658Q371 641 366 638H364Q362 638 359 638T352 638T343 637T334 637Q295 636 284 634T266 623Q265 621 238 518T184 302T154 169Q152 155 152 140Q152 86 183 55T269 24Q336 24 403 69T501 205L552 406Q599 598 599 606Q599 633 535 637Q511 637 511 648Q511 650 513 660Q517 676 519 679T529 683Q532 683 561 682T645 680Q696 680 723 681T752 682Q767 682 767 672Q767 650 759 642Q756 637 737 637Q666 633 648 597Q646 592 598 404Q557 235 548 205Q515 105 433 42T263 -22Q171 -22 116 34T60 167V183Q60 201 115 421Q164 622 164 628Q164 635 107 637Z"></path></g></g></g></svg></mjx-container>内的一个元素<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="1.294ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 572 453"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g></g></g></svg></mjx-container>和一个集合<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="1.697ex" height="1.62ex" role="img" focusable="false" viewBox="0 -716 750 716"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g></g></g></svg></mjx-container>，如果使用<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="4.885ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2159.3 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mi" transform="translate(523,-152.7) scale(0.707)"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g></g><g data-mml-node="mo" transform="translate(1103.3,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mo" transform="translate(1492.3,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mo" transform="translate(1770.3,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>表示元素相对于集合的关系，则只包含以下两种情况：</p>
+<script type="math/tex; mode=display">
+f_A(x)=\left\{
+\begin{aligned}
+0, x\notin A\\
+1, x\in A
+\end{aligned}\right.</script><p>那么 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="15.168ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 6704.1 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mi" transform="translate(523,-152.7) scale(0.707)"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g></g><g data-mml-node="mo" transform="translate(1381.1,0)"><path data-c="3A" d="M78 370Q78 394 95 412T138 430Q162 430 180 414T199 371Q199 346 182 328T139 310T96 327T78 370ZM78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path></g><g data-mml-node="mi" transform="translate(1936.9,0)"><path data-c="1D448" d="M107 637Q73 637 71 641Q70 643 70 649Q70 673 81 682Q83 683 98 683Q139 681 234 681Q268 681 297 681T342 682T362 682Q378 682 378 672Q378 670 376 658Q371 641 366 638H364Q362 638 359 638T352 638T343 637T334 637Q295 636 284 634T266 623Q265 621 238 518T184 302T154 169Q152 155 152 140Q152 86 183 55T269 24Q336 24 403 69T501 205L552 406Q599 598 599 606Q599 633 535 637Q511 637 511 648Q511 650 513 660Q517 676 519 679T529 683Q532 683 561 682T645 680Q696 680 723 681T752 682Q767 682 767 672Q767 650 759 642Q756 637 737 637Q666 633 648 597Q646 592 598 404Q557 235 548 205Q515 105 433 42T263 -22Q171 -22 116 34T60 167V183Q60 201 115 421Q164 622 164 628Q164 635 107 637Z"></path></g><g data-mml-node="mo" transform="translate(2981.7,0)"><path data-c="2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path></g><g data-mml-node="mo" transform="translate(4259.4,0)"><path data-c="7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path></g><g data-mml-node="mn" transform="translate(4759.4,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g><g data-mml-node="mo" transform="translate(5259.4,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mn" transform="translate(5704.1,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(6204.1,0)"><path data-c="7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></g></g></g></svg></mjx-container>就是一个二值函数。在<strong>模糊集合</strong>中，则使用连续值表示<em>元素属于集合的程度</em>，这样的函数<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="14.313ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 6326.6 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mi" transform="translate(523,-152.7) scale(0.707)"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g></g><g data-mml-node="mi" transform="translate(1103.3,0)"><text data-variant="italic" transform="scale(1,-1)" font-size="884px" font-family="serif" font-style="italic">：</text></g><g data-mml-node="mi" transform="translate(2003.3,0)"><path data-c="1D448" d="M107 637Q73 637 71 641Q70 643 70 649Q70 673 81 682Q83 683 98 683Q139 681 234 681Q268 681 297 681T342 682T362 682Q378 682 378 672Q378 670 376 658Q371 641 366 638H364Q362 638 359 638T352 638T343 637T334 637Q295 636 284 634T266 623Q265 621 238 518T184 302T154 169Q152 155 152 140Q152 86 183 55T269 24Q336 24 403 69T501 205L552 406Q599 598 599 606Q599 633 535 637Q511 637 511 648Q511 650 513 660Q517 676 519 679T529 683Q532 683 561 682T645 680Q696 680 723 681T752 682Q767 682 767 672Q767 650 759 642Q756 637 737 637Q666 633 648 597Q646 592 598 404Q557 235 548 205Q515 105 433 42T263 -22Q171 -22 116 34T60 167V183Q60 201 115 421Q164 622 164 628Q164 635 107 637Z"></path></g><g data-mml-node="mo" transform="translate(3048.1,0)"><path data-c="2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path></g><g data-mml-node="mo" transform="translate(4325.9,0)"><path data-c="5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path></g><g data-mml-node="mn" transform="translate(4603.9,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g><g data-mml-node="mo" transform="translate(5103.9,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mn" transform="translate(5548.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(6048.6,0)"><path data-c="5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path></g></g></g></svg></mjx-container>就被称为连续的<strong>隶属度函数</strong>。所谓“隶属度”，就是“元素隶属于集合的程度”。例如 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="11.459ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 5064.9 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mi" transform="translate(523,-152.7) scale(0.707)"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g></g><g data-mml-node="mo" transform="translate(1103.3,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1492.3,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g><g data-mml-node="mo" transform="translate(2064.3,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(2731.1,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(3786.9,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z" transform="translate(500,0)"></path><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(778,0)"></path></g></g></g></svg></mjx-container>，表示元素<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="1.294ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 572 453"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g></g></g></svg></mjx-container>属于集合<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="1.697ex" height="1.62ex" role="img" focusable="false" viewBox="0 -716 750 716"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g></g></g></svg></mjx-container>的程度是0.6.</p>
+]]></content>
+      <tags>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读Paper的一些感想记录</title>
+    <url>/LiJT-Daily/2022/02/22/2022-02-22-paper/</url>
+    <content><![CDATA[<p>最近一直在读paper。结合之前与老师、前辈、朋友讨论的经历，在此总结读paper的一些感想记录。这既是我自己的反思与总结，也可以为大家提供一些经验参考。</p>
+<span id="more"></span>
+<h2 id="读写paper"><a href="#读写paper" class="headerlink" title="读写paper"></a>读写paper</h2><p>在开始一个研究项目前，往往需要阅读大量领域内的paper。这一方面是为了快速了解最新研究进展，寻找idea并且避免工作重复；另一方面是为了学习优秀paper的写作风格。毕竟，读者在读你的Intro之前，并不知道你的工作内容是什么。因此在优秀的paper中，作者会让读者在进入正文之前快速了解：1. 本文研究的是什么问题；2. 该问题有什么研究挑战； 3. 我们怎样一一解决这些挑战。一言以蔽之，让读者快速了解研究工作的价值。然而，虽然优秀的paper篇篇相似，不行的paper各有各的缺点，但即便是优秀的paper也浩如烟海。因此，高效地阅读paper是一个重要的能力。为此，我主要总结了以下几点：</p>
+<ol>
+<li>外语水平：基本语言素养</li>
+<li>注意力分配：各个章节注意力占比</li>
+<li>带着问题去读</li>
+</ol>
+<h3 id="外语水平"><a href="#外语水平" class="headerlink" title="外语水平"></a>外语水平</h3><p>就个人经验而言，在cs领域，绝大部分paper用英文写成。因此高效阅读paper的基本素养便是足够过关的英文水平。</p>
+<p>首先，专业paper需要大量的词汇积累，既包括日常常见词汇，也包括领域内的专业词汇。积累词汇能极大减少查词典的时间，因此无疑能提升阅读paper效率。其次，要锻炼阅读长难句、复杂句式的能力（虽然写论文严重不建议用长难句）。如果paper作者来自于英语国家，或者研究领域在教育学、心理学等不那么理工科的专业，那么对应的英文paper常常会出现三四行一句的长难句。遇到这种情况时，我一般会手动将长难句化解为几个简单的短句，然后结合上下文分别阅读。虽然cs领域的论文鲜有长难句，但目前机器学习和其他领域的交叉十分普遍，因此免不了阅读其他领域的论文，故而必须适应阅读这类复杂句式的能力。</p>
+<p>整体而言，个人认为六级550+或托福100+是量化的必要水平（废话，国外研究生申请很多是这个bar）。在此之上，还需要大量阅读本领域的文章，从而内化paper的写作风格、积累专业表达。这样在阅读新Paper时便能快速上手。</p>
+<h3 id="注意力分配"><a href="#注意力分配" class="headerlink" title="注意力分配"></a>注意力分配</h3><p>初读paper时，我往往恨不得一字一句地都读下去，从abstract到intro到model到experiment，每一个部分都打破沙锅问到底。<strong>然而</strong>，这是一个十分低效的阅读策略。就个人经验和老师前辈们的指导而言，注意力应该多放在intro上——这一章节具体介绍了paper主要的研究方向、研究问题和解决方法。如果阅读过程中能够快速理解问题的价值和研究贡献，那么就考虑读model和experiment部分。能发出来的paper，模型结构基本七七八八，实验效果都不会差。因此没有必要花太多时间在研究模型和实验细节部分。对于个人而言，这两部分的阅读主要起到启发灵感的作用——比如模型的设计有无借鉴；实验的组织安排、性能评测指标能否参考使用等。如某友所言，写paper不是写技术文档，更不是写实验报告。创新永远是第一位的，而这一点一定会在intro中展示。</p>
+<p>总结而言，读paper的注意力分配策略实质上是一个自顶向下的层次化(hierarchical)方法。第一层，快速阅读abstract和intro，了解研究问题和创新点。第二层，根据第一层的阅读结果动态选择继续细读或快速浏览或放弃。这一自顶向下、自粗向细的方法能极大提升阅读效率，并将注意力放在与自己研究内容相关的paper上。</p>
+<h3 id="带着问题去读"><a href="#带着问题去读" class="headerlink" title="带着问题去读"></a>带着问题去读</h3><p>需要明白的是，任何一项研究工作，都需要一个动机(motivation)——每一篇paper都为解决某些专业问题而写成。而paper的创新点，则构成了解决问题的方法。不仅写paper是问题导向的，读paper也是问题导向的。如果不带着问题去读，往往会有头无尾，晕头转向——为什么这里要用LSTM而不是FC？为什么要使用强理论假设？相反，带着问题去读，逻辑便能和作者的思维贯通，也有助于读者达成自己的阅读目的（如研究paper是怎么解决问题的，从而启发灵感）。</p>
+<p>在读写论文的问题上，我曾和一位在国际学校学习过的好友聊过——他的课程中包含大量科技写作的训练。友人建议用”5W”法阅读和写作。这里进一步参考<a href="https://baike.baidu.com/item/5W2H%E5%88%86%E6%9E%90%E6%B3%95/8111597">百度百科</a>，总结5W2H法的问题提出方法：</p>
+<h4 id="5W2H"><a href="#5W2H" class="headerlink" title="5W2H"></a>5W2H</h4><ul>
+<li>WHAT——是什么？目的是什么？做什么工作？</li>
+<li>WHY——为什么要做？可不可以不做？有没有替代方案？</li>
+<li>WHO——谁？由谁来做？</li>
+<li>WHEN——何时？什么时间做？什么时机最适宜？</li>
+<li>WHERE——何处？在哪里做？</li>
+<li>HOW ——怎么做？如何提高效率？如何实施？方法是什么？</li>
+<li>HOW MUCH——多少？做到什么程度？数量如何？质量水平如何？费用产出如何？</li>
+</ul>
+<p>在阅读论文中，可以灵活地使用5W2H法提出和跟踪问题。带着问题去读，能帮助理清paper的逻辑和创新点，达到事半功倍的阅读效果。</p>
+<p>最后，这里推荐一篇范文——<a href="https://zhuanlan.zhihu.com/p/433237905">《一种加辣椒的番茄炒蛋》</a>，可以从作者的角度了解一篇paper的逻辑是如何组织的。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/433237905">一种加辣椒的番茄炒蛋.Jingwei Huang.CVPR 9999 Best Paper</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/469717875">技术之外(一).Yuandong Tian</a></li>
+<li><a href="https://baike.baidu.com/item/5W2H%E5%88%86%E6%9E%90%E6%B3%95/8111597">5W2H分析法.百度百科</a></li>
+</ol>
+]]></content>
+      <tags>
+        <tag>科研</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>最近的学习计划</title>
+    <url>/LiJT-Daily/2022/04/01/2022-04-01-plan/</url>
+    <content><![CDATA[<p>记录一些出于兴趣或出于工程需要，最近计划系统学习的一些知识。</p>
+<p>相当于立一个flag.<br><span id="more"></span></p>
+<h2 id="CS"><a href="#CS" class="headerlink" title="CS"></a>CS</h2><ul>
+<li>git<ul>
+<li>不要问一个学了四年CS(1年CS+3年DS)的人为什么要学git. 在此之前，git只是作为我管理代码的工具。仅仅到达“知其然”，而非知其“所以然”的程度。很多功能先搜先用、现学现卖，却不知其原理，不知其变化的用法。因此打算系统学习一下git，彻底（七七八八）掌握其各种功能的原理和用法。</li>
+</ul>
+</li>
+<li>编译原理<ul>
+<li>3年DS跳过了编译原理这门课，实在是大不幸。考虑到最近code intelligence大火，以及自己可能整活的需要，计划学习编译原理。这一科目的学习以实践先行，理论后补的方法，免得满嘴跑火车却连语法树（听说的）都不会写。</li>
+</ul>
+</li>
+<li>GAN<ul>
+<li>GAN就是干！</li>
+</ul>
+</li>
+</ul>
+<h2 id="Stats"><a href="#Stats" class="headerlink" title="Stats"></a>Stats</h2><ul>
+<li>各种参数优化方法<ul>
+<li>当初机器学习没学好，统计学里的参数优化方法不明所以。极大似然估计、贝叶斯推断、MCMC、MCMC里的Metropolis、Gibbs… 都需要补足</li>
+<li>亲身体会：优化方法如果只看原理而没有具体案例，则原理很难理解透彻。需要结合具体的模型进行学习</li>
+<li>最费解的还是EM算法….</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>科研</tag>
+        <tag>学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一些杂谈.2</title>
+    <url>/LiJT-Daily/2022/03/26/2022-03-26-remind/</url>
+    <content><![CDATA[<p>本科期间上的统计类课程是多么美好的回忆。</p>
+<span id="more"></span>
+<p>最近回炉统计学的一些分析与检验方法，翻到了ynyang老师的多元回归分析的讲义。</p>
+<p>ynyang老师的课深入浅出，是给我印象最深，也是让我收获最大的统计类课程。从矩阵变换的技巧，到PCA，到SVD，甚至到谱聚类，PageRank算法的启蒙，都是在ynyang老师的课上完成的。尤其是SVD，当初花书和西瓜书翻了个遍也不知所云。但是ynyang老师的课却让我醍醐灌顶-SVD是对矩阵的最优低秩分解。</p>
+<p><img src="https://cslijt.github.io/LiJT-Daily/images/屏幕截图_202022-03-26_175317.jpg" alt="SVD1"></p>
+<p>如今想来，本科四年在学习上的遗憾有二：</p>
+<ol>
+<li>大三由于畏难，退了ynyang老师的回归分析的课。错过了一个亿的知识。</li>
+<li>铁憨憨，没有和yang老师保持联系。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>杂谈</tag>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pymysql的简单使用</title>
+    <url>/LiJT-Daily/2022/04/09/2022-04-09-python/</url>
+    <content><![CDATA[<p>pymysql是python3中用于连接mysql数据库的第三方库，并可以实现增删改查功能。</p>
+<span id="more"></span>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li>假设已经安装pip3</li>
+<li>使用pip3安装pymysql(适用于windows, mac, linux):<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip3 install PyMySQL</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="连接到数据库"><a href="#连接到数据库" class="headerlink" title="连接到数据库"></a>连接到数据库</h2><ul>
+<li>使用connect方法连接到目标数据库。<ul>
+<li>host: 目标数据库主机的ip地址</li>
+<li>port: 目标数据库主机的端口（可选）</li>
+<li>user: 登录数据库的用户名</li>
+<li>password: 用户密码</li>
+<li>database: 数据库名（一个主机下可能有多个数据库）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">假设在本地的mysql中开了一个数据库mydb，可使用用户asdf登录</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开数据库连接</span></span><br><span class="line">db = pymysql.connect(host=<span class="string">&#x27;localhost&#x27;</span>,</span><br><span class="line">                     user=<span class="string">&#x27;asdf&#x27;</span>,</span><br><span class="line">                     password=<span class="string">&#x27;1234&#x27;</span>,</span><br><span class="line">                     database=<span class="string">&#x27;mydb&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="执行sql语句"><a href="#执行sql语句" class="headerlink" title="执行sql语句"></a>执行sql语句</h2><ul>
+<li>pymysql中，数据库的增删改查通过游标执行方法来间接完成。游标(cursor)在数据库中是一个颇为重要的概念，日后再细写。这里先给出pymysql中游标的用法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="comment"># 承接上文，假设已通过pymysql.connect方法获取数据库对象db</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个游标对象</span></span><br><span class="line">cursor = db.cursor()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义sql命令</span></span><br><span class="line">sql = <span class="string">&#x27;select * from Student limit 10;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用execute执行sql命令</span></span><br><span class="line">cursor.execute(sql)</span><br><span class="line"></span><br><span class="line"><span class="comment"># fetchone用来获取查询结果的下一行(tuple)</span></span><br><span class="line"><span class="comment"># fetchall用来获取查询结果的所有行(list(tuple))</span></span><br><span class="line">data=cursor.fetchone()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭数据库连接</span></span><br><span class="line">db.close()</span><br></pre></td></tr></table></figure>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="https://pymysql.readthedocs.io/en/latest/index.html">https://pymysql.readthedocs.io/en/latest/index.html</a></li>
+<li><a href="https://www.runoob.com/python3/python3-mysql.html">https://www.runoob.com/python3/python3-mysql.html</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1575066">https://cloud.tencent.com/developer/article/1575066</a></li>
+</ol>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'f73c0bc3c19755d1c0d886c0d8791cad24509c9a',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: md5(document.title),
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>]]></content>
+      <categories>
+        <category>技术文档</category>
+      </categories>
+      <tags>
+        <tag>coding</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>因果推断学习笔记.1</title>
+    <url>/LiJT-Daily/2022/04/07/2022-04-07-casual-inference-1/</url>
+    <content><![CDATA[<p>因果推断的基本概念。</p>
+<span id="more"></span>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="相关与因果的不同"><a href="#相关与因果的不同" class="headerlink" title="相关与因果的不同"></a>相关与因果的不同</h3><ul>
+<li>相关性 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.486ex" xmlns="http://www.w3.org/2000/svg" width="1.76ex" height="2.106ex" role="img" focusable="false" viewBox="0 -716 778 931"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="2260" d="M166 -215T159 -215T147 -212T141 -204T139 -197Q139 -190 144 -183L306 133H70Q56 140 56 153Q56 168 72 173H327L406 327H72Q56 332 56 347Q56 360 70 367H426Q597 702 602 707Q605 716 618 716Q625 716 630 712T636 703T638 696Q638 692 471 367H707Q722 359 722 347Q722 336 708 328L451 327L371 173H708Q722 163 722 153Q722 140 707 133H351Q175 -210 170 -212Q166 -215 159 -215Z"></path></g></g></g></svg></mjx-container> 因果性<ul>
+<li>相关性是双向的；因果性是单向的。因果关系会在统计层面导致相关性，但相关性并不蕴含因果性。</li>
+</ul>
+</li>
+</ul>
+<h3 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h3><ul>
+<li><strong>unit</strong>: 因果推理中的原子（不可分）研究对象，可以是实物，也可以是概念</li>
+<li><strong>treatment</strong>: 施加给unit的操作。也叫做干预、介入等</li>
+<li><strong>variables</strong>(context): unit自带的一些属性。例如，若unit=患者，则variables=性别、病史、血压… 在treatment中不受影响的variable被称为pre-treatment variables</li>
+<li><strong>confounders</strong>(covariate): 会影响treatment选择和结果的一些变量。例如treatment=用药，confounder=年龄，即同一剂量的药剂在不同年龄段人群导致的结果可能不一样</li>
+<li><strong>casual effect</strong>: 因果效应。对于unit，若treatment A 的施加与否对其结果状态有影响，则称A构成一个casual effect. 施加对象是个体则构成个体因果效应；施加对象是群体则构成群体因果效应</li>
+<li><strong>potential outcome</strong>: 施加给unit的treatment所产生的所有结果的取值空间，包含factual outcome(观测结果)和counterfactual outcomes(反事实结果)</li>
+<li><strong>factual outcome</strong>: 施加给操作对象最终观测到的结果，记为Y</li>
+<li><strong>counterfactual outcome</strong>: 反事实结果，即不作treatment产生的结果</li>
+<li><strong>individualized treatment effect</strong>(<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.462ex" height="1.545ex" role="img" focusable="false" viewBox="0 -683 1972 683"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D43C" d="M43 1Q26 1 26 10Q26 12 29 24Q34 43 39 45Q42 46 54 46H60Q120 46 136 53Q137 53 138 54Q143 56 149 77T198 273Q210 318 216 344Q286 624 286 626Q284 630 284 631Q274 637 213 637H193Q184 643 189 662Q193 677 195 680T209 683H213Q285 681 359 681Q481 681 487 683H497Q504 676 504 672T501 655T494 639Q491 637 471 637Q440 637 407 634Q393 631 388 623Q381 609 337 432Q326 385 315 341Q245 65 245 59Q245 52 255 50T307 46H339Q345 38 345 37T342 19Q338 6 332 0H316Q279 2 179 2Q143 2 113 2T65 2T43 1Z"></path></g><g data-mml-node="mi" transform="translate(504,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mi" transform="translate(1208,0)"><path data-c="1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path></g></g></g></svg></mjx-container>): 个体操作效果。 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="19.48ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 8610 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D43C" d="M43 1Q26 1 26 10Q26 12 29 24Q34 43 39 45Q42 46 54 46H60Q120 46 136 53Q137 53 138 54Q143 56 149 77T198 273Q210 318 216 344Q286 624 286 626Q284 630 284 631Q274 637 213 637H193Q184 643 189 662Q193 677 195 680T209 683H213Q285 681 359 681Q481 681 487 683H497Q504 676 504 672T501 655T494 639Q491 637 471 637Q440 637 407 634Q393 631 388 623Q381 609 337 432Q326 385 315 341Q245 65 245 59Q245 52 255 50T307 46H339Q345 38 345 37T342 19Q338 6 332 0H316Q279 2 179 2Q143 2 113 2T65 2T43 1Z"></path></g><g data-mml-node="mi" transform="translate(504,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mi" transform="translate(1208,0)"><path data-c="1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path></g><g data-mml-node="mo" transform="translate(2249.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(3305.6,0)"><path data-c="1D44C" d="M66 637Q54 637 49 637T39 638T32 641T30 647T33 664T42 682Q44 683 56 683Q104 680 165 680Q288 680 306 683H316Q322 677 322 674T320 656Q316 643 310 637H298Q242 637 242 624Q242 619 292 477T343 333L346 336Q350 340 358 349T379 373T411 410T454 461Q546 568 561 587T577 618Q577 634 545 637Q528 637 528 647Q528 649 530 661Q533 676 535 679T549 683Q551 683 578 682T657 680Q684 680 713 681T746 682Q763 682 763 673Q763 669 760 657T755 643Q753 637 734 637Q662 632 617 587Q608 578 477 424L348 273L322 169Q295 62 295 57Q295 46 363 46Q379 46 384 45T390 35Q390 33 388 23Q384 6 382 4T366 1Q361 1 324 1T232 2Q170 2 138 2T102 1Q84 1 84 9Q84 14 87 24Q88 27 89 30T90 35T91 39T93 42T96 44T101 45T107 45T116 46T129 46Q168 47 180 50T198 63Q201 68 227 171L252 274L129 623Q128 624 127 625T125 627T122 629T118 631T113 633T105 634T96 635T83 636T66 637Z"></path></g><g data-mml-node="mo" transform="translate(4068.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(4457.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(4957.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(5568.8,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(6569,0)"><path data-c="1D44C" d="M66 637Q54 637 49 637T39 638T32 641T30 647T33 664T42 682Q44 683 56 683Q104 680 165 680Q288 680 306 683H316Q322 677 322 674T320 656Q316 643 310 637H298Q242 637 242 624Q242 619 292 477T343 333L346 336Q350 340 358 349T379 373T411 410T454 461Q546 568 561 587T577 618Q577 634 545 637Q528 637 528 647Q528 649 530 661Q533 676 535 679T549 683Q551 683 578 682T657 680Q684 680 713 681T746 682Q763 682 763 673Q763 669 760 657T755 643Q753 637 734 637Q662 632 617 587Q608 578 477 424L348 273L322 169Q295 62 295 57Q295 46 363 46Q379 46 384 45T390 35Q390 33 388 23Q384 6 382 4T366 1Q361 1 324 1T232 2Q170 2 138 2T102 1Q84 1 84 9Q84 14 87 24Q88 27 89 30T90 35T91 39T93 42T96 44T101 45T107 45T116 46T129 46Q168 47 180 50T198 63Q201 68 227 171L252 274L129 623Q128 624 127 625T125 627T122 629T118 631T113 633T105 634T96 635T83 636T66 637Z"></path></g><g data-mml-node="mo" transform="translate(7332,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(7721,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g><g data-mml-node="mo" transform="translate(8221,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>。其中<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="4.618ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2041 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D44C" d="M66 637Q54 637 49 637T39 638T32 641T30 647T33 664T42 682Q44 683 56 683Q104 680 165 680Q288 680 306 683H316Q322 677 322 674T320 656Q316 643 310 637H298Q242 637 242 624Q242 619 292 477T343 333L346 336Q350 340 358 349T379 373T411 410T454 461Q546 568 561 587T577 618Q577 634 545 637Q528 637 528 647Q528 649 530 661Q533 676 535 679T549 683Q551 683 578 682T657 680Q684 680 713 681T746 682Q763 682 763 673Q763 669 760 657T755 643Q753 637 734 637Q662 632 617 587Q608 578 477 424L348 273L322 169Q295 62 295 57Q295 46 363 46Q379 46 384 45T390 35Q390 33 388 23Q384 6 382 4T366 1Q361 1 324 1T232 2Q170 2 138 2T102 1Q84 1 84 9Q84 14 87 24Q88 27 89 30T90 35T91 39T93 42T96 44T101 45T107 45T116 46T129 46Q168 47 180 50T198 63Q201 68 227 171L252 274L129 623Q128 624 127 625T125 627T122 629T118 631T113 633T105 634T96 635T83 636T66 637Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1152,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(1652,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>是事实结果，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="4.618ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2041 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D44C" d="M66 637Q54 637 49 637T39 638T32 641T30 647T33 664T42 682Q44 683 56 683Q104 680 165 680Q288 680 306 683H316Q322 677 322 674T320 656Q316 643 310 637H298Q242 637 242 624Q242 619 292 477T343 333L346 336Q350 340 358 349T379 373T411 410T454 461Q546 568 561 587T577 618Q577 634 545 637Q528 637 528 647Q528 649 530 661Q533 676 535 679T549 683Q551 683 578 682T657 680Q684 680 713 681T746 682Q763 682 763 673Q763 669 760 657T755 643Q753 637 734 637Q662 632 617 587Q608 578 477 424L348 273L322 169Q295 62 295 57Q295 46 363 46Q379 46 384 45T390 35Q390 33 388 23Q384 6 382 4T366 1Q361 1 324 1T232 2Q170 2 138 2T102 1Q84 1 84 9Q84 14 87 24Q88 27 89 30T90 35T91 39T93 42T96 44T101 45T107 45T116 46T129 46Q168 47 180 50T198 63Q201 68 227 171L252 274L129 623Q128 624 127 625T125 627T122 629T118 631T113 633T105 634T96 635T83 636T66 637Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1152,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g><g data-mml-node="mo" transform="translate(1652,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>是反事实结果。二者相减，相当于施加操作后和施加操作前unit状态的差别，即操作treatment所带来的增益。</li>
+<li><strong>average treatment effect</strong>(<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="5.018ex" height="1.62ex" role="img" focusable="false" viewBox="0 -716 2218 716"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g><g data-mml-node="mi" transform="translate(750,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mi" transform="translate(1454,0)"><path data-c="1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path></g></g></g></svg></mjx-container>): <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="4.462ex" height="1.545ex" role="img" focusable="false" viewBox="0 -683 1972 683"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D43C" d="M43 1Q26 1 26 10Q26 12 29 24Q34 43 39 45Q42 46 54 46H60Q120 46 136 53Q137 53 138 54Q143 56 149 77T198 273Q210 318 216 344Q286 624 286 626Q284 630 284 631Q274 637 213 637H193Q184 643 189 662Q193 677 195 680T209 683H213Q285 681 359 681Q481 681 487 683H497Q504 676 504 672T501 655T494 639Q491 637 471 637Q440 637 407 634Q393 631 388 623Q381 609 337 432Q326 385 315 341Q245 65 245 59Q245 52 255 50T307 46H339Q345 38 345 37T342 19Q338 6 332 0H316Q279 2 179 2Q143 2 113 2T65 2T43 1Z"></path></g><g data-mml-node="mi" transform="translate(504,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mi" transform="translate(1208,0)"><path data-c="1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path></g></g></g></svg></mjx-container>关于unit分布的期望。即<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="23.525ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 10398 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D434" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path></g><g data-mml-node="mi" transform="translate(750,0)"><path data-c="1D447" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path></g><g data-mml-node="mi" transform="translate(1454,0)"><path data-c="1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path></g><g data-mml-node="mo" transform="translate(2495.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mi" transform="translate(3551.6,0)"><path data-c="1D438" d="M492 213Q472 213 472 226Q472 230 477 250T482 285Q482 316 461 323T364 330H312Q311 328 277 192T243 52Q243 48 254 48T334 46Q428 46 458 48T518 61Q567 77 599 117T670 248Q680 270 683 272Q690 274 698 274Q718 274 718 261Q613 7 608 2Q605 0 322 0H133Q31 0 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H757Q764 676 764 669Q764 664 751 557T737 447Q735 440 717 440H705Q698 445 698 453L701 476Q704 500 704 528Q704 558 697 578T678 609T643 625T596 632T532 634H485Q397 633 392 631Q388 629 386 622Q385 619 355 499T324 377Q347 376 372 376H398Q464 376 489 391T534 472Q538 488 540 490T557 493Q562 493 565 493T570 492T572 491T574 487T577 483L544 351Q511 218 508 216Q505 213 492 213Z"></path></g><g data-mml-node="mo" transform="translate(4315.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(4704.6,0)"><path data-c="1D44C" d="M66 637Q54 637 49 637T39 638T32 641T30 647T33 664T42 682Q44 683 56 683Q104 680 165 680Q288 680 306 683H316Q322 677 322 674T320 656Q316 643 310 637H298Q242 637 242 624Q242 619 292 477T343 333L346 336Q350 340 358 349T379 373T411 410T454 461Q546 568 561 587T577 618Q577 634 545 637Q528 637 528 647Q528 649 530 661Q533 676 535 679T549 683Q551 683 578 682T657 680Q684 680 713 681T746 682Q763 682 763 673Q763 669 760 657T755 643Q753 637 734 637Q662 632 617 587Q608 578 477 424L348 273L322 169Q295 62 295 57Q295 46 363 46Q379 46 384 45T390 35Q390 33 388 23Q384 6 382 4T366 1Q361 1 324 1T232 2Q170 2 138 2T102 1Q84 1 84 9Q84 14 87 24Q88 27 89 30T90 35T91 39T93 42T96 44T101 45T107 45T116 46T129 46Q168 47 180 50T198 63Q201 68 227 171L252 274L129 623Q128 624 127 625T125 627T122 629T118 631T113 633T105 634T96 635T83 636T66 637Z"></path></g><g data-mml-node="mo" transform="translate(5467.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(5856.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(6356.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(6967.8,0)"><path data-c="2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path></g><g data-mml-node="mi" transform="translate(7968,0)"><path data-c="1D44C" d="M66 637Q54 637 49 637T39 638T32 641T30 647T33 664T42 682Q44 683 56 683Q104 680 165 680Q288 680 306 683H316Q322 677 322 674T320 656Q316 643 310 637H298Q242 637 242 624Q242 619 292 477T343 333L346 336Q350 340 358 349T379 373T411 410T454 461Q546 568 561 587T577 618Q577 634 545 637Q528 637 528 647Q528 649 530 661Q533 676 535 679T549 683Q551 683 578 682T657 680Q684 680 713 681T746 682Q763 682 763 673Q763 669 760 657T755 643Q753 637 734 637Q662 632 617 587Q608 578 477 424L348 273L322 169Q295 62 295 57Q295 46 363 46Q379 46 384 45T390 35Q390 33 388 23Q384 6 382 4T366 1Q361 1 324 1T232 2Q170 2 138 2T102 1Q84 1 84 9Q84 14 87 24Q88 27 89 30T90 35T91 39T93 42T96 44T101 45T107 45T116 46T129 46Q168 47 180 50T198 63Q201 68 227 171L252 274L129 623Q128 624 127 625T125 627T122 629T118 631T113 633T105 634T96 635T83 636T66 637Z"></path></g><g data-mml-node="mo" transform="translate(8731,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(9120,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g><g data-mml-node="mo" transform="translate(9620,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(10009,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></li>
+<li><strong>counterfactual inference</strong>: 决类似于“如果这个病人采用其他疗法，血压会降下来吗？”这样的问题的推理。</li>
+</ul>
+<h2 id="研究方向"><a href="#研究方向" class="headerlink" title="研究方向"></a>研究方向</h2><ul>
+<li>因果发现：给定若干个变量，发现/挖掘变量间的因果关系，形成因果有向图</li>
+<li>因果效应：已知变量和变量间的因果关系，求因果关系的效果（原因对结果的影响程度）</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/258562953">chen-wai-wai-7.因果推断综述及基础方法介绍（一）</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/109996301">xue-ruo-7.通俗解释因果推理 casual inference</a></li>
+<li><a href="https://www.math.pku.edu.cn/teachers/yaoy/math112230/lecture10_DingP_causal091101.pdf">丁鹏.因果推断简介.PKU-MATH-00112230.2019</a></li>
+</ol>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'f73c0bc3c19755d1c0d886c0d8791cad24509c9a',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: document.title,
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/LiJT-Daily/2022/04/03/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>2022-04-06-hexo</title>
+    <url>/LiJT-Daily/2022/04/06/2022-04-06-hexo/</url>
+    <content><![CDATA[<p>把个人blog的模板从jekyll更换到hexo了。<br>返璞归真。</p>
+<span id="more"></span>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'f73c0bc3c19755d1c0d886c0d8791cad24509c9a',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: document.title,
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>]]></content>
+  </entry>
+</search>

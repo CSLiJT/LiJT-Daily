@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/LiJT-Daily/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/LiJT-Daily/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/LiJT-Daily/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/LiJT-Daily/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/LiJT-Daily/css/main.css">
+
+
+<link rel="stylesheet" href="/LiJT-Daily/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"cslijt.github.io","root":"/LiJT-Daily/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="CrossEntropyLoss, NLLLoss 和 BCELoss 本质上都是基于交叉熵(cross entropy)的分类器的损失函数。但是三个函数的输入格式、计算方法和性能（收敛速度）有很大差别。本文记录笔者对此三者的学习笔记和理解。{:.info}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PyTorch: CrossEntropyLoss vs. NLLLoss vs. BCELoss">
+<meta property="og:url" content="https://cslijt.github.io/LiJT-Daily/2021/10/07/2021-10-07-pytorch/index.html">
+<meta property="og:site_name" content="LiJT的灵质空间">
+<meta property="og:description" content="CrossEntropyLoss, NLLLoss 和 BCELoss 本质上都是基于交叉熵(cross entropy)的分类器的损失函数。但是三个函数的输入格式、计算方法和性能（收敛速度）有很大差别。本文记录笔者对此三者的学习笔记和理解。{:.info}">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-06T09:44:15.444Z">
+<meta property="article:author" content="LiJT">
+<meta property="article:tag" content="pytorch">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="coding">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://cslijt.github.io/LiJT-Daily/2021/10/07/2021-10-07-pytorch/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>PyTorch: CrossEntropyLoss vs. NLLLoss vs. BCELoss | LiJT的灵质空间</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/LiJT-Daily/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">LiJT的灵质空间</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/LiJT-Daily/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/LiJT-Daily/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/LiJT-Daily/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/LiJT-Daily/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/LiJT-Daily/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslijt.github.io/LiJT-Daily/2021/10/07/2021-10-07-pytorch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/LiJT-Daily/images/avatar.jpg">
+      <meta itemprop="name" content="LiJT">
+      <meta itemprop="description" content="LiJT的灵质空间">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LiJT的灵质空间">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PyTorch: CrossEntropyLoss vs. NLLLoss vs. BCELoss
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-10-07 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-07T00:00:00+08:00">2021-10-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-06 17:44:15" itemprop="dateModified" datetime="2022-04-06T17:44:15+08:00">2022-04-06</time>
+              </span>
+
+          
+            <span id="/LiJT-Daily/2021/10/07/2021-10-07-pytorch/" class="post-meta-item leancloud_visitors" data-flag-title="PyTorch: CrossEntropyLoss vs. NLLLoss vs. BCELoss" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>CrossEntropyLoss, NLLLoss 和 BCELoss 本质上都是基于交叉熵(cross entropy)的分类器的损失函数。但是三个函数的输入格式、计算方法和性能（收敛速度）有很大差别。本文记录笔者对此三者的学习笔记和理解。<br>{:.info}</p>
+<span id="more"></span>
+<h2 id="交叉熵-Cross-Entropy"><a href="#交叉熵-Cross-Entropy" class="headerlink" title="交叉熵(Cross Entropy)"></a>交叉熵(Cross Entropy)</h2><p>交叉熵(Cross Entropy)是Shannon信息论中一个重要概念，主要用于度量两个概率分布间的差异性信息。或曰，概率分布 $p$ 和概率分布 $q$ 的相似程度。如果 $p$ 和 $q$ 越相似，那么越能用 $p$ 近似表示 $q$ 或用 $q$ 近似表示 $p$ 。定义交叉熵为：</p>
+<script type="math/tex; mode=display">
+H(p,q) = \sum_x p(x)\log \left(\frac{1}{q(x)}\right)</script><p>注意交叉熵不满足对称性。</p>
+<h2 id="nn-CrossEntropyLoss"><a href="#nn-CrossEntropyLoss" class="headerlink" title="nn.CrossEntropyLoss"></a>nn.CrossEntropyLoss</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.CrossEntropyLoss(weight=<span class="literal">None</span>, size_average=<span class="literal">None</span>, ignore_index=-<span class="number">100</span>, reduce=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="计算方法"><a href="#计算方法" class="headerlink" title="计算方法"></a>计算方法</h3><p>根据<a target="_blank" rel="noopener" href="https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html">pytorch官方文档</a>，CrossEntropyLoss的输入值为”unnormalized scores for each class”，即未限制在(0,1)上的各个类别的得分。其表达式为</p>
+<script type="math/tex; mode=display">
+loss(x,class) = -\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])} \right)</script><p>其中 $x$ 为一个样本，$class$ 为一个类别, $x[j]\in(-\infty,\infty)$ 为分类器给样本 $x$ 在类别 $j$ 上赋予的得分，或当weight不为空时，</p>
+<script type="math/tex; mode=display">
+loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])} \right)</script><p>其中 $weight[class]$ 为类别 $class$ 的权重。其值越大，总损失中 $class$ 类所占有的损失项的比重越大。</p>
+<p>最终，总损失为每个样本$x$上的损失的加权平均，即</p>
+<script type="math/tex; mode=display">
+\mathcal{L}(X,class) = \frac{\sum_{x\in X}loss(x,class[x])}{\sum_{x\in X}weight[class[x]]}</script><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>是否支持多类别分类：支持</li>
+<li>输入得分值域：$(-\infty,\infty)$</li>
+<li>神经网络输出层是否需要激活/归一化: 不用</li>
+</ul>
+<h2 id="nn-NLLLoss"><a href="#nn-NLLLoss" class="headerlink" title="nn.NLLLoss"></a>nn.NLLLoss</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.NLLLoss(weight=<span class="literal">None</span>, size_average=<span class="literal">None</span>, ignore_index=-<span class="number">100</span>, reduce=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="计算方法-1"><a href="#计算方法-1" class="headerlink" title="计算方法"></a>计算方法</h3><p><code>NLLLoss</code>的用法，实际在<code>CrossEntropyLoss</code>的文档中给出：</p>
+<p>This criterion combines <strong>LogSoftmax</strong> and <strong>NLLLoss</strong> in one single class.<br>{:.success}</p>
+<p>也就是说，<code>CrossEntropyLoss</code>是<code>NLLLoss</code>和<code>LogSoftmax</code>的结合体。为看清这一点，我们回到式(2)。其中 $\log\frac{\exp(\cdot)}{\sum_j \exp(\cdot)}$ 就是LogSoftmax.</p>
+<p>因此，如果<code>CrossEntropyLoss</code>的输入值是 $(x,class)$， 那么 <code>NLLLoss</code> 的输入值就是 $LogSoftmax(x), class$。其中 $LogSoftmax(\cdot)$ 需要对 $x$ 的每个分量计算一次，最终 $dim(LogSoftmax(x)) = dim(x)$。除此之外，<code>NLLLoss</code> 在其他部分的计算过程与 <code>CrossEntropyLoss</code> 完全一致。</p>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>是否支持多类别分类：支持</li>
+<li>输入得分值域：$(-\infty,\infty)$</li>
+<li>神经网络输出层是否需要激活/归一化: 需要，最后一层使用LogSoftmax.也可在神经网络中使用softmax或sigmoid，在计算损失函数时显式加入torch.log计算对数</li>
+</ul>
+<h2 id="nn-BCELoss"><a href="#nn-BCELoss" class="headerlink" title="nn.BCELoss"></a>nn.BCELoss</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.BCELoss(weight=<span class="literal">None</span>, size_average=<span class="literal">None</span>, reduce=<span class="literal">None</span>, reduction=<span class="string">&#x27;mean&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="计算方法-2"><a href="#计算方法-2" class="headerlink" title="计算方法"></a>计算方法</h3><p><code>BCELoss</code>是专门针对二分类问题的交叉熵损失函数。其计算形式更加接近式(1): </p>
+<script type="math/tex; mode=display">
+\mathcal{L}(x_n,y_n) = -w_n\left[y_n\cdot\log x_n + (1-y_n)\cdot\log(1-x_n)\right]</script><h3 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>是否支持多类别分类：不支持。只支持二分类</li>
+<li>输入得分值域：$(0,1)$。常搭配$sigmoid$一起使用</li>
+<li>神经网络输出层是否需要激活/归一化: sigmoid进行归一化处理。</li>
+</ul>
+<p>Tips: 在实际使用时，出现过使用BCELoss时算法不收敛、AUC奇低，但换成NLLLoss后一切都很好用的情况。</p>
+<h2 id="对比表格"><a href="#对比表格" class="headerlink" title="对比表格"></a>对比表格</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">项目\方法</th>
+<th style="text-align:left">CrossEntropyLoss</th>
+<th style="text-align:left">NLLLoss</th>
+<th style="text-align:left">BCELoss</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">支持多分类</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">否</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>y_pred</code>值域</td>
+<td style="text-align:left">$(-\infty,\infty)$</td>
+<td style="text-align:left">$(-\infty,\infty)$</td>
+<td style="text-align:left">$(0,1)$</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>type(y_target)</code></td>
+<td style="text-align:left"><code>torch.LongTensor</code></td>
+<td style="text-align:left"><code>torch.LongTensor</code></td>
+<td style="text-align:left"><code>torch.DoubleTensor</code></td>
+</tr>
+<tr>
+<td style="text-align:left">输出层是否需要归一化</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left"><code>LogSoftmax</code></td>
+<td style="text-align:left"><code>sigmoid</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/LiJT-Daily/tags/pytorch/" rel="tag"># pytorch</a>
+              <a href="/LiJT-Daily/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+              <a href="/LiJT-Daily/tags/coding/" rel="tag"># coding</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/LiJT-Daily/2021/10/01/2021-10-01-whale01/" rel="prev" title="【连载】鲸的语言？（一）">
+      <i class="fa fa-chevron-left"></i> 【连载】鲸的语言？（一）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/LiJT-Daily/2021/10/18/2021-10-18-ablation/" rel="next" title="消融实验(ablation study)">
+      消融实验(ablation study) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%A4%E5%8F%89%E7%86%B5-Cross-Entropy"><span class="nav-number">1.</span> <span class="nav-text">交叉熵(Cross Entropy)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nn-CrossEntropyLoss"><span class="nav-number">2.</span> <span class="nav-text">nn.CrossEntropyLoss</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">计算方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.2.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nn-NLLLoss"><span class="nav-number">3.</span> <span class="nav-text">nn.NLLLoss</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-1"><span class="nav-number">3.1.</span> <span class="nav-text">计算方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-1"><span class="nav-number">3.2.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nn-BCELoss"><span class="nav-number">4.</span> <span class="nav-text">nn.BCELoss</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95-2"><span class="nav-number">4.1.</span> <span class="nav-text">计算方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93-2"><span class="nav-number">4.2.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E8%A1%A8%E6%A0%BC"><span class="nav-number">5.</span> <span class="nav-text">对比表格</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LiJT"
+      src="/LiJT-Daily/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">LiJT</p>
+  <div class="site-description" itemprop="description">LiJT的灵质空间</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/LiJT-Daily/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/LiJT-Daily/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/LiJT-Daily/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiJT</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">21k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">19 分钟</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"0M5QVskfHznsnKEorguvX4Mw-gzGzoHsz","app_key":"itcxMP5f9TIHVoeItjA7Kqob","server_url":"https://0m5qvskf.lc-cn-n1-shared.com","security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/LiJT-Daily/lib/anime.min.js"></script>
+  <script src="/LiJT-Daily/lib/velocity/velocity.min.js"></script>
+  <script src="/LiJT-Daily/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/LiJT-Daily/js/utils.js"></script>
+
+<script src="/LiJT-Daily/js/motion.js"></script>
+
+
+<script src="/LiJT-Daily/js/schemes/pisces.js"></script>
+
+
+<script src="/LiJT-Daily/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/LiJT-Daily/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+  
+
+  
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+  
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+  
+
+</body>
+</html>
