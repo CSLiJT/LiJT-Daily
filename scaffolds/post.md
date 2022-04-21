@@ -18,7 +18,7 @@ codeblock:
     <script>
         var gitalk = new Gitalk({
             clientID: 'e1bbf465a324641f76ce',
-            clientSecret: 'f73c0bc3c19755d1c0d886c0d8791cad24509c9a',
+            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
             repo: 'LiJT-Daily-Comments',
             owner: 'CSLiJT',
             admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
