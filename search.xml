@@ -41,6 +41,64 @@
       </tags>
   </entry>
   <entry>
+    <title>红烩羊肉</title>
+    <url>/LiJT-Daily/2021/10/01/2021-10-01-stewlamb/</url>
+    <content><![CDATA[<p>祝祖国母亲生日快乐！祝大家节日安康！</p>
+<p>今天在思考番茄酱和番茄沙司的用法，忽然灵光一闪——红烩羊肉，let’s do this!<br><span id="more"></span></p>
+<h2 id="原料"><a href="#原料" class="headerlink" title="原料"></a>原料</h2><ul>
+<li>羊肋排（手动去骨，切二指粗）一小盆</li>
+<li>番茄沙司</li>
+<li>番茄2枚</li>
+<li>红烧酱油/冰糖</li>
+<li>大葱、葱、姜、蒜、料酒</li>
+<li>盐、胡椒粉</li>
+</ul>
+<h2 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h2><h3 id="焯水"><a href="#焯水" class="headerlink" title="焯水"></a>焯水</h3><ul>
+<li>羊肋排去骨切块洗净，冷水下锅，一并放入葱、姜、一勺料酒。大火煮开，转小火滚五分钟。期间打去血沫。捞起，温水洗净羊肉，去葱姜。</li>
+</ul>
+<h3 id="煎制、熬酱"><a href="#煎制、熬酱" class="headerlink" title="煎制、熬酱"></a>煎制、熬酱</h3><ul>
+<li>番茄洗净切块备用，葱姜蒜洗净切片备用</li>
+<li>热锅凉油，下葱姜蒜小火慢炸直至蒜微黄，下羊排煎制，至表面金黄色，下番茄全部、番茄酱若干。继续小火翻炒，至番茄大量出水，加入开水，没过食材</li>
+</ul>
+<h3 id="红烩"><a href="#红烩" class="headerlink" title="红烩"></a>红烩</h3><ul>
+<li>加入少许红烧酱油调色，或炒糖色。转大火烧开五分钟给羊肉上色</li>
+<li>转小火慢炖10分钟</li>
+<li>调味，加入盐、胡椒粉。继续炖20分钟，让羊肉入味</li>
+<li>至临出锅前15分钟，下入洋葱或粉丝等辅料，继续小火</li>
+<li>大火收汁至汤汁挂线</li>
+<li>出锅，礼成</li>
+</ul>
+<h2 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h2><ul>
+<li>羊味十足而不腥膻，大抵是由于羊油去的干净、焯水焯得彻底</li>
+<li>番茄的使用十分得当。慢炖40分钟后，番茄已完全化入汤中，汤汁变浓，无需勾芡</li>
+<li>可以加入洋葱，必能提味</li>
+<li>味酸甜又有咸香。注意番茄和番茄酱的用量</li>
+<li>盐可以分几次放，让羊肉充分入味</li>
+<li>好吃！</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>美食</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【连载】鲸的语言？（一）</title>
+    <url>/LiJT-Daily/2021/10/01/2021-10-01-whale01/</url>
+    <content><![CDATA[<p>一块雷雨云逼近了波多黎各的库莱布拉岛（Culebra）南部，威胁着要把小保罗·纳普（Paul Knapp Jr.）和他那艘18英尺充气小艇“小罗盘”号（Little Compass）上的三名乘客淋个透心凉。他船舵上的贴纸上写着： “我会说鲸鱼的语言。”</p>
+<span id="more"></span>
+<p>鲸的语言？</p>
+<p>保罗纳普开始吟唱起不知名的咏叹调，在即将掀起的狂风暴雨中，咏叹调连1米外的乘客都听不见。</p>
+<p>狂风将他刚写好的纸张带入海里，很快不见踪影。</p>
+<p>他拿起挂在脖子上的喇叭，屹立在充气小艇的前端，继续开始他的人类音频咏叹调。</p>
+<p>这是鲸的语言吗？</p>
+<p>乘客A用他深蓝色的眼眸死死的盯着保罗纳普，有关海洋生物交流频率的研究在他脑海中不停穿插。</p>
+<p>海水一层层一层的荡漾过来，随时可以将气垫船掀翻。</p>
+]]></content>
+      <tags>
+        <tag>小说</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PyTorch: CrossEntropyLoss vs. NLLLoss vs. BCELoss</title>
     <url>/LiJT-Daily/2021/10/07/2021-10-07-pytorch/</url>
     <content><![CDATA[<p>CrossEntropyLoss, NLLLoss 和 BCELoss 本质上都是基于交叉熵(cross entropy)的分类器的损失函数。但是三个函数的输入格式、计算方法和性能（收敛速度）有很大差别。本文记录笔者对此三者的学习笔记和理解。<br>{:.info}</p>
@@ -123,100 +181,6 @@ loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}
         <tag>pytorch</tag>
         <tag>深度学习</tag>
         <tag>coding</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>红烩羊肉</title>
-    <url>/LiJT-Daily/2021/10/01/2021-10-01-stewlamb/</url>
-    <content><![CDATA[<p>祝祖国母亲生日快乐！祝大家节日安康！</p>
-<p>今天在思考番茄酱和番茄沙司的用法，忽然灵光一闪——红烩羊肉，let’s do this!<br><span id="more"></span></p>
-<h2 id="原料"><a href="#原料" class="headerlink" title="原料"></a>原料</h2><ul>
-<li>羊肋排（手动去骨，切二指粗）一小盆</li>
-<li>番茄沙司</li>
-<li>番茄2枚</li>
-<li>红烧酱油/冰糖</li>
-<li>大葱、葱、姜、蒜、料酒</li>
-<li>盐、胡椒粉</li>
-</ul>
-<h2 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h2><h3 id="焯水"><a href="#焯水" class="headerlink" title="焯水"></a>焯水</h3><ul>
-<li>羊肋排去骨切块洗净，冷水下锅，一并放入葱、姜、一勺料酒。大火煮开，转小火滚五分钟。期间打去血沫。捞起，温水洗净羊肉，去葱姜。</li>
-</ul>
-<h3 id="煎制、熬酱"><a href="#煎制、熬酱" class="headerlink" title="煎制、熬酱"></a>煎制、熬酱</h3><ul>
-<li>番茄洗净切块备用，葱姜蒜洗净切片备用</li>
-<li>热锅凉油，下葱姜蒜小火慢炸直至蒜微黄，下羊排煎制，至表面金黄色，下番茄全部、番茄酱若干。继续小火翻炒，至番茄大量出水，加入开水，没过食材</li>
-</ul>
-<h3 id="红烩"><a href="#红烩" class="headerlink" title="红烩"></a>红烩</h3><ul>
-<li>加入少许红烧酱油调色，或炒糖色。转大火烧开五分钟给羊肉上色</li>
-<li>转小火慢炖10分钟</li>
-<li>调味，加入盐、胡椒粉。继续炖20分钟，让羊肉入味</li>
-<li>至临出锅前15分钟，下入洋葱或粉丝等辅料，继续小火</li>
-<li>大火收汁至汤汁挂线</li>
-<li>出锅，礼成</li>
-</ul>
-<h2 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h2><ul>
-<li>羊味十足而不腥膻，大抵是由于羊油去的干净、焯水焯得彻底</li>
-<li>番茄的使用十分得当。慢炖40分钟后，番茄已完全化入汤中，汤汁变浓，无需勾芡</li>
-<li>可以加入洋葱，必能提味</li>
-<li>味酸甜又有咸香。注意番茄和番茄酱的用量</li>
-<li>盐可以分几次放，让羊肉充分入味</li>
-<li>好吃！</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>美食</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【连载】鲸的语言？（一）</title>
-    <url>/LiJT-Daily/2021/10/01/2021-10-01-whale01/</url>
-    <content><![CDATA[<p>一块雷雨云逼近了波多黎各的库莱布拉岛（Culebra）南部，威胁着要把小保罗·纳普（Paul Knapp Jr.）和他那艘18英尺充气小艇“小罗盘”号（Little Compass）上的三名乘客淋个透心凉。他船舵上的贴纸上写着： “我会说鲸鱼的语言。”</p>
-<span id="more"></span>
-<p>鲸的语言？</p>
-<p>保罗纳普开始吟唱起不知名的咏叹调，在即将掀起的狂风暴雨中，咏叹调连1米外的乘客都听不见。</p>
-<p>狂风将他刚写好的纸张带入海里，很快不见踪影。</p>
-<p>他拿起挂在脖子上的喇叭，屹立在充气小艇的前端，继续开始他的人类音频咏叹调。</p>
-<p>这是鲸的语言吗？</p>
-<p>乘客A用他深蓝色的眼眸死死的盯着保罗纳普，有关海洋生物交流频率的研究在他脑海中不停穿插。</p>
-<p>海水一层层一层的荡漾过来，随时可以将气垫船掀翻。</p>
-]]></content>
-      <tags>
-        <tag>小说</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python踩坑记录&amp;小技巧(持续更新)</title>
-    <url>/LiJT-Daily/2021/10/25/2021-10-25-python/</url>
-    <content><![CDATA[<p>本篇主要介绍一些使用的python技巧和第三方库，包括某些方法(method)的骚操作</p>
-<span id="more"></span>
-<h2 id="Matplotlib-绘图库"><a href="#Matplotlib-绘图库" class="headerlink" title="Matplotlib-绘图库"></a>Matplotlib-绘图库</h2><h3 id="保存图片内容溢出的问题"><a href="#保存图片内容溢出的问题" class="headerlink" title="保存图片内容溢出的问题"></a>保存图片内容溢出的问题</h3><ul>
-<li>有些图片，如果label太长，可能会出现保存区域小于原图片大小，导致部分内容在保存文件中缺失的问题。在此情况下，使用 <code>bbox_inches = &#39;tight&#39;</code> 选项：</li>
-</ul>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 原保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修正后保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>, bbox_inches = <span class="string">&#x27;tight&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="Numpy-矩阵运算库"><a href="#Numpy-矩阵运算库" class="headerlink" title="Numpy-矩阵运算库"></a>Numpy-矩阵运算库</h2><h3 id="np-unique-可以同时获取unique-key和频数"><a href="#np-unique-可以同时获取unique-key和频数" class="headerlink" title="np.unique 可以同时获取unique key和频数"></a>np.unique 可以同时获取unique key和频数</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">outcome_s, frequency_s=np.unique(samples,return_counts=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="np-intersect1d-可以获取两个一维数组的交集"><a href="#np-intersect1d-可以获取两个一维数组的交集" class="headerlink" title="np.intersect1d 可以获取两个一维数组的交集"></a>np.intersect1d 可以获取两个一维数组的交集</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A=np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">B=np.array([<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">7</span>])</span><br><span class="line">C=np.intersect1d(A,B) <span class="comment"># C=[3,4]</span></span><br></pre></td></tr></table></figure>
-<!--more-->
-<h2 id="PyTorch-深度学习库"><a href="#PyTorch-深度学习库" class="headerlink" title="PyTorch-深度学习库"></a>PyTorch-深度学习库</h2><ul>
-<li>重要的事情说三遍：<ul>
-<li>不要将维数设为0！</li>
-<li>不要将维数设为0！</li>
-<li>不要将维度设为0！</li>
-</ul>
-</li>
-</ul>
-<p>在深度学习的消融实验中，常常需要去掉某个模块来验证其有效性。不要简单地将位数设为0！维度最少要为1.这是因为在某些版本的torch中，如果模型参数是 (N,0) 维的，那么使用torch.save()时会保存N个相应的参数值；但在torch.load()阶段，模型期望接收参数数量为0，所以模型load不进去！<br>{:.error}</p>
-<ul>
-<li>指定load模型的目标设备</li>
-</ul>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">torch.load(map_location=device)</span><br></pre></td></tr></table></figure>
-<h2 id="tqdm-进度条"><a href="#tqdm-进度条" class="headerlink" title="tqdm-进度条"></a>tqdm-进度条</h2><ul>
-<li>tqdm 可以枚举迭代操作，同时显示进度条——再也不用每隔多少步输出一次结果了！</li>
-<li>以下为ipython演示结果</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">22</span>]: <span class="keyword">import</span> tqdm</span><br><span class="line">    ...: li = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">999999</span>)]</span><br><span class="line">    ...: mn = <span class="number">99999999</span></span><br><span class="line">    ...: <span class="keyword">for</span> elem <span class="keyword">in</span> tqdm.tqdm(li,<span class="string">&#x27;progress:&#x27;</span>):</span><br><span class="line">    ...:   mn = <span class="built_in">min</span>(mn,elem)</span><br><span class="line">    ...:</span><br><span class="line">progress:: <span class="number">100</span>%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| <span class="number">999999</span>/<span class="number">999999</span> [<span class="number">00</span>:<span class="number">00</span>&lt;<span class="number">00</span>:<span class="number">00</span>, <span class="number">2086298.02</span>it/s]</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>coding</tag>
-        <tag>持续更新</tag>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -352,6 +316,42 @@ loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}
       <tags>
         <tag>coding</tag>
         <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python踩坑记录&amp;小技巧(持续更新)</title>
+    <url>/LiJT-Daily/2021/10/25/2021-10-25-python/</url>
+    <content><![CDATA[<p>本篇主要介绍一些使用的python技巧和第三方库，包括某些方法(method)的骚操作</p>
+<span id="more"></span>
+<h2 id="Matplotlib-绘图库"><a href="#Matplotlib-绘图库" class="headerlink" title="Matplotlib-绘图库"></a>Matplotlib-绘图库</h2><h3 id="保存图片内容溢出的问题"><a href="#保存图片内容溢出的问题" class="headerlink" title="保存图片内容溢出的问题"></a>保存图片内容溢出的问题</h3><ul>
+<li>有些图片，如果label太长，可能会出现保存区域小于原图片大小，导致部分内容在保存文件中缺失的问题。在此情况下，使用 <code>bbox_inches = &#39;tight&#39;</code> 选项：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 原保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修正后保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>, bbox_inches = <span class="string">&#x27;tight&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Numpy-矩阵运算库"><a href="#Numpy-矩阵运算库" class="headerlink" title="Numpy-矩阵运算库"></a>Numpy-矩阵运算库</h2><h3 id="np-unique-可以同时获取unique-key和频数"><a href="#np-unique-可以同时获取unique-key和频数" class="headerlink" title="np.unique 可以同时获取unique key和频数"></a>np.unique 可以同时获取unique key和频数</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">outcome_s, frequency_s=np.unique(samples,return_counts=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="np-intersect1d-可以获取两个一维数组的交集"><a href="#np-intersect1d-可以获取两个一维数组的交集" class="headerlink" title="np.intersect1d 可以获取两个一维数组的交集"></a>np.intersect1d 可以获取两个一维数组的交集</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A=np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">B=np.array([<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">7</span>])</span><br><span class="line">C=np.intersect1d(A,B) <span class="comment"># C=[3,4]</span></span><br></pre></td></tr></table></figure>
+<!--more-->
+<h2 id="PyTorch-深度学习库"><a href="#PyTorch-深度学习库" class="headerlink" title="PyTorch-深度学习库"></a>PyTorch-深度学习库</h2><ul>
+<li>重要的事情说三遍：<ul>
+<li>不要将维数设为0！</li>
+<li>不要将维数设为0！</li>
+<li>不要将维度设为0！</li>
+</ul>
+</li>
+</ul>
+<p>在深度学习的消融实验中，常常需要去掉某个模块来验证其有效性。不要简单地将位数设为0！维度最少要为1.这是因为在某些版本的torch中，如果模型参数是 (N,0) 维的，那么使用torch.save()时会保存N个相应的参数值；但在torch.load()阶段，模型期望接收参数数量为0，所以模型load不进去！<br>{:.error}</p>
+<ul>
+<li>指定load模型的目标设备</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">torch.load(map_location=device)</span><br></pre></td></tr></table></figure>
+<h2 id="tqdm-进度条"><a href="#tqdm-进度条" class="headerlink" title="tqdm-进度条"></a>tqdm-进度条</h2><ul>
+<li>tqdm 可以枚举迭代操作，同时显示进度条——再也不用每隔多少步输出一次结果了！</li>
+<li>以下为ipython演示结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">22</span>]: <span class="keyword">import</span> tqdm</span><br><span class="line">    ...: li = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">999999</span>)]</span><br><span class="line">    ...: mn = <span class="number">99999999</span></span><br><span class="line">    ...: <span class="keyword">for</span> elem <span class="keyword">in</span> tqdm.tqdm(li,<span class="string">&#x27;progress:&#x27;</span>):</span><br><span class="line">    ...:   mn = <span class="built_in">min</span>(mn,elem)</span><br><span class="line">    ...:</span><br><span class="line">progress:: <span class="number">100</span>%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| <span class="number">999999</span>/<span class="number">999999</span> [<span class="number">00</span>:<span class="number">00</span>&lt;<span class="number">00</span>:<span class="number">00</span>, <span class="number">2086298.02</span>it/s]</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>coding</tag>
+        <tag>持续更新</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -507,39 +507,6 @@ f_A(x)=\left\{
       </tags>
   </entry>
   <entry>
-    <title>最近的学习计划</title>
-    <url>/LiJT-Daily/2022/04/01/2022-04-01-plan/</url>
-    <content><![CDATA[<p>记录一些出于兴趣或出于工程需要，最近计划系统学习的一些知识。</p>
-<p>相当于立一个flag.<br><span id="more"></span></p>
-<h2 id="CS"><a href="#CS" class="headerlink" title="CS"></a>CS</h2><ul>
-<li>git<ul>
-<li>不要问一个学了四年CS(1年CS+3年DS)的人为什么要学git. 在此之前，git只是作为我管理代码的工具。仅仅到达“知其然”，而非知其“所以然”的程度。很多功能先搜先用、现学现卖，却不知其原理，不知其变化的用法。因此打算系统学习一下git，彻底（七七八八）掌握其各种功能的原理和用法。</li>
-</ul>
-</li>
-<li>编译原理<ul>
-<li>3年DS跳过了编译原理这门课，实在是大不幸。考虑到最近code intelligence大火，以及自己可能整活的需要，计划学习编译原理。这一科目的学习以实践先行，理论后补的方法，免得满嘴跑火车却连语法树（听说的）都不会写。</li>
-</ul>
-</li>
-<li>GAN<ul>
-<li>GAN就是干！</li>
-</ul>
-</li>
-</ul>
-<h2 id="Stats"><a href="#Stats" class="headerlink" title="Stats"></a>Stats</h2><ul>
-<li>各种参数优化方法<ul>
-<li>当初机器学习没学好，统计学里的参数优化方法不明所以。极大似然估计、贝叶斯推断、MCMC、MCMC里的Metropolis、Gibbs… 都需要补足</li>
-<li>亲身体会：优化方法如果只看原理而没有具体案例，则原理很难理解透彻。需要结合具体的模型进行学习</li>
-<li>最费解的还是EM算法….</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>科研</tag>
-        <tag>学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>读Paper的一些感想记录</title>
     <url>/LiJT-Daily/2022/02/22/2022-02-22-paper/</url>
     <content><![CDATA[<p>最近一直在读paper。结合之前与老师、前辈、朋友讨论的经历，在此总结读paper的一些感想记录。这既是我自己的反思与总结，也可以为大家提供一些经验参考。</p>
@@ -576,6 +543,39 @@ f_A(x)=\left\{
 ]]></content>
       <tags>
         <tag>科研</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>最近的学习计划</title>
+    <url>/LiJT-Daily/2022/04/01/2022-04-01-plan/</url>
+    <content><![CDATA[<p>记录一些出于兴趣或出于工程需要，最近计划系统学习的一些知识。</p>
+<p>相当于立一个flag.<br><span id="more"></span></p>
+<h2 id="CS"><a href="#CS" class="headerlink" title="CS"></a>CS</h2><ul>
+<li>git<ul>
+<li>不要问一个学了四年CS(1年CS+3年DS)的人为什么要学git. 在此之前，git只是作为我管理代码的工具。仅仅到达“知其然”，而非知其“所以然”的程度。很多功能先搜先用、现学现卖，却不知其原理，不知其变化的用法。因此打算系统学习一下git，彻底（七七八八）掌握其各种功能的原理和用法。</li>
+</ul>
+</li>
+<li>编译原理<ul>
+<li>3年DS跳过了编译原理这门课，实在是大不幸。考虑到最近code intelligence大火，以及自己可能整活的需要，计划学习编译原理。这一科目的学习以实践先行，理论后补的方法，免得满嘴跑火车却连语法树（听说的）都不会写。</li>
+</ul>
+</li>
+<li>GAN<ul>
+<li>GAN就是干！</li>
+</ul>
+</li>
+</ul>
+<h2 id="Stats"><a href="#Stats" class="headerlink" title="Stats"></a>Stats</h2><ul>
+<li>各种参数优化方法<ul>
+<li>当初机器学习没学好，统计学里的参数优化方法不明所以。极大似然估计、贝叶斯推断、MCMC、MCMC里的Metropolis、Gibbs… 都需要补足</li>
+<li>亲身体会：优化方法如果只看原理而没有具体案例，则原理很难理解透彻。需要结合具体的模型进行学习</li>
+<li>最费解的还是EM算法….</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>科研</tag>
+        <tag>学习</tag>
       </tags>
   </entry>
   <entry>
@@ -749,7 +749,7 @@ f_A(x)=\left\{
     <script>
         var gitalk = new Gitalk({
             clientID: 'e1bbf465a324641f76ce',
-            clientSecret: 'f73c0bc3c19755d1c0d886c0d8791cad24509c9a',
+            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
             repo: 'LiJT-Daily-Comments',
             owner: 'CSLiJT',
             admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
@@ -766,21 +766,6 @@ f_A(x)=\left\{
         <tag>git</tag>
         <tag>github</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/LiJT-Daily/2022/04/03/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>观《楚汉传奇》有感</title>
@@ -807,7 +792,7 @@ f_A(x)=\left\{
     <script>
         var gitalk = new Gitalk({
             clientID: 'e1bbf465a324641f76ce',
-            clientSecret: 'f73c0bc3c19755d1c0d886c0d8791cad24509c9a',
+            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
             repo: 'LiJT-Daily-Comments',
             owner: 'CSLiJT',
             admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
@@ -817,5 +802,20 @@ f_A(x)=\left\{
         gitalk.render('gitalk-container');
     </script>
 </section>]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/LiJT-Daily/2022/04/03/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
 </search>
