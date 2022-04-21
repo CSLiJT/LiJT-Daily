@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>美食的记录</title>
-    <url>/LiJT-Daily/2021/09/29/2021-09-29-food/</url>
-    <content><![CDATA[<h2 id="煲王"><a href="#煲王" class="headerlink" title="煲王"></a>煲王</h2><ul>
-<li>猪脚煲的味道很棒，想起了以前吃过的发财猪手。骨髓浓香四溢，但考虑到健康，未敢多吃。</li>
-<li>咖喱牛腩的味道很正，有澳门风味。猪肚鸡的汤底调味很好，可惜猪肚太少，仅三两片，怎能够吃？</li>
-<li>煲仔饭和卤水拼盘味道不错。卤水拼盘改良过，热吃，色浓，摆盘也更加粗犷。更喜欢吃潮汕的蘸白醋的卤水狮头鹅！</li>
-<li>茄子煲调味很好，但火候不够，茄子不入味。叉烧包实属鸡肋！过量的面和少量的肉馅… 但是可以把面撕下来，包猪手吃，极美。</li>
-</ul>
-<span id="more"></span>
-<h2 id="卜一帆"><a href="#卜一帆" class="headerlink" title="卜一帆"></a>卜一帆</h2><ul>
-<li>京葱鸡肉串极鲜美。咸鲜、多汁、皮微焦的鸡肉，焦黄、冲香的葱，实在是相得益彰。</li>
-<li>烤五花味道浓香，脆骨爽口，但肉略微有些干，或许是没有刷油。</li>
-<li>青花鱼，熟悉的味道。不加任何调料烤制，挤上几滴柠檬汁，鲜美而浓郁。配上一碗米饭和沙拉就是完美的午餐。</li>
-<li>寿喜锅，久闻大名却第一次吃。日料虽然只有甜酱油、味增、味淋、昆布高汤等几种调味料，但甜酱油和高汤真的很适合火锅。牛肉多汁入味嫩而不烂，吸满汤汁的白菜、金针菇、魔芋丝和豆腐是米饭的绝配。看着咕嘟嘟的小锅和冒出的白雾，如果这是在冬天，想必一定是非常幸福的时刻吧。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>美食</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PyTorch踩坑记录（持续更新）</title>
     <url>/LiJT-Daily/2021/09/27/2021-09-27-pytorch/</url>
     <content><![CDATA[<p>本篇记录使用pytorch过程中踩到的各种坑！<br><span id="more"></span></p>
@@ -41,20 +20,24 @@
       </tags>
   </entry>
   <entry>
-    <title>【连载】鲸的语言？（一）</title>
-    <url>/LiJT-Daily/2021/10/01/2021-10-01-whale01/</url>
-    <content><![CDATA[<p>一块雷雨云逼近了波多黎各的库莱布拉岛（Culebra）南部，威胁着要把小保罗·纳普（Paul Knapp Jr.）和他那艘18英尺充气小艇“小罗盘”号（Little Compass）上的三名乘客淋个透心凉。他船舵上的贴纸上写着： “我会说鲸鱼的语言。”</p>
+    <title>美食的记录</title>
+    <url>/LiJT-Daily/2021/09/29/2021-09-29-food/</url>
+    <content><![CDATA[<h2 id="煲王"><a href="#煲王" class="headerlink" title="煲王"></a>煲王</h2><ul>
+<li>猪脚煲的味道很棒，想起了以前吃过的发财猪手。骨髓浓香四溢，但考虑到健康，未敢多吃。</li>
+<li>咖喱牛腩的味道很正，有澳门风味。猪肚鸡的汤底调味很好，可惜猪肚太少，仅三两片，怎能够吃？</li>
+<li>煲仔饭和卤水拼盘味道不错。卤水拼盘改良过，热吃，色浓，摆盘也更加粗犷。更喜欢吃潮汕的蘸白醋的卤水狮头鹅！</li>
+<li>茄子煲调味很好，但火候不够，茄子不入味。叉烧包实属鸡肋！过量的面和少量的肉馅… 但是可以把面撕下来，包猪手吃，极美。</li>
+</ul>
 <span id="more"></span>
-<p>鲸的语言？</p>
-<p>保罗纳普开始吟唱起不知名的咏叹调，在即将掀起的狂风暴雨中，咏叹调连1米外的乘客都听不见。</p>
-<p>狂风将他刚写好的纸张带入海里，很快不见踪影。</p>
-<p>他拿起挂在脖子上的喇叭，屹立在充气小艇的前端，继续开始他的人类音频咏叹调。</p>
-<p>这是鲸的语言吗？</p>
-<p>乘客A用他深蓝色的眼眸死死的盯着保罗纳普，有关海洋生物交流频率的研究在他脑海中不停穿插。</p>
-<p>海水一层层一层的荡漾过来，随时可以将气垫船掀翻。</p>
+<h2 id="卜一帆"><a href="#卜一帆" class="headerlink" title="卜一帆"></a>卜一帆</h2><ul>
+<li>京葱鸡肉串极鲜美。咸鲜、多汁、皮微焦的鸡肉，焦黄、冲香的葱，实在是相得益彰。</li>
+<li>烤五花味道浓香，脆骨爽口，但肉略微有些干，或许是没有刷油。</li>
+<li>青花鱼，熟悉的味道。不加任何调料烤制，挤上几滴柠檬汁，鲜美而浓郁。配上一碗米饭和沙拉就是完美的午餐。</li>
+<li>寿喜锅，久闻大名却第一次吃。日料虽然只有甜酱油、味增、味淋、昆布高汤等几种调味料，但甜酱油和高汤真的很适合火锅。牛肉多汁入味嫩而不烂，吸满汤汁的白菜、金针菇、魔芋丝和豆腐是米饭的绝配。看着咕嘟嘟的小锅和冒出的白雾，如果这是在冬天，想必一定是非常幸福的时刻吧。</li>
+</ul>
 ]]></content>
       <tags>
-        <tag>小说</tag>
+        <tag>美食</tag>
       </tags>
   </entry>
   <entry>
@@ -99,6 +82,23 @@
       </tags>
   </entry>
   <entry>
+    <title>【连载】鲸的语言？（一）</title>
+    <url>/LiJT-Daily/2021/10/01/2021-10-01-whale01/</url>
+    <content><![CDATA[<p>一块雷雨云逼近了波多黎各的库莱布拉岛（Culebra）南部，威胁着要把小保罗·纳普（Paul Knapp Jr.）和他那艘18英尺充气小艇“小罗盘”号（Little Compass）上的三名乘客淋个透心凉。他船舵上的贴纸上写着： “我会说鲸鱼的语言。”</p>
+<span id="more"></span>
+<p>鲸的语言？</p>
+<p>保罗纳普开始吟唱起不知名的咏叹调，在即将掀起的狂风暴雨中，咏叹调连1米外的乘客都听不见。</p>
+<p>狂风将他刚写好的纸张带入海里，很快不见踪影。</p>
+<p>他拿起挂在脖子上的喇叭，屹立在充气小艇的前端，继续开始他的人类音频咏叹调。</p>
+<p>这是鲸的语言吗？</p>
+<p>乘客A用他深蓝色的眼眸死死的盯着保罗纳普，有关海洋生物交流频率的研究在他脑海中不停穿插。</p>
+<p>海水一层层一层的荡漾过来，随时可以将气垫船掀翻。</p>
+]]></content>
+      <tags>
+        <tag>小说</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>消融实验(ablation study)</title>
     <url>/LiJT-Daily/2021/10/18/2021-10-18-ablation/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在深度学习领域论文的实验设计中，经常看到作者提出的模型与“弱化版”模型（少了某些模块、少了参数的限制…等等）的对比，用于说明idea或者某模块的有效性，这便是直观意义上的消融实验。</p>
@@ -120,6 +120,42 @@
       <tags>
         <tag>深度学习</tag>
         <tag>实验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python踩坑记录&amp;小技巧(持续更新)</title>
+    <url>/LiJT-Daily/2021/10/25/2021-10-25-python/</url>
+    <content><![CDATA[<p>本篇主要介绍一些使用的python技巧和第三方库，包括某些方法(method)的骚操作</p>
+<span id="more"></span>
+<h2 id="Matplotlib-绘图库"><a href="#Matplotlib-绘图库" class="headerlink" title="Matplotlib-绘图库"></a>Matplotlib-绘图库</h2><h3 id="保存图片内容溢出的问题"><a href="#保存图片内容溢出的问题" class="headerlink" title="保存图片内容溢出的问题"></a>保存图片内容溢出的问题</h3><ul>
+<li>有些图片，如果label太长，可能会出现保存区域小于原图片大小，导致部分内容在保存文件中缺失的问题。在此情况下，使用 <code>bbox_inches = &#39;tight&#39;</code> 选项：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 原保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修正后保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>, bbox_inches = <span class="string">&#x27;tight&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Numpy-矩阵运算库"><a href="#Numpy-矩阵运算库" class="headerlink" title="Numpy-矩阵运算库"></a>Numpy-矩阵运算库</h2><h3 id="np-unique-可以同时获取unique-key和频数"><a href="#np-unique-可以同时获取unique-key和频数" class="headerlink" title="np.unique 可以同时获取unique key和频数"></a>np.unique 可以同时获取unique key和频数</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">outcome_s, frequency_s=np.unique(samples,return_counts=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="np-intersect1d-可以获取两个一维数组的交集"><a href="#np-intersect1d-可以获取两个一维数组的交集" class="headerlink" title="np.intersect1d 可以获取两个一维数组的交集"></a>np.intersect1d 可以获取两个一维数组的交集</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A=np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">B=np.array([<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">7</span>])</span><br><span class="line">C=np.intersect1d(A,B) <span class="comment"># C=[3,4]</span></span><br></pre></td></tr></table></figure>
+<!--more-->
+<h2 id="PyTorch-深度学习库"><a href="#PyTorch-深度学习库" class="headerlink" title="PyTorch-深度学习库"></a>PyTorch-深度学习库</h2><ul>
+<li>重要的事情说三遍：<ul>
+<li>不要将维数设为0！</li>
+<li>不要将维数设为0！</li>
+<li>不要将维度设为0！</li>
+</ul>
+</li>
+</ul>
+<p>在深度学习的消融实验中，常常需要去掉某个模块来验证其有效性。不要简单地将位数设为0！维度最少要为1.这是因为在某些版本的torch中，如果模型参数是 (N,0) 维的，那么使用torch.save()时会保存N个相应的参数值；但在torch.load()阶段，模型期望接收参数数量为0，所以模型load不进去！<br>{:.error}</p>
+<ul>
+<li>指定load模型的目标设备</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">torch.load(map_location=device)</span><br></pre></td></tr></table></figure>
+<h2 id="tqdm-进度条"><a href="#tqdm-进度条" class="headerlink" title="tqdm-进度条"></a>tqdm-进度条</h2><ul>
+<li>tqdm 可以枚举迭代操作，同时显示进度条——再也不用每隔多少步输出一次结果了！</li>
+<li>以下为ipython演示结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">22</span>]: <span class="keyword">import</span> tqdm</span><br><span class="line">    ...: li = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">999999</span>)]</span><br><span class="line">    ...: mn = <span class="number">99999999</span></span><br><span class="line">    ...: <span class="keyword">for</span> elem <span class="keyword">in</span> tqdm.tqdm(li,<span class="string">&#x27;progress:&#x27;</span>):</span><br><span class="line">    ...:   mn = <span class="built_in">min</span>(mn,elem)</span><br><span class="line">    ...:</span><br><span class="line">progress:: <span class="number">100</span>%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| <span class="number">999999</span>/<span class="number">999999</span> [<span class="number">00</span>:<span class="number">00</span>&lt;<span class="number">00</span>:<span class="number">00</span>, <span class="number">2086298.02</span>it/s]</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>coding</tag>
+        <tag>持续更新</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -208,39 +244,64 @@ loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}
       </tags>
   </entry>
   <entry>
-    <title>Python踩坑记录&amp;小技巧(持续更新)</title>
-    <url>/LiJT-Daily/2021/10/25/2021-10-25-python/</url>
-    <content><![CDATA[<p>本篇主要介绍一些使用的python技巧和第三方库，包括某些方法(method)的骚操作</p>
+    <title>一些杂谈.1</title>
+    <url>/LiJT-Daily/2021/11/23/2021-11-23-delicacy/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">不被时间和社会所束缚</span><br><span class="line">幸福地填饱肚子的时候</span><br><span class="line">那一瞬间 他已变得唯我独尊</span><br><span class="line">自由自在</span><br><span class="line">无需介怀地大快朵颐 这种孤高的行为</span><br><span class="line">正可谓是现代人被平等赋予的</span><br><span class="line">最高治愈</span><br><span class="line">——孤独的美食家</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-<h2 id="Matplotlib-绘图库"><a href="#Matplotlib-绘图库" class="headerlink" title="Matplotlib-绘图库"></a>Matplotlib-绘图库</h2><h3 id="保存图片内容溢出的问题"><a href="#保存图片内容溢出的问题" class="headerlink" title="保存图片内容溢出的问题"></a>保存图片内容溢出的问题</h3><ul>
-<li>有些图片，如果label太长，可能会出现保存区域小于原图片大小，导致部分内容在保存文件中缺失的问题。在此情况下，使用 <code>bbox_inches = &#39;tight&#39;</code> 选项：</li>
-</ul>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 原保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修正后保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>, bbox_inches = <span class="string">&#x27;tight&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="Numpy-矩阵运算库"><a href="#Numpy-矩阵运算库" class="headerlink" title="Numpy-矩阵运算库"></a>Numpy-矩阵运算库</h2><h3 id="np-unique-可以同时获取unique-key和频数"><a href="#np-unique-可以同时获取unique-key和频数" class="headerlink" title="np.unique 可以同时获取unique key和频数"></a>np.unique 可以同时获取unique key和频数</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">outcome_s, frequency_s=np.unique(samples,return_counts=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="np-intersect1d-可以获取两个一维数组的交集"><a href="#np-intersect1d-可以获取两个一维数组的交集" class="headerlink" title="np.intersect1d 可以获取两个一维数组的交集"></a>np.intersect1d 可以获取两个一维数组的交集</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A=np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">B=np.array([<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">7</span>])</span><br><span class="line">C=np.intersect1d(A,B) <span class="comment"># C=[3,4]</span></span><br></pre></td></tr></table></figure>
-<!--more-->
-<h2 id="PyTorch-深度学习库"><a href="#PyTorch-深度学习库" class="headerlink" title="PyTorch-深度学习库"></a>PyTorch-深度学习库</h2><ul>
-<li>重要的事情说三遍：<ul>
-<li>不要将维数设为0！</li>
-<li>不要将维数设为0！</li>
-<li>不要将维度设为0！</li>
-</ul>
-</li>
-</ul>
-<p>在深度学习的消融实验中，常常需要去掉某个模块来验证其有效性。不要简单地将位数设为0！维度最少要为1.这是因为在某些版本的torch中，如果模型参数是 (N,0) 维的，那么使用torch.save()时会保存N个相应的参数值；但在torch.load()阶段，模型期望接收参数数量为0，所以模型load不进去！<br>{:.error}</p>
+<p>最近在看《孤独的美食家》，计划从第一季一口气追到第九季。每天总是夜深人静的时间点亮屏幕，看着酥脆的可乐饼、麻辣鲜香的担担面、热气腾腾的关东煮在眼前呈现。虽然折磨，但实在是欲罢不能。</p>
+<p>真正的美食，不一定要登大雅之堂，不一定要呈现在五星级酒店，不一定非要松茸加身，鱼子酱包裹。美食可以是路边小馆的羊汤，可以是家庭餐厅的石锅拌饭。美食之美，只有自己的舌、胃、心能够体会。</p>
+]]></content>
+      <tags>
+        <tag>美食</tag>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次vscode remote-ssh登录失败的解决方案</title>
+    <url>/LiJT-Daily/2021/11/26/2021-11-26-vscode/</url>
+    <content><![CDATA[<p>我的vscode remote-ssh设置了<a href="https://www.jianshu.com/p/32aa2fa936bb">免密登录</a>，本来昨天上午还能正常登录，但昨晚开始登录失败，怀疑是vscode版本更新后动了某些配置。参考一些资料后，总结了如下的解决方案.<br><span id="more"></span></p>
 <ul>
-<li>指定load模型的目标设备</li>
+<li>环境：本地 win11，服务器 linux</li>
 </ul>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">torch.load(map_location=device)</span><br></pre></td></tr></table></figure>
-<h2 id="tqdm-进度条"><a href="#tqdm-进度条" class="headerlink" title="tqdm-进度条"></a>tqdm-进度条</h2><ul>
-<li>tqdm 可以枚举迭代操作，同时显示进度条——再也不用每隔多少步输出一次结果了！</li>
-<li>以下为ipython演示结果</li>
+<h2 id="步骤1-更改Remote-SSH设置"><a href="#步骤1-更改Remote-SSH设置" class="headerlink" title="步骤1.更改Remote-SSH设置"></a>步骤1.更改Remote-SSH设置</h2><ul>
+<li>一种可能导致登录失败的理由是，更新后的remote-ssh缺失了<code>&quot;remote.SSH.useLocalServer: true&quot;</code>的配置。为此，我们进入remote-ssh的settings.json中查看配置情况：</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">22</span>]: <span class="keyword">import</span> tqdm</span><br><span class="line">    ...: li = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">999999</span>)]</span><br><span class="line">    ...: mn = <span class="number">99999999</span></span><br><span class="line">    ...: <span class="keyword">for</span> elem <span class="keyword">in</span> tqdm.tqdm(li,<span class="string">&#x27;progress:&#x27;</span>):</span><br><span class="line">    ...:   mn = <span class="built_in">min</span>(mn,elem)</span><br><span class="line">    ...:</span><br><span class="line">progress:: <span class="number">100</span>%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| <span class="number">999999</span>/<span class="number">999999</span> [<span class="number">00</span>:<span class="number">00</span>&lt;<span class="number">00</span>:<span class="number">00</span>, <span class="number">2086298.02</span>it/s]</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+<ol>
+<li><p>点击vscode左边栏“扩展”或按<code>Ctrl+Shift+X</code>，找到remote-ssh插件，点击右下角的小齿轮，进入设置页面 </p>
+<p><img src="/LiJT-Daily/images/2021112601.png" alt="1"></p>
+</li>
+<li><p>在设置页面，找到”在settings.json编辑”按钮，点击进入</p>
+<p><img src="/LiJT-Daily/images/2021112602.png" alt="2"></p>
+</li>
+<li><p>在settings.json中，检查是否有<code>&quot;remote.SSH.useLocalServer&quot;</code>选项。如果没有，则在最外层大括号内添加<code>&quot;remote.SSH.useLocalServer&quot;: true</code>；如果有且值为<code>false</code>，则将值修改为<code>true</code>。修改后结果如下所示</p>
+<p><img src="/LiJT-Daily/images/2021112603.png" alt="3"></p>
+</li>
+<li>保存settings.json，重新启动vscode，尝试远程登录。</li>
+</ol>
+<h2 id="步骤2-清空远程-vscode-server文件夹"><a href="#步骤2-清空远程-vscode-server文件夹" class="headerlink" title="步骤2.清空远程~/.vscode-server文件夹"></a>步骤2.清空远程~/.vscode-server文件夹</h2><ul>
+<li>如果步骤1不能解决问题，则可以尝试步骤2.步骤2相比于步骤1，是强制初始化远程vscode环境。</li>
+</ul>
+<ol>
+<li><p><strong>关闭vscode server</strong>。在本地vscode中按<code>Ctrl+Shift+P</code>进入命令面板，输入<code>Kill VS Code Server on Host</code>，选中Remote-SSH中的对应命令，强制关闭对应的vscode server。这一步一定不能省略，否则下一步将无法删除 ~/.vscode-server 文件</p>
+<p><img src="/LiJT-Daily/images/2021112604.png" alt="4"></p>
+</li>
+<li>强制删除~/.vscode-server。vscode 服务器环境统一存储在~/.vscode-server中，其中~表示自己服务器账号的根目录。使用如下命令删除该文件夹：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -rf ~/.vscode-server</span><br></pre></td></tr></table></figure></li>
+<li>重新启动vscode，尝试远程登录。此时服务器会自动下载新的~/.vscode-server文件，待下载完成、配置完成后，即可使用。</li>
+</ol>
+<h2 id="更新-2021-11-27"><a href="#更新-2021-11-27" class="headerlink" title="更新 (2021.11.27)"></a>更新 (2021.11.27)</h2><ul>
+<li>当vscode remote-ssh 未关闭而电脑休眠后再唤醒时，会出现相同的登陆失败的问题。直接采用步骤2，问题解决</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://www.jianshu.com/p/32aa2fa936bb">非root用户配置VS Code Remote-SSH - - windows系统</a></li>
+<li><a href="https://www.cnblogs.com/springwind2006/p/14311454.html">Resolver error: Error: The VS Code Server failed to start 的一种解决方案</a></li>
+<li><a href="https://blog.csdn.net/weilin731/article/details/119778478">vs code远程开发 SSH连接失败</a></li>
+<li><a href="https://blog.csdn.net/myWorld001/article/details/119443079?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link">vscode ssh连接失败</a></li>
+</ul>
+]]></content>
       <tags>
         <tag>coding</tag>
-        <tag>持续更新</tag>
-        <tag>python</tag>
+        <tag>vscode</tag>
+        <tag>ssh</tag>
       </tags>
   </entry>
   <entry>
@@ -355,67 +416,6 @@ loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}
       </tags>
   </entry>
   <entry>
-    <title>一些杂谈.1</title>
-    <url>/LiJT-Daily/2021/11/23/2021-11-23-delicacy/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">不被时间和社会所束缚</span><br><span class="line">幸福地填饱肚子的时候</span><br><span class="line">那一瞬间 他已变得唯我独尊</span><br><span class="line">自由自在</span><br><span class="line">无需介怀地大快朵颐 这种孤高的行为</span><br><span class="line">正可谓是现代人被平等赋予的</span><br><span class="line">最高治愈</span><br><span class="line">——孤独的美食家</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<p>最近在看《孤独的美食家》，计划从第一季一口气追到第九季。每天总是夜深人静的时间点亮屏幕，看着酥脆的可乐饼、麻辣鲜香的担担面、热气腾腾的关东煮在眼前呈现。虽然折磨，但实在是欲罢不能。</p>
-<p>真正的美食，不一定要登大雅之堂，不一定要呈现在五星级酒店，不一定非要松茸加身，鱼子酱包裹。美食可以是路边小馆的羊汤，可以是家庭餐厅的石锅拌饭。美食之美，只有自己的舌、胃、心能够体会。</p>
-]]></content>
-      <tags>
-        <tag>美食</tag>
-        <tag>杂谈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记一次vscode remote-ssh登录失败的解决方案</title>
-    <url>/LiJT-Daily/2021/11/26/2021-11-26-vscode/</url>
-    <content><![CDATA[<p>我的vscode remote-ssh设置了<a href="https://www.jianshu.com/p/32aa2fa936bb">免密登录</a>，本来昨天上午还能正常登录，但昨晚开始登录失败，怀疑是vscode版本更新后动了某些配置。参考一些资料后，总结了如下的解决方案.<br><span id="more"></span></p>
-<ul>
-<li>环境：本地 win11，服务器 linux</li>
-</ul>
-<h2 id="步骤1-更改Remote-SSH设置"><a href="#步骤1-更改Remote-SSH设置" class="headerlink" title="步骤1.更改Remote-SSH设置"></a>步骤1.更改Remote-SSH设置</h2><ul>
-<li>一种可能导致登录失败的理由是，更新后的remote-ssh缺失了<code>&quot;remote.SSH.useLocalServer: true&quot;</code>的配置。为此，我们进入remote-ssh的settings.json中查看配置情况：</li>
-</ul>
-<ol>
-<li><p>点击vscode左边栏“扩展”或按<code>Ctrl+Shift+X</code>，找到remote-ssh插件，点击右下角的小齿轮，进入设置页面 </p>
-<p><img src="/LiJT-Daily/images/2021112601.png" alt="1"></p>
-</li>
-<li><p>在设置页面，找到”在settings.json编辑”按钮，点击进入</p>
-<p><img src="/LiJT-Daily/images/2021112602.png" alt="2"></p>
-</li>
-<li><p>在settings.json中，检查是否有<code>&quot;remote.SSH.useLocalServer&quot;</code>选项。如果没有，则在最外层大括号内添加<code>&quot;remote.SSH.useLocalServer&quot;: true</code>；如果有且值为<code>false</code>，则将值修改为<code>true</code>。修改后结果如下所示</p>
-<p><img src="/LiJT-Daily/images/2021112603.png" alt="3"></p>
-</li>
-<li>保存settings.json，重新启动vscode，尝试远程登录。</li>
-</ol>
-<h2 id="步骤2-清空远程-vscode-server文件夹"><a href="#步骤2-清空远程-vscode-server文件夹" class="headerlink" title="步骤2.清空远程~/.vscode-server文件夹"></a>步骤2.清空远程~/.vscode-server文件夹</h2><ul>
-<li>如果步骤1不能解决问题，则可以尝试步骤2.步骤2相比于步骤1，是强制初始化远程vscode环境。</li>
-</ul>
-<ol>
-<li><p><strong>关闭vscode server</strong>。在本地vscode中按<code>Ctrl+Shift+P</code>进入命令面板，输入<code>Kill VS Code Server on Host</code>，选中Remote-SSH中的对应命令，强制关闭对应的vscode server。这一步一定不能省略，否则下一步将无法删除 ~/.vscode-server 文件</p>
-<p><img src="/LiJT-Daily/images/2021112604.png" alt="4"></p>
-</li>
-<li>强制删除~/.vscode-server。vscode 服务器环境统一存储在~/.vscode-server中，其中~表示自己服务器账号的根目录。使用如下命令删除该文件夹：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -rf ~/.vscode-server</span><br></pre></td></tr></table></figure></li>
-<li>重新启动vscode，尝试远程登录。此时服务器会自动下载新的~/.vscode-server文件，待下载完成、配置完成后，即可使用。</li>
-</ol>
-<h2 id="更新-2021-11-27"><a href="#更新-2021-11-27" class="headerlink" title="更新 (2021.11.27)"></a>更新 (2021.11.27)</h2><ul>
-<li>当vscode remote-ssh 未关闭而电脑休眠后再唤醒时，会出现相同的登陆失败的问题。直接采用步骤2，问题解决</li>
-</ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://www.jianshu.com/p/32aa2fa936bb">非root用户配置VS Code Remote-SSH - - windows系统</a></li>
-<li><a href="https://www.cnblogs.com/springwind2006/p/14311454.html">Resolver error: Error: The VS Code Server failed to start 的一种解决方案</a></li>
-<li><a href="https://blog.csdn.net/weilin731/article/details/119778478">vs code远程开发 SSH连接失败</a></li>
-<li><a href="https://blog.csdn.net/myWorld001/article/details/119443079?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link">vscode ssh连接失败</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>coding</tag>
-        <tag>vscode</tag>
-        <tag>ssh</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hadoop 实战练习记录</title>
     <url>/LiJT-Daily/2021/12/13/2021-12-13-hadoop/</url>
     <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本篇记录Hadoop实战学习中的笔记以及问题分析。</p>
@@ -488,6 +488,25 @@ f_A(x)=\left\{
       </tags>
   </entry>
   <entry>
+    <title>一些杂谈.2</title>
+    <url>/LiJT-Daily/2022/03/26/2022-03-26-remind/</url>
+    <content><![CDATA[<p>本科期间上的统计类课程是多么美好的回忆。</p>
+<span id="more"></span>
+<p>最近回炉统计学的一些分析与检验方法，翻到了ynyang老师的多元回归分析的讲义。</p>
+<p>ynyang老师的课深入浅出，是给我印象最深，也是让我收获最大的统计类课程。从矩阵变换的技巧，到PCA，到SVD，甚至到谱聚类，PageRank算法的启蒙，都是在ynyang老师的课上完成的。尤其是SVD，当初花书和西瓜书翻了个遍也不知所云。但是ynyang老师的课却让我醍醐灌顶-SVD是对矩阵的最优低秩分解。</p>
+<p><img src="https://cslijt.github.io/LiJT-Daily/images/屏幕截图_202022-03-26_175317.jpg" alt="SVD1"></p>
+<p>如今想来，本科四年在学习上的遗憾有二：</p>
+<ol>
+<li>大三由于畏难，退了ynyang老师的回归分析的课。错过了一个亿的知识。</li>
+<li>铁憨憨，没有和yang老师保持联系。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>杂谈</tag>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>读Paper的一些感想记录</title>
     <url>/LiJT-Daily/2022/02/22/2022-02-22-paper/</url>
     <content><![CDATA[<p>最近一直在读paper。结合之前与老师、前辈、朋友讨论的经历，在此总结读paper的一些感想记录。这既是我自己的反思与总结，也可以为大家提供一些经验参考。</p>
@@ -527,48 +546,6 @@ f_A(x)=\left\{
       </tags>
   </entry>
   <entry>
-    <title>一些杂谈.2</title>
-    <url>/LiJT-Daily/2022/03/26/2022-03-26-remind/</url>
-    <content><![CDATA[<p>本科期间上的统计类课程是多么美好的回忆。</p>
-<span id="more"></span>
-<p>最近回炉统计学的一些分析与检验方法，翻到了ynyang老师的多元回归分析的讲义。</p>
-<p>ynyang老师的课深入浅出，是给我印象最深，也是让我收获最大的统计类课程。从矩阵变换的技巧，到PCA，到SVD，甚至到谱聚类，PageRank算法的启蒙，都是在ynyang老师的课上完成的。尤其是SVD，当初花书和西瓜书翻了个遍也不知所云。但是ynyang老师的课却让我醍醐灌顶-SVD是对矩阵的最优低秩分解。</p>
-<p><img src="https://cslijt.github.io/LiJT-Daily/images/屏幕截图_202022-03-26_175317.jpg" alt="SVD1"></p>
-<p>如今想来，本科四年在学习上的遗憾有二：</p>
-<ol>
-<li>大三由于畏难，退了ynyang老师的回归分析的课。错过了一个亿的知识。</li>
-<li>铁憨憨，没有和yang老师保持联系。</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>杂谈</tag>
-        <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2022-04-06-hexo</title>
-    <url>/LiJT-Daily/2022/04/06/2022-04-06-hexo/</url>
-    <content><![CDATA[<p>把个人blog的模板从jekyll更换到hexo了。<br>返璞归真。</p>
-<span id="more"></span>
-<section class="post-full-comments">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    <div id="gitalk-container"></div>
-    <script>
-        var gitalk = new Gitalk({
-            clientID: 'e1bbf465a324641f76ce',
-            clientSecret: 'f73c0bc3c19755d1c0d886c0d8791cad24509c9a',
-            repo: 'LiJT-Daily-Comments',
-            owner: 'CSLiJT',
-            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: document.title,
-            distractionFreeMode: false // Facebook-like distraction free mode
-        });
-        gitalk.render('gitalk-container');
-    </script>
-</section>]]></content>
-  </entry>
-  <entry>
     <title>最近的学习计划</title>
     <url>/LiJT-Daily/2022/04/01/2022-04-01-plan/</url>
     <content><![CDATA[<p>记录一些出于兴趣或出于工程需要，最近计划系统学习的一些知识。</p>
@@ -600,6 +577,29 @@ f_A(x)=\left\{
         <tag>科研</tag>
         <tag>学习</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>2022-04-06-hexo</title>
+    <url>/LiJT-Daily/2022/04/06/2022-04-06-hexo/</url>
+    <content><![CDATA[<p>把个人blog的模板从jekyll更换到hexo了。<br>返璞归真。</p>
+<span id="more"></span>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'f73c0bc3c19755d1c0d886c0d8791cad24509c9a',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: document.title,
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>]]></content>
   </entry>
   <entry>
     <title>因果推断学习笔记.1</title>
@@ -696,7 +696,7 @@ f_A(x)=\left\{
             repo: 'LiJT-Daily-Comments',
             owner: 'CSLiJT',
             admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: md5(document.title),
+            id: (document.title),
             distractionFreeMode: false // Facebook-like distraction free mode
         });
         gitalk.render('gitalk-container');
@@ -709,6 +709,57 @@ f_A(x)=\left\{
         <tag>coding</tag>
         <tag>python</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>观《楚汉传奇》有感</title>
+    <url>/LiJT-Daily/2022/04/17/2022-04-17-legend/</url>
+    <content><![CDATA[<table>
+<tr>
+<td>大风起兮云飞扬，<br>威加海内兮归故乡。<br>安得猛士兮守四方？<br>——刘邦</td>
+
+<td>力拔山兮气盖世，<br>时不利兮骓不逝。<br>骓不逝兮可奈何，<br>虞兮虞兮奈若何！<br>——项羽</td>
+</tr>
+</table>
+
+<span id="more"></span>
+<p>严格地说，这是个人对楚汉战争这段历史的感悟。更确切地说，这是对汉王的成功与楚王的失败的感悟。</p>
+<p>楚汉相争，汉王最终夺取天下。项籍之败，哪里是什么“时不利兮”。匹夫之勇——项羽纵然可以冲锋破阵如履平地，纵然可以武勇绝冠作万人敌，却不懂得不战而屈人之兵，更不懂得得民心者得天下。妇人之仁——优柔姑息，不识大体；没有战略眼光，不晓杀伐果断。鸿门之宴、彭城之围、阳夏之战，均是灭亡汉王集团的绝佳机会。然而，项羽高估了义气，低估了人性。一次次的心慈手软，一次次的放虎归山，一次次的错失机会。相比之下，刘邦招贤纳士、安抚百姓；眼光长远，心怀天下。在可见的与不可见的争斗中，刘邦牢牢抓住每一个不放过的机会，上芒砀山、投项羽（前期）；入关中、下巴蜀、还定三秦，一切只为两个字——天下。终于，这虎蜕变成能与赤龙一决雌雄的白龙，并战胜了赤龙。</p>
+<p>虽然有马后炮的嫌疑，但刘邦之胜与项羽之败，在讨诛暴秦时期便可见端倪。刘邦虽然出身低微（泗水亭长），也无过人武勇，但他为人慷慨仗义，处事圆滑灵活，有着强大的个人魅力。因此在创业初期，刘邦便能够结实一群坚定不移的好兄弟（即丰沛集团，包括卢绾、萧何、曹参、樊哙、周勃、夏侯婴，以及芒砀山时期组织的军队成员）。这一团队是刘邦日后与项羽抗争的中坚力量。刘邦的个人特质，也是天下英才趋之若鹜的重要原因。与此同时，项羽虽然贵为楚国名将项燕之后，能够凭借贵族身份与民间威望团结楚地人民的力量，然而项羽为人固执、刚愎自用。咨诹善道、从善如流这些词，从来与项羽不搭边。项羽虽重义气，却有强烈的身份优越感，看不起出身卑贱的人（包括对手刘邦、昔日执戟郎中后来大将军的韩信）。这导致项羽虽然也结识一群好弟兄（虞子期、龙且），但在外人看来，项羽心高气傲、难以接近。除了一心复兴楚国的范增，再无其他谋士愿意加入项羽麾下。</p>
+<p>刘邦与项羽的性格特质，放大了他们各自的团队特点，从而影响了局势走向。在人才吸引方面，刘邦为人慷慨，用人果断，能够让每个人发挥自己最大的才能。张良加入汉军之初也曾领兵打仗。但刘邦在部下反馈与自己观察之下，决定让张良以谋士身份供职，更大程度地发挥其过人智慧及战略规划能力。入巴蜀、定三秦、鸿门脱险，无一不是张良助力。韩信加入汉营前是项羽帐下的执戟郎中，在汉营亦只从运粮官做起。然而刘邦能听从萧何的建议，仅在读过韩信之兵书、见韩信其人一面之后，拜韩信为一人之下万人之上的大将军。这需要何等强大的果敢和定力！更不用说韩信攻略齐地后，刘邦能听从张良陈平的建议，封其为“真”齐王，使其死心塌地地效忠于汉家。陈平归于刘邦之前曾降于项王，且名声不好，有“盗嫂受金”之嫌。然而刘邦能够听从陈平之计，拨出四分之一的国库存金支持他在楚营开展间谍活动，离间项羽与范增。范增一除，项羽剩下的便只有“勇”，分明是一块案板上的牛肉。与之相比，项羽纵有拔山之力，却小肚鸡肠，为人固执、猜忌部下；任人唯亲，有功之臣不得奖赏，项家子弟却保荣华富贵。虽然应该客观承认，项羽有着冠绝古今的军事才能；但也不得不言，项羽并不是一个合格的“王”。刘邦的慷慨与果断，使天下英杰趋之若鹜；项羽的无双勇力，却不是吸引天下人才的理由。</p>
+<p>此外，刘项二人的志向差异，更加决定了各自结局的不同。对项羽而言，战斗的意义有两点：其一是诛灭无道的暴秦，其二是光荣复兴楚国大旗。首先，项羽对秦国人怀有极深的仇恨，因此其对秦人的态度并无任何慈悲。屠咸阳、火烧阿房、坑杀30万秦军，项羽对秦人没有任何怜悯。其次，项羽的最终目标在于复兴“楚国”，而非重振“天下”，因而在荡平咸阳之后，土地肥沃、易守难攻的三秦之地对项羽没有任何吸引力。项羽想做的只有回到故乡彭城，做自己的“西楚霸王”，仿照周朝恢复分封制，守住楚国的一亩三分地。至于刘邦，创业前期刘邦并不知道自己的目标为何——乱世之中，生存第一。然而在入关中之后，刘邦把目光放到了“天下”。刘邦的目标在于统一天下。虽然我们不能冠冕堂皇地认为，刘邦所做的一切都是为了百姓福祉、人类和平。但可以确定的是，刘邦没有像项羽一样对秦人的仇恨（亡国之痛），同时他出身低微，更加能够体会百姓疾苦。因而在战略问题上，刘邦能够从更加全局的角度思考，并且更加考虑人民的感受，而非像项羽一样的你死我活、快意恩仇。入关中称王后，刘邦看到巴蜀之地虽然路途遥远，却是沃野千里的天府之土，因而顺水推舟地入蜀以积攒实力。随后，汉家军明修栈道暗度陈仓以定三秦，据守崤关以保有坚不可摧的防御。再加上大后方的巴蜀源源不断地提供粮草，使得汉军具有蒸不烂、煮不熟、捶不匾、炒不爆的韧性。虽然汉军一直在打败仗，但汉军只需要最后赢一次；虽然楚军屡战屡胜，但楚军禁不住哪怕一次失败。</p>
+<hr>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: (document.title),
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/LiJT-Daily/2022/04/03/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>设置威批恩后Github push失败的解决方案</title>
@@ -753,7 +804,7 @@ f_A(x)=\left\{
             repo: 'LiJT-Daily-Comments',
             owner: 'CSLiJT',
             admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: md5(document.title),
+            id: (document.title),
             distractionFreeMode: false // Facebook-like distraction free mode
         });
         gitalk.render('gitalk-container');
@@ -766,42 +817,6 @@ f_A(x)=\left\{
         <tag>git</tag>
         <tag>github</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>观《楚汉传奇》有感</title>
-    <url>/LiJT-Daily/2022/04/17/2022-04-17-legend/</url>
-    <content><![CDATA[<table>
-<tr>
-<td>大风起兮云飞扬，<br>威加海内兮归故乡。<br>安得猛士兮守四方？<br>——刘邦</td>
-
-<td>力拔山兮气盖世，<br>时不利兮骓不逝。<br>骓不逝兮可奈何，<br>虞兮虞兮奈若何！<br>——项羽</td>
-</tr>
-</table>
-
-<span id="more"></span>
-<p>严格地说，这是个人对楚汉战争这段历史的感悟。更确切地说，这是对汉王的成功与楚王的失败的感悟。</p>
-<p>楚汉相争，汉王最终夺取天下。项籍之败，哪里是什么“时不利兮”。匹夫之勇——项羽纵然可以冲锋破阵如履平地，纵然可以武勇绝冠作万人敌，却不懂得不战而屈人之兵，更不懂得得民心者得天下。妇人之仁——优柔姑息，不识大体；没有战略眼光，不晓杀伐果断。鸿门之宴、彭城之围、阳夏之战，均是灭亡汉王集团的绝佳机会。然而，项羽高估了义气，低估了人性。一次次的心慈手软，一次次的放虎归山，一次次的错失机会。相比之下，刘邦招贤纳士、安抚百姓；眼光长远，心怀天下。在可见的与不可见的争斗中，刘邦牢牢抓住每一个不放过的机会，上芒砀山、投项羽（前期）；入关中、下巴蜀、还定三秦，一切只为两个字——天下。终于，这虎蜕变成能与赤龙一决雌雄的白龙，并战胜了赤龙。</p>
-<p>虽然有马后炮的嫌疑，但刘邦之胜与项羽之败，在讨诛暴秦时期便可见端倪。刘邦虽然出身低微（泗水亭长），也无过人武勇，但他为人慷慨仗义，处事圆滑灵活，有着强大的个人魅力。因此在创业初期，刘邦便能够结实一群坚定不移的好兄弟（即丰沛集团，包括卢绾、萧何、曹参、樊哙、周勃、夏侯婴，以及芒砀山时期组织的军队成员）。这一团队是刘邦日后与项羽抗争的中坚力量。刘邦的个人特质，也是天下英才趋之若鹜的重要原因。与此同时，项羽虽然贵为楚国名将项燕之后，能够凭借贵族身份与民间威望团结楚地人民的力量，然而项羽为人固执、刚愎自用。咨诹善道、从善如流这些词，从来与项羽不搭边。项羽虽重义气，却有强烈的身份优越感，看不起出身卑贱的人（包括对手刘邦、昔日执戟郎中后来大将军的韩信）。这导致项羽虽然也结识一群好弟兄（虞子期、龙且），但在外人看来，项羽心高气傲、难以接近。除了一心复兴楚国的范增，再无其他谋士愿意加入项羽麾下。</p>
-<p>刘邦与项羽的性格特质，放大了他们各自的团队特点，从而影响了局势走向。在人才吸引方面，刘邦为人慷慨，用人果断，能够让每个人发挥自己最大的才能。张良加入汉军之初也曾领兵打仗。但刘邦在部下反馈与自己观察之下，决定让张良以谋士身份供职，更大程度地发挥其过人智慧及战略规划能力。入巴蜀、定三秦、鸿门脱险，无一不是张良助力。韩信加入汉营前是项羽帐下的执戟郎中，在汉营亦只从运粮官做起。然而刘邦能听从萧何的建议，仅在读过韩信之兵书、见韩信其人一面之后，拜韩信为一人之下万人之上的大将军。这需要何等强大的果敢和定力！更不用说韩信攻略齐地后，刘邦能听从张良陈平的建议，封其为“真”齐王，使其死心塌地地效忠于汉家。陈平归于刘邦之前曾降于项王，且名声不好，有“盗嫂受金”之嫌。然而刘邦能够听从陈平之计，拨出四分之一的国库存金支持他在楚营开展间谍活动，离间项羽与范增。范增一除，项羽剩下的便只有“勇”，分明是一块案板上的牛肉。与之相比，项羽纵有拔山之力，却小肚鸡肠，为人固执、猜忌部下；任人唯亲，有功之臣不得奖赏，项家子弟却保荣华富贵。虽然应该客观承认，项羽有着冠绝古今的军事才能；但也不得不言，项羽并不是一个合格的“王”。刘邦的慷慨与果断，使天下英杰趋之若鹜；项羽的无双勇力，却不是吸引天下人才的理由。</p>
-<p>此外，刘项二人的志向差异，更加决定了各自结局的不同。对项羽而言，战斗的意义有两点：其一是诛灭无道的暴秦，其二是光荣复兴楚国大旗。首先，项羽对秦国人怀有极深的仇恨，因此其对秦人的态度并无任何慈悲。屠咸阳、火烧阿房、坑杀30万秦军，项羽对秦人没有任何怜悯。其次，项羽的最终目标在于复兴“楚国”，而非重振“天下”，因而在荡平咸阳之后，土地肥沃、易守难攻的三秦之地对项羽没有任何吸引力。项羽想做的只有回到故乡彭城，做自己的“西楚霸王”，仿照周朝恢复分封制，守住楚国的一亩三分地。至于刘邦，创业前期刘邦并不知道自己的目标为何——乱世之中，生存第一。然而在入关中之后，刘邦把目光放到了“天下”。刘邦的目标在于统一天下。虽然我们不能冠冕堂皇地认为，刘邦所做的一切都是为了百姓福祉、人类和平。但可以确定的是，刘邦没有像项羽一样对秦人的仇恨（亡国之痛），同时他出身低微，更加能够体会百姓疾苦。因而在战略问题上，刘邦能够从更加全局的角度思考，并且更加考虑人民的感受，而非像项羽一样的你死我活、快意恩仇。入关中称王后，刘邦看到巴蜀之地虽然路途遥远，却是沃野千里的天府之土，因而顺水推舟地入蜀以积攒实力。随后，汉家军明修栈道暗度陈仓以定三秦，据守崤关以保有坚不可摧的防御。再加上大后方的巴蜀源源不断地提供粮草，使得汉军具有蒸不烂、煮不熟、捶不匾、炒不爆的韧性。虽然汉军一直在打败仗，但汉军只需要最后赢一次；虽然楚军屡战屡胜，但楚军禁不住哪怕一次失败。</p>
-<hr>
-<section class="post-full-comments">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    <div id="gitalk-container"></div>
-    <script>
-        var gitalk = new Gitalk({
-            clientID: 'e1bbf465a324641f76ce',
-            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
-            repo: 'LiJT-Daily-Comments',
-            owner: 'CSLiJT',
-            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: md5(document.title),
-            distractionFreeMode: false // Facebook-like distraction free mode
-        });
-        gitalk.render('gitalk-container');
-    </script>
-</section>]]></content>
   </entry>
   <entry>
     <title>因果推断学习笔记.2</title>
@@ -819,7 +834,7 @@ f_A(x)=\left\{
             repo: 'LiJT-Daily-Comments',
             owner: 'CSLiJT',
             admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: md5(document.title),
+            id: document.title+document.date,
             distractionFreeMode: false // Facebook-like distraction free mode
         });
         gitalk.render('gitalk-container');
@@ -828,20 +843,5 @@ f_A(x)=\left\{
       <categories>
         <category>学习笔记</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/LiJT-Daily/2022/04/03/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<span id="more"></span>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
 </search>
