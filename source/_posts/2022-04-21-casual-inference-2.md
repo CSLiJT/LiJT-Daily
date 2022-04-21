@@ -9,7 +9,7 @@ tags:
 categories: 学习笔记
 ---
 
-因果推断的常用方法
+因果推断的常用方法。
 
 <!--more-->
 
@@ -61,6 +61,8 @@ $$
 > 倾向得分（propensity score）
 > 线性回归（linear regression）
 > Heckman Selection Model（又称Tobit Model）
+
+## 参考文献
 
 1. [丁鹏.因果推断简介.PKU-MATH-00112230.2019](https://www.math.pku.edu.cn/teachers/yaoy/math112230/lecture10_DingP_causal091101.pdf)
 
