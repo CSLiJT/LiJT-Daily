@@ -26,7 +26,7 @@ categories: 学习笔记
             repo: 'LiJT-Daily-Comments',
             owner: 'CSLiJT',
             admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: md5(document.title),
+            id: document.title+document.date,
             distractionFreeMode: false // Facebook-like distraction free mode
         });
         gitalk.render('gitalk-container');

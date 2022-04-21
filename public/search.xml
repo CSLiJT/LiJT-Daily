@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>美食的记录</title>
+    <url>/LiJT-Daily/2021/09/29/2021-09-29-food/</url>
+    <content><![CDATA[<h2 id="煲王"><a href="#煲王" class="headerlink" title="煲王"></a>煲王</h2><ul>
+<li>猪脚煲的味道很棒，想起了以前吃过的发财猪手。骨髓浓香四溢，但考虑到健康，未敢多吃。</li>
+<li>咖喱牛腩的味道很正，有澳门风味。猪肚鸡的汤底调味很好，可惜猪肚太少，仅三两片，怎能够吃？</li>
+<li>煲仔饭和卤水拼盘味道不错。卤水拼盘改良过，热吃，色浓，摆盘也更加粗犷。更喜欢吃潮汕的蘸白醋的卤水狮头鹅！</li>
+<li>茄子煲调味很好，但火候不够，茄子不入味。叉烧包实属鸡肋！过量的面和少量的肉馅… 但是可以把面撕下来，包猪手吃，极美。</li>
+</ul>
+<span id="more"></span>
+<h2 id="卜一帆"><a href="#卜一帆" class="headerlink" title="卜一帆"></a>卜一帆</h2><ul>
+<li>京葱鸡肉串极鲜美。咸鲜、多汁、皮微焦的鸡肉，焦黄、冲香的葱，实在是相得益彰。</li>
+<li>烤五花味道浓香，脆骨爽口，但肉略微有些干，或许是没有刷油。</li>
+<li>青花鱼，熟悉的味道。不加任何调料烤制，挤上几滴柠檬汁，鲜美而浓郁。配上一碗米饭和沙拉就是完美的午餐。</li>
+<li>寿喜锅，久闻大名却第一次吃。日料虽然只有甜酱油、味增、味淋、昆布高汤等几种调味料，但甜酱油和高汤真的很适合火锅。牛肉多汁入味嫩而不烂，吸满汤汁的白菜、金针菇、魔芋丝和豆腐是米饭的绝配。看着咕嘟嘟的小锅和冒出的白雾，如果这是在冬天，想必一定是非常幸福的时刻吧。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>美食</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PyTorch踩坑记录（持续更新）</title>
     <url>/LiJT-Daily/2021/09/27/2021-09-27-pytorch/</url>
     <content><![CDATA[<p>本篇记录使用pytorch过程中踩到的各种坑！<br><span id="more"></span></p>
@@ -20,24 +41,20 @@
       </tags>
   </entry>
   <entry>
-    <title>美食的记录</title>
-    <url>/LiJT-Daily/2021/09/29/2021-09-29-food/</url>
-    <content><![CDATA[<h2 id="煲王"><a href="#煲王" class="headerlink" title="煲王"></a>煲王</h2><ul>
-<li>猪脚煲的味道很棒，想起了以前吃过的发财猪手。骨髓浓香四溢，但考虑到健康，未敢多吃。</li>
-<li>咖喱牛腩的味道很正，有澳门风味。猪肚鸡的汤底调味很好，可惜猪肚太少，仅三两片，怎能够吃？</li>
-<li>煲仔饭和卤水拼盘味道不错。卤水拼盘改良过，热吃，色浓，摆盘也更加粗犷。更喜欢吃潮汕的蘸白醋的卤水狮头鹅！</li>
-<li>茄子煲调味很好，但火候不够，茄子不入味。叉烧包实属鸡肋！过量的面和少量的肉馅… 但是可以把面撕下来，包猪手吃，极美。</li>
-</ul>
+    <title>【连载】鲸的语言？（一）</title>
+    <url>/LiJT-Daily/2021/10/01/2021-10-01-whale01/</url>
+    <content><![CDATA[<p>一块雷雨云逼近了波多黎各的库莱布拉岛（Culebra）南部，威胁着要把小保罗·纳普（Paul Knapp Jr.）和他那艘18英尺充气小艇“小罗盘”号（Little Compass）上的三名乘客淋个透心凉。他船舵上的贴纸上写着： “我会说鲸鱼的语言。”</p>
 <span id="more"></span>
-<h2 id="卜一帆"><a href="#卜一帆" class="headerlink" title="卜一帆"></a>卜一帆</h2><ul>
-<li>京葱鸡肉串极鲜美。咸鲜、多汁、皮微焦的鸡肉，焦黄、冲香的葱，实在是相得益彰。</li>
-<li>烤五花味道浓香，脆骨爽口，但肉略微有些干，或许是没有刷油。</li>
-<li>青花鱼，熟悉的味道。不加任何调料烤制，挤上几滴柠檬汁，鲜美而浓郁。配上一碗米饭和沙拉就是完美的午餐。</li>
-<li>寿喜锅，久闻大名却第一次吃。日料虽然只有甜酱油、味增、味淋、昆布高汤等几种调味料，但甜酱油和高汤真的很适合火锅。牛肉多汁入味嫩而不烂，吸满汤汁的白菜、金针菇、魔芋丝和豆腐是米饭的绝配。看着咕嘟嘟的小锅和冒出的白雾，如果这是在冬天，想必一定是非常幸福的时刻吧。</li>
-</ul>
+<p>鲸的语言？</p>
+<p>保罗纳普开始吟唱起不知名的咏叹调，在即将掀起的狂风暴雨中，咏叹调连1米外的乘客都听不见。</p>
+<p>狂风将他刚写好的纸张带入海里，很快不见踪影。</p>
+<p>他拿起挂在脖子上的喇叭，屹立在充气小艇的前端，继续开始他的人类音频咏叹调。</p>
+<p>这是鲸的语言吗？</p>
+<p>乘客A用他深蓝色的眼眸死死的盯着保罗纳普，有关海洋生物交流频率的研究在他脑海中不停穿插。</p>
+<p>海水一层层一层的荡漾过来，随时可以将气垫船掀翻。</p>
 ]]></content>
       <tags>
-        <tag>美食</tag>
+        <tag>小说</tag>
       </tags>
   </entry>
   <entry>
@@ -82,20 +99,27 @@
       </tags>
   </entry>
   <entry>
-    <title>【连载】鲸的语言？（一）</title>
-    <url>/LiJT-Daily/2021/10/01/2021-10-01-whale01/</url>
-    <content><![CDATA[<p>一块雷雨云逼近了波多黎各的库莱布拉岛（Culebra）南部，威胁着要把小保罗·纳普（Paul Knapp Jr.）和他那艘18英尺充气小艇“小罗盘”号（Little Compass）上的三名乘客淋个透心凉。他船舵上的贴纸上写着： “我会说鲸鱼的语言。”</p>
+    <title>消融实验(ablation study)</title>
+    <url>/LiJT-Daily/2021/10/18/2021-10-18-ablation/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在深度学习领域论文的实验设计中，经常看到作者提出的模型与“弱化版”模型（少了某些模块、少了参数的限制…等等）的对比，用于说明idea或者某模块的有效性，这便是直观意义上的消融实验。</p>
 <span id="more"></span>
-<p>鲸的语言？</p>
-<p>保罗纳普开始吟唱起不知名的咏叹调，在即将掀起的狂风暴雨中，咏叹调连1米外的乘客都听不见。</p>
-<p>狂风将他刚写好的纸张带入海里，很快不见踪影。</p>
-<p>他拿起挂在脖子上的喇叭，屹立在充气小艇的前端，继续开始他的人类音频咏叹调。</p>
-<p>这是鲸的语言吗？</p>
-<p>乘客A用他深蓝色的眼眸死死的盯着保罗纳普，有关海洋生物交流频率的研究在他脑海中不停穿插。</p>
-<p>海水一层层一层的荡漾过来，随时可以将气垫船掀翻。</p>
+<h2 id="定义与解释"><a href="#定义与解释" class="headerlink" title="定义与解释"></a>定义与解释</h2><p>Robert Long对消融研究（或消融实验）定义：通常用于神经网络，尤其是相对复杂的神经网络，如R-CNN。我们的想法是通过删除部分网络并研究网络的性能来了解网络<br>{:.success}</p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>参考<a href="https://www.zhihu.com/question/291655038/answer/2000381383">知乎</a>:</p>
+<p>论文提了3个贡献点，A,B,C</p>
+<ul>
+<li><p>你去掉A，其它保持不变，发现效果降低了，那说明A确实有用。</p>
+</li>
+<li><p>你去掉B，其它保持不变，发现效果降的比A还多，说明B更重要。</p>
+</li>
+<li><p>你去掉C，其它保持不变，发现效果没变，那C就是凑字数的</p>
+</li>
+</ul>
+<h3 id="个人想法"><a href="#个人想法" class="headerlink" title="个人想法"></a>个人想法</h3><p>消融实验是一种简单直观但符合逻辑的实验方法。相比于选取经典算法作为baseline实验，消融实验排除了trick、其他结构上的不同导致的性能影响，而只专注于检验idea的有效性，相当于论文工作的“自己和自己比”，一边是加入了idea的自己，一边是没有加入idea的自己。</p>
+<p>可以把消融实验用“控制变量法”和“正交回归”类比。</p>
 ]]></content>
       <tags>
-        <tag>小说</tag>
+        <tag>深度学习</tag>
+        <tag>实验</tag>
       </tags>
   </entry>
   <entry>
@@ -184,27 +208,39 @@ loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}
       </tags>
   </entry>
   <entry>
-    <title>消融实验(ablation study)</title>
-    <url>/LiJT-Daily/2021/10/18/2021-10-18-ablation/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在深度学习领域论文的实验设计中，经常看到作者提出的模型与“弱化版”模型（少了某些模块、少了参数的限制…等等）的对比，用于说明idea或者某模块的有效性，这便是直观意义上的消融实验。</p>
+    <title>Python踩坑记录&amp;小技巧(持续更新)</title>
+    <url>/LiJT-Daily/2021/10/25/2021-10-25-python/</url>
+    <content><![CDATA[<p>本篇主要介绍一些使用的python技巧和第三方库，包括某些方法(method)的骚操作</p>
 <span id="more"></span>
-<h2 id="定义与解释"><a href="#定义与解释" class="headerlink" title="定义与解释"></a>定义与解释</h2><p>Robert Long对消融研究（或消融实验）定义：通常用于神经网络，尤其是相对复杂的神经网络，如R-CNN。我们的想法是通过删除部分网络并研究网络的性能来了解网络<br>{:.success}</p>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>参考<a href="https://www.zhihu.com/question/291655038/answer/2000381383">知乎</a>:</p>
-<p>论文提了3个贡献点，A,B,C</p>
-<ul>
-<li><p>你去掉A，其它保持不变，发现效果降低了，那说明A确实有用。</p>
-</li>
-<li><p>你去掉B，其它保持不变，发现效果降的比A还多，说明B更重要。</p>
-</li>
-<li><p>你去掉C，其它保持不变，发现效果没变，那C就是凑字数的</p>
+<h2 id="Matplotlib-绘图库"><a href="#Matplotlib-绘图库" class="headerlink" title="Matplotlib-绘图库"></a>Matplotlib-绘图库</h2><h3 id="保存图片内容溢出的问题"><a href="#保存图片内容溢出的问题" class="headerlink" title="保存图片内容溢出的问题"></a>保存图片内容溢出的问题</h3><ul>
+<li>有些图片，如果label太长，可能会出现保存区域小于原图片大小，导致部分内容在保存文件中缺失的问题。在此情况下，使用 <code>bbox_inches = &#39;tight&#39;</code> 选项：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 原保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修正后保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>, bbox_inches = <span class="string">&#x27;tight&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Numpy-矩阵运算库"><a href="#Numpy-矩阵运算库" class="headerlink" title="Numpy-矩阵运算库"></a>Numpy-矩阵运算库</h2><h3 id="np-unique-可以同时获取unique-key和频数"><a href="#np-unique-可以同时获取unique-key和频数" class="headerlink" title="np.unique 可以同时获取unique key和频数"></a>np.unique 可以同时获取unique key和频数</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">outcome_s, frequency_s=np.unique(samples,return_counts=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="np-intersect1d-可以获取两个一维数组的交集"><a href="#np-intersect1d-可以获取两个一维数组的交集" class="headerlink" title="np.intersect1d 可以获取两个一维数组的交集"></a>np.intersect1d 可以获取两个一维数组的交集</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A=np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">B=np.array([<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">7</span>])</span><br><span class="line">C=np.intersect1d(A,B) <span class="comment"># C=[3,4]</span></span><br></pre></td></tr></table></figure>
+<!--more-->
+<h2 id="PyTorch-深度学习库"><a href="#PyTorch-深度学习库" class="headerlink" title="PyTorch-深度学习库"></a>PyTorch-深度学习库</h2><ul>
+<li>重要的事情说三遍：<ul>
+<li>不要将维数设为0！</li>
+<li>不要将维数设为0！</li>
+<li>不要将维度设为0！</li>
+</ul>
 </li>
 </ul>
-<h3 id="个人想法"><a href="#个人想法" class="headerlink" title="个人想法"></a>个人想法</h3><p>消融实验是一种简单直观但符合逻辑的实验方法。相比于选取经典算法作为baseline实验，消融实验排除了trick、其他结构上的不同导致的性能影响，而只专注于检验idea的有效性，相当于论文工作的“自己和自己比”，一边是加入了idea的自己，一边是没有加入idea的自己。</p>
-<p>可以把消融实验用“控制变量法”和“正交回归”类比。</p>
-]]></content>
+<p>在深度学习的消融实验中，常常需要去掉某个模块来验证其有效性。不要简单地将位数设为0！维度最少要为1.这是因为在某些版本的torch中，如果模型参数是 (N,0) 维的，那么使用torch.save()时会保存N个相应的参数值；但在torch.load()阶段，模型期望接收参数数量为0，所以模型load不进去！<br>{:.error}</p>
+<ul>
+<li>指定load模型的目标设备</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">torch.load(map_location=device)</span><br></pre></td></tr></table></figure>
+<h2 id="tqdm-进度条"><a href="#tqdm-进度条" class="headerlink" title="tqdm-进度条"></a>tqdm-进度条</h2><ul>
+<li>tqdm 可以枚举迭代操作，同时显示进度条——再也不用每隔多少步输出一次结果了！</li>
+<li>以下为ipython演示结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">22</span>]: <span class="keyword">import</span> tqdm</span><br><span class="line">    ...: li = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">999999</span>)]</span><br><span class="line">    ...: mn = <span class="number">99999999</span></span><br><span class="line">    ...: <span class="keyword">for</span> elem <span class="keyword">in</span> tqdm.tqdm(li,<span class="string">&#x27;progress:&#x27;</span>):</span><br><span class="line">    ...:   mn = <span class="built_in">min</span>(mn,elem)</span><br><span class="line">    ...:</span><br><span class="line">progress:: <span class="number">100</span>%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| <span class="number">999999</span>/<span class="number">999999</span> [<span class="number">00</span>:<span class="number">00</span>&lt;<span class="number">00</span>:<span class="number">00</span>, <span class="number">2086298.02</span>it/s]</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <tags>
-        <tag>深度学习</tag>
-        <tag>实验</tag>
+        <tag>coding</tag>
+        <tag>持续更新</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -316,42 +352,6 @@ loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}
       <tags>
         <tag>coding</tag>
         <tag>持续更新</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python踩坑记录&amp;小技巧(持续更新)</title>
-    <url>/LiJT-Daily/2021/10/25/2021-10-25-python/</url>
-    <content><![CDATA[<p>本篇主要介绍一些使用的python技巧和第三方库，包括某些方法(method)的骚操作</p>
-<span id="more"></span>
-<h2 id="Matplotlib-绘图库"><a href="#Matplotlib-绘图库" class="headerlink" title="Matplotlib-绘图库"></a>Matplotlib-绘图库</h2><h3 id="保存图片内容溢出的问题"><a href="#保存图片内容溢出的问题" class="headerlink" title="保存图片内容溢出的问题"></a>保存图片内容溢出的问题</h3><ul>
-<li>有些图片，如果label太长，可能会出现保存区域小于原图片大小，导致部分内容在保存文件中缺失的问题。在此情况下，使用 <code>bbox_inches = &#39;tight&#39;</code> 选项：</li>
-</ul>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 原保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修正后保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>, bbox_inches = <span class="string">&#x27;tight&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="Numpy-矩阵运算库"><a href="#Numpy-矩阵运算库" class="headerlink" title="Numpy-矩阵运算库"></a>Numpy-矩阵运算库</h2><h3 id="np-unique-可以同时获取unique-key和频数"><a href="#np-unique-可以同时获取unique-key和频数" class="headerlink" title="np.unique 可以同时获取unique key和频数"></a>np.unique 可以同时获取unique key和频数</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">outcome_s, frequency_s=np.unique(samples,return_counts=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="np-intersect1d-可以获取两个一维数组的交集"><a href="#np-intersect1d-可以获取两个一维数组的交集" class="headerlink" title="np.intersect1d 可以获取两个一维数组的交集"></a>np.intersect1d 可以获取两个一维数组的交集</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A=np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">B=np.array([<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">7</span>])</span><br><span class="line">C=np.intersect1d(A,B) <span class="comment"># C=[3,4]</span></span><br></pre></td></tr></table></figure>
-<!--more-->
-<h2 id="PyTorch-深度学习库"><a href="#PyTorch-深度学习库" class="headerlink" title="PyTorch-深度学习库"></a>PyTorch-深度学习库</h2><ul>
-<li>重要的事情说三遍：<ul>
-<li>不要将维数设为0！</li>
-<li>不要将维数设为0！</li>
-<li>不要将维度设为0！</li>
-</ul>
-</li>
-</ul>
-<p>在深度学习的消融实验中，常常需要去掉某个模块来验证其有效性。不要简单地将位数设为0！维度最少要为1.这是因为在某些版本的torch中，如果模型参数是 (N,0) 维的，那么使用torch.save()时会保存N个相应的参数值；但在torch.load()阶段，模型期望接收参数数量为0，所以模型load不进去！<br>{:.error}</p>
-<ul>
-<li>指定load模型的目标设备</li>
-</ul>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">torch.load(map_location=device)</span><br></pre></td></tr></table></figure>
-<h2 id="tqdm-进度条"><a href="#tqdm-进度条" class="headerlink" title="tqdm-进度条"></a>tqdm-进度条</h2><ul>
-<li>tqdm 可以枚举迭代操作，同时显示进度条——再也不用每隔多少步输出一次结果了！</li>
-<li>以下为ipython演示结果</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">22</span>]: <span class="keyword">import</span> tqdm</span><br><span class="line">    ...: li = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">999999</span>)]</span><br><span class="line">    ...: mn = <span class="number">99999999</span></span><br><span class="line">    ...: <span class="keyword">for</span> elem <span class="keyword">in</span> tqdm.tqdm(li,<span class="string">&#x27;progress:&#x27;</span>):</span><br><span class="line">    ...:   mn = <span class="built_in">min</span>(mn,elem)</span><br><span class="line">    ...:</span><br><span class="line">progress:: <span class="number">100</span>%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| <span class="number">999999</span>/<span class="number">999999</span> [<span class="number">00</span>:<span class="number">00</span>&lt;<span class="number">00</span>:<span class="number">00</span>, <span class="number">2086298.02</span>it/s]</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>coding</tag>
-        <tag>持续更新</tag>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -488,25 +488,6 @@ f_A(x)=\left\{
       </tags>
   </entry>
   <entry>
-    <title>一些杂谈.2</title>
-    <url>/LiJT-Daily/2022/03/26/2022-03-26-remind/</url>
-    <content><![CDATA[<p>本科期间上的统计类课程是多么美好的回忆。</p>
-<span id="more"></span>
-<p>最近回炉统计学的一些分析与检验方法，翻到了ynyang老师的多元回归分析的讲义。</p>
-<p>ynyang老师的课深入浅出，是给我印象最深，也是让我收获最大的统计类课程。从矩阵变换的技巧，到PCA，到SVD，甚至到谱聚类，PageRank算法的启蒙，都是在ynyang老师的课上完成的。尤其是SVD，当初花书和西瓜书翻了个遍也不知所云。但是ynyang老师的课却让我醍醐灌顶-SVD是对矩阵的最优低秩分解。</p>
-<p><img src="https://cslijt.github.io/LiJT-Daily/images/屏幕截图_202022-03-26_175317.jpg" alt="SVD1"></p>
-<p>如今想来，本科四年在学习上的遗憾有二：</p>
-<ol>
-<li>大三由于畏难，退了ynyang老师的回归分析的课。错过了一个亿的知识。</li>
-<li>铁憨憨，没有和yang老师保持联系。</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>杂谈</tag>
-        <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>读Paper的一些感想记录</title>
     <url>/LiJT-Daily/2022/02/22/2022-02-22-paper/</url>
     <content><![CDATA[<p>最近一直在读paper。结合之前与老师、前辈、朋友讨论的经历，在此总结读paper的一些感想记录。这既是我自己的反思与总结，也可以为大家提供一些经验参考。</p>
@@ -546,6 +527,48 @@ f_A(x)=\left\{
       </tags>
   </entry>
   <entry>
+    <title>一些杂谈.2</title>
+    <url>/LiJT-Daily/2022/03/26/2022-03-26-remind/</url>
+    <content><![CDATA[<p>本科期间上的统计类课程是多么美好的回忆。</p>
+<span id="more"></span>
+<p>最近回炉统计学的一些分析与检验方法，翻到了ynyang老师的多元回归分析的讲义。</p>
+<p>ynyang老师的课深入浅出，是给我印象最深，也是让我收获最大的统计类课程。从矩阵变换的技巧，到PCA，到SVD，甚至到谱聚类，PageRank算法的启蒙，都是在ynyang老师的课上完成的。尤其是SVD，当初花书和西瓜书翻了个遍也不知所云。但是ynyang老师的课却让我醍醐灌顶-SVD是对矩阵的最优低秩分解。</p>
+<p><img src="https://cslijt.github.io/LiJT-Daily/images/屏幕截图_202022-03-26_175317.jpg" alt="SVD1"></p>
+<p>如今想来，本科四年在学习上的遗憾有二：</p>
+<ol>
+<li>大三由于畏难，退了ynyang老师的回归分析的课。错过了一个亿的知识。</li>
+<li>铁憨憨，没有和yang老师保持联系。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>杂谈</tag>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2022-04-06-hexo</title>
+    <url>/LiJT-Daily/2022/04/06/2022-04-06-hexo/</url>
+    <content><![CDATA[<p>把个人blog的模板从jekyll更换到hexo了。<br>返璞归真。</p>
+<span id="more"></span>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'f73c0bc3c19755d1c0d886c0d8791cad24509c9a',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: document.title,
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>]]></content>
+  </entry>
+  <entry>
     <title>最近的学习计划</title>
     <url>/LiJT-Daily/2022/04/01/2022-04-01-plan/</url>
     <content><![CDATA[<p>记录一些出于兴趣或出于工程需要，最近计划系统学习的一些知识。</p>
@@ -577,29 +600,6 @@ f_A(x)=\left\{
         <tag>科研</tag>
         <tag>学习</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>2022-04-06-hexo</title>
-    <url>/LiJT-Daily/2022/04/06/2022-04-06-hexo/</url>
-    <content><![CDATA[<p>把个人blog的模板从jekyll更换到hexo了。<br>返璞归真。</p>
-<span id="more"></span>
-<section class="post-full-comments">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    <div id="gitalk-container"></div>
-    <script>
-        var gitalk = new Gitalk({
-            clientID: 'e1bbf465a324641f76ce',
-            clientSecret: 'f73c0bc3c19755d1c0d886c0d8791cad24509c9a',
-            repo: 'LiJT-Daily-Comments',
-            owner: 'CSLiJT',
-            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: document.title,
-            distractionFreeMode: false // Facebook-like distraction free mode
-        });
-        gitalk.render('gitalk-container');
-    </script>
-</section>]]></content>
   </entry>
   <entry>
     <title>因果推断学习笔记.1</title>
@@ -802,6 +802,32 @@ f_A(x)=\left\{
         gitalk.render('gitalk-container');
     </script>
 </section>]]></content>
+  </entry>
+  <entry>
+    <title>因果推断学习笔记.2</title>
+    <url>/LiJT-Daily/2022/04/21/2022-04-21-casual-inference-2/</url>
+    <content><![CDATA[<p>因果推断的常用方法</p>
+<span id="more"></span>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: md5(document.title),
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
   </entry>
   <entry>
     <title>Hello World</title>
