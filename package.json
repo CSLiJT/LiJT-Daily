@@ -15,7 +15,7 @@
     "@1v9/hexo-next-nightmode": "github:1v9/hexo-next-nightmode",
     "canvas-nest.js": "^2.0.4",
     "g": "^2.0.1",
-    "hexo": "^5.0.0",
+    "hexo": "^5.4.2",
     "hexo-cli": "^4.3.0",
     "hexo-deployer-git": "^3.0.0",
     "hexo-filter-mathjax": "^0.8.0",
