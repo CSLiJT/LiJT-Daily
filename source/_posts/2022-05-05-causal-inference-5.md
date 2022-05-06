@@ -120,6 +120,9 @@ Uz3-->Z3
 
 ---
 
+## 参考文献
+1. Judea Pearl, Madlyn Glymour, Nicholas P.Jewell.Causal Inference in Statistics: A Primer.2016.WILEY
+
 <section class="post-full-comments">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
