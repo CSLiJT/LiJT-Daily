@@ -42,7 +42,12 @@ categories: 学习笔记
 2. 多元时间序列数据+标准因果图$G$
 
 ## 因果推断的基本框架
-待补充
+- 结构因果模型（Structural Causal Model, SCM）
+- 潜在结果框架（Potential Outcome Framework）
+
+第一次读因果推断的综述论文，比较懵。
+
+接下来以阅读Judea Pearl的Causal Inference in Statistics: A Primer为主。
 
 ## 参考文献
 1. [Guo, Ruocheng & Cheng, Lu & Li, Jundong & Hahn, Paul & Liu, Huan. (2018). A Survey of Learning Causality with Data: Problems and Methods.](https://rguo12.github.io/causal_survey.pdf)
