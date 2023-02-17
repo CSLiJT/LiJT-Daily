@@ -20,27 +20,6 @@
       </tags>
   </entry>
   <entry>
-    <title>美食的记录</title>
-    <url>/LiJT-Daily/2021/09/29/2021-09-29-food/</url>
-    <content><![CDATA[<h2 id="煲王"><a href="#煲王" class="headerlink" title="煲王"></a>煲王</h2><ul>
-<li>猪脚煲的味道很棒，想起了以前吃过的发财猪手。骨髓浓香四溢，但考虑到健康，未敢多吃。</li>
-<li>咖喱牛腩的味道很正，有澳门风味。猪肚鸡的汤底调味很好，可惜猪肚太少，仅三两片，怎能够吃？</li>
-<li>煲仔饭和卤水拼盘味道不错。卤水拼盘改良过，热吃，色浓，摆盘也更加粗犷。更喜欢吃潮汕的蘸白醋的卤水狮头鹅！</li>
-<li>茄子煲调味很好，但火候不够，茄子不入味。叉烧包实属鸡肋！过量的面和少量的肉馅… 但是可以把面撕下来，包猪手吃，极美。</li>
-</ul>
-<span id="more"></span>
-<h2 id="卜一帆"><a href="#卜一帆" class="headerlink" title="卜一帆"></a>卜一帆</h2><ul>
-<li>京葱鸡肉串极鲜美。咸鲜、多汁、皮微焦的鸡肉，焦黄、冲香的葱，实在是相得益彰。</li>
-<li>烤五花味道浓香，脆骨爽口，但肉略微有些干，或许是没有刷油。</li>
-<li>青花鱼，熟悉的味道。不加任何调料烤制，挤上几滴柠檬汁，鲜美而浓郁。配上一碗米饭和沙拉就是完美的午餐。</li>
-<li>寿喜锅，久闻大名却第一次吃。日料虽然只有甜酱油、味增、味淋、昆布高汤等几种调味料，但甜酱油和高汤真的很适合火锅。牛肉多汁入味嫩而不烂，吸满汤汁的白菜、金针菇、魔芋丝和豆腐是米饭的绝配。看着咕嘟嘟的小锅和冒出的白雾，如果这是在冬天，想必一定是非常幸福的时刻吧。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>美食</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>红烩羊肉</title>
     <url>/LiJT-Daily/2021/10/01/2021-10-01-stewlamb/</url>
     <content><![CDATA[<p>祝祖国母亲生日快乐！祝大家节日安康！</p>
@@ -181,6 +160,27 @@ loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}
         <tag>pytorch</tag>
         <tag>深度学习</tag>
         <tag>coding</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>美食的记录</title>
+    <url>/LiJT-Daily/2021/09/29/2021-09-29-food/</url>
+    <content><![CDATA[<h2 id="煲王"><a href="#煲王" class="headerlink" title="煲王"></a>煲王</h2><ul>
+<li>猪脚煲的味道很棒，想起了以前吃过的发财猪手。骨髓浓香四溢，但考虑到健康，未敢多吃。</li>
+<li>咖喱牛腩的味道很正，有澳门风味。猪肚鸡的汤底调味很好，可惜猪肚太少，仅三两片，怎能够吃？</li>
+<li>煲仔饭和卤水拼盘味道不错。卤水拼盘改良过，热吃，色浓，摆盘也更加粗犷。更喜欢吃潮汕的蘸白醋的卤水狮头鹅！</li>
+<li>茄子煲调味很好，但火候不够，茄子不入味。叉烧包实属鸡肋！过量的面和少量的肉馅… 但是可以把面撕下来，包猪手吃，极美。</li>
+</ul>
+<span id="more"></span>
+<h2 id="卜一帆"><a href="#卜一帆" class="headerlink" title="卜一帆"></a>卜一帆</h2><ul>
+<li>京葱鸡肉串极鲜美。咸鲜、多汁、皮微焦的鸡肉，焦黄、冲香的葱，实在是相得益彰。</li>
+<li>烤五花味道浓香，脆骨爽口，但肉略微有些干，或许是没有刷油。</li>
+<li>青花鱼，熟悉的味道。不加任何调料烤制，挤上几滴柠檬汁，鲜美而浓郁。配上一碗米饭和沙拉就是完美的午餐。</li>
+<li>寿喜锅，久闻大名却第一次吃。日料虽然只有甜酱油、味增、味淋、昆布高汤等几种调味料，但甜酱油和高汤真的很适合火锅。牛肉多汁入味嫩而不烂，吸满汤汁的白菜、金针菇、魔芋丝和豆腐是米饭的绝配。看着咕嘟嘟的小锅和冒出的白雾，如果这是在冬天，想必一定是非常幸福的时刻吧。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>美食</tag>
       </tags>
   </entry>
   <entry>
@@ -355,6 +355,19 @@ loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}
       </tags>
   </entry>
   <entry>
+    <title>一些杂谈.1</title>
+    <url>/LiJT-Daily/2021/11/23/2021-11-23-delicacy/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">不被时间和社会所束缚</span><br><span class="line">幸福地填饱肚子的时候</span><br><span class="line">那一瞬间 他已变得唯我独尊</span><br><span class="line">自由自在</span><br><span class="line">无需介怀地大快朵颐 这种孤高的行为</span><br><span class="line">正可谓是现代人被平等赋予的</span><br><span class="line">最高治愈</span><br><span class="line">——孤独的美食家</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>最近在看《孤独的美食家》，计划从第一季一口气追到第九季。每天总是夜深人静的时间点亮屏幕，看着酥脆的可乐饼、麻辣鲜香的担担面、热气腾腾的关东煮在眼前呈现。虽然折磨，但实在是欲罢不能。</p>
+<p>真正的美食，不一定要登大雅之堂，不一定要呈现在五星级酒店，不一定非要松茸加身，鱼子酱包裹。美食可以是路边小馆的羊汤，可以是家庭餐厅的石锅拌饭。美食之美，只有自己的舌、胃、心能够体会。</p>
+]]></content>
+      <tags>
+        <tag>美食</tag>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>记一次vscode remote-ssh登录失败的解决方案</title>
     <url>/LiJT-Daily/2021/11/26/2021-11-26-vscode/</url>
     <content><![CDATA[<p>我的vscode remote-ssh设置了<a href="https://www.jianshu.com/p/32aa2fa936bb">免密登录</a>，本来昨天上午还能正常登录，但昨晚开始登录失败，怀疑是vscode版本更新后动了某些配置。参考一些资料后，总结了如下的解决方案.<br><span id="more"></span></p>
@@ -400,19 +413,6 @@ loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}
         <tag>coding</tag>
         <tag>vscode</tag>
         <tag>ssh</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一些杂谈.1</title>
-    <url>/LiJT-Daily/2021/11/23/2021-11-23-delicacy/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">不被时间和社会所束缚</span><br><span class="line">幸福地填饱肚子的时候</span><br><span class="line">那一瞬间 他已变得唯我独尊</span><br><span class="line">自由自在</span><br><span class="line">无需介怀地大快朵颐 这种孤高的行为</span><br><span class="line">正可谓是现代人被平等赋予的</span><br><span class="line">最高治愈</span><br><span class="line">——孤独的美食家</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<p>最近在看《孤独的美食家》，计划从第一季一口气追到第九季。每天总是夜深人静的时间点亮屏幕，看着酥脆的可乐饼、麻辣鲜香的担担面、热气腾腾的关东煮在眼前呈现。虽然折磨，但实在是欲罢不能。</p>
-<p>真正的美食，不一定要登大雅之堂，不一定要呈现在五星级酒店，不一定非要松茸加身，鱼子酱包裹。美食可以是路边小馆的羊汤，可以是家庭餐厅的石锅拌饭。美食之美，只有自己的舌、胃、心能够体会。</p>
-]]></content>
-      <tags>
-        <tag>美食</tag>
-        <tag>杂谈</tag>
       </tags>
   </entry>
   <entry>
@@ -1300,6 +1300,33 @@ P(Y=y|do(X=x)) = \sum_{z}P(Y=y|do(Z=z))P(Z=z|do(X=x))\\
       </tags>
   </entry>
   <entry>
+    <title>近期概况（毕业）</title>
+    <url>/LiJT-Daily/2022/07/11/2022-07-11-recent/</url>
+    <content><![CDATA[<p>毕业季的种种回顾。</p>
+<span id="more"></span>
+<p>没想到距离上一次发Blog已经将近两个月了呀。</p>
+<p>这两个月以来，为毕业手续四处奔波。毕业论文的撰写、修改、答辩；离校手续单的项目一个一个地盖章；打包行李，搬宿舍；与朋友们的道别。许多事件，都成为了“最后一次”。如，最后一次刷本科校园卡；最后一次用宿舍洗衣机；最后一次和某某某吃饭（也许是最后一次吧）。当这些事情一一做完，终于意识到自己要毕业了。</p>
+<p>祝大家毕业前程似锦！</p>
+<p>无论成败，朝阳一样地洒在每个人身上。</p>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: document.title+document.date,
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>]]></content>
+  </entry>
+  <entry>
     <title>变分推断学习笔记.1</title>
     <url>/LiJT-Daily/2022/08/19/2022-08-19-vi/</url>
     <content><![CDATA[<p>变分推断的基本概念、证据下界（ELBO）。<br><span id="more"></span></p>
@@ -1362,33 +1389,6 @@ E_{q(x)}\left[\log \frac{q(x)}{p(x)}\right] = - E_{q(x)}\left[\log \frac{p(x)}{q
 = 0  \quad\text{(概率密度函数的归一化性质)}</script></li>
 </ul>
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] David M. Blei, Alp Kucukelbir, &amp; Jon D. McAuliffe (2016). Variational Inference: A Review for Statisticians. CoRR, abs/1601.00670.</p>
-<section class="post-full-comments">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    <div id="gitalk-container"></div>
-    <script>
-        var gitalk = new Gitalk({
-            clientID: 'e1bbf465a324641f76ce',
-            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
-            repo: 'LiJT-Daily-Comments',
-            owner: 'CSLiJT',
-            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: document.title+document.date,
-            distractionFreeMode: false // Facebook-like distraction free mode
-        });
-        gitalk.render('gitalk-container');
-    </script>
-</section>]]></content>
-  </entry>
-  <entry>
-    <title>近期概况（毕业）</title>
-    <url>/LiJT-Daily/2022/07/11/2022-07-11-recent/</url>
-    <content><![CDATA[<p>毕业季的种种回顾。</p>
-<span id="more"></span>
-<p>没想到距离上一次发Blog已经将近两个月了呀。</p>
-<p>这两个月以来，为毕业手续四处奔波。毕业论文的撰写、修改、答辩；离校手续单的项目一个一个地盖章；打包行李，搬宿舍；与朋友们的道别。许多事件，都成为了“最后一次”。如，最后一次刷本科校园卡；最后一次用宿舍洗衣机；最后一次和某某某吃饭（也许是最后一次吧）。当这些事情一一做完，终于意识到自己要毕业了。</p>
-<p>祝大家毕业前程似锦！</p>
-<p>无论成败，朝阳一样地洒在每个人身上。</p>
 <section class="post-full-comments">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
