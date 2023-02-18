@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"cslijt.github.io","root":"/LiJT-Daily/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="祝祖国母亲生日快乐！祝大家节日安康！ 今天在思考番茄酱和番茄沙司的用法，忽然灵光一闪——红烩羊肉，let’s do this!">
+  <meta name="description" content="事务处理：故障与恢复 &amp; 并发控制">
 <meta property="og:type" content="article">
-<meta property="og:title" content="红烩羊肉">
-<meta property="og:url" content="https://cslijt.github.io/LiJT-Daily/2021/10/01/2021-10-01-stewlamb/index.html">
+<meta property="og:title" content="高级数据库系统知识点总结（Part 4）">
+<meta property="og:url" content="https://cslijt.github.io/LiJT-Daily/2023/02/18/2023-02-18-adbs04/index.html">
 <meta property="og:site_name" content="LiJT的灵质空间">
-<meta property="og:description" content="祝祖国母亲生日快乐！祝大家节日安康！ 今天在思考番茄酱和番茄沙司的用法，忽然灵光一闪——红烩羊肉，let’s do this!">
+<meta property="og:description" content="事务处理：故障与恢复 &amp; 并发控制">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-04-06T09:43:51.884Z">
+<meta property="article:published_time" content="2023-02-18T12:47:14.000Z">
+<meta property="article:modified_time" content="2023-02-18T15:49:07.555Z">
 <meta property="article:author" content="LiJT">
-<meta property="article:tag" content="美食">
+<meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://cslijt.github.io/LiJT-Daily/2021/10/01/2021-10-01-stewlamb/">
+<link rel="canonical" href="https://cslijt.github.io/LiJT-Daily/2023/02/18/2023-02-18-adbs04/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>红烩羊肉 | LiJT的灵质空间</title>
+  <title>高级数据库系统知识点总结（Part 4） | LiJT的灵质空间</title>
   
 
 
@@ -77,7 +77,119 @@
   </style>
 </noscript>
 
-<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style></head>
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -200,7 +312,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cslijt.github.io/LiJT-Daily/2021/10/01/2021-10-01-stewlamb/">
+    <link itemprop="mainEntityOfPage" href="https://cslijt.github.io/LiJT-Daily/2023/02/18/2023-02-18-adbs04/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/LiJT-Daily/images/avatar.jpg">
@@ -213,7 +325,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          红烩羊肉
+          高级数据库系统知识点总结（Part 4）
         </h1>
 
         <div class="post-meta">
@@ -222,19 +334,22 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-01T00:00:00+08:00">2021-10-01</time>
+              <time title="创建时间：2023-02-18 20:47:14 / 修改时间：23:49:07" itemprop="dateCreated datePublished" datetime="2023-02-18T20:47:14+08:00">2023-02-18</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-06 17:43:51" itemprop="dateModified" datetime="2022-04-06T17:43:51+08:00">2022-04-06</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/LiJT-Daily/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
+            </span>
 
           
-            <span id="/LiJT-Daily/2021/10/01/2021-10-01-stewlamb/" class="post-meta-item leancloud_visitors" data-flag-title="红烩羊肉" title="阅读次数">
+            <span id="/LiJT-Daily/2023/02/18/2023-02-18-adbs04/" class="post-meta-item leancloud_visitors" data-flag-title="高级数据库系统知识点总结（Part 4）" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -246,14 +361,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>484</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -265,40 +380,141 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>祝祖国母亲生日快乐！祝大家节日安康！</p>
-<p>今天在思考番茄酱和番茄沙司的用法，忽然灵光一闪——红烩羊肉，let’s do this!<br><span id="more"></span></p>
-<h2 id="原料"><a href="#原料" class="headerlink" title="原料"></a>原料</h2><ul>
-<li>羊肋排（手动去骨，切二指粗）一小盆</li>
-<li>番茄沙司</li>
-<li>番茄2枚</li>
-<li>红烧酱油/冰糖</li>
-<li>大葱、葱、姜、蒜、料酒</li>
-<li>盐、胡椒粉</li>
+        <p>事务处理：故障与恢复 &amp; 并发控制</p>
+<span id="more"></span>
+<h2 id="事务处理I-故障与恢复"><a href="#事务处理I-故障与恢复" class="headerlink" title="事务处理I: 故障与恢复"></a>事务处理I: 故障与恢复</h2><p>重点内容：</p>
+<ol>
+<li>数据库的一致性概念</li>
+<li>事务的基本概念、ACID和原子操作</li>
+<li>Undo日志、Redo日志、Undo/Redo日志的恢复过程</li>
+<li>Checkpoint</li>
+</ol>
+<h3 id="数据库一致性"><a href="#数据库一致性" class="headerlink" title="数据库一致性"></a>数据库一致性</h3><ul>
+<li>数据库一致性是指事务执行的结果必须是使得数据库从一个一致性状态转变到另一个一致性状态</li>
+<li>保证数据库一致性是指当事务完成时，必须使所有数据都具有一致的状态</li>
 </ul>
-<h2 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h2><h3 id="焯水"><a href="#焯水" class="headerlink" title="焯水"></a>焯水</h3><ul>
-<li>羊肋排去骨切块洗净，冷水下锅，一并放入葱、姜、一勺料酒。大火煮开，转小火滚五分钟。期间打去血沫。捞起，温水洗净羊肉，去葱姜。</li>
-</ul>
-<h3 id="煎制、熬酱"><a href="#煎制、熬酱" class="headerlink" title="煎制、熬酱"></a>煎制、熬酱</h3><ul>
-<li>番茄洗净切块备用，葱姜蒜洗净切片备用</li>
-<li>热锅凉油，下葱姜蒜小火慢炸直至蒜微黄，下羊排煎制，至表面金黄色，下番茄全部、番茄酱若干。继续小火翻炒，至番茄大量出水，加入开水，没过食材</li>
-</ul>
-<h3 id="红烩"><a href="#红烩" class="headerlink" title="红烩"></a>红烩</h3><ul>
-<li>加入少许红烧酱油调色，或炒糖色。转大火烧开五分钟给羊肉上色</li>
-<li>转小火慢炖10分钟</li>
-<li>调味，加入盐、胡椒粉。继续炖20分钟，让羊肉入味</li>
-<li>至临出锅前15分钟，下入洋葱或粉丝等辅料，继续小火</li>
-<li>大火收汁至汤汁挂线</li>
-<li>出锅，礼成</li>
-</ul>
-<h2 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h2><ul>
-<li>羊味十足而不腥膻，大抵是由于羊油去的干净、焯水焯得彻底</li>
-<li>番茄的使用十分得当。慢炖40分钟后，番茄已完全化入汤中，汤汁变浓，无需勾芡</li>
-<li>可以加入洋葱，必能提味</li>
-<li>味酸甜又有咸香。注意番茄和番茄酱的用量</li>
-<li>盐可以分几次放，让羊肉充分入味</li>
-<li>好吃！</li>
-</ul>
-
+<h3 id="事务的基本概念、ACID和原子操作"><a href="#事务的基本概念、ACID和原子操作" class="headerlink" title="事务的基本概念、ACID和原子操作"></a>事务的基本概念、ACID和原子操作</h3><ol>
+<li>事务：一个不可分割的操作序列，其中的操作要么读做，要么都不做</li>
+</ol>
+<h4 id="事务的ACID性质"><a href="#事务的ACID性质" class="headerlink" title="事务的ACID性质"></a>事务的ACID性质</h4><ol>
+<li>原子性 Atomicity</li>
+<li>一致性 Consistency</li>
+<li>隔离性 Isolation</li>
+<li>持久性 Durability</li>
+</ol>
+<h4 id="事务的原子操作"><a href="#事务的原子操作" class="headerlink" title="事务的原子操作"></a>事务的原子操作</h4><ol>
+<li>磁盘 &lt;-&gt; 内存<ol>
+<li><code>input(x)</code>: disk block with x -&gt; memory</li>
+<li><code>output(x)</code>: buffer block with x -&gt; disk</li>
+</ol>
+</li>
+<li>内存 &lt;-&gt; 内存 (必要时，磁盘 -&gt; 内存 &lt;-&gt; 内存)<ol>
+<li><code>read(x,t)</code>: do input(x) if necessary; t &lt;- value of x in buffer</li>
+<li><code>write(x,t)</code>: do input(x) if necessary; value of x in buffer &lt;- t</li>
+</ol>
+</li>
+</ol>
+<h3 id="Undo、Redo、Undo-Redo日志"><a href="#Undo、Redo、Undo-Redo日志" class="headerlink" title="Undo、Redo、Undo/Redo日志"></a>Undo、Redo、Undo/Redo日志</h3><ol>
+<li>事务日志记录了所有更新操作的具体细节</li>
+<li>日志文件的登记严格按事务执行的时间次序</li>
+</ol>
+<h4 id="Undo日志规则"><a href="#Undo日志规则" class="headerlink" title="Undo日志规则"></a>Undo日志规则</h4><ol>
+<li>事务的每一个修改操作都生成一个日志记录 &lt; T, x, old-value &gt;</li>
+<li>WAL：先写日志，在X被写到磁盘之前，对应该修改的日志记录必须已被写到磁盘上</li>
+<li>事务的所有修改结果都已经写入磁盘<strong>之后</strong>，将 &lt; commit, T &gt;日志记录写到磁盘上</li>
+<li>恢复时忽略已提交事务，只撤销未提交事务</li>
+<li>从<strong>尾部</strong>开始扫描日志记录&lt; T,x,v &gt;，如果T没有commit过或者已经abort，则：<ol>
+<li>write(x,v)</li>
+<li>output(x)</li>
+<li>反向扫描结束后，对于所有未commit过的事务，写入&lt; abort, T &gt;</li>
+</ol>
+</li>
+</ol>
+<h4 id="Redo日志规则"><a href="#Redo日志规则" class="headerlink" title="Redo日志规则"></a>Redo日志规则</h4><ol>
+<li>事务的每一个修改操作都生成一个日志记录 &lt; T, x, new-value &gt;</li>
+<li>WAL：先写日志，在X被写到磁盘之前，对应该修改的日志记录必须已被写到磁盘上</li>
+<li>事务的修改结果写入磁盘<strong>之前</strong>，将 &lt; commit, T &gt;日志记录写到磁盘上</li>
+<li>从<strong>首部</strong>开始扫描日志记录&lt; T,x,v &gt;，如果T已经commit过，则<ol>
+<li>write(x,v)</li>
+<li>output(x)</li>
+<li>正向扫描结束后，对于所有未commit过的事务，写入&lt; abort, T &gt;</li>
+</ol>
+</li>
+</ol>
+<h4 id="Undo-vs-Redo"><a href="#Undo-vs-Redo" class="headerlink" title="Undo vs. Redo"></a>Undo vs. Redo</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">项目</th>
+<th style="text-align:left">Undo</th>
+<th style="text-align:left">Redo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">更新时间</td>
+<td style="text-align:left">立即更新（乐观）</td>
+<td style="text-align:left">延迟更新（悲观）</td>
+</tr>
+<tr>
+<td style="text-align:left">内存代价</td>
+<td style="text-align:left">低</td>
+<td style="text-align:left">高</td>
+</tr>
+<tr>
+<td style="text-align:left">恢复代价</td>
+<td style="text-align:left">高</td>
+<td style="text-align:left">低</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="Undo-Redo日志规则"><a href="#Undo-Redo日志规则" class="headerlink" title="Undo/Redo日志规则"></a>Undo/Redo日志规则</h4><ol>
+<li>在x被写到磁盘之前，对应该修改的日志记录必须已被写到磁盘上（WAL）</li>
+<li>日志中的数据修改记录：&lt; T, x, v, w &gt;<ol>
+<li>v: old value; w: new value</li>
+</ol>
+</li>
+<li>基于Undo/Redo日志的恢复<ol>
+<li>正向扫描日志，将commit的事务放入Redo列表中，将没有结束的事务放入Undo列表</li>
+<li>反向扫描日志，对于&lt; T, x, v, w &gt;，若T在Undo列表中，则<ol>
+<li>write(x,v); output(x)</li>
+</ol>
+</li>
+<li>正向扫描日志，对于&lt; T, x, v, w &gt;，若T在Redo列表中，则<ol>
+<li>write(x,w); output(x)</li>
+</ol>
+</li>
+<li>对于Undo列表中的T，写入&lt; abort, T &gt;</li>
+</ol>
+</li>
+</ol>
+<h3 id="检查点-checkpoint"><a href="#检查点-checkpoint" class="headerlink" title="检查点(checkpoint)"></a>检查点(checkpoint)</h3><ol>
+<li>提出背景：当系统故障发生时，必须扫描日志。需要搜索整个日志来确定undo列表和redo列表<ol>
+<li>搜索过程太耗时</li>
+<li>redo列表很大，使得恢复过程变得很长（所有成功commit的事务都要redo一遍；每个事务可能涉及大量值更新操作）</li>
+</ol>
+</li>
+<li>检查点技术保证检查点之前的所有commit操作的结果已经写回数据库，在恢复时不需要redo</li>
+</ol>
+<h2 id="事务处理II-并发控制"><a href="#事务处理II-并发控制" class="headerlink" title="事务处理II: 并发控制"></a>事务处理II: 并发控制</h2><p>to be continued…</p>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: document.title+document.date,
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>
     </div>
 
     
@@ -307,7 +523,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/LiJT-Daily/tags/%E7%BE%8E%E9%A3%9F/" rel="tag"># 美食</a>
+              <a href="/LiJT-Daily/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
           </div>
 
         
@@ -316,13 +532,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/LiJT-Daily/2021/09/29/2021-09-29-food/" rel="prev" title="美食的记录">
-      <i class="fa fa-chevron-left"></i> 美食的记录
+    <a href="/LiJT-Daily/2023/02/17/2023-02-17-adbs03/" rel="prev" title="高级数据库系统知识点总结（Part 3）">
+      <i class="fa fa-chevron-left"></i> 高级数据库系统知识点总结（Part 3）
     </a></div>
-      <div class="post-nav-item">
-    <a href="/LiJT-Daily/2021/10/01/2021-10-01-whale01/" rel="next" title="【连载】鲸的语言？（一）">
-      【连载】鲸的语言？（一） <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -381,7 +594,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E6%96%99"><span class="nav-number">1.</span> <span class="nav-text">原料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%9A%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">做法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%84%AF%E6%B0%B4"><span class="nav-number">2.1.</span> <span class="nav-text">焯水</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%85%8E%E5%88%B6%E3%80%81%E7%86%AC%E9%85%B1"><span class="nav-number">2.2.</span> <span class="nav-text">煎制、熬酱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%A2%E7%83%A9"><span class="nav-number">2.3.</span> <span class="nav-text">红烩</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%93%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text">体验</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86I-%E6%95%85%E9%9A%9C%E4%B8%8E%E6%81%A2%E5%A4%8D"><span class="nav-number">1.</span> <span class="nav-text">事务处理I: 故障与恢复</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%80%E8%87%B4%E6%80%A7"><span class="nav-number">1.1.</span> <span class="nav-text">数据库一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%81ACID%E5%92%8C%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C"><span class="nav-number">1.2.</span> <span class="nav-text">事务的基本概念、ACID和原子操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84ACID%E6%80%A7%E8%B4%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text">事务的ACID性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C"><span class="nav-number">1.2.2.</span> <span class="nav-text">事务的原子操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Undo%E3%80%81Redo%E3%80%81Undo-Redo%E6%97%A5%E5%BF%97"><span class="nav-number">1.3.</span> <span class="nav-text">Undo、Redo、Undo&#x2F;Redo日志</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Undo%E6%97%A5%E5%BF%97%E8%A7%84%E5%88%99"><span class="nav-number">1.3.1.</span> <span class="nav-text">Undo日志规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redo%E6%97%A5%E5%BF%97%E8%A7%84%E5%88%99"><span class="nav-number">1.3.2.</span> <span class="nav-text">Redo日志规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Undo-vs-Redo"><span class="nav-number">1.3.3.</span> <span class="nav-text">Undo vs. Redo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Undo-Redo%E6%97%A5%E5%BF%97%E8%A7%84%E5%88%99"><span class="nav-number">1.3.4.</span> <span class="nav-text">Undo&#x2F;Redo日志规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E7%82%B9-checkpoint"><span class="nav-number">1.4.</span> <span class="nav-text">检查点(checkpoint)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86II-%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">事务处理II: 并发控制</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -641,6 +854,61 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
