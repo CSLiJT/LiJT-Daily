@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>PyTorch踩坑记录（持续更新）</title>
+    <url>/LiJT-Daily/2021/09/27/2021-09-27-pytorch/</url>
+    <content><![CDATA[<p>本篇记录使用pytorch过程中踩到的各种坑！<br><span id="more"></span></p>
+<h2 id="声明损失函数时忘记加括号"><a href="#声明损失函数时忘记加括号" class="headerlink" title="声明损失函数时忘记加括号"></a>声明损失函数时忘记加括号</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">loss_fn = nn.BCELoss <span class="comment"># 应该是 nn.BCELoss()</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; RuntimeError: <span class="built_in">bool</span> value of Tensor <span class="keyword">with</span> more than one value <span class="keyword">is</span> ambiguous</span><br></pre></td></tr></table></figure>
+<h2 id="通过索引赋值后，梯度还能正常反向传播吗？"><a href="#通过索引赋值后，梯度还能正常反向传播吗？" class="headerlink" title="通过索引赋值后，梯度还能正常反向传播吗？"></a>通过索引赋值后，梯度还能正常反向传播吗？</h2><ul>
+<li>答案：<strong>能</strong>.</li>
+</ul>
+<h3 id="验证代码"><a href="#验证代码" class="headerlink" title="验证代码"></a>验证代码</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch </span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="comment"># x 是输入张量，可求梯度</span></span><br><span class="line">    x = torch.rand(<span class="number">4</span>)</span><br><span class="line">    x.requires_grad_(<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># cache 是中间张量，将x赋给cache</span></span><br><span class="line">    cache = torch.zeros(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">    optim = torch.optim.Adam([x],lr=<span class="number">1e-2</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        <span class="comment"># 按索引赋值</span></span><br><span class="line">        cache[<span class="number">1</span>,:] = x </span><br><span class="line">        result = cache * <span class="number">2</span></span><br><span class="line">        result = result.view(-<span class="number">1</span>)</span><br><span class="line">        <span class="comment"># 求损失函数</span></span><br><span class="line">        <span class="built_in">sum</span> = torch.<span class="built_in">sum</span>(result, dim = <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">print</span>(x.data)</span><br><span class="line">        optim.zero_grad()</span><br><span class="line">        <span class="built_in">sum</span>.backward(retain_graph = <span class="literal">True</span>)</span><br><span class="line">        optim.step()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h3 id="验证输出"><a href="#验证输出" class="headerlink" title="验证输出"></a>验证输出</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tensor([0.3073, 0.0680, 0.3627, 0.0659])</span><br><span class="line">tensor([0.2973, 0.0580, 0.3527, 0.0559])</span><br><span class="line">tensor([0.2873, 0.0480, 0.3427, 0.0459])</span><br><span class="line">tensor([0.2773, 0.0380, 0.3327, 0.0359])</span><br><span class="line">tensor([0.2673, 0.0280, 0.3227, 0.0259])</span><br><span class="line">tensor([0.2573, 0.0180, 0.3127, 0.0159])</span><br><span class="line">tensor([0.2473, 0.0080, 0.3027, 0.0059])</span><br><span class="line">tensor([ 0.2373, -0.0020,  0.2927, -0.0041])</span><br><span class="line">tensor([ 0.2273, -0.0120,  0.2827, -0.0141])</span><br><span class="line">tensor([ 0.2173, -0.0220,  0.2727, -0.0241])</span><br></pre></td></tr></table></figure>
+<p>经过 x -&gt; cache -&gt; sum 的计算并反向传播后，可见x的值如上所示有所变化，因此索引将前向传播中间结果赋给Tensor，再在Tensor上做后续运算，能够实现到达输入张量的反向传播！</p>
+]]></content>
+      <tags>
+        <tag>pytorch</tag>
+        <tag>深度学习</tag>
+        <tag>coding</tag>
+        <tag>持续更新</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>美食的记录</title>
     <url>/LiJT-Daily/2021/09/29/2021-09-29-food/</url>
     <content><![CDATA[<h2 id="煲王"><a href="#煲王" class="headerlink" title="煲王"></a>煲王</h2><ul>
@@ -19,25 +38,6 @@
 ]]></content>
       <tags>
         <tag>美食</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PyTorch踩坑记录（持续更新）</title>
-    <url>/LiJT-Daily/2021/09/27/2021-09-27-pytorch/</url>
-    <content><![CDATA[<p>本篇记录使用pytorch过程中踩到的各种坑！<br><span id="more"></span></p>
-<h2 id="声明损失函数时忘记加括号"><a href="#声明损失函数时忘记加括号" class="headerlink" title="声明损失函数时忘记加括号"></a>声明损失函数时忘记加括号</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">loss_fn = nn.BCELoss <span class="comment"># 应该是 nn.BCELoss()</span></span><br><span class="line"></span><br><span class="line">&gt;&gt; RuntimeError: <span class="built_in">bool</span> value of Tensor <span class="keyword">with</span> more than one value <span class="keyword">is</span> ambiguous</span><br></pre></td></tr></table></figure>
-<h2 id="通过索引赋值后，梯度还能正常反向传播吗？"><a href="#通过索引赋值后，梯度还能正常反向传播吗？" class="headerlink" title="通过索引赋值后，梯度还能正常反向传播吗？"></a>通过索引赋值后，梯度还能正常反向传播吗？</h2><ul>
-<li>答案：<strong>能</strong>.</li>
-</ul>
-<h3 id="验证代码"><a href="#验证代码" class="headerlink" title="验证代码"></a>验证代码</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch </span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="comment"># x 是输入张量，可求梯度</span></span><br><span class="line">    x = torch.rand(<span class="number">4</span>)</span><br><span class="line">    x.requires_grad_(<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># cache 是中间张量，将x赋给cache</span></span><br><span class="line">    cache = torch.zeros(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">    optim = torch.optim.Adam([x],lr=<span class="number">1e-2</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        <span class="comment"># 按索引赋值</span></span><br><span class="line">        cache[<span class="number">1</span>,:] = x </span><br><span class="line">        result = cache * <span class="number">2</span></span><br><span class="line">        result = result.view(-<span class="number">1</span>)</span><br><span class="line">        <span class="comment"># 求损失函数</span></span><br><span class="line">        <span class="built_in">sum</span> = torch.<span class="built_in">sum</span>(result, dim = <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">print</span>(x.data)</span><br><span class="line">        optim.zero_grad()</span><br><span class="line">        <span class="built_in">sum</span>.backward(retain_graph = <span class="literal">True</span>)</span><br><span class="line">        optim.step()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-<h3 id="验证输出"><a href="#验证输出" class="headerlink" title="验证输出"></a>验证输出</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tensor([0.3073, 0.0680, 0.3627, 0.0659])</span><br><span class="line">tensor([0.2973, 0.0580, 0.3527, 0.0559])</span><br><span class="line">tensor([0.2873, 0.0480, 0.3427, 0.0459])</span><br><span class="line">tensor([0.2773, 0.0380, 0.3327, 0.0359])</span><br><span class="line">tensor([0.2673, 0.0280, 0.3227, 0.0259])</span><br><span class="line">tensor([0.2573, 0.0180, 0.3127, 0.0159])</span><br><span class="line">tensor([0.2473, 0.0080, 0.3027, 0.0059])</span><br><span class="line">tensor([ 0.2373, -0.0020,  0.2927, -0.0041])</span><br><span class="line">tensor([ 0.2273, -0.0120,  0.2827, -0.0141])</span><br><span class="line">tensor([ 0.2173, -0.0220,  0.2727, -0.0241])</span><br></pre></td></tr></table></figure>
-<p>经过 x -&gt; cache -&gt; sum 的计算并反向传播后，可见x的值如上所示有所变化，因此索引将前向传播中间结果赋给Tensor，再在Tensor上做后续运算，能够实现到达输入张量的反向传播！</p>
-]]></content>
-      <tags>
-        <tag>pytorch</tag>
-        <tag>深度学习</tag>
-        <tag>coding</tag>
-        <tag>持续更新</tag>
       </tags>
   </entry>
   <entry>
@@ -488,25 +488,6 @@ f_A(x)=\left\{
       </tags>
   </entry>
   <entry>
-    <title>一些杂谈.2</title>
-    <url>/LiJT-Daily/2022/03/26/2022-03-26-remind/</url>
-    <content><![CDATA[<p>本科期间上的统计类课程是多么美好的回忆。</p>
-<span id="more"></span>
-<p>最近回炉统计学的一些分析与检验方法，翻到了ynyang老师的多元回归分析的讲义。</p>
-<p>ynyang老师的课深入浅出，是给我印象最深，也是让我收获最大的统计类课程。从矩阵变换的技巧，到PCA，到SVD，甚至到谱聚类，PageRank算法的启蒙，都是在ynyang老师的课上完成的。尤其是SVD，当初花书和西瓜书翻了个遍也不知所云。但是ynyang老师的课却让我醍醐灌顶-SVD是对矩阵的最优低秩分解。</p>
-<p><img src="https://cslijt.github.io/LiJT-Daily/images/屏幕截图_202022-03-26_175317.jpg" alt="SVD1"></p>
-<p>如今想来，本科四年在学习上的遗憾有二：</p>
-<ol>
-<li>大三由于畏难，退了ynyang老师的回归分析的课。错过了一个亿的知识。</li>
-<li>铁憨憨，没有和yang老师保持联系。</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>杂谈</tag>
-        <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>读Paper的一些感想记录</title>
     <url>/LiJT-Daily/2022/02/22/2022-02-22-paper/</url>
     <content><![CDATA[<p>最近一直在读paper。结合之前与老师、前辈、朋友讨论的经历，在此总结读paper的一些感想记录。这既是我自己的反思与总结，也可以为大家提供一些经验参考。</p>
@@ -543,6 +524,25 @@ f_A(x)=\left\{
 ]]></content>
       <tags>
         <tag>科研</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一些杂谈.2</title>
+    <url>/LiJT-Daily/2022/03/26/2022-03-26-remind/</url>
+    <content><![CDATA[<p>本科期间上的统计类课程是多么美好的回忆。</p>
+<span id="more"></span>
+<p>最近回炉统计学的一些分析与检验方法，翻到了ynyang老师的多元回归分析的讲义。</p>
+<p>ynyang老师的课深入浅出，是给我印象最深，也是让我收获最大的统计类课程。从矩阵变换的技巧，到PCA，到SVD，甚至到谱聚类，PageRank算法的启蒙，都是在ynyang老师的课上完成的。尤其是SVD，当初花书和西瓜书翻了个遍也不知所云。但是ynyang老师的课却让我醍醐灌顶-SVD是对矩阵的最优低秩分解。</p>
+<p><img src="https://cslijt.github.io/LiJT-Daily/images/屏幕截图_202022-03-26_175317.jpg" alt="SVD1"></p>
+<p>如今想来，本科四年在学习上的遗憾有二：</p>
+<ol>
+<li>大三由于畏难，退了ynyang老师的回归分析的课。错过了一个亿的知识。</li>
+<li>铁憨憨，没有和yang老师保持联系。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>杂谈</tag>
+        <tag>数学</tag>
       </tags>
   </entry>
   <entry>
@@ -2511,6 +2511,12 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
         gitalk.render('gitalk-container');
     </script>
 </section>]]></content>
+      <categories>
+        <category>音乐</category>
+      </categories>
+      <tags>
+        <tag>吉他, 编曲</tag>
+      </tags>
   </entry>
   <entry>
     <title>2023 · 新的一年 · 战士</title>
