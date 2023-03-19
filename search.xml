@@ -20,27 +20,6 @@
       </tags>
   </entry>
   <entry>
-    <title>美食的记录</title>
-    <url>/LiJT-Daily/2021/09/29/2021-09-29-food/</url>
-    <content><![CDATA[<h2 id="煲王"><a href="#煲王" class="headerlink" title="煲王"></a>煲王</h2><ul>
-<li>猪脚煲的味道很棒，想起了以前吃过的发财猪手。骨髓浓香四溢，但考虑到健康，未敢多吃。</li>
-<li>咖喱牛腩的味道很正，有澳门风味。猪肚鸡的汤底调味很好，可惜猪肚太少，仅三两片，怎能够吃？</li>
-<li>煲仔饭和卤水拼盘味道不错。卤水拼盘改良过，热吃，色浓，摆盘也更加粗犷。更喜欢吃潮汕的蘸白醋的卤水狮头鹅！</li>
-<li>茄子煲调味很好，但火候不够，茄子不入味。叉烧包实属鸡肋！过量的面和少量的肉馅… 但是可以把面撕下来，包猪手吃，极美。</li>
-</ul>
-<span id="more"></span>
-<h2 id="卜一帆"><a href="#卜一帆" class="headerlink" title="卜一帆"></a>卜一帆</h2><ul>
-<li>京葱鸡肉串极鲜美。咸鲜、多汁、皮微焦的鸡肉，焦黄、冲香的葱，实在是相得益彰。</li>
-<li>烤五花味道浓香，脆骨爽口，但肉略微有些干，或许是没有刷油。</li>
-<li>青花鱼，熟悉的味道。不加任何调料烤制，挤上几滴柠檬汁，鲜美而浓郁。配上一碗米饭和沙拉就是完美的午餐。</li>
-<li>寿喜锅，久闻大名却第一次吃。日料虽然只有甜酱油、味增、味淋、昆布高汤等几种调味料，但甜酱油和高汤真的很适合火锅。牛肉多汁入味嫩而不烂，吸满汤汁的白菜、金针菇、魔芋丝和豆腐是米饭的绝配。看着咕嘟嘟的小锅和冒出的白雾，如果这是在冬天，想必一定是非常幸福的时刻吧。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>美食</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>红烩羊肉</title>
     <url>/LiJT-Daily/2021/10/01/2021-10-01-stewlamb/</url>
     <content><![CDATA[<p>祝祖国母亲生日快乐！祝大家节日安康！</p>
@@ -75,6 +54,27 @@
 <li>味酸甜又有咸香。注意番茄和番茄酱的用量</li>
 <li>盐可以分几次放，让羊肉充分入味</li>
 <li>好吃！</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>美食</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>美食的记录</title>
+    <url>/LiJT-Daily/2021/09/29/2021-09-29-food/</url>
+    <content><![CDATA[<h2 id="煲王"><a href="#煲王" class="headerlink" title="煲王"></a>煲王</h2><ul>
+<li>猪脚煲的味道很棒，想起了以前吃过的发财猪手。骨髓浓香四溢，但考虑到健康，未敢多吃。</li>
+<li>咖喱牛腩的味道很正，有澳门风味。猪肚鸡的汤底调味很好，可惜猪肚太少，仅三两片，怎能够吃？</li>
+<li>煲仔饭和卤水拼盘味道不错。卤水拼盘改良过，热吃，色浓，摆盘也更加粗犷。更喜欢吃潮汕的蘸白醋的卤水狮头鹅！</li>
+<li>茄子煲调味很好，但火候不够，茄子不入味。叉烧包实属鸡肋！过量的面和少量的肉馅… 但是可以把面撕下来，包猪手吃，极美。</li>
+</ul>
+<span id="more"></span>
+<h2 id="卜一帆"><a href="#卜一帆" class="headerlink" title="卜一帆"></a>卜一帆</h2><ul>
+<li>京葱鸡肉串极鲜美。咸鲜、多汁、皮微焦的鸡肉，焦黄、冲香的葱，实在是相得益彰。</li>
+<li>烤五花味道浓香，脆骨爽口，但肉略微有些干，或许是没有刷油。</li>
+<li>青花鱼，熟悉的味道。不加任何调料烤制，挤上几滴柠檬汁，鲜美而浓郁。配上一碗米饭和沙拉就是完美的午餐。</li>
+<li>寿喜锅，久闻大名却第一次吃。日料虽然只有甜酱油、味增、味淋、昆布高汤等几种调味料，但甜酱油和高汤真的很适合火锅。牛肉多汁入味嫩而不烂，吸满汤汁的白菜、金针菇、魔芋丝和豆腐是米饭的绝配。看着咕嘟嘟的小锅和冒出的白雾，如果这是在冬天，想必一定是非常幸福的时刻吧。</li>
 </ul>
 ]]></content>
       <tags>
@@ -368,31 +368,6 @@ loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}
       </tags>
   </entry>
   <entry>
-    <title>Hadoop 实战练习记录</title>
-    <url>/LiJT-Daily/2021/12/13/2021-12-13-hadoop/</url>
-    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本篇记录Hadoop实战学习中的笔记以及问题分析。</p>
-<span id="more"></span>
-<h2 id="Mapreduce-实战"><a href="#Mapreduce-实战" class="headerlink" title="Mapreduce 实战"></a>Mapreduce 实战</h2><h3 id="Mapreduce-程序模型"><a href="#Mapreduce-程序模型" class="headerlink" title="Mapreduce 程序模型"></a>Mapreduce 程序模型</h3><h4 id="什么是Mapreduce"><a href="#什么是Mapreduce" class="headerlink" title="什么是Mapreduce"></a>什么是Mapreduce</h4><p>MapReduce是一种可用于数据处理的编程模型，我们现在设想一个场景，你接到一个任务，任务是：挖掘分析我国气象中心近年来的数据日志，该数据日志大小有3T,让你分析计算出每一年的最高气温，如果你现在只有一台计算机，如何处理呢？我想你应该会读取这些数据，并且将读取到的数据与目前的最大气温值进行比较。比较完所有的数据之后就可以得出最高气温了。不过以我们的经验都知道要处理这么多数据肯定是非常耗时的。</p>
-<p>如果我现在给你三台机器，你会如何处理呢？你应该想到了：最好的处理方式是将这些数据切分成三块，然后分别计算处理这些数据（Map），处理完毕之后发送到一台机器上进行合并（merge），再计算合并之后的数据，归纳（reduce）并输出。</p>
-<p>这就是一个比较完整的MapReduce的过程了。</p>
-<p><img src="/LiJT-Daily/images/2021121301.png" alt="Mapreduce原理"></p>
-<h4 id="Mapreduce程序结构-以Word-Count为例"><a href="#Mapreduce程序结构-以Word-Count为例" class="headerlink" title="Mapreduce程序结构(以Word Count为例)"></a>Mapreduce程序结构(以Word Count为例)</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.*;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.util.GenericOptionsParser;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WordCount</span> &#123;</span><br><span class="line"><span class="comment">//Mapper类</span></span><br><span class="line"><span class="comment">/*LongWritable表示每一行起始偏移量</span></span><br><span class="line"><span class="comment">第一个Text是用来接受文件中的内容，</span></span><br><span class="line"><span class="comment">第二个Text是用来输出给Reduce类的key,</span></span><br><span class="line"><span class="comment">IntWritable是用来输出给Reduce类的value*/</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">TokenizerMapper</span> </span><br><span class="line">       <span class="keyword">extends</span> <span class="title class_">Mapper</span>&lt;LongWritable, Text, Text, IntWritable&gt;&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">IntWritable</span> <span class="variable">one</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="type">Text</span> <span class="variable">word</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Text</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">map</span><span class="params">(LongWritable key, Text value, Context context</span></span><br><span class="line"><span class="params">                    )</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">      <span class="type">StringTokenizer</span> <span class="variable">itr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringTokenizer</span>(value.toString());</span><br><span class="line">      <span class="keyword">while</span> (itr.hasMoreTokens()) &#123;</span><br><span class="line">        word.set(itr.nextToken());</span><br><span class="line">        context.write(word, one);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">IntSumReducer</span> </span><br><span class="line">       <span class="keyword">extends</span> <span class="title class_">Reducer</span>&lt;Text,IntWritable,Text,IntWritable&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">IntWritable</span> <span class="variable">result</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values, </span></span><br><span class="line"><span class="params">                       Context context</span></span><br><span class="line"><span class="params">                       )</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">      <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (IntWritable val : values) &#123;</span><br><span class="line">        sum += val.get();</span><br><span class="line">      &#125;</span><br><span class="line">      result.set(sum);</span><br><span class="line">      context.write(key, result);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="comment">//创建配置对象</span></span><br><span class="line">    <span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line">    <span class="comment">//创建job对象</span></span><br><span class="line">    <span class="type">Job</span> <span class="variable">job</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Job</span>(conf, <span class="string">&quot;word count&quot;</span>);</span><br><span class="line">    <span class="comment">//设置运行job的类</span></span><br><span class="line">    job.setJarByClass(WordCount.class);</span><br><span class="line">    <span class="comment">//设置Mapper的类</span></span><br><span class="line">    job.setMapperClass(TokenizerMapper.class);</span><br><span class="line">    <span class="comment">//设置Reduce的类</span></span><br><span class="line">    job.setReducerClass(IntSumReducer.class);</span><br><span class="line">    <span class="comment">//设置输出的key value格式</span></span><br><span class="line">    job.setOutputKeyClass(Text.class);</span><br><span class="line">    job.setOutputValueClass(IntWritable.class);</span><br><span class="line">    <span class="comment">//设置输入路径</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">inputfile</span> <span class="operator">=</span> <span class="string">&quot;/usr/input&quot;</span>;</span><br><span class="line">    <span class="comment">//设置输出路径</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">outputFile</span> <span class="operator">=</span> <span class="string">&quot;/usr/output&quot;</span>;</span><br><span class="line">    <span class="comment">//执行输入</span></span><br><span class="line">    FileInputFormat.addInputPath(job, <span class="keyword">new</span> <span class="title class_">Path</span>(inputfile));</span><br><span class="line">    <span class="comment">//执行输出</span></span><br><span class="line">    FileOutputFormat.setOutputPath(job, <span class="keyword">new</span> <span class="title class_">Path</span>(outputFile));</span><br><span class="line">    <span class="comment">//是否运行成功，true输出0，false输出1</span></span><br><span class="line">    System.exit(job.waitForCompletion(<span class="literal">true</span>) ? <span class="number">0</span> : <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Hbase-实战"><a href="#Hbase-实战" class="headerlink" title="Hbase 实战"></a>Hbase 实战</h2><p>这里主要记录Hbase shell里的一些常用指令</p>
-<h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h4><p>新建一个名为<code>test</code>的表，使其中包含一个名为<code>data</code>的列，表和列族属性都为默认值：<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;data&#x27;</span></span><br></pre></td></tr></table></figure></p>
-<p>创建完成后，我们可以输入<code>list</code>来查看表是否创建成功</p>
-<h4 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h4><p>我们来给上一关创建的<code>test</code>表的列<code>data</code>添加一些数据.使用<code>put</code>命令可以用来添加数据，使用<code>get</code>命令可以获取数据。<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">put <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;row1&#x27;</span>,<span class="string">&#x27;data:1&#x27;</span>,<span class="string">&#x27;value1&#x27;</span></span><br><span class="line">put <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;row2&#x27;</span>,<span class="string">&#x27;data:2&#x27;</span>,<span class="string">&#x27;value2&#x27;</span></span><br><span class="line"><span class="keyword">get</span> <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;row1&#x27;</span></span><br></pre></td></tr></table></figure></p>
-<p>输入<code>scan</code>命令就可以查看所有的数据了</p>
-<h4 id="删除数据和表"><a href="#删除数据和表" class="headerlink" title="删除数据和表"></a>删除数据和表</h4><p>删除整行数据：<code>deleteall [表名]，[行名称]</code><br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">deleteall <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;row1&#x27;</span></span><br></pre></td></tr></table></figure></p>
-<p>删除表需要先禁用、再删除。分为两步：<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">disable 表名</span><br><span class="line">drop 表名</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <tags>
-        <tag>大数据</tag>
-        <tag>Java</tag>
-        <tag>Hadoop</tag>
-        <tag>Mapreduce</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>记一次vscode remote-ssh登录失败的解决方案</title>
     <url>/LiJT-Daily/2021/11/26/2021-11-26-vscode/</url>
     <content><![CDATA[<p>我的vscode remote-ssh设置了<a href="https://www.jianshu.com/p/32aa2fa936bb">免密登录</a>，本来昨天上午还能正常登录，但昨晚开始登录失败，怀疑是vscode版本更新后动了某些配置。参考一些资料后，总结了如下的解决方案.<br><span id="more"></span></p>
@@ -469,6 +444,31 @@ loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}
       </tags>
   </entry>
   <entry>
+    <title>Hadoop 实战练习记录</title>
+    <url>/LiJT-Daily/2021/12/13/2021-12-13-hadoop/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本篇记录Hadoop实战学习中的笔记以及问题分析。</p>
+<span id="more"></span>
+<h2 id="Mapreduce-实战"><a href="#Mapreduce-实战" class="headerlink" title="Mapreduce 实战"></a>Mapreduce 实战</h2><h3 id="Mapreduce-程序模型"><a href="#Mapreduce-程序模型" class="headerlink" title="Mapreduce 程序模型"></a>Mapreduce 程序模型</h3><h4 id="什么是Mapreduce"><a href="#什么是Mapreduce" class="headerlink" title="什么是Mapreduce"></a>什么是Mapreduce</h4><p>MapReduce是一种可用于数据处理的编程模型，我们现在设想一个场景，你接到一个任务，任务是：挖掘分析我国气象中心近年来的数据日志，该数据日志大小有3T,让你分析计算出每一年的最高气温，如果你现在只有一台计算机，如何处理呢？我想你应该会读取这些数据，并且将读取到的数据与目前的最大气温值进行比较。比较完所有的数据之后就可以得出最高气温了。不过以我们的经验都知道要处理这么多数据肯定是非常耗时的。</p>
+<p>如果我现在给你三台机器，你会如何处理呢？你应该想到了：最好的处理方式是将这些数据切分成三块，然后分别计算处理这些数据（Map），处理完毕之后发送到一台机器上进行合并（merge），再计算合并之后的数据，归纳（reduce）并输出。</p>
+<p>这就是一个比较完整的MapReduce的过程了。</p>
+<p><img src="/LiJT-Daily/images/2021121301.png" alt="Mapreduce原理"></p>
+<h4 id="Mapreduce程序结构-以Word-Count为例"><a href="#Mapreduce程序结构-以Word-Count为例" class="headerlink" title="Mapreduce程序结构(以Word Count为例)"></a>Mapreduce程序结构(以Word Count为例)</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.*;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.util.GenericOptionsParser;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WordCount</span> &#123;</span><br><span class="line"><span class="comment">//Mapper类</span></span><br><span class="line"><span class="comment">/*LongWritable表示每一行起始偏移量</span></span><br><span class="line"><span class="comment">第一个Text是用来接受文件中的内容，</span></span><br><span class="line"><span class="comment">第二个Text是用来输出给Reduce类的key,</span></span><br><span class="line"><span class="comment">IntWritable是用来输出给Reduce类的value*/</span></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">TokenizerMapper</span> </span><br><span class="line">       <span class="keyword">extends</span> <span class="title class_">Mapper</span>&lt;LongWritable, Text, Text, IntWritable&gt;&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">IntWritable</span> <span class="variable">one</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="type">Text</span> <span class="variable">word</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Text</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">map</span><span class="params">(LongWritable key, Text value, Context context</span></span><br><span class="line"><span class="params">                    )</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">      <span class="type">StringTokenizer</span> <span class="variable">itr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringTokenizer</span>(value.toString());</span><br><span class="line">      <span class="keyword">while</span> (itr.hasMoreTokens()) &#123;</span><br><span class="line">        word.set(itr.nextToken());</span><br><span class="line">        context.write(word, one);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">IntSumReducer</span> </span><br><span class="line">       <span class="keyword">extends</span> <span class="title class_">Reducer</span>&lt;Text,IntWritable,Text,IntWritable&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">IntWritable</span> <span class="variable">result</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntWritable</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values, </span></span><br><span class="line"><span class="params">                       Context context</span></span><br><span class="line"><span class="params">                       )</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">      <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (IntWritable val : values) &#123;</span><br><span class="line">        sum += val.get();</span><br><span class="line">      &#125;</span><br><span class="line">      result.set(sum);</span><br><span class="line">      context.write(key, result);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    <span class="comment">//创建配置对象</span></span><br><span class="line">    <span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line">    <span class="comment">//创建job对象</span></span><br><span class="line">    <span class="type">Job</span> <span class="variable">job</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Job</span>(conf, <span class="string">&quot;word count&quot;</span>);</span><br><span class="line">    <span class="comment">//设置运行job的类</span></span><br><span class="line">    job.setJarByClass(WordCount.class);</span><br><span class="line">    <span class="comment">//设置Mapper的类</span></span><br><span class="line">    job.setMapperClass(TokenizerMapper.class);</span><br><span class="line">    <span class="comment">//设置Reduce的类</span></span><br><span class="line">    job.setReducerClass(IntSumReducer.class);</span><br><span class="line">    <span class="comment">//设置输出的key value格式</span></span><br><span class="line">    job.setOutputKeyClass(Text.class);</span><br><span class="line">    job.setOutputValueClass(IntWritable.class);</span><br><span class="line">    <span class="comment">//设置输入路径</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">inputfile</span> <span class="operator">=</span> <span class="string">&quot;/usr/input&quot;</span>;</span><br><span class="line">    <span class="comment">//设置输出路径</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">outputFile</span> <span class="operator">=</span> <span class="string">&quot;/usr/output&quot;</span>;</span><br><span class="line">    <span class="comment">//执行输入</span></span><br><span class="line">    FileInputFormat.addInputPath(job, <span class="keyword">new</span> <span class="title class_">Path</span>(inputfile));</span><br><span class="line">    <span class="comment">//执行输出</span></span><br><span class="line">    FileOutputFormat.setOutputPath(job, <span class="keyword">new</span> <span class="title class_">Path</span>(outputFile));</span><br><span class="line">    <span class="comment">//是否运行成功，true输出0，false输出1</span></span><br><span class="line">    System.exit(job.waitForCompletion(<span class="literal">true</span>) ? <span class="number">0</span> : <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Hbase-实战"><a href="#Hbase-实战" class="headerlink" title="Hbase 实战"></a>Hbase 实战</h2><p>这里主要记录Hbase shell里的一些常用指令</p>
+<h4 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h4><p>新建一个名为<code>test</code>的表，使其中包含一个名为<code>data</code>的列，表和列族属性都为默认值：<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;data&#x27;</span></span><br></pre></td></tr></table></figure></p>
+<p>创建完成后，我们可以输入<code>list</code>来查看表是否创建成功</p>
+<h4 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h4><p>我们来给上一关创建的<code>test</code>表的列<code>data</code>添加一些数据.使用<code>put</code>命令可以用来添加数据，使用<code>get</code>命令可以获取数据。<br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">put <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;row1&#x27;</span>,<span class="string">&#x27;data:1&#x27;</span>,<span class="string">&#x27;value1&#x27;</span></span><br><span class="line">put <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;row2&#x27;</span>,<span class="string">&#x27;data:2&#x27;</span>,<span class="string">&#x27;value2&#x27;</span></span><br><span class="line"><span class="keyword">get</span> <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;row1&#x27;</span></span><br></pre></td></tr></table></figure></p>
+<p>输入<code>scan</code>命令就可以查看所有的数据了</p>
+<h4 id="删除数据和表"><a href="#删除数据和表" class="headerlink" title="删除数据和表"></a>删除数据和表</h4><p>删除整行数据：<code>deleteall [表名]，[行名称]</code><br><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">deleteall <span class="string">&#x27;test&#x27;</span>,<span class="string">&#x27;row1&#x27;</span></span><br></pre></td></tr></table></figure></p>
+<p>删除表需要先禁用、再删除。分为两步：<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">disable 表名</span><br><span class="line">drop 表名</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <tags>
+        <tag>大数据</tag>
+        <tag>Java</tag>
+        <tag>Hadoop</tag>
+        <tag>Mapreduce</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>读Paper的一些感想记录</title>
     <url>/LiJT-Daily/2022/02/22/2022-02-22-paper/</url>
     <content><![CDATA[<p>最近一直在读paper。结合之前与老师、前辈、朋友讨论的经历，在此总结读paper的一些感想记录。这既是我自己的反思与总结，也可以为大家提供一些经验参考。</p>
@@ -527,6 +527,25 @@ f_A(x)=\left\{
       </tags>
   </entry>
   <entry>
+    <title>一些杂谈.2</title>
+    <url>/LiJT-Daily/2022/03/26/2022-03-26-remind/</url>
+    <content><![CDATA[<p>本科期间上的统计类课程是多么美好的回忆。</p>
+<span id="more"></span>
+<p>最近回炉统计学的一些分析与检验方法，翻到了ynyang老师的多元回归分析的讲义。</p>
+<p>ynyang老师的课深入浅出，是给我印象最深，也是让我收获最大的统计类课程。从矩阵变换的技巧，到PCA，到SVD，甚至到谱聚类，PageRank算法的启蒙，都是在ynyang老师的课上完成的。尤其是SVD，当初花书和西瓜书翻了个遍也不知所云。但是ynyang老师的课却让我醍醐灌顶-SVD是对矩阵的最优低秩分解。</p>
+<p><img src="https://cslijt.github.io/LiJT-Daily/images/屏幕截图_202022-03-26_175317.jpg" alt="SVD1"></p>
+<p>如今想来，本科四年在学习上的遗憾有二：</p>
+<ol>
+<li>大三由于畏难，退了ynyang老师的回归分析的课。错过了一个亿的知识。</li>
+<li>铁憨憨，没有和yang老师保持联系。</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>杂谈</tag>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>最近的学习计划</title>
     <url>/LiJT-Daily/2022/04/01/2022-04-01-plan/</url>
     <content><![CDATA[<p>记录一些出于兴趣或出于工程需要，最近计划系统学习的一些知识。</p>
@@ -557,25 +576,6 @@ f_A(x)=\left\{
       <tags>
         <tag>科研</tag>
         <tag>学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一些杂谈.2</title>
-    <url>/LiJT-Daily/2022/03/26/2022-03-26-remind/</url>
-    <content><![CDATA[<p>本科期间上的统计类课程是多么美好的回忆。</p>
-<span id="more"></span>
-<p>最近回炉统计学的一些分析与检验方法，翻到了ynyang老师的多元回归分析的讲义。</p>
-<p>ynyang老师的课深入浅出，是给我印象最深，也是让我收获最大的统计类课程。从矩阵变换的技巧，到PCA，到SVD，甚至到谱聚类，PageRank算法的启蒙，都是在ynyang老师的课上完成的。尤其是SVD，当初花书和西瓜书翻了个遍也不知所云。但是ynyang老师的课却让我醍醐灌顶-SVD是对矩阵的最优低秩分解。</p>
-<p><img src="https://cslijt.github.io/LiJT-Daily/images/屏幕截图_202022-03-26_175317.jpg" alt="SVD1"></p>
-<p>如今想来，本科四年在学习上的遗憾有二：</p>
-<ol>
-<li>大三由于畏难，退了ynyang老师的回归分析的课。错过了一个亿的知识。</li>
-<li>铁憨憨，没有和yang老师保持联系。</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>杂谈</tag>
-        <tag>数学</tag>
       </tags>
   </entry>
   <entry>
@@ -2643,6 +2643,13 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       <tags>
         <tag>美食 菜谱</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>论文解读：因果学习在推荐系统中的新机遇【IJCAI&#39;2022】</title>
+    <url>/LiJT-Daily/2023/03/18/2023-03-19-rs/</url>
+    <content><![CDATA[<p>近年来，基于因果推断的推荐系统已经在学术界和工业界得到了广泛关注。然而现有的工作缺乏一个统一的因果分析框架。为此，作者广泛调研了因果推断方法在推荐系统任务中的应用。随后，作者提出了一种新的因果分析框架，通过推荐系统中对于因果分析假设的违反情况归结前者中的问题类型。随后，本文形式化了推荐系统中许多现有的去偏（debiasing）和预测（prediction）任务，并且分别总结了基于统计的和基于机器学习的因果估计方法。<br><span id="more"></span></p>
+<p>原文链接：<a href="https://www.ijcai.org/proceedings/2022/0787.pdf">On the Opportunity of Causal Learning in Recommendation Systems: Foundation, Estimation, Prediction and Challenges</a></p>
+]]></content>
   </entry>
   <entry>
     <title>2023 · 新的一年 · 战士</title>
