@@ -20,27 +20,6 @@
       </tags>
   </entry>
   <entry>
-    <title>美食的记录</title>
-    <url>/LiJT-Daily/2021/09/29/2021-09-29-food/</url>
-    <content><![CDATA[<h2 id="煲王"><a href="#煲王" class="headerlink" title="煲王"></a>煲王</h2><ul>
-<li>猪脚煲的味道很棒，想起了以前吃过的发财猪手。骨髓浓香四溢，但考虑到健康，未敢多吃。</li>
-<li>咖喱牛腩的味道很正，有澳门风味。猪肚鸡的汤底调味很好，可惜猪肚太少，仅三两片，怎能够吃？</li>
-<li>煲仔饭和卤水拼盘味道不错。卤水拼盘改良过，热吃，色浓，摆盘也更加粗犷。更喜欢吃潮汕的蘸白醋的卤水狮头鹅！</li>
-<li>茄子煲调味很好，但火候不够，茄子不入味。叉烧包实属鸡肋！过量的面和少量的肉馅… 但是可以把面撕下来，包猪手吃，极美。</li>
-</ul>
-<span id="more"></span>
-<h2 id="卜一帆"><a href="#卜一帆" class="headerlink" title="卜一帆"></a>卜一帆</h2><ul>
-<li>京葱鸡肉串极鲜美。咸鲜、多汁、皮微焦的鸡肉，焦黄、冲香的葱，实在是相得益彰。</li>
-<li>烤五花味道浓香，脆骨爽口，但肉略微有些干，或许是没有刷油。</li>
-<li>青花鱼，熟悉的味道。不加任何调料烤制，挤上几滴柠檬汁，鲜美而浓郁。配上一碗米饭和沙拉就是完美的午餐。</li>
-<li>寿喜锅，久闻大名却第一次吃。日料虽然只有甜酱油、味增、味淋、昆布高汤等几种调味料，但甜酱油和高汤真的很适合火锅。牛肉多汁入味嫩而不烂，吸满汤汁的白菜、金针菇、魔芋丝和豆腐是米饭的绝配。看着咕嘟嘟的小锅和冒出的白雾，如果这是在冬天，想必一定是非常幸福的时刻吧。</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>美食</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>红烩羊肉</title>
     <url>/LiJT-Daily/2021/10/01/2021-10-01-stewlamb/</url>
     <content><![CDATA[<p>祝祖国母亲生日快乐！祝大家节日安康！</p>
@@ -75,6 +54,27 @@
 <li>味酸甜又有咸香。注意番茄和番茄酱的用量</li>
 <li>盐可以分几次放，让羊肉充分入味</li>
 <li>好吃！</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>美食</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>美食的记录</title>
+    <url>/LiJT-Daily/2021/09/29/2021-09-29-food/</url>
+    <content><![CDATA[<h2 id="煲王"><a href="#煲王" class="headerlink" title="煲王"></a>煲王</h2><ul>
+<li>猪脚煲的味道很棒，想起了以前吃过的发财猪手。骨髓浓香四溢，但考虑到健康，未敢多吃。</li>
+<li>咖喱牛腩的味道很正，有澳门风味。猪肚鸡的汤底调味很好，可惜猪肚太少，仅三两片，怎能够吃？</li>
+<li>煲仔饭和卤水拼盘味道不错。卤水拼盘改良过，热吃，色浓，摆盘也更加粗犷。更喜欢吃潮汕的蘸白醋的卤水狮头鹅！</li>
+<li>茄子煲调味很好，但火候不够，茄子不入味。叉烧包实属鸡肋！过量的面和少量的肉馅… 但是可以把面撕下来，包猪手吃，极美。</li>
+</ul>
+<span id="more"></span>
+<h2 id="卜一帆"><a href="#卜一帆" class="headerlink" title="卜一帆"></a>卜一帆</h2><ul>
+<li>京葱鸡肉串极鲜美。咸鲜、多汁、皮微焦的鸡肉，焦黄、冲香的葱，实在是相得益彰。</li>
+<li>烤五花味道浓香，脆骨爽口，但肉略微有些干，或许是没有刷油。</li>
+<li>青花鱼，熟悉的味道。不加任何调料烤制，挤上几滴柠檬汁，鲜美而浓郁。配上一碗米饭和沙拉就是完美的午餐。</li>
+<li>寿喜锅，久闻大名却第一次吃。日料虽然只有甜酱油、味增、味淋、昆布高汤等几种调味料，但甜酱油和高汤真的很适合火锅。牛肉多汁入味嫩而不烂，吸满汤汁的白菜、金针菇、魔芋丝和豆腐是米饭的绝配。看着咕嘟嘟的小锅和冒出的白雾，如果这是在冬天，想必一定是非常幸福的时刻吧。</li>
 </ul>
 ]]></content>
       <tags>
@@ -208,103 +208,6 @@ loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}
       </tags>
   </entry>
   <entry>
-    <title>Python踩坑记录&amp;小技巧(持续更新)</title>
-    <url>/LiJT-Daily/2021/10/25/2021-10-25-python/</url>
-    <content><![CDATA[<p>本篇主要介绍一些使用的python技巧和第三方库，包括某些方法(method)的骚操作</p>
-<span id="more"></span>
-<h2 id="Matplotlib-绘图库"><a href="#Matplotlib-绘图库" class="headerlink" title="Matplotlib-绘图库"></a>Matplotlib-绘图库</h2><h3 id="保存图片内容溢出的问题"><a href="#保存图片内容溢出的问题" class="headerlink" title="保存图片内容溢出的问题"></a>保存图片内容溢出的问题</h3><ul>
-<li>有些图片，如果label太长，可能会出现保存区域小于原图片大小，导致部分内容在保存文件中缺失的问题。在此情况下，使用 <code>bbox_inches = &#39;tight&#39;</code> 选项：</li>
-</ul>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 原保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修正后保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>, bbox_inches = <span class="string">&#x27;tight&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="Numpy-矩阵运算库"><a href="#Numpy-矩阵运算库" class="headerlink" title="Numpy-矩阵运算库"></a>Numpy-矩阵运算库</h2><h3 id="np-unique-可以同时获取unique-key和频数"><a href="#np-unique-可以同时获取unique-key和频数" class="headerlink" title="np.unique 可以同时获取unique key和频数"></a>np.unique 可以同时获取unique key和频数</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">outcome_s, frequency_s=np.unique(samples,return_counts=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="np-intersect1d-可以获取两个一维数组的交集"><a href="#np-intersect1d-可以获取两个一维数组的交集" class="headerlink" title="np.intersect1d 可以获取两个一维数组的交集"></a>np.intersect1d 可以获取两个一维数组的交集</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A=np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">B=np.array([<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">7</span>])</span><br><span class="line">C=np.intersect1d(A,B) <span class="comment"># C=[3,4]</span></span><br></pre></td></tr></table></figure>
-<!--more-->
-<h2 id="PyTorch-深度学习库"><a href="#PyTorch-深度学习库" class="headerlink" title="PyTorch-深度学习库"></a>PyTorch-深度学习库</h2><ul>
-<li>重要的事情说三遍：<ul>
-<li>不要将维数设为0！</li>
-<li>不要将维数设为0！</li>
-<li>不要将维度设为0！</li>
-</ul>
-</li>
-</ul>
-<p>在深度学习的消融实验中，常常需要去掉某个模块来验证其有效性。不要简单地将位数设为0！维度最少要为1.这是因为在某些版本的torch中，如果模型参数是 (N,0) 维的，那么使用torch.save()时会保存N个相应的参数值；但在torch.load()阶段，模型期望接收参数数量为0，所以模型load不进去！<br>{:.error}</p>
-<ul>
-<li>指定load模型的目标设备</li>
-</ul>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">torch.load(map_location=device)</span><br></pre></td></tr></table></figure>
-<h2 id="tqdm-进度条"><a href="#tqdm-进度条" class="headerlink" title="tqdm-进度条"></a>tqdm-进度条</h2><ul>
-<li>tqdm 可以枚举迭代操作，同时显示进度条——再也不用每隔多少步输出一次结果了！</li>
-<li>以下为ipython演示结果</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">22</span>]: <span class="keyword">import</span> tqdm</span><br><span class="line">    ...: li = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">999999</span>)]</span><br><span class="line">    ...: mn = <span class="number">99999999</span></span><br><span class="line">    ...: <span class="keyword">for</span> elem <span class="keyword">in</span> tqdm.tqdm(li,<span class="string">&#x27;progress:&#x27;</span>):</span><br><span class="line">    ...:   mn = <span class="built_in">min</span>(mn,elem)</span><br><span class="line">    ...:</span><br><span class="line">progress:: <span class="number">100</span>%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| <span class="number">999999</span>/<span class="number">999999</span> [<span class="number">00</span>:<span class="number">00</span>&lt;<span class="number">00</span>:<span class="number">00</span>, <span class="number">2086298.02</span>it/s]</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>coding</tag>
-        <tag>持续更新</tag>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一些杂谈.1</title>
-    <url>/LiJT-Daily/2021/11/23/2021-11-23-delicacy/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">不被时间和社会所束缚</span><br><span class="line">幸福地填饱肚子的时候</span><br><span class="line">那一瞬间 他已变得唯我独尊</span><br><span class="line">自由自在</span><br><span class="line">无需介怀地大快朵颐 这种孤高的行为</span><br><span class="line">正可谓是现代人被平等赋予的</span><br><span class="line">最高治愈</span><br><span class="line">——孤独的美食家</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<p>最近在看《孤独的美食家》，计划从第一季一口气追到第九季。每天总是夜深人静的时间点亮屏幕，看着酥脆的可乐饼、麻辣鲜香的担担面、热气腾腾的关东煮在眼前呈现。虽然折磨，但实在是欲罢不能。</p>
-<p>真正的美食，不一定要登大雅之堂，不一定要呈现在五星级酒店，不一定非要松茸加身，鱼子酱包裹。美食可以是路边小馆的羊汤，可以是家庭餐厅的石锅拌饭。美食之美，只有自己的舌、胃、心能够体会。</p>
-]]></content>
-      <tags>
-        <tag>美食</tag>
-        <tag>杂谈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记一次vscode remote-ssh登录失败的解决方案</title>
-    <url>/LiJT-Daily/2021/11/26/2021-11-26-vscode/</url>
-    <content><![CDATA[<p>我的vscode remote-ssh设置了<a href="https://www.jianshu.com/p/32aa2fa936bb">免密登录</a>，本来昨天上午还能正常登录，但昨晚开始登录失败，怀疑是vscode版本更新后动了某些配置。参考一些资料后，总结了如下的解决方案.<br><span id="more"></span></p>
-<ul>
-<li>环境：本地 win11，服务器 linux</li>
-</ul>
-<h2 id="步骤1-更改Remote-SSH设置"><a href="#步骤1-更改Remote-SSH设置" class="headerlink" title="步骤1.更改Remote-SSH设置"></a>步骤1.更改Remote-SSH设置</h2><ul>
-<li>一种可能导致登录失败的理由是，更新后的remote-ssh缺失了<code>&quot;remote.SSH.useLocalServer: true&quot;</code>的配置。为此，我们进入remote-ssh的settings.json中查看配置情况：</li>
-</ul>
-<ol>
-<li><p>点击vscode左边栏“扩展”或按<code>Ctrl+Shift+X</code>，找到remote-ssh插件，点击右下角的小齿轮，进入设置页面 </p>
-<p><img src="/LiJT-Daily/images/2021112601.png" alt="1"></p>
-</li>
-<li><p>在设置页面，找到”在settings.json编辑”按钮，点击进入</p>
-<p><img src="/LiJT-Daily/images/2021112602.png" alt="2"></p>
-</li>
-<li><p>在settings.json中，检查是否有<code>&quot;remote.SSH.useLocalServer&quot;</code>选项。如果没有，则在最外层大括号内添加<code>&quot;remote.SSH.useLocalServer&quot;: true</code>；如果有且值为<code>false</code>，则将值修改为<code>true</code>。修改后结果如下所示</p>
-<p><img src="/LiJT-Daily/images/2021112603.png" alt="3"></p>
-</li>
-<li>保存settings.json，重新启动vscode，尝试远程登录。</li>
-</ol>
-<h2 id="步骤2-清空远程-vscode-server文件夹"><a href="#步骤2-清空远程-vscode-server文件夹" class="headerlink" title="步骤2.清空远程~/.vscode-server文件夹"></a>步骤2.清空远程~/.vscode-server文件夹</h2><ul>
-<li>如果步骤1不能解决问题，则可以尝试步骤2.步骤2相比于步骤1，是强制初始化远程vscode环境。</li>
-</ul>
-<ol>
-<li><p><strong>关闭vscode server</strong>。在本地vscode中按<code>Ctrl+Shift+P</code>进入命令面板，输入<code>Kill VS Code Server on Host</code>，选中Remote-SSH中的对应命令，强制关闭对应的vscode server。这一步一定不能省略，否则下一步将无法删除 ~/.vscode-server 文件</p>
-<p><img src="/LiJT-Daily/images/2021112604.png" alt="4"></p>
-</li>
-<li>强制删除~/.vscode-server。vscode 服务器环境统一存储在~/.vscode-server中，其中~表示自己服务器账号的根目录。使用如下命令删除该文件夹：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -rf ~/.vscode-server</span><br></pre></td></tr></table></figure></li>
-<li>重新启动vscode，尝试远程登录。此时服务器会自动下载新的~/.vscode-server文件，待下载完成、配置完成后，即可使用。</li>
-</ol>
-<h2 id="更新-2021-11-27"><a href="#更新-2021-11-27" class="headerlink" title="更新 (2021.11.27)"></a>更新 (2021.11.27)</h2><ul>
-<li>当vscode remote-ssh 未关闭而电脑休眠后再唤醒时，会出现相同的登陆失败的问题。直接采用步骤2，问题解决</li>
-</ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://www.jianshu.com/p/32aa2fa936bb">非root用户配置VS Code Remote-SSH - - windows系统</a></li>
-<li><a href="https://www.cnblogs.com/springwind2006/p/14311454.html">Resolver error: Error: The VS Code Server failed to start 的一种解决方案</a></li>
-<li><a href="https://blog.csdn.net/weilin731/article/details/119778478">vs code远程开发 SSH连接失败</a></li>
-<li><a href="https://blog.csdn.net/myWorld001/article/details/119443079?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link">vscode ssh连接失败</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>coding</tag>
-        <tag>vscode</tag>
-        <tag>ssh</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>正则表达式学习笔记(持续更新)</title>
     <url>/LiJT-Daily/2021/10/26/2021-10-26-regex/</url>
     <content><![CDATA[<h2 id="基础部分"><a href="#基础部分" class="headerlink" title="基础部分"></a>基础部分</h2><ul>
@@ -416,6 +319,103 @@ loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}
       </tags>
   </entry>
   <entry>
+    <title>Python踩坑记录&amp;小技巧(持续更新)</title>
+    <url>/LiJT-Daily/2021/10/25/2021-10-25-python/</url>
+    <content><![CDATA[<p>本篇主要介绍一些使用的python技巧和第三方库，包括某些方法(method)的骚操作</p>
+<span id="more"></span>
+<h2 id="Matplotlib-绘图库"><a href="#Matplotlib-绘图库" class="headerlink" title="Matplotlib-绘图库"></a>Matplotlib-绘图库</h2><h3 id="保存图片内容溢出的问题"><a href="#保存图片内容溢出的问题" class="headerlink" title="保存图片内容溢出的问题"></a>保存图片内容溢出的问题</h3><ul>
+<li>有些图片，如果label太长，可能会出现保存区域小于原图片大小，导致部分内容在保存文件中缺失的问题。在此情况下，使用 <code>bbox_inches = &#39;tight&#39;</code> 选项：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 原保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修正后保存方法</span></span><br><span class="line">plt.savefig(<span class="string">&#x27;pic.png&#x27;</span>, dpi = <span class="number">1000</span>, bbox_inches = <span class="string">&#x27;tight&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Numpy-矩阵运算库"><a href="#Numpy-矩阵运算库" class="headerlink" title="Numpy-矩阵运算库"></a>Numpy-矩阵运算库</h2><h3 id="np-unique-可以同时获取unique-key和频数"><a href="#np-unique-可以同时获取unique-key和频数" class="headerlink" title="np.unique 可以同时获取unique key和频数"></a>np.unique 可以同时获取unique key和频数</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">outcome_s, frequency_s=np.unique(samples,return_counts=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="np-intersect1d-可以获取两个一维数组的交集"><a href="#np-intersect1d-可以获取两个一维数组的交集" class="headerlink" title="np.intersect1d 可以获取两个一维数组的交集"></a>np.intersect1d 可以获取两个一维数组的交集</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A=np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line">B=np.array([<span class="number">3</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">0</span>,<span class="number">7</span>])</span><br><span class="line">C=np.intersect1d(A,B) <span class="comment"># C=[3,4]</span></span><br></pre></td></tr></table></figure>
+<!--more-->
+<h2 id="PyTorch-深度学习库"><a href="#PyTorch-深度学习库" class="headerlink" title="PyTorch-深度学习库"></a>PyTorch-深度学习库</h2><ul>
+<li>重要的事情说三遍：<ul>
+<li>不要将维数设为0！</li>
+<li>不要将维数设为0！</li>
+<li>不要将维度设为0！</li>
+</ul>
+</li>
+</ul>
+<p>在深度学习的消融实验中，常常需要去掉某个模块来验证其有效性。不要简单地将位数设为0！维度最少要为1.这是因为在某些版本的torch中，如果模型参数是 (N,0) 维的，那么使用torch.save()时会保存N个相应的参数值；但在torch.load()阶段，模型期望接收参数数量为0，所以模型load不进去！<br>{:.error}</p>
+<ul>
+<li>指定load模型的目标设备</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">torch.load(map_location=device)</span><br></pre></td></tr></table></figure>
+<h2 id="tqdm-进度条"><a href="#tqdm-进度条" class="headerlink" title="tqdm-进度条"></a>tqdm-进度条</h2><ul>
+<li>tqdm 可以枚举迭代操作，同时显示进度条——再也不用每隔多少步输出一次结果了！</li>
+<li>以下为ipython演示结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">22</span>]: <span class="keyword">import</span> tqdm</span><br><span class="line">    ...: li = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">999999</span>)]</span><br><span class="line">    ...: mn = <span class="number">99999999</span></span><br><span class="line">    ...: <span class="keyword">for</span> elem <span class="keyword">in</span> tqdm.tqdm(li,<span class="string">&#x27;progress:&#x27;</span>):</span><br><span class="line">    ...:   mn = <span class="built_in">min</span>(mn,elem)</span><br><span class="line">    ...:</span><br><span class="line">progress:: <span class="number">100</span>%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| <span class="number">999999</span>/<span class="number">999999</span> [<span class="number">00</span>:<span class="number">00</span>&lt;<span class="number">00</span>:<span class="number">00</span>, <span class="number">2086298.02</span>it/s]</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>coding</tag>
+        <tag>持续更新</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一些杂谈.1</title>
+    <url>/LiJT-Daily/2021/11/23/2021-11-23-delicacy/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">不被时间和社会所束缚</span><br><span class="line">幸福地填饱肚子的时候</span><br><span class="line">那一瞬间 他已变得唯我独尊</span><br><span class="line">自由自在</span><br><span class="line">无需介怀地大快朵颐 这种孤高的行为</span><br><span class="line">正可谓是现代人被平等赋予的</span><br><span class="line">最高治愈</span><br><span class="line">——孤独的美食家</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<p>最近在看《孤独的美食家》，计划从第一季一口气追到第九季。每天总是夜深人静的时间点亮屏幕，看着酥脆的可乐饼、麻辣鲜香的担担面、热气腾腾的关东煮在眼前呈现。虽然折磨，但实在是欲罢不能。</p>
+<p>真正的美食，不一定要登大雅之堂，不一定要呈现在五星级酒店，不一定非要松茸加身，鱼子酱包裹。美食可以是路边小馆的羊汤，可以是家庭餐厅的石锅拌饭。美食之美，只有自己的舌、胃、心能够体会。</p>
+]]></content>
+      <tags>
+        <tag>美食</tag>
+        <tag>杂谈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次vscode remote-ssh登录失败的解决方案</title>
+    <url>/LiJT-Daily/2021/11/26/2021-11-26-vscode/</url>
+    <content><![CDATA[<p>我的vscode remote-ssh设置了<a href="https://www.jianshu.com/p/32aa2fa936bb">免密登录</a>，本来昨天上午还能正常登录，但昨晚开始登录失败，怀疑是vscode版本更新后动了某些配置。参考一些资料后，总结了如下的解决方案.<br><span id="more"></span></p>
+<ul>
+<li>环境：本地 win11，服务器 linux</li>
+</ul>
+<h2 id="步骤1-更改Remote-SSH设置"><a href="#步骤1-更改Remote-SSH设置" class="headerlink" title="步骤1.更改Remote-SSH设置"></a>步骤1.更改Remote-SSH设置</h2><ul>
+<li>一种可能导致登录失败的理由是，更新后的remote-ssh缺失了<code>&quot;remote.SSH.useLocalServer: true&quot;</code>的配置。为此，我们进入remote-ssh的settings.json中查看配置情况：</li>
+</ul>
+<ol>
+<li><p>点击vscode左边栏“扩展”或按<code>Ctrl+Shift+X</code>，找到remote-ssh插件，点击右下角的小齿轮，进入设置页面 </p>
+<p><img src="/LiJT-Daily/images/2021112601.png" alt="1"></p>
+</li>
+<li><p>在设置页面，找到”在settings.json编辑”按钮，点击进入</p>
+<p><img src="/LiJT-Daily/images/2021112602.png" alt="2"></p>
+</li>
+<li><p>在settings.json中，检查是否有<code>&quot;remote.SSH.useLocalServer&quot;</code>选项。如果没有，则在最外层大括号内添加<code>&quot;remote.SSH.useLocalServer&quot;: true</code>；如果有且值为<code>false</code>，则将值修改为<code>true</code>。修改后结果如下所示</p>
+<p><img src="/LiJT-Daily/images/2021112603.png" alt="3"></p>
+</li>
+<li>保存settings.json，重新启动vscode，尝试远程登录。</li>
+</ol>
+<h2 id="步骤2-清空远程-vscode-server文件夹"><a href="#步骤2-清空远程-vscode-server文件夹" class="headerlink" title="步骤2.清空远程~/.vscode-server文件夹"></a>步骤2.清空远程~/.vscode-server文件夹</h2><ul>
+<li>如果步骤1不能解决问题，则可以尝试步骤2.步骤2相比于步骤1，是强制初始化远程vscode环境。</li>
+</ul>
+<ol>
+<li><p><strong>关闭vscode server</strong>。在本地vscode中按<code>Ctrl+Shift+P</code>进入命令面板，输入<code>Kill VS Code Server on Host</code>，选中Remote-SSH中的对应命令，强制关闭对应的vscode server。这一步一定不能省略，否则下一步将无法删除 ~/.vscode-server 文件</p>
+<p><img src="/LiJT-Daily/images/2021112604.png" alt="4"></p>
+</li>
+<li>强制删除~/.vscode-server。vscode 服务器环境统一存储在~/.vscode-server中，其中~表示自己服务器账号的根目录。使用如下命令删除该文件夹：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rm -rf ~/.vscode-server</span><br></pre></td></tr></table></figure></li>
+<li>重新启动vscode，尝试远程登录。此时服务器会自动下载新的~/.vscode-server文件，待下载完成、配置完成后，即可使用。</li>
+</ol>
+<h2 id="更新-2021-11-27"><a href="#更新-2021-11-27" class="headerlink" title="更新 (2021.11.27)"></a>更新 (2021.11.27)</h2><ul>
+<li>当vscode remote-ssh 未关闭而电脑休眠后再唤醒时，会出现相同的登陆失败的问题。直接采用步骤2，问题解决</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://www.jianshu.com/p/32aa2fa936bb">非root用户配置VS Code Remote-SSH - - windows系统</a></li>
+<li><a href="https://www.cnblogs.com/springwind2006/p/14311454.html">Resolver error: Error: The VS Code Server failed to start 的一种解决方案</a></li>
+<li><a href="https://blog.csdn.net/weilin731/article/details/119778478">vs code远程开发 SSH连接失败</a></li>
+<li><a href="https://blog.csdn.net/myWorld001/article/details/119443079?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link">vscode ssh连接失败</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>coding</tag>
+        <tag>vscode</tag>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hadoop 实战练习记录</title>
     <url>/LiJT-Daily/2021/12/13/2021-12-13-hadoop/</url>
     <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本篇记录Hadoop实战学习中的笔记以及问题分析。</p>
@@ -438,34 +438,6 @@ loss(x,class) = -weight[class]\log\left(\frac{\exp(x[class])}{\sum_j \exp(x[j])}
         <tag>Java</tag>
         <tag>Hadoop</tag>
         <tag>Mapreduce</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java 常用轮子</title>
-    <url>/LiJT-Daily/2021/12/13/2021-12-13-java/</url>
-    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>Welcome back! （也对我自己）</p>
-<p>这一篇记录一些常用的Java工具包，与<a href="/LiJT-Daily/2021/10/25/python.html">Python技巧</a>相对应。后者也好长时间没更新了，以后会慢慢补上。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">偷偷地我走了，</span><br><span class="line">正如我偷偷地来。</span><br><span class="line">偷偷地我挥一挥手，</span><br><span class="line">不留下一篇SCI。</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h2 id="java-util"><a href="#java-util" class="headerlink" title="java.util"></a>java.util</h2><h3 id="StringTokenizer-类"><a href="#StringTokenizer-类" class="headerlink" title="StringTokenizer 类"></a>StringTokenizer 类</h3><ul>
-<li>用途：分割字符串，类似于python的 <code>re.split()</code>.</li>
-</ul>
-<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><ol>
-<li><code>StringTokenizer(String str)</code> ：构造一个用来解析 str 的 StringTokenizer 对象。java 默认的分隔符是空格(“”)、制表符(\t)、换行符(\n)、回车符(\r)。</li>
-<li><code>StringTokenizer(String str, String delim)</code> ：构造一个用来解析 str 的 StringTokenizer 对象，并提供一个指定的分隔符。</li>
-<li><code>StringTokenizer(String str, String delim, boolean returnDelims)</code> ：构造一个用来解析 str 的 StringTokenizer 对象，并提供一个指定的分隔符，同时，指定是否返回分隔符。</li>
-</ol>
-<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><ol>
-<li><code>int countTokens()</code>：返回nextToken方法被调用的次数。</li>
-<li><code>boolean hasMoreTokens()</code>：返回是否还有分隔符。</li>
-<li><code>boolean hasMoreElements()</code>：判断枚举 （Enumeration） 对象中是否还有数据。</li>
-<li><code>String nextToken()</code>：返回从当前位置到下一个分隔符的字符串。</li>
-<li><code>Object nextElement()</code>：返回枚举 （Enumeration） 对象的下一个元素。</li>
-<li><code>String nextToken(String delim)</code>：与 4 类似，以指定的分隔符返回结果。</li>
-</ol>
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Hadoop WordCount中，mapper的map方法。默认用空格分隔字符串</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">map</span><span class="params">(LongWritable key, Text value, Context context</span></span><br><span class="line"><span class="params">                    )</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">    <span class="type">StringTokenizer</span> <span class="variable">itr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringTokenizer</span>(value.toString());</span><br><span class="line">    word.set(itr.nextToken());</span><br><span class="line">    context.write(word, one);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>大数据 Java Hadoop</tag>
       </tags>
   </entry>
   <entry>
@@ -527,6 +499,34 @@ f_A(x)=\left\{
       </tags>
   </entry>
   <entry>
+    <title>Java 常用轮子</title>
+    <url>/LiJT-Daily/2021/12/13/2021-12-13-java/</url>
+    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>Welcome back! （也对我自己）</p>
+<p>这一篇记录一些常用的Java工具包，与<a href="/LiJT-Daily/2021/10/25/python.html">Python技巧</a>相对应。后者也好长时间没更新了，以后会慢慢补上。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">偷偷地我走了，</span><br><span class="line">正如我偷偷地来。</span><br><span class="line">偷偷地我挥一挥手，</span><br><span class="line">不留下一篇SCI。</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<h2 id="java-util"><a href="#java-util" class="headerlink" title="java.util"></a>java.util</h2><h3 id="StringTokenizer-类"><a href="#StringTokenizer-类" class="headerlink" title="StringTokenizer 类"></a>StringTokenizer 类</h3><ul>
+<li>用途：分割字符串，类似于python的 <code>re.split()</code>.</li>
+</ul>
+<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><ol>
+<li><code>StringTokenizer(String str)</code> ：构造一个用来解析 str 的 StringTokenizer 对象。java 默认的分隔符是空格(“”)、制表符(\t)、换行符(\n)、回车符(\r)。</li>
+<li><code>StringTokenizer(String str, String delim)</code> ：构造一个用来解析 str 的 StringTokenizer 对象，并提供一个指定的分隔符。</li>
+<li><code>StringTokenizer(String str, String delim, boolean returnDelims)</code> ：构造一个用来解析 str 的 StringTokenizer 对象，并提供一个指定的分隔符，同时，指定是否返回分隔符。</li>
+</ol>
+<h4 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h4><ol>
+<li><code>int countTokens()</code>：返回nextToken方法被调用的次数。</li>
+<li><code>boolean hasMoreTokens()</code>：返回是否还有分隔符。</li>
+<li><code>boolean hasMoreElements()</code>：判断枚举 （Enumeration） 对象中是否还有数据。</li>
+<li><code>String nextToken()</code>：返回从当前位置到下一个分隔符的字符串。</li>
+<li><code>Object nextElement()</code>：返回枚举 （Enumeration） 对象的下一个元素。</li>
+<li><code>String nextToken(String delim)</code>：与 4 类似，以指定的分隔符返回结果。</li>
+</ol>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Hadoop WordCount中，mapper的map方法。默认用空格分隔字符串</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">map</span><span class="params">(LongWritable key, Text value, Context context</span></span><br><span class="line"><span class="params">                    )</span> <span class="keyword">throws</span> IOException, InterruptedException &#123;</span><br><span class="line">    <span class="type">StringTokenizer</span> <span class="variable">itr</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringTokenizer</span>(value.toString());</span><br><span class="line">    word.set(itr.nextToken());</span><br><span class="line">    context.write(word, one);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <tags>
+        <tag>大数据 Java Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一些杂谈.2</title>
     <url>/LiJT-Daily/2022/03/26/2022-03-26-remind/</url>
     <content><![CDATA[<p>本科期间上的统计类课程是多么美好的回忆。</p>
@@ -544,6 +544,29 @@ f_A(x)=\left\{
         <tag>杂谈</tag>
         <tag>数学</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>2022-04-06-hexo</title>
+    <url>/LiJT-Daily/2022/04/06/2022-04-06-hexo/</url>
+    <content><![CDATA[<p>把个人blog的模板从jekyll更换到hexo了。<br>返璞归真。</p>
+<span id="more"></span>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'f73c0bc3c19755d1c0d886c0d8791cad24509c9a',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: document.title,
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>]]></content>
   </entry>
   <entry>
     <title>最近的学习计划</title>
@@ -577,29 +600,6 @@ f_A(x)=\left\{
         <tag>科研</tag>
         <tag>学习</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>2022-04-06-hexo</title>
-    <url>/LiJT-Daily/2022/04/06/2022-04-06-hexo/</url>
-    <content><![CDATA[<p>把个人blog的模板从jekyll更换到hexo了。<br>返璞归真。</p>
-<span id="more"></span>
-<section class="post-full-comments">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    <div id="gitalk-container"></div>
-    <script>
-        var gitalk = new Gitalk({
-            clientID: 'e1bbf465a324641f76ce',
-            clientSecret: 'f73c0bc3c19755d1c0d886c0d8791cad24509c9a',
-            repo: 'LiJT-Daily-Comments',
-            owner: 'CSLiJT',
-            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: document.title,
-            distractionFreeMode: false // Facebook-like distraction free mode
-        });
-        gitalk.render('gitalk-container');
-    </script>
-</section>]]></content>
   </entry>
   <entry>
     <title>因果推断学习笔记.1</title>
@@ -771,42 +771,6 @@ f_A(x)=\left\{
       </tags>
   </entry>
   <entry>
-    <title>观《楚汉传奇》有感</title>
-    <url>/LiJT-Daily/2022/04/17/2022-04-17-legend/</url>
-    <content><![CDATA[<table>
-<tr>
-<td>大风起兮云飞扬，<br>威加海内兮归故乡。<br>安得猛士兮守四方？<br>——刘邦</td>
-
-<td>力拔山兮气盖世，<br>时不利兮骓不逝。<br>骓不逝兮可奈何，<br>虞兮虞兮奈若何！<br>——项羽</td>
-</tr>
-</table>
-
-<span id="more"></span>
-<p>严格地说，这是个人对楚汉战争这段历史的感悟。更确切地说，这是对汉王的成功与楚王的失败的感悟。</p>
-<p>楚汉相争，汉王最终夺取天下。项籍之败，哪里是什么“时不利兮”。匹夫之勇——项羽纵然可以冲锋破阵如履平地，纵然可以武勇绝冠作万人敌，却不懂得不战而屈人之兵，更不懂得得民心者得天下。妇人之仁——优柔姑息，不识大体；没有战略眼光，不晓杀伐果断。鸿门之宴、彭城之围、阳夏之战，均是灭亡汉王集团的绝佳机会。然而，项羽高估了义气，低估了人性。一次次的心慈手软，一次次的放虎归山，一次次的错失机会。相比之下，刘邦招贤纳士、安抚百姓；眼光长远，心怀天下。在可见的与不可见的争斗中，刘邦牢牢抓住每一个不放过的机会，上芒砀山、投项羽（前期）；入关中、下巴蜀、还定三秦，一切只为两个字——天下。终于，这虎蜕变成能与赤龙一决雌雄的白龙，并战胜了赤龙。</p>
-<p>虽然有马后炮的嫌疑，但刘邦之胜与项羽之败，在讨诛暴秦时期便可见端倪。刘邦虽然出身低微（泗水亭长），也无过人武勇，但他为人慷慨仗义，处事圆滑灵活，有着强大的个人魅力。因此在创业初期，刘邦便能够结实一群坚定不移的好兄弟（即丰沛集团，包括卢绾、萧何、曹参、樊哙、周勃、夏侯婴，以及芒砀山时期组织的军队成员）。这一团队是刘邦日后与项羽抗争的中坚力量。刘邦的个人特质，也是天下英才趋之若鹜的重要原因。与此同时，项羽虽然贵为楚国名将项燕之后，能够凭借贵族身份与民间威望团结楚地人民的力量，然而项羽为人固执、刚愎自用。咨诹善道、从善如流这些词，从来与项羽不搭边。项羽虽重义气，却有强烈的身份优越感，看不起出身卑贱的人（包括对手刘邦、昔日执戟郎中后来大将军的韩信）。这导致项羽虽然也结识一群好弟兄（虞子期、龙且），但在外人看来，项羽心高气傲、难以接近。除了一心复兴楚国的范增，再无其他谋士愿意加入项羽麾下。</p>
-<p>刘邦与项羽的性格特质，放大了他们各自的团队特点，从而影响了局势走向。在人才吸引方面，刘邦为人慷慨，用人果断，能够让每个人发挥自己最大的才能。张良加入汉军之初也曾领兵打仗。但刘邦在部下反馈与自己观察之下，决定让张良以谋士身份供职，更大程度地发挥其过人智慧及战略规划能力。入巴蜀、定三秦、鸿门脱险，无一不是张良助力。韩信加入汉营前是项羽帐下的执戟郎中，在汉营亦只从运粮官做起。然而刘邦能听从萧何的建议，仅在读过韩信之兵书、见韩信其人一面之后，拜韩信为一人之下万人之上的大将军。这需要何等强大的果敢和定力！更不用说韩信攻略齐地后，刘邦能听从张良陈平的建议，封其为“真”齐王，使其死心塌地地效忠于汉家。陈平归于刘邦之前曾降于项王，且名声不好，有“盗嫂受金”之嫌。然而刘邦能够听从陈平之计，拨出四分之一的国库存金支持他在楚营开展间谍活动，离间项羽与范增。范增一除，项羽剩下的便只有“勇”，分明是一块案板上的牛肉。与之相比，项羽纵有拔山之力，却小肚鸡肠，为人固执、猜忌部下；任人唯亲，有功之臣不得奖赏，项家子弟却保荣华富贵。虽然应该客观承认，项羽有着冠绝古今的军事才能；但也不得不言，项羽并不是一个合格的“王”。刘邦的慷慨与果断，使天下英杰趋之若鹜；项羽的无双勇力，却不是吸引天下人才的理由。</p>
-<p>此外，刘项二人的志向差异，更加决定了各自结局的不同。对项羽而言，战斗的意义有两点：其一是诛灭无道的暴秦，其二是光荣复兴楚国大旗。首先，项羽对秦国人怀有极深的仇恨，因此其对秦人的态度并无任何慈悲。屠咸阳、火烧阿房、坑杀30万秦军，项羽对秦人没有任何怜悯。其次，项羽的最终目标在于复兴“楚国”，而非重振“天下”，因而在荡平咸阳之后，土地肥沃、易守难攻的三秦之地对项羽没有任何吸引力。项羽想做的只有回到故乡彭城，做自己的“西楚霸王”，仿照周朝恢复分封制，守住楚国的一亩三分地。至于刘邦，创业前期刘邦并不知道自己的目标为何——乱世之中，生存第一。然而在入关中之后，刘邦把目光放到了“天下”。刘邦的目标在于统一天下。虽然我们不能冠冕堂皇地认为，刘邦所做的一切都是为了百姓福祉、人类和平。但可以确定的是，刘邦没有像项羽一样对秦人的仇恨（亡国之痛），同时他出身低微，更加能够体会百姓疾苦。因而在战略问题上，刘邦能够从更加全局的角度思考，并且更加考虑人民的感受，而非像项羽一样的你死我活、快意恩仇。入关中称王后，刘邦看到巴蜀之地虽然路途遥远，却是沃野千里的天府之土，因而顺水推舟地入蜀以积攒实力。随后，汉家军明修栈道暗度陈仓以定三秦，据守崤关以保有坚不可摧的防御。再加上大后方的巴蜀源源不断地提供粮草，使得汉军具有蒸不烂、煮不熟、捶不匾、炒不爆的韧性。虽然汉军一直在打败仗，但汉军只需要最后赢一次；虽然楚军屡战屡胜，但楚军禁不住哪怕一次失败。</p>
-<hr>
-<section class="post-full-comments">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    <div id="gitalk-container"></div>
-    <script>
-        var gitalk = new Gitalk({
-            clientID: 'e1bbf465a324641f76ce',
-            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
-            repo: 'LiJT-Daily-Comments',
-            owner: 'CSLiJT',
-            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: (document.title),
-            distractionFreeMode: false // Facebook-like distraction free mode
-        });
-        gitalk.render('gitalk-container');
-    </script>
-</section>]]></content>
-  </entry>
-  <entry>
     <title>因果推断学习笔记.2</title>
     <url>/LiJT-Daily/2022/04/21/2022-04-21-casual-inference-2/</url>
     <content><![CDATA[<p>因果推断的常用方法。</p>
@@ -874,6 +838,42 @@ ACE &= E(Y(1))-E(Y(0)) &\#\text{对全体个体的全体结果变量求期望}\\
       <tags>
         <tag>因果推断</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>观《楚汉传奇》有感</title>
+    <url>/LiJT-Daily/2022/04/17/2022-04-17-legend/</url>
+    <content><![CDATA[<table>
+<tr>
+<td>大风起兮云飞扬，<br>威加海内兮归故乡。<br>安得猛士兮守四方？<br>——刘邦</td>
+
+<td>力拔山兮气盖世，<br>时不利兮骓不逝。<br>骓不逝兮可奈何，<br>虞兮虞兮奈若何！<br>——项羽</td>
+</tr>
+</table>
+
+<span id="more"></span>
+<p>严格地说，这是个人对楚汉战争这段历史的感悟。更确切地说，这是对汉王的成功与楚王的失败的感悟。</p>
+<p>楚汉相争，汉王最终夺取天下。项籍之败，哪里是什么“时不利兮”。匹夫之勇——项羽纵然可以冲锋破阵如履平地，纵然可以武勇绝冠作万人敌，却不懂得不战而屈人之兵，更不懂得得民心者得天下。妇人之仁——优柔姑息，不识大体；没有战略眼光，不晓杀伐果断。鸿门之宴、彭城之围、阳夏之战，均是灭亡汉王集团的绝佳机会。然而，项羽高估了义气，低估了人性。一次次的心慈手软，一次次的放虎归山，一次次的错失机会。相比之下，刘邦招贤纳士、安抚百姓；眼光长远，心怀天下。在可见的与不可见的争斗中，刘邦牢牢抓住每一个不放过的机会，上芒砀山、投项羽（前期）；入关中、下巴蜀、还定三秦，一切只为两个字——天下。终于，这虎蜕变成能与赤龙一决雌雄的白龙，并战胜了赤龙。</p>
+<p>虽然有马后炮的嫌疑，但刘邦之胜与项羽之败，在讨诛暴秦时期便可见端倪。刘邦虽然出身低微（泗水亭长），也无过人武勇，但他为人慷慨仗义，处事圆滑灵活，有着强大的个人魅力。因此在创业初期，刘邦便能够结实一群坚定不移的好兄弟（即丰沛集团，包括卢绾、萧何、曹参、樊哙、周勃、夏侯婴，以及芒砀山时期组织的军队成员）。这一团队是刘邦日后与项羽抗争的中坚力量。刘邦的个人特质，也是天下英才趋之若鹜的重要原因。与此同时，项羽虽然贵为楚国名将项燕之后，能够凭借贵族身份与民间威望团结楚地人民的力量，然而项羽为人固执、刚愎自用。咨诹善道、从善如流这些词，从来与项羽不搭边。项羽虽重义气，却有强烈的身份优越感，看不起出身卑贱的人（包括对手刘邦、昔日执戟郎中后来大将军的韩信）。这导致项羽虽然也结识一群好弟兄（虞子期、龙且），但在外人看来，项羽心高气傲、难以接近。除了一心复兴楚国的范增，再无其他谋士愿意加入项羽麾下。</p>
+<p>刘邦与项羽的性格特质，放大了他们各自的团队特点，从而影响了局势走向。在人才吸引方面，刘邦为人慷慨，用人果断，能够让每个人发挥自己最大的才能。张良加入汉军之初也曾领兵打仗。但刘邦在部下反馈与自己观察之下，决定让张良以谋士身份供职，更大程度地发挥其过人智慧及战略规划能力。入巴蜀、定三秦、鸿门脱险，无一不是张良助力。韩信加入汉营前是项羽帐下的执戟郎中，在汉营亦只从运粮官做起。然而刘邦能听从萧何的建议，仅在读过韩信之兵书、见韩信其人一面之后，拜韩信为一人之下万人之上的大将军。这需要何等强大的果敢和定力！更不用说韩信攻略齐地后，刘邦能听从张良陈平的建议，封其为“真”齐王，使其死心塌地地效忠于汉家。陈平归于刘邦之前曾降于项王，且名声不好，有“盗嫂受金”之嫌。然而刘邦能够听从陈平之计，拨出四分之一的国库存金支持他在楚营开展间谍活动，离间项羽与范增。范增一除，项羽剩下的便只有“勇”，分明是一块案板上的牛肉。与之相比，项羽纵有拔山之力，却小肚鸡肠，为人固执、猜忌部下；任人唯亲，有功之臣不得奖赏，项家子弟却保荣华富贵。虽然应该客观承认，项羽有着冠绝古今的军事才能；但也不得不言，项羽并不是一个合格的“王”。刘邦的慷慨与果断，使天下英杰趋之若鹜；项羽的无双勇力，却不是吸引天下人才的理由。</p>
+<p>此外，刘项二人的志向差异，更加决定了各自结局的不同。对项羽而言，战斗的意义有两点：其一是诛灭无道的暴秦，其二是光荣复兴楚国大旗。首先，项羽对秦国人怀有极深的仇恨，因此其对秦人的态度并无任何慈悲。屠咸阳、火烧阿房、坑杀30万秦军，项羽对秦人没有任何怜悯。其次，项羽的最终目标在于复兴“楚国”，而非重振“天下”，因而在荡平咸阳之后，土地肥沃、易守难攻的三秦之地对项羽没有任何吸引力。项羽想做的只有回到故乡彭城，做自己的“西楚霸王”，仿照周朝恢复分封制，守住楚国的一亩三分地。至于刘邦，创业前期刘邦并不知道自己的目标为何——乱世之中，生存第一。然而在入关中之后，刘邦把目光放到了“天下”。刘邦的目标在于统一天下。虽然我们不能冠冕堂皇地认为，刘邦所做的一切都是为了百姓福祉、人类和平。但可以确定的是，刘邦没有像项羽一样对秦人的仇恨（亡国之痛），同时他出身低微，更加能够体会百姓疾苦。因而在战略问题上，刘邦能够从更加全局的角度思考，并且更加考虑人民的感受，而非像项羽一样的你死我活、快意恩仇。入关中称王后，刘邦看到巴蜀之地虽然路途遥远，却是沃野千里的天府之土，因而顺水推舟地入蜀以积攒实力。随后，汉家军明修栈道暗度陈仓以定三秦，据守崤关以保有坚不可摧的防御。再加上大后方的巴蜀源源不断地提供粮草，使得汉军具有蒸不烂、煮不熟、捶不匾、炒不爆的韧性。虽然汉军一直在打败仗，但汉军只需要最后赢一次；虽然楚军屡战屡胜，但楚军禁不住哪怕一次失败。</p>
+<hr>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: (document.title),
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>]]></content>
   </entry>
   <entry>
     <title>因果推断学习笔记.3</title>
@@ -1300,33 +1300,6 @@ P(Y=y|do(X=x)) = \sum_{z}P(Y=y|do(Z=z))P(Z=z|do(X=x))\\
       </tags>
   </entry>
   <entry>
-    <title>近期概况（毕业）</title>
-    <url>/LiJT-Daily/2022/07/11/2022-07-11-recent/</url>
-    <content><![CDATA[<p>毕业季的种种回顾。</p>
-<span id="more"></span>
-<p>没想到距离上一次发Blog已经将近两个月了呀。</p>
-<p>这两个月以来，为毕业手续四处奔波。毕业论文的撰写、修改、答辩；离校手续单的项目一个一个地盖章；打包行李，搬宿舍；与朋友们的道别。许多事件，都成为了“最后一次”。如，最后一次刷本科校园卡；最后一次用宿舍洗衣机；最后一次和某某某吃饭（也许是最后一次吧）。当这些事情一一做完，终于意识到自己要毕业了。</p>
-<p>祝大家毕业前程似锦！</p>
-<p>无论成败，朝阳一样地洒在每个人身上。</p>
-<section class="post-full-comments">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    <div id="gitalk-container"></div>
-    <script>
-        var gitalk = new Gitalk({
-            clientID: 'e1bbf465a324641f76ce',
-            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
-            repo: 'LiJT-Daily-Comments',
-            owner: 'CSLiJT',
-            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: document.title+document.date,
-            distractionFreeMode: false // Facebook-like distraction free mode
-        });
-        gitalk.render('gitalk-container');
-    </script>
-</section>]]></content>
-  </entry>
-  <entry>
     <title>变分推断学习笔记.1</title>
     <url>/LiJT-Daily/2022/08/19/2022-08-19-vi/</url>
     <content><![CDATA[<p>变分推断的基本概念、证据下界（ELBO）。<br><span id="more"></span></p>
@@ -1406,6 +1379,277 @@ E_{q(x)}\left[\log \frac{q(x)}{p(x)}\right] = - E_{q(x)}\left[\log \frac{p(x)}{q
         gitalk.render('gitalk-container');
     </script>
 </section>]]></content>
+  </entry>
+  <entry>
+    <title>近期概况（毕业）</title>
+    <url>/LiJT-Daily/2022/07/11/2022-07-11-recent/</url>
+    <content><![CDATA[<p>毕业季的种种回顾。</p>
+<span id="more"></span>
+<p>没想到距离上一次发Blog已经将近两个月了呀。</p>
+<p>这两个月以来，为毕业手续四处奔波。毕业论文的撰写、修改、答辩；离校手续单的项目一个一个地盖章；打包行李，搬宿舍；与朋友们的道别。许多事件，都成为了“最后一次”。如，最后一次刷本科校园卡；最后一次用宿舍洗衣机；最后一次和某某某吃饭（也许是最后一次吧）。当这些事情一一做完，终于意识到自己要毕业了。</p>
+<p>祝大家毕业前程似锦！</p>
+<p>无论成败，朝阳一样地洒在每个人身上。</p>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: document.title+document.date,
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>]]></content>
+  </entry>
+  <entry>
+    <title>高级数据库系统知识点总结（Part 2）</title>
+    <url>/LiJT-Daily/2023/02/16/2023-02-16-adbs02/</url>
+    <content><![CDATA[<p>缓冲区管理；索引结构</p>
+<span id="more"></span>
+<h2 id="缓冲区管理"><a href="#缓冲区管理" class="headerlink" title="缓冲区管理"></a>缓冲区管理</h2><ul>
+<li>缓冲区由一个个frame构成，每个frame刚好可以容纳一个页</li>
+<li>缓冲区介于内存和磁盘之间，为计算机程序隐藏了“并非所有数据都存在内存”这一事实</li>
+</ul>
+<h3 id="Frame的参数"><a href="#Frame的参数" class="headerlink" title="Frame的参数"></a>Frame的参数</h3><ol>
+<li>Dirty<blockquote>
+<p>Frame中的块是否已经被修改</p>
+</blockquote>
+</li>
+<li>Pin-count<blockquote>
+<p>Frame的块的已经被请求且还未释放的计数，即当前的用户数</p>
+</blockquote>
+</li>
+<li>*Others<blockquote>
+<p>Latch: 是否加锁</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="缓冲区管理过程"><a href="#缓冲区管理过程" class="headerlink" title="缓冲区管理过程"></a>缓冲区管理过程</h3><ol>
+<li>当请求块且块不在缓冲区时：<ol>
+<li>选择一个用于替换的frame（空或非空）</li>
+<li>如果frame是dirty的，frame的内容写回磁盘</li>
+<li>将请求块写入被选择的frame</li>
+<li>将该frame的pin-count自增1，且返回其地址</li>
+</ol>
+</li>
+<li>当释放块时<ol>
+<li>请求者将该frame的pin-count自减1</li>
+<li>请求者必须声明该块是否被修改过（用frame-&gt;dirty）</li>
+</ol>
+</li>
+</ol>
+<h3 id="缓冲区替换策略"><a href="#缓冲区替换策略" class="headerlink" title="缓冲区替换策略"></a>缓冲区替换策略</h3><ol>
+<li>理论最优：OPT算法（也称为Belady’s算法）</li>
+<li>常用：LRU, LRU-K, 2Q, Second-Chance FIFO, CLOCK</li>
+</ol>
+<h4 id="LRU"><a href="#LRU" class="headerlink" title="LRU"></a>LRU</h4><ol>
+<li>基于<strong>时间局部性</strong>: 越是最近访问的，在未来被访问的概率越高</li>
+<li>优点：<ol>
+<li>适用于满足时间局部性的场景（多次重复请求同一页）</li>
+<li>选取frame的时间复杂度是O(1)</li>
+</ol>
+</li>
+<li>缺点：<ol>
+<li>缓存污染：LRU + repreated sequential scans</li>
+<li>维护LRU链表代价昂贵：修改链表耗时</li>
+<li>如果访问不满足时间局部性，则性能较差</li>
+<li>只考虑最近一次访问，不考虑访问频率</li>
+</ol>
+</li>
+</ol>
+<h4 id="LRU-K"><a href="#LRU-K" class="headerlink" title="LRU-K"></a>LRU-K</h4><ol>
+<li>如果某个frame的访问次数达到了K次以上，则应当尽量不置换</li>
+<li>实验表明，K并非越大越好，LRU-2性能较好</li>
+<li>缺点：需要额外记录访问次数</li>
+</ol>
+<h4 id="Second-Chance-FIFO"><a href="#Second-Chance-FIFO" class="headerlink" title="Second-Chance FIFO"></a>Second-Chance FIFO</h4><ol>
+<li>所有frame组成FIFO链表，每个frame附加一个bit位，初始为0.当FO页第一次被选中置换为1，并移动到FI端。只有bit为1的FO页才被选中替换</li>
+<li>优点：每个frame只需要1个额外bit，空间代价很低</li>
+<li>缺点：<strong>置换时需要移动多个元素，理论性能比LRU差。</strong></li>
+</ol>
+<p>Q: 为什么不适用OS缓冲区管理，而需要DBMS？<br>A: DBMS经常能预测访问模式。可以使用更专门的缓冲区替换策略，有利于pre-fetch策略的有效使用。且DBMS需要强制写回磁盘能力，OS的缓冲写回一般通过记录写请求来实现（来自不同应用），实际的磁盘修改推迟，因此不能保证写顺序</p>
+<h2 id="索引结构"><a href="#索引结构" class="headerlink" title="索引结构"></a>索引结构</h2><ul>
+<li>重要内容；B+树、散列表的概念；不同索引方式的优缺点对比，如时空复杂度、功能差异；多维索引的概念</li>
+</ul>
+<ol>
+<li>密集索引<ol>
+<li>每个记录都有一个索引项</li>
+<li>索引项按查找键排序</li>
+<li>使用密集索引的原因：记录通常比索引项要大；索引可以常驻内存；要查找键值为K的记录是否存在，不需要访问磁盘数据块</li>
+<li>缺点：索引占用太多空间 -&gt; <strong>用稀疏索引改进</strong></li>
+</ol>
+</li>
+<li>稀疏索引<ol>
+<li>仅部分记录有索引项</li>
+<li>一般情况：为每个数据块的第一个记录建立索引项</li>
+<li>优点：节省了索引空间；对同样的记录，稀疏索引可以使用更少的索引项</li>
+<li>缺点：对于“是否存在键值为K的记录？”，需要访问磁盘数据块</li>
+</ol>
+</li>
+<li>多级索引<ol>
+<li>好处：一级索引（直接指向记录）可能还太大而不能常驻内存；二级索引更小，可以常驻内存；减少磁盘IO次数</li>
+<li>磁盘IO次数计算：读索引n次IO+读入数据块1次IO. 例子：</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://pic4.zhimg.com/80/v2-b670267c13ba0ff4881dda1235a312f5.jpg" alt="Image"></p>
+<ol>
+<li>适用场景：当一级索引过大而二级索引可常驻内存时有效</li>
+<li>缺点：二级索引进仅可用稀疏索引；一般不考虑三级以上索引（B+树更好）</li>
+</ol>
+<ol>
+<li>辅助索引、倒排索引（自行查找概念）</li>
+</ol>
+<h3 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h3><ol>
+<li>一种树形多级索引结构</li>
+<li>树的层数与数据大小相关，通常为3层</li>
+<li>所有节点格式相同：n个值，n+1个指针</li>
+<li>所有叶子节点位于同一层</li>
+<li>叶子节点：<ol>
+<li>个指向相邻叶节点的指针</li>
+<li>n对指针-键值对</li>
+<li>至少<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="11.286ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 4988.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="230A" d="M174 734Q174 735 175 737T177 740T180 744T184 747T189 749T196 750Q206 748 214 735V-210H310H373Q401 -210 411 -213T422 -230T411 -247T369 -251Q362 -251 338 -251T298 -250H190Q178 -246 174 -234V734Z"></path></g><g data-mml-node="mo" transform="translate(444,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(833,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1655.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(2655.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(3155.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(3544.4,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mn" transform="translate(4044.4,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(4544.4,0)"><path data-c="230B" d="M229 734Q229 735 230 737T232 740T235 744T239 747T244 749T251 750Q262 748 269 735V-235Q266 -240 256 -249L147 -250H77Q43 -250 32 -247T21 -230T32 -213T72 -209Q79 -209 99 -209T133 -210H229V734Z"></path></g></g></g></svg></mjx-container>个指针指向键值</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://pic4.zhimg.com/80/v2-876647ae2384c7c3234020315d4599f4.jpg" alt="Image"></p>
+<ol>
+<li>中间节点：<ol>
+<li>n个键值划分n+1个子树</li>
+<li>第i个键值时第i+1个子树中的最小键值</li>
+<li>至少<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="11.286ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 4988.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="2308" d="M174 734Q178 746 190 750H298H369Q400 750 411 747T422 730T411 713T372 709Q365 709 345 709T310 710H214V-235Q206 -248 196 -250Q192 -250 189 -249T184 -247T180 -244T178 -241T176 -237T174 -234V734Z"></path></g><g data-mml-node="mo" transform="translate(444,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(833,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1655.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(2655.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(3155.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(3544.4,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mn" transform="translate(4044.4,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(4544.4,0)"><path data-c="2309" d="M21 717T21 730T32 746T75 750H147H256Q266 742 269 735V-235Q262 -248 251 -250Q247 -250 244 -249T239 -247T235 -244T233 -241T231 -237T229 -234V710H133Q119 710 99 710T71 709Q43 709 32 713Z"></path></g></g></g></svg></mjx-container>个指针指向子树</li>
+<li>根节点至少2个指针</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://pic4.zhimg.com/80/v2-508ca5f18650748386587ce722039660.jpg" alt="Image"></p>
+<ol>
+<li><p>B+树的增删改查：自查资料</p>
+</li>
+<li><p>B+树的特点</p>
+<ol>
+<li>结构稳定</li>
+<li>支持范围查询（键的组织基于比较）</li>
+<li>b+树更新索引代价高；额外空间代价高（因为是多维索引）</li>
+<li>访问索引的IO代价=树高（B+树不常驻内存）或者0（常驻内存）</li>
+<li>树高通常不超过3层，因此索引IO代价不超过3（总代价不超过4）. 通常情况下，根节点常驻内存，因此索引IO代价不超过2（总代价不超过3）</li>
+<li>例子：设块大小8KB，键2 Bytes，指针2 Bytes，则一个块可以放2048个索引项.</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://pic4.zhimg.com/80/v2-017fabd4143f80805fc7da3a90d7bcdb.jpg" alt="Image"></p>
+<h3 id="散列表"><a href="#散列表" class="headerlink" title="散列表"></a>散列表</h3><ol>
+<li>散列函数<ol>
+<li>h: 查找键（散列键）-&gt; [0,…,B-1]</li>
+<li>桶：序号为0,1,…,B-1</li>
+</ol>
+</li>
+<li>散列索引流程<ol>
+<li>若一个桶中仅一块，则IO次数=1</li>
+<li>否则由参数B决定，平均IO次数=总块数/B</li>
+</ol>
+</li>
+</ol>
+<h4 id="可扩展散列表"><a href="#可扩展散列表" class="headerlink" title="可扩展散列表"></a>可扩展散列表</h4><ul>
+<li>定义自查. 这里只总结优缺点</li>
+</ul>
+<ol>
+<li>优点：大部分情况下不存在溢出块，因此当查找溢出块时，只需要查找一个存储块</li>
+<li>缺点：桶增长速度快，可能导致内存放不下整个桶数组，影响其他保存在主存中的数据，波动较大</li>
+</ol>
+<h4 id="线性散列表"><a href="#线性散列表" class="headerlink" title="线性散列表"></a>线性散列表</h4><ul>
+<li>定义自查. 这里只总结优缺点</li>
+</ul>
+<ol>
+<li>优点：空间效率优于可扩展散列表；综合性能较好</li>
+<li>缺点：查找性能比可扩展散列表差</li>
+</ol>
+<h3 id="B-树与散列表对比"><a href="#B-树与散列表对比" class="headerlink" title="B+树与散列表对比"></a>B+树与散列表对比</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">特征\索引结构</th>
+<th style="text-align:left">B+树</th>
+<th style="text-align:left">散列表</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">结构稳定性</td>
+<td style="text-align:left">稳定</td>
+<td style="text-align:left">不稳定</td>
+</tr>
+<tr>
+<td style="text-align:left">范围查询</td>
+<td style="text-align:left">支持（基于序关系）</td>
+<td style="text-align:left">不支持</td>
+</tr>
+<tr>
+<td style="text-align:left">查找IO代价</td>
+<td style="text-align:left">有n层节点在磁盘中则代价为n+1</td>
+<td style="text-align:left">平均IO次数=总块数/桶数</td>
+</tr>
+<tr>
+<td style="text-align:left">额外空间代价</td>
+<td style="text-align:left">高（多级索引）</td>
+<td style="text-align:left">低</td>
+</tr>
+<tr>
+<td style="text-align:left">更新索引（增、删）代价</td>
+<td style="text-align:left">高（多级索引且涉及节点的分裂合并）</td>
+<td style="text-align:left">低</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="多维索引"><a href="#多维索引" class="headerlink" title="多维索引"></a>多维索引</h3><ol>
+<li>空间数据<ol>
+<li>Point</li>
+<li>Line</li>
+<li>Polygon</li>
+</ol>
+</li>
+<li>用于决策分析的多维数据<ol>
+<li>数据——关系</li>
+<li>维——关系的每个属性</li>
+</ol>
+</li>
+<li>多维查询<ol>
+<li>同时在数据的多个维度上进行匹配</li>
+<li>传统的索引只能索引一维，不适于多维数据处理</li>
+</ol>
+</li>
+<li>经典例子：R-Tree</li>
+</ol>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: document.title+document.date,
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
   </entry>
   <entry>
     <title>高级数据库系统知识点总结（Part 1）</title>
@@ -1635,250 +1879,6 @@ E_{q(x)}\left[\log \frac{q(x)}{p(x)}\right] = - E_{q(x)}\left[\log \frac{p(x)}{q
 </tbody>
 </table>
 </div>
-<section class="post-full-comments">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    <div id="gitalk-container"></div>
-    <script>
-        var gitalk = new Gitalk({
-            clientID: 'e1bbf465a324641f76ce',
-            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
-            repo: 'LiJT-Daily-Comments',
-            owner: 'CSLiJT',
-            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: document.title+document.date,
-            distractionFreeMode: false // Facebook-like distraction free mode
-        });
-        gitalk.render('gitalk-container');
-    </script>
-</section>]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>高级数据库系统知识点总结（Part 2）</title>
-    <url>/LiJT-Daily/2023/02/16/2023-02-16-adbs02/</url>
-    <content><![CDATA[<p>缓冲区管理；索引结构</p>
-<span id="more"></span>
-<h2 id="缓冲区管理"><a href="#缓冲区管理" class="headerlink" title="缓冲区管理"></a>缓冲区管理</h2><ul>
-<li>缓冲区由一个个frame构成，每个frame刚好可以容纳一个页</li>
-<li>缓冲区介于内存和磁盘之间，为计算机程序隐藏了“并非所有数据都存在内存”这一事实</li>
-</ul>
-<h3 id="Frame的参数"><a href="#Frame的参数" class="headerlink" title="Frame的参数"></a>Frame的参数</h3><ol>
-<li>Dirty<blockquote>
-<p>Frame中的块是否已经被修改</p>
-</blockquote>
-</li>
-<li>Pin-count<blockquote>
-<p>Frame的块的已经被请求且还未释放的计数，即当前的用户数</p>
-</blockquote>
-</li>
-<li>*Others<blockquote>
-<p>Latch: 是否加锁</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="缓冲区管理过程"><a href="#缓冲区管理过程" class="headerlink" title="缓冲区管理过程"></a>缓冲区管理过程</h3><ol>
-<li>当请求块且块不在缓冲区时：<ol>
-<li>选择一个用于替换的frame（空或非空）</li>
-<li>如果frame是dirty的，frame的内容写回磁盘</li>
-<li>将请求块写入被选择的frame</li>
-<li>将该frame的pin-count自增1，且返回其地址</li>
-</ol>
-</li>
-<li>当释放块时<ol>
-<li>请求者将该frame的pin-count自减1</li>
-<li>请求者必须声明该块是否被修改过（用frame-&gt;dirty）</li>
-</ol>
-</li>
-</ol>
-<h3 id="缓冲区替换策略"><a href="#缓冲区替换策略" class="headerlink" title="缓冲区替换策略"></a>缓冲区替换策略</h3><ol>
-<li>理论最优：OPT算法（也称为Belady’s算法）</li>
-<li>常用：LRU, LRU-K, 2Q, Second-Chance FIFO, CLOCK</li>
-</ol>
-<h4 id="LRU"><a href="#LRU" class="headerlink" title="LRU"></a>LRU</h4><ol>
-<li>基于<strong>时间局部性</strong>: 越是最近访问的，在未来被访问的概率越高</li>
-<li>优点：<ol>
-<li>适用于满足时间局部性的场景（多次重复请求同一页）</li>
-<li>选取frame的时间复杂度是O(1)</li>
-</ol>
-</li>
-<li>缺点：<ol>
-<li>缓存污染：LRU + repreated sequential scans</li>
-<li>维护LRU链表代价昂贵：修改链表耗时</li>
-<li>如果访问不满足时间局部性，则性能较差</li>
-<li>只考虑最近一次访问，不考虑访问频率</li>
-</ol>
-</li>
-</ol>
-<h4 id="LRU-K"><a href="#LRU-K" class="headerlink" title="LRU-K"></a>LRU-K</h4><ol>
-<li>如果某个frame的访问次数达到了K次以上，则应当尽量不置换</li>
-<li>实验表明，K并非越大越好，LRU-2性能较好</li>
-<li>缺点：需要额外记录访问次数</li>
-</ol>
-<h4 id="Second-Chance-FIFO"><a href="#Second-Chance-FIFO" class="headerlink" title="Second-Chance FIFO"></a>Second-Chance FIFO</h4><ol>
-<li>所有frame组成FIFO链表，每个frame附加一个bit位，初始为0.当FO页第一次被选中置换为1，并移动到FI端。只有bit为1的FO页才被选中替换</li>
-<li>优点：每个frame只需要1个额外bit，空间代价很低</li>
-<li>缺点：<strong>置换时需要移动多个元素，理论性能比LRU差。</strong></li>
-</ol>
-<p>Q: 为什么不适用OS缓冲区管理，而需要DBMS？<br>A: DBMS经常能预测访问模式。可以使用更专门的缓冲区替换策略，有利于pre-fetch策略的有效使用。且DBMS需要强制写回磁盘能力，OS的缓冲写回一般通过记录写请求来实现（来自不同应用），实际的磁盘修改推迟，因此不能保证写顺序</p>
-<h2 id="索引结构"><a href="#索引结构" class="headerlink" title="索引结构"></a>索引结构</h2><ul>
-<li>重要内容；B+树、散列表的概念；不同索引方式的优缺点对比，如时空复杂度、功能差异；多维索引的概念</li>
-</ul>
-<ol>
-<li>密集索引<ol>
-<li>每个记录都有一个索引项</li>
-<li>索引项按查找键排序</li>
-<li>使用密集索引的原因：记录通常比索引项要大；索引可以常驻内存；要查找键值为K的记录是否存在，不需要访问磁盘数据块</li>
-<li>缺点：索引占用太多空间 -&gt; <strong>用稀疏索引改进</strong></li>
-</ol>
-</li>
-<li>稀疏索引<ol>
-<li>仅部分记录有索引项</li>
-<li>一般情况：为每个数据块的第一个记录建立索引项</li>
-<li>优点：节省了索引空间；对同样的记录，稀疏索引可以使用更少的索引项</li>
-<li>缺点：对于“是否存在键值为K的记录？”，需要访问磁盘数据块</li>
-</ol>
-</li>
-<li>多级索引<ol>
-<li>好处：一级索引（直接指向记录）可能还太大而不能常驻内存；二级索引更小，可以常驻内存；减少磁盘IO次数</li>
-<li>磁盘IO次数计算：读索引n次IO+读入数据块1次IO. 例子：</li>
-</ol>
-</li>
-</ol>
-<p><img src="https://pic4.zhimg.com/80/v2-b670267c13ba0ff4881dda1235a312f5.jpg" alt="Image"></p>
-<ol>
-<li>适用场景：当一级索引过大而二级索引可常驻内存时有效</li>
-<li>缺点：二级索引进仅可用稀疏索引；一般不考虑三级以上索引（B+树更好）</li>
-</ol>
-<ol>
-<li>辅助索引、倒排索引（自行查找概念）</li>
-</ol>
-<h3 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h3><ol>
-<li>一种树形多级索引结构</li>
-<li>树的层数与数据大小相关，通常为3层</li>
-<li>所有节点格式相同：n个值，n+1个指针</li>
-<li>所有叶子节点位于同一层</li>
-<li>叶子节点：<ol>
-<li>个指向相邻叶节点的指针</li>
-<li>n对指针-键值对</li>
-<li>至少<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="11.286ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 4988.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="230A" d="M174 734Q174 735 175 737T177 740T180 744T184 747T189 749T196 750Q206 748 214 735V-210H310H373Q401 -210 411 -213T422 -230T411 -247T369 -251Q362 -251 338 -251T298 -250H190Q178 -246 174 -234V734Z"></path></g><g data-mml-node="mo" transform="translate(444,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(833,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1655.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(2655.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(3155.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(3544.4,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mn" transform="translate(4044.4,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(4544.4,0)"><path data-c="230B" d="M229 734Q229 735 230 737T232 740T235 744T239 747T244 749T251 750Q262 748 269 735V-235Q266 -240 256 -249L147 -250H77Q43 -250 32 -247T21 -230T32 -213T72 -209Q79 -209 99 -209T133 -210H229V734Z"></path></g></g></g></svg></mjx-container>个指针指向键值</li>
-</ol>
-</li>
-</ol>
-<p><img src="https://pic4.zhimg.com/80/v2-876647ae2384c7c3234020315d4599f4.jpg" alt="Image"></p>
-<ol>
-<li>中间节点：<ol>
-<li>n个键值划分n+1个子树</li>
-<li>第i个键值时第i+1个子树中的最小键值</li>
-<li>至少<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="11.286ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 4988.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="2308" d="M174 734Q178 746 190 750H298H369Q400 750 411 747T422 730T411 713T372 709Q365 709 345 709T310 710H214V-235Q206 -248 196 -250Q192 -250 189 -249T184 -247T180 -244T178 -241T176 -237T174 -234V734Z"></path></g><g data-mml-node="mo" transform="translate(444,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(833,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1655.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(2655.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(3155.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(3544.4,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mn" transform="translate(4044.4,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(4544.4,0)"><path data-c="2309" d="M21 717T21 730T32 746T75 750H147H256Q266 742 269 735V-235Q262 -248 251 -250Q247 -250 244 -249T239 -247T235 -244T233 -241T231 -237T229 -234V710H133Q119 710 99 710T71 709Q43 709 32 713Z"></path></g></g></g></svg></mjx-container>个指针指向子树</li>
-<li>根节点至少2个指针</li>
-</ol>
-</li>
-</ol>
-<p><img src="https://pic4.zhimg.com/80/v2-508ca5f18650748386587ce722039660.jpg" alt="Image"></p>
-<ol>
-<li><p>B+树的增删改查：自查资料</p>
-</li>
-<li><p>B+树的特点</p>
-<ol>
-<li>结构稳定</li>
-<li>支持范围查询（键的组织基于比较）</li>
-<li>b+树更新索引代价高；额外空间代价高（因为是多维索引）</li>
-<li>访问索引的IO代价=树高（B+树不常驻内存）或者0（常驻内存）</li>
-<li>树高通常不超过3层，因此索引IO代价不超过3（总代价不超过4）. 通常情况下，根节点常驻内存，因此索引IO代价不超过2（总代价不超过3）</li>
-<li>例子：设块大小8KB，键2 Bytes，指针2 Bytes，则一个块可以放2048个索引项.</li>
-</ol>
-</li>
-</ol>
-<p><img src="https://pic4.zhimg.com/80/v2-017fabd4143f80805fc7da3a90d7bcdb.jpg" alt="Image"></p>
-<h3 id="散列表"><a href="#散列表" class="headerlink" title="散列表"></a>散列表</h3><ol>
-<li>散列函数<ol>
-<li>h: 查找键（散列键）-&gt; [0,…,B-1]</li>
-<li>桶：序号为0,1,…,B-1</li>
-</ol>
-</li>
-<li>散列索引流程<ol>
-<li>若一个桶中仅一块，则IO次数=1</li>
-<li>否则由参数B决定，平均IO次数=总块数/B</li>
-</ol>
-</li>
-</ol>
-<h4 id="可扩展散列表"><a href="#可扩展散列表" class="headerlink" title="可扩展散列表"></a>可扩展散列表</h4><ul>
-<li>定义自查. 这里只总结优缺点</li>
-</ul>
-<ol>
-<li>优点：大部分情况下不存在溢出块，因此当查找溢出块时，只需要查找一个存储块</li>
-<li>缺点：桶增长速度快，可能导致内存放不下整个桶数组，影响其他保存在主存中的数据，波动较大</li>
-</ol>
-<h4 id="线性散列表"><a href="#线性散列表" class="headerlink" title="线性散列表"></a>线性散列表</h4><ul>
-<li>定义自查. 这里只总结优缺点</li>
-</ul>
-<ol>
-<li>优点：空间效率优于可扩展散列表；综合性能较好</li>
-<li>缺点：查找性能比可扩展散列表差</li>
-</ol>
-<h3 id="B-树与散列表对比"><a href="#B-树与散列表对比" class="headerlink" title="B+树与散列表对比"></a>B+树与散列表对比</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">特征\索引结构</th>
-<th style="text-align:left">B+树</th>
-<th style="text-align:left">散列表</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">结构稳定性</td>
-<td style="text-align:left">稳定</td>
-<td style="text-align:left">不稳定</td>
-</tr>
-<tr>
-<td style="text-align:left">范围查询</td>
-<td style="text-align:left">支持（基于序关系）</td>
-<td style="text-align:left">不支持</td>
-</tr>
-<tr>
-<td style="text-align:left">查找IO代价</td>
-<td style="text-align:left">有n层节点在磁盘中则代价为n+1</td>
-<td style="text-align:left">平均IO次数=总块数/桶数</td>
-</tr>
-<tr>
-<td style="text-align:left">额外空间代价</td>
-<td style="text-align:left">高（多级索引）</td>
-<td style="text-align:left">低</td>
-</tr>
-<tr>
-<td style="text-align:left">更新索引（增、删）代价</td>
-<td style="text-align:left">高（多级索引且涉及节点的分裂合并）</td>
-<td style="text-align:left">低</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="多维索引"><a href="#多维索引" class="headerlink" title="多维索引"></a>多维索引</h3><ol>
-<li>空间数据<ol>
-<li>Point</li>
-<li>Line</li>
-<li>Polygon</li>
-</ol>
-</li>
-<li>用于决策分析的多维数据<ol>
-<li>数据——关系</li>
-<li>维——关系的每个属性</li>
-</ol>
-</li>
-<li>多维查询<ol>
-<li>同时在数据的多个维度上进行匹配</li>
-<li>传统的索引只能索引一维，不适于多维数据处理</li>
-</ol>
-</li>
-<li>经典例子：R-Tree</li>
-</ol>
 <section class="post-full-comments">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
@@ -2472,51 +2472,6 @@ T(W)=\frac{T(R1)\cdot T(R2)}{\max\{V(R1,A),V(R2,A)\}}</script></li>
       </tags>
   </entry>
   <entry>
-    <title>自编曲的吉他指弹·Long long ago, 20th century</title>
-    <url>/LiJT-Daily/2023/02/21/2023-02-21-guitar/</url>
-    <content><![CDATA[<p>吉他指弹改编 · long long ago, 20th century (假面骑士 Black 片尾曲)</p>
-<span id="more"></span>
-<p>《假面骑士 Black》是我小时候最早看的一部假面骑士。</p>
-<p>南光太郎父母早亡，被秋月总一郎收养，和秋月信彦是异父异母的亲兄弟。日食之时，他们被父亲秋月总一郎出卖给戈尔戈姆，意图分别改造成黑日和影月，进行万年一次的对决，胜者将会成为新一任世纪王。当肉体改造完成，即将进行洗脑手术时，南光太郎逃出戈尔戈姆，秋月信彦却不幸逃脱失败。此后，黑日成为了假面骑士，影月却丢失从前的记忆，成为了无情的斗士。两人既是兄弟，也是被命运裹挟的宿敌。</p>
-<p>令我印象最深的是最后一话，黑日与影月的对决。在戈尔戈姆的基地，黑日夺取影月的撒旦剑，重创影月的腰带。影月痛苦地摇晃，应声倒地。临终之时，他终于想起他的宿敌的真名。那是他的亲兄弟，名叫南光太郎。</p>
-<p>可惜为时已晚，影月消失于山洞的崩塌之中。</p>
-<p>镜头一转，南光太郎立于山涧，手握撒旦剑，望着剑刃，沉默不语，任凭大雨淋在他身上。</p>
-<p>此时，ED响起。那便是《Long long ago, 20th century》。</p>
-<p>敌我同源，这是原作石森章太郎老师笔下假面骑士的悲哀；骨肉相残，这是黑日和影月不得不被卷入其中的命运。</p>
-<p>当时还小，没学过音乐也看不懂歌词，但是自己被这首曲子深深地触动，希望有朝一日自己能将它弹奏出来。但是很遗憾，网上找不到乐谱。恰好最近在学乐理，因此考虑着将这首曲子作为自己编曲处女作改编出来。这一作是指弹版本，和弦不难，但要突出旋律。也可以用钢琴演奏，但需要人力分配左右手。</p>
-<p>自改编乐谱（<a href="https://cslijt.github.io/LiJT-Daily/2023/02/21/2023-02-21-guitar/Long-long-ago,-20th-century.pdf">下载链接在此</a>）：</p>
-<p><br><br><div class="pdfobject-container" data-target="Long-long-ago,-20th-century.pdf" data-height="500px"></div><br><br></p>
-<p>附：原曲</p>
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe 
-src="https://player.bilibili.com/player.html?aid=799502033&cid=306741913&page=2" scrolling="no" border="0" 
-frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
-height: 100%; left: 0; top: 0;"> </iframe></div>
-
-<section class="post-full-comments">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-    <div id="gitalk-container"></div>
-    <script>
-        var gitalk = new Gitalk({
-            clientID: 'e1bbf465a324641f76ce',
-            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
-            repo: 'LiJT-Daily-Comments',
-            owner: 'CSLiJT',
-            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: "2023-02-01-guitar"+document.date,
-            distractionFreeMode: false // Facebook-like distraction free mode
-        });
-        gitalk.render('gitalk-container');
-    </script>
-</section>]]></content>
-      <categories>
-        <category>音乐</category>
-      </categories>
-      <tags>
-        <tag>吉他, 编曲</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Thinkpad+Win11唤醒锁频0.39GHz解决方案</title>
     <url>/LiJT-Daily/2023/02/25/2023-02-25-bios/</url>
     <content><![CDATA[<p>电脑配置：</p>
@@ -2576,6 +2531,51 @@ height: 100%; left: 0; top: 0;"> </iframe></div>
       <tags>
         <tag>电脑</tag>
         <tag>硬件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自编曲的吉他指弹·Long long ago, 20th century</title>
+    <url>/LiJT-Daily/2023/02/21/2023-02-21-guitar/</url>
+    <content><![CDATA[<p>吉他指弹改编 · long long ago, 20th century (假面骑士 Black 片尾曲)</p>
+<span id="more"></span>
+<p>《假面骑士 Black》是我小时候最早看的一部假面骑士。</p>
+<p>南光太郎父母早亡，被秋月总一郎收养，和秋月信彦是异父异母的亲兄弟。日食之时，他们被父亲秋月总一郎出卖给戈尔戈姆，意图分别改造成黑日和影月，进行万年一次的对决，胜者将会成为新一任世纪王。当肉体改造完成，即将进行洗脑手术时，南光太郎逃出戈尔戈姆，秋月信彦却不幸逃脱失败。此后，黑日成为了假面骑士，影月却丢失从前的记忆，成为了无情的斗士。两人既是兄弟，也是被命运裹挟的宿敌。</p>
+<p>令我印象最深的是最后一话，黑日与影月的对决。在戈尔戈姆的基地，黑日夺取影月的撒旦剑，重创影月的腰带。影月痛苦地摇晃，应声倒地。临终之时，他终于想起他的宿敌的真名。那是他的亲兄弟，名叫南光太郎。</p>
+<p>可惜为时已晚，影月消失于山洞的崩塌之中。</p>
+<p>镜头一转，南光太郎立于山涧，手握撒旦剑，望着剑刃，沉默不语，任凭大雨淋在他身上。</p>
+<p>此时，ED响起。那便是《Long long ago, 20th century》。</p>
+<p>敌我同源，这是原作石森章太郎老师笔下假面骑士的悲哀；骨肉相残，这是黑日和影月不得不被卷入其中的命运。</p>
+<p>当时还小，没学过音乐也看不懂歌词，但是自己被这首曲子深深地触动，希望有朝一日自己能将它弹奏出来。但是很遗憾，网上找不到乐谱。恰好最近在学乐理，因此考虑着将这首曲子作为自己编曲处女作改编出来。这一作是指弹版本，和弦不难，但要突出旋律。也可以用钢琴演奏，但需要人力分配左右手。</p>
+<p>自改编乐谱（<a href="https://cslijt.github.io/LiJT-Daily/2023/02/21/2023-02-21-guitar/Long-long-ago,-20th-century.pdf">下载链接在此</a>）：</p>
+<p><br><br><div class="pdfobject-container" data-target="Long-long-ago,-20th-century.pdf" data-height="500px"></div><br><br></p>
+<p>附：原曲</p>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;"><iframe 
+src="https://player.bilibili.com/player.html?aid=799502033&cid=306741913&page=2" scrolling="no" border="0" 
+frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; 
+height: 100%; left: 0; top: 0;"> </iframe></div>
+
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: "2023-02-01-guitar"+document.date,
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>]]></content>
+      <categories>
+        <category>音乐</category>
+      </categories>
+      <tags>
+        <tag>吉他, 编曲</tag>
       </tags>
   </entry>
   <entry>
@@ -2775,7 +2775,9 @@ L(\Omega)=CrossEntropy(X,\hat{X})−1/2(log\sigma_\phi^2−\sigma_\phi^2−\mu_\
 <p>另一个适用于<strong>标准二项先验分布</strong>的ELBO实现如下：</p>
 <script type="math/tex; mode=display">
 L(\Omega)=CrossEntropy(X,\hat{X})−(p_\phi\log p_\phi + (1-p_\phi)\log(1-p_\phi))</script><p>其中<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.667ex" xmlns="http://www.w3.org/2000/svg" width="2.279ex" height="1.667ex" role="img" focusable="false" viewBox="0 -442 1007.4 737"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D45D" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path></g><g data-mml-node="mi" transform="translate(536,-150) scale(0.707)"><path data-c="1D719" d="M409 688Q413 694 421 694H429H442Q448 688 448 686Q448 679 418 563Q411 535 404 504T392 458L388 442Q388 441 397 441T429 435T477 418Q521 397 550 357T579 260T548 151T471 65T374 11T279 -10H275L251 -105Q245 -128 238 -160Q230 -192 227 -198T215 -205H209Q189 -205 189 -198Q189 -193 211 -103L234 -11Q234 -10 226 -10Q221 -10 206 -8T161 6T107 36T62 89T43 171Q43 231 76 284T157 370T254 422T342 441Q347 441 348 445L378 567Q409 686 409 688ZM122 150Q122 116 134 91T167 53T203 35T237 27H244L337 404Q333 404 326 403T297 395T255 379T211 350T170 304Q152 276 137 237Q122 191 122 150ZM500 282Q500 320 484 347T444 385T405 400T381 404H378L332 217L284 29Q284 27 285 27Q293 27 317 33T357 47Q400 66 431 100T475 170T494 234T500 282Z"></path></g></g></g></g></svg></mjx-container>是由Encoder计算的<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.186ex" xmlns="http://www.w3.org/2000/svg" width="5.784ex" height="1.731ex" role="img" focusable="false" viewBox="0 -683 2556.6 765"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D44D" d="M58 8Q58 23 64 35Q64 36 329 334T596 635L586 637Q575 637 512 637H500H476Q442 637 420 635T365 624T311 598T266 548T228 469Q227 466 226 463T224 458T223 453T222 450L221 448Q218 443 202 443Q185 443 182 453L214 561Q228 606 241 651Q249 679 253 681Q256 683 487 683H718Q723 678 723 675Q723 673 717 649Q189 54 188 52L185 49H274Q369 50 377 51Q452 60 500 100T579 247Q587 272 590 277T603 282H607Q628 282 628 271Q547 5 541 2Q538 0 300 0H124Q58 0 58 8Z"></path></g><g data-mml-node="mo" transform="translate(1000.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mn" transform="translate(2056.6,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g></g></g></svg></mjx-container>的概率. <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: 0" xmlns="http://www.w3.org/2000/svg" width="1.636ex" height="1.545ex" role="img" focusable="false" viewBox="0 -683 723 683"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D44D" d="M58 8Q58 23 64 35Q64 36 329 334T596 635L586 637Q575 637 512 637H500H476Q442 637 420 635T365 624T311 598T266 548T228 469Q227 466 226 463T224 458T223 453T222 450L221 448Q218 443 202 443Q185 443 182 453L214 561Q228 606 241 651Q249 679 253 681Q256 683 487 683H718Q723 678 723 675Q723 673 717 649Q189 54 188 52L185 49H274Q369 50 377 51Q452 60 500 100T579 247Q587 272 590 277T603 282H607Q628 282 628 271Q547 5 541 2Q538 0 300 0H124Q58 0 58 8Z"></path></g></g></g></svg></mjx-container>服从二项分布.</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a href="https://cslijt.github.io/LiJT-Daily/2022/08/19/2022-08-19-vi/">JKRD.变分推断的本质</a><br>[2] David M. Blei, Alp Kucukelbir, &amp; Jon D. McAuliffe (2016). Variational Inference: A Review for Statisticians. CoRR, abs/1601.00670.<br>[3] DOERSCH C. Tutorial on Variational Autoencoders[J]. stat, 2016, 1050: 13.</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>[1] <a href="https://cslijt.github.io/LiJT-Daily/2022/08/19/2022-08-19-vi/">JKRD.变分推断的本质</a></p>
+<p>[2] David M. Blei, Alp Kucukelbir, &amp; Jon D. McAuliffe (2016). Variational Inference: A Review for Statisticians. CoRR, abs/1601.00670.</p>
+<p>[3] DOERSCH C. Tutorial on Variational Autoencoders[J]. stat, 2016, 1050: 13.</p>
 <section class="post-full-comments">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
