@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/LiJT-Daily/images/favicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/LiJT-Daily/images/favicon16.ico">
+
+<link rel="stylesheet" href="/LiJT-Daily/css/main.css">
+
+
+<link rel="stylesheet" href="/LiJT-Daily/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"cslijt.github.io","root":"/LiJT-Daily/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="缓冲区管理；索引结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高级数据库系统知识点总结（Part 2）">
+<meta property="og:url" content="https://cslijt.github.io/LiJT-Daily/2023/02/16/2023-02-16-adbs02/index.html">
+<meta property="og:site_name" content="LiJT的灵质空间">
+<meta property="og:description" content="缓冲区管理；索引结构">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-b670267c13ba0ff4881dda1235a312f5.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-876647ae2384c7c3234020315d4599f4.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-508ca5f18650748386587ce722039660.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-017fabd4143f80805fc7da3a90d7bcdb.jpg">
+<meta property="article:published_time" content="2023-02-16T14:51:25.000Z">
+<meta property="article:modified_time" content="2023-03-19T10:17:01.571Z">
+<meta property="article:author" content="LiJT">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-b670267c13ba0ff4881dda1235a312f5.jpg">
+
+<link rel="canonical" href="https://cslijt.github.io/LiJT-Daily/2023/02/16/2023-02-16-adbs02/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>高级数据库系统知识点总结（Part 2） | LiJT的灵质空间</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-183507292-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-183507292-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/LiJT-Daily/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">LiJT的灵质空间</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/LiJT-Daily/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-news">
+
+    <a href="/LiJT-Daily/news/" rel="section"><i class="fa fa-bell fa-fw"></i>新闻</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/LiJT-Daily/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/LiJT-Daily/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/LiJT-Daily/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/LiJT-Daily/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/LiJT-Daily/links/" rel="section"><i class="fas fa-anchor fa-fw"></i>友链</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslijt.github.io/LiJT-Daily/2023/02/16/2023-02-16-adbs02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/LiJT-Daily/images/avatar.jpg">
+      <meta itemprop="name" content="LiJT">
+      <meta itemprop="description" content="LiJT的灵质空间">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LiJT的灵质空间">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          高级数据库系统知识点总结（Part 2）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-02-16 22:51:25" itemprop="dateCreated datePublished" datetime="2023-02-16T22:51:25+08:00">2023-02-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-19 18:17:01" itemprop="dateModified" datetime="2023-03-19T18:17:01+08:00">2023-03-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/LiJT-Daily/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/LiJT-Daily/2023/02/16/2023-02-16-adbs02/" class="post-meta-item leancloud_visitors" data-flag-title="高级数据库系统知识点总结（Part 2）" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>缓冲区管理；索引结构</p>
+<span id="more"></span>
+<h2 id="缓冲区管理"><a href="#缓冲区管理" class="headerlink" title="缓冲区管理"></a>缓冲区管理</h2><ul>
+<li>缓冲区由一个个frame构成，每个frame刚好可以容纳一个页</li>
+<li>缓冲区介于内存和磁盘之间，为计算机程序隐藏了“并非所有数据都存在内存”这一事实</li>
+</ul>
+<h3 id="Frame的参数"><a href="#Frame的参数" class="headerlink" title="Frame的参数"></a>Frame的参数</h3><ol>
+<li>Dirty<blockquote>
+<p>Frame中的块是否已经被修改</p>
+</blockquote>
+</li>
+<li>Pin-count<blockquote>
+<p>Frame的块的已经被请求且还未释放的计数，即当前的用户数</p>
+</blockquote>
+</li>
+<li>*Others<blockquote>
+<p>Latch: 是否加锁</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="缓冲区管理过程"><a href="#缓冲区管理过程" class="headerlink" title="缓冲区管理过程"></a>缓冲区管理过程</h3><ol>
+<li>当请求块且块不在缓冲区时：<ol>
+<li>选择一个用于替换的frame（空或非空）</li>
+<li>如果frame是dirty的，frame的内容写回磁盘</li>
+<li>将请求块写入被选择的frame</li>
+<li>将该frame的pin-count自增1，且返回其地址</li>
+</ol>
+</li>
+<li>当释放块时<ol>
+<li>请求者将该frame的pin-count自减1</li>
+<li>请求者必须声明该块是否被修改过（用frame-&gt;dirty）</li>
+</ol>
+</li>
+</ol>
+<h3 id="缓冲区替换策略"><a href="#缓冲区替换策略" class="headerlink" title="缓冲区替换策略"></a>缓冲区替换策略</h3><ol>
+<li>理论最优：OPT算法（也称为Belady’s算法）</li>
+<li>常用：LRU, LRU-K, 2Q, Second-Chance FIFO, CLOCK</li>
+</ol>
+<h4 id="LRU"><a href="#LRU" class="headerlink" title="LRU"></a>LRU</h4><ol>
+<li>基于<strong>时间局部性</strong>: 越是最近访问的，在未来被访问的概率越高</li>
+<li>优点：<ol>
+<li>适用于满足时间局部性的场景（多次重复请求同一页）</li>
+<li>选取frame的时间复杂度是O(1)</li>
+</ol>
+</li>
+<li>缺点：<ol>
+<li>缓存污染：LRU + repreated sequential scans</li>
+<li>维护LRU链表代价昂贵：修改链表耗时</li>
+<li>如果访问不满足时间局部性，则性能较差</li>
+<li>只考虑最近一次访问，不考虑访问频率</li>
+</ol>
+</li>
+</ol>
+<h4 id="LRU-K"><a href="#LRU-K" class="headerlink" title="LRU-K"></a>LRU-K</h4><ol>
+<li>如果某个frame的访问次数达到了K次以上，则应当尽量不置换</li>
+<li>实验表明，K并非越大越好，LRU-2性能较好</li>
+<li>缺点：需要额外记录访问次数</li>
+</ol>
+<h4 id="Second-Chance-FIFO"><a href="#Second-Chance-FIFO" class="headerlink" title="Second-Chance FIFO"></a>Second-Chance FIFO</h4><ol>
+<li>所有frame组成FIFO链表，每个frame附加一个bit位，初始为0.当FO页第一次被选中置换为1，并移动到FI端。只有bit为1的FO页才被选中替换</li>
+<li>优点：每个frame只需要1个额外bit，空间代价很低</li>
+<li>缺点：<strong>置换时需要移动多个元素，理论性能比LRU差。</strong></li>
+</ol>
+<p>Q: 为什么不适用OS缓冲区管理，而需要DBMS？<br>A: DBMS经常能预测访问模式。可以使用更专门的缓冲区替换策略，有利于pre-fetch策略的有效使用。且DBMS需要强制写回磁盘能力，OS的缓冲写回一般通过记录写请求来实现（来自不同应用），实际的磁盘修改推迟，因此不能保证写顺序</p>
+<h2 id="索引结构"><a href="#索引结构" class="headerlink" title="索引结构"></a>索引结构</h2><ul>
+<li>重要内容；B+树、散列表的概念；不同索引方式的优缺点对比，如时空复杂度、功能差异；多维索引的概念</li>
+</ul>
+<ol>
+<li>密集索引<ol>
+<li>每个记录都有一个索引项</li>
+<li>索引项按查找键排序</li>
+<li>使用密集索引的原因：记录通常比索引项要大；索引可以常驻内存；要查找键值为K的记录是否存在，不需要访问磁盘数据块</li>
+<li>缺点：索引占用太多空间 -&gt; <strong>用稀疏索引改进</strong></li>
+</ol>
+</li>
+<li>稀疏索引<ol>
+<li>仅部分记录有索引项</li>
+<li>一般情况：为每个数据块的第一个记录建立索引项</li>
+<li>优点：节省了索引空间；对同样的记录，稀疏索引可以使用更少的索引项</li>
+<li>缺点：对于“是否存在键值为K的记录？”，需要访问磁盘数据块</li>
+</ol>
+</li>
+<li>多级索引<ol>
+<li>好处：一级索引（直接指向记录）可能还太大而不能常驻内存；二级索引更小，可以常驻内存；减少磁盘IO次数</li>
+<li>磁盘IO次数计算：读索引n次IO+读入数据块1次IO. 例子：</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://pic4.zhimg.com/80/v2-b670267c13ba0ff4881dda1235a312f5.jpg" alt="Image"></p>
+<ol>
+<li>适用场景：当一级索引过大而二级索引可常驻内存时有效</li>
+<li>缺点：二级索引进仅可用稀疏索引；一般不考虑三级以上索引（B+树更好）</li>
+</ol>
+<ol>
+<li>辅助索引、倒排索引（自行查找概念）</li>
+</ol>
+<h3 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h3><ol>
+<li>一种树形多级索引结构</li>
+<li>树的层数与数据大小相关，通常为3层</li>
+<li>所有节点格式相同：n个值，n+1个指针</li>
+<li>所有叶子节点位于同一层</li>
+<li>叶子节点：<ol>
+<li>个指向相邻叶节点的指针</li>
+<li>n对指针-键值对</li>
+<li>至少<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="11.286ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 4988.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="230A" d="M174 734Q174 735 175 737T177 740T180 744T184 747T189 749T196 750Q206 748 214 735V-210H310H373Q401 -210 411 -213T422 -230T411 -247T369 -251Q362 -251 338 -251T298 -250H190Q178 -246 174 -234V734Z"></path></g><g data-mml-node="mo" transform="translate(444,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(833,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1655.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(2655.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(3155.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(3544.4,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mn" transform="translate(4044.4,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(4544.4,0)"><path data-c="230B" d="M229 734Q229 735 230 737T232 740T235 744T239 747T244 749T251 750Q262 748 269 735V-235Q266 -240 256 -249L147 -250H77Q43 -250 32 -247T21 -230T32 -213T72 -209Q79 -209 99 -209T133 -210H229V734Z"></path></g></g></g></svg></mjx-container>个指针指向键值</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://pic4.zhimg.com/80/v2-876647ae2384c7c3234020315d4599f4.jpg" alt="Image"></p>
+<ol>
+<li>中间节点：<ol>
+<li>n个键值划分n+1个子树</li>
+<li>第i个键值时第i+1个子树中的最小键值</li>
+<li>至少<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="11.286ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 4988.4 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="2308" d="M174 734Q178 746 190 750H298H369Q400 750 411 747T422 730T411 713T372 709Q365 709 345 709T310 710H214V-235Q206 -248 196 -250Q192 -250 189 -249T184 -247T180 -244T178 -241T176 -237T174 -234V734Z"></path></g><g data-mml-node="mo" transform="translate(444,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(833,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1655.2,0)"><path data-c="2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></g><g data-mml-node="mn" transform="translate(2655.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(3155.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="TeXAtom" data-mjx-texclass="ORD" transform="translate(3544.4,0)"><g data-mml-node="mo"><path data-c="2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path></g></g><g data-mml-node="mn" transform="translate(4044.4,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(4544.4,0)"><path data-c="2309" d="M21 717T21 730T32 746T75 750H147H256Q266 742 269 735V-235Q262 -248 251 -250Q247 -250 244 -249T239 -247T235 -244T233 -241T231 -237T229 -234V710H133Q119 710 99 710T71 709Q43 709 32 713Z"></path></g></g></g></svg></mjx-container>个指针指向子树</li>
+<li>根节点至少2个指针</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://pic4.zhimg.com/80/v2-508ca5f18650748386587ce722039660.jpg" alt="Image"></p>
+<ol>
+<li><p>B+树的增删改查：自查资料</p>
+</li>
+<li><p>B+树的特点</p>
+<ol>
+<li>结构稳定</li>
+<li>支持范围查询（键的组织基于比较）</li>
+<li>b+树更新索引代价高；额外空间代价高（因为是多维索引）</li>
+<li>访问索引的IO代价=树高（B+树不常驻内存）或者0（常驻内存）</li>
+<li>树高通常不超过3层，因此索引IO代价不超过3（总代价不超过4）. 通常情况下，根节点常驻内存，因此索引IO代价不超过2（总代价不超过3）</li>
+<li>例子：设块大小8KB，键2 Bytes，指针2 Bytes，则一个块可以放2048个索引项.</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://pic4.zhimg.com/80/v2-017fabd4143f80805fc7da3a90d7bcdb.jpg" alt="Image"></p>
+<h3 id="散列表"><a href="#散列表" class="headerlink" title="散列表"></a>散列表</h3><ol>
+<li>散列函数<ol>
+<li>h: 查找键（散列键）-&gt; [0,…,B-1]</li>
+<li>桶：序号为0,1,…,B-1</li>
+</ol>
+</li>
+<li>散列索引流程<ol>
+<li>若一个桶中仅一块，则IO次数=1</li>
+<li>否则由参数B决定，平均IO次数=总块数/B</li>
+</ol>
+</li>
+</ol>
+<h4 id="可扩展散列表"><a href="#可扩展散列表" class="headerlink" title="可扩展散列表"></a>可扩展散列表</h4><ul>
+<li>定义自查. 这里只总结优缺点</li>
+</ul>
+<ol>
+<li>优点：大部分情况下不存在溢出块，因此当查找溢出块时，只需要查找一个存储块</li>
+<li>缺点：桶增长速度快，可能导致内存放不下整个桶数组，影响其他保存在主存中的数据，波动较大</li>
+</ol>
+<h4 id="线性散列表"><a href="#线性散列表" class="headerlink" title="线性散列表"></a>线性散列表</h4><ul>
+<li>定义自查. 这里只总结优缺点</li>
+</ul>
+<ol>
+<li>优点：空间效率优于可扩展散列表；综合性能较好</li>
+<li>缺点：查找性能比可扩展散列表差</li>
+</ol>
+<h3 id="B-树与散列表对比"><a href="#B-树与散列表对比" class="headerlink" title="B+树与散列表对比"></a>B+树与散列表对比</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">特征\索引结构</th>
+<th style="text-align:left">B+树</th>
+<th style="text-align:left">散列表</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">结构稳定性</td>
+<td style="text-align:left">稳定</td>
+<td style="text-align:left">不稳定</td>
+</tr>
+<tr>
+<td style="text-align:left">范围查询</td>
+<td style="text-align:left">支持（基于序关系）</td>
+<td style="text-align:left">不支持</td>
+</tr>
+<tr>
+<td style="text-align:left">查找IO代价</td>
+<td style="text-align:left">有n层节点在磁盘中则代价为n+1</td>
+<td style="text-align:left">平均IO次数=总块数/桶数</td>
+</tr>
+<tr>
+<td style="text-align:left">额外空间代价</td>
+<td style="text-align:left">高（多级索引）</td>
+<td style="text-align:left">低</td>
+</tr>
+<tr>
+<td style="text-align:left">更新索引（增、删）代价</td>
+<td style="text-align:left">高（多级索引且涉及节点的分裂合并）</td>
+<td style="text-align:left">低</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="多维索引"><a href="#多维索引" class="headerlink" title="多维索引"></a>多维索引</h3><ol>
+<li>空间数据<ol>
+<li>Point</li>
+<li>Line</li>
+<li>Polygon</li>
+</ol>
+</li>
+<li>用于决策分析的多维数据<ol>
+<li>数据——关系</li>
+<li>维——关系的每个属性</li>
+</ol>
+</li>
+<li>多维查询<ol>
+<li>同时在数据的多个维度上进行匹配</li>
+<li>传统的索引只能索引一维，不适于多维数据处理</li>
+</ol>
+</li>
+<li>经典例子：R-Tree</li>
+</ol>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: document.title+document.date,
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/LiJT-Daily/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/LiJT-Daily/2023/02/16/2023-02-16-adbs01/" rel="prev" title="高级数据库系统知识点总结（Part 1）">
+      <i class="fa fa-chevron-left"></i> 高级数据库系统知识点总结（Part 1）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/LiJT-Daily/2023/02/17/2023-02-17-adbs03/" rel="next" title="高级数据库系统知识点总结（Part 3）">
+      高级数据库系统知识点总结（Part 3） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA%E7%AE%A1%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">缓冲区管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Frame%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">Frame的参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA%E7%AE%A1%E7%90%86%E8%BF%87%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">缓冲区管理过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA%E6%9B%BF%E6%8D%A2%E7%AD%96%E7%95%A5"><span class="nav-number">1.3.</span> <span class="nav-text">缓冲区替换策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LRU"><span class="nav-number">1.3.1.</span> <span class="nav-text">LRU</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LRU-K"><span class="nav-number">1.3.2.</span> <span class="nav-text">LRU-K</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Second-Chance-FIFO"><span class="nav-number">1.3.3.</span> <span class="nav-text">Second-Chance FIFO</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">索引结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#B-%E6%A0%91"><span class="nav-number">2.1.</span> <span class="nav-text">B+树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E8%A1%A8"><span class="nav-number">2.2.</span> <span class="nav-text">散列表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%AF%E6%89%A9%E5%B1%95%E6%95%A3%E5%88%97%E8%A1%A8"><span class="nav-number">2.2.1.</span> <span class="nav-text">可扩展散列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E6%95%A3%E5%88%97%E8%A1%A8"><span class="nav-number">2.2.2.</span> <span class="nav-text">线性散列表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-%E6%A0%91%E4%B8%8E%E6%95%A3%E5%88%97%E8%A1%A8%E5%AF%B9%E6%AF%94"><span class="nav-number">2.3.</span> <span class="nav-text">B+树与散列表对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BB%B4%E7%B4%A2%E5%BC%95"><span class="nav-number">2.4.</span> <span class="nav-text">多维索引</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LiJT"
+      src="/LiJT-Daily/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">LiJT</p>
+  <div class="site-description" itemprop="description">LiJT的灵质空间</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/LiJT-Daily/archives/">
+        
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/LiJT-Daily/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/LiJT-Daily/tags/">
+          
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CSLiJT" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CSLiJT" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:785160469@qq.com" title="E-Mail → mailto:785160469@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiJT</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">88k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:20</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"0M5QVskfHznsnKEorguvX4Mw-gzGzoHsz","app_key":"itcxMP5f9TIHVoeItjA7Kqob","server_url":"https://0m5qvskf.lc-cn-n1-shared.com","security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/LiJT-Daily/lib/anime.min.js"></script>
+  <script src="/LiJT-Daily/lib/velocity/velocity.min.js"></script>
+  <script src="/LiJT-Daily/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/LiJT-Daily/js/utils.js"></script>
+
+<script src="/LiJT-Daily/js/motion.js"></script>
+
+
+<script src="/LiJT-Daily/js/schemes/pisces.js"></script>
+
+
+<script src="/LiJT-Daily/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/LiJT-Daily/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/LiJT-Daily/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+  
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+  
+
+</body>
+</html>

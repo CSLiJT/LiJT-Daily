@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/LiJT-Daily/images/favicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/LiJT-Daily/images/favicon16.ico">
+
+<link rel="stylesheet" href="/LiJT-Daily/css/main.css">
+
+
+<link rel="stylesheet" href="/LiJT-Daily/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"cslijt.github.io","root":"/LiJT-Daily/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="事务处理：故障与恢复 &amp; 并发控制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高级数据库系统知识点总结（Part 4）">
+<meta property="og:url" content="https://cslijt.github.io/LiJT-Daily/2023/02/18/2023-02-18-adbs04/index.html">
+<meta property="og:site_name" content="LiJT的灵质空间">
+<meta property="og:description" content="事务处理：故障与恢复 &amp; 并发控制">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-18T12:47:14.000Z">
+<meta property="article:modified_time" content="2023-02-20T09:01:18.824Z">
+<meta property="article:author" content="LiJT">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://cslijt.github.io/LiJT-Daily/2023/02/18/2023-02-18-adbs04/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>高级数据库系统知识点总结（Part 4） | LiJT的灵质空间</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-183507292-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-183507292-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/LiJT-Daily/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">LiJT的灵质空间</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/LiJT-Daily/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-news">
+
+    <a href="/LiJT-Daily/news/" rel="section"><i class="fa fa-bell fa-fw"></i>新闻</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/LiJT-Daily/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/LiJT-Daily/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/LiJT-Daily/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/LiJT-Daily/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/LiJT-Daily/links/" rel="section"><i class="fas fa-anchor fa-fw"></i>友链</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslijt.github.io/LiJT-Daily/2023/02/18/2023-02-18-adbs04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/LiJT-Daily/images/avatar.jpg">
+      <meta itemprop="name" content="LiJT">
+      <meta itemprop="description" content="LiJT的灵质空间">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LiJT的灵质空间">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          高级数据库系统知识点总结（Part 4）
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-02-18 20:47:14" itemprop="dateCreated datePublished" datetime="2023-02-18T20:47:14+08:00">2023-02-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-02-20 17:01:18" itemprop="dateModified" datetime="2023-02-20T17:01:18+08:00">2023-02-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/LiJT-Daily/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/LiJT-Daily/2023/02/18/2023-02-18-adbs04/" class="post-meta-item leancloud_visitors" data-flag-title="高级数据库系统知识点总结（Part 4）" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>事务处理：故障与恢复 &amp; 并发控制</p>
+<span id="more"></span>
+<h2 id="事务处理I-故障与恢复"><a href="#事务处理I-故障与恢复" class="headerlink" title="事务处理I: 故障与恢复"></a>事务处理I: 故障与恢复</h2><p>重点内容：</p>
+<ol>
+<li>数据库的一致性概念</li>
+<li>事务的基本概念、ACID和原子操作</li>
+<li>Undo日志、Redo日志、Undo/Redo日志的恢复过程</li>
+<li>Checkpoint</li>
+</ol>
+<h3 id="数据库一致性"><a href="#数据库一致性" class="headerlink" title="数据库一致性"></a>数据库一致性</h3><ul>
+<li>数据库一致性是指事务执行的结果必须是使得数据库从一个一致性状态转变到另一个一致性状态</li>
+<li>保证数据库一致性是指当事务完成时，必须使所有数据都具有一致的状态</li>
+</ul>
+<h3 id="事务的基本概念、ACID和原子操作"><a href="#事务的基本概念、ACID和原子操作" class="headerlink" title="事务的基本概念、ACID和原子操作"></a>事务的基本概念、ACID和原子操作</h3><ol>
+<li>事务：一个不可分割的操作序列，其中的操作要么读做，要么都不做</li>
+</ol>
+<h4 id="事务的ACID性质"><a href="#事务的ACID性质" class="headerlink" title="事务的ACID性质"></a>事务的ACID性质</h4><ol>
+<li>原子性 Atomicity</li>
+<li>一致性 Consistency</li>
+<li>隔离性 Isolation</li>
+<li>持久性 Durability</li>
+</ol>
+<h4 id="事务的原子操作"><a href="#事务的原子操作" class="headerlink" title="事务的原子操作"></a>事务的原子操作</h4><ol>
+<li>磁盘 &lt;-&gt; 内存<ol>
+<li><code>input(x)</code>: disk block with x -&gt; memory</li>
+<li><code>output(x)</code>: buffer block with x -&gt; disk</li>
+</ol>
+</li>
+<li>内存 &lt;-&gt; 内存 (必要时，磁盘 -&gt; 内存 &lt;-&gt; 内存)<ol>
+<li><code>read(x,t)</code>: do input(x) if necessary; t &lt;- value of x in buffer</li>
+<li><code>write(x,t)</code>: do input(x) if necessary; value of x in buffer &lt;- t</li>
+</ol>
+</li>
+</ol>
+<h3 id="Undo、Redo、Undo-Redo日志"><a href="#Undo、Redo、Undo-Redo日志" class="headerlink" title="Undo、Redo、Undo/Redo日志"></a>Undo、Redo、Undo/Redo日志</h3><ol>
+<li>事务日志记录了所有更新操作的具体细节</li>
+<li>日志文件的登记严格按事务执行的时间次序</li>
+</ol>
+<h4 id="Undo日志规则"><a href="#Undo日志规则" class="headerlink" title="Undo日志规则"></a>Undo日志规则</h4><ol>
+<li>事务的每一个修改操作都生成一个日志记录 &lt; T, x, old-value &gt;</li>
+<li>WAL：先写日志，在X被写到磁盘之前，对应该修改的日志记录必须已被写到磁盘上</li>
+<li>事务的所有修改结果都已经写入磁盘<strong>之后</strong>，将 &lt; commit, T &gt;日志记录写到磁盘上</li>
+<li>恢复时忽略已提交事务，只撤销未提交事务</li>
+<li>从<strong>尾部</strong>开始扫描日志记录&lt; T,x,v &gt;，如果T没有commit过或者已经abort，则：<ol>
+<li>write(x,v)</li>
+<li>output(x)</li>
+<li>反向扫描结束后，对于所有未commit过的事务，写入&lt; abort, T &gt;</li>
+</ol>
+</li>
+</ol>
+<h4 id="Redo日志规则"><a href="#Redo日志规则" class="headerlink" title="Redo日志规则"></a>Redo日志规则</h4><ol>
+<li>事务的每一个修改操作都生成一个日志记录 &lt; T, x, new-value &gt;</li>
+<li>WAL：先写日志，在X被写到磁盘之前，对应该修改的日志记录必须已被写到磁盘上</li>
+<li>事务的修改结果写入磁盘<strong>之前</strong>，将 &lt; commit, T &gt;日志记录写到磁盘上</li>
+<li>从<strong>首部</strong>开始扫描日志记录&lt; T,x,v &gt;，如果T已经commit过，则<ol>
+<li>write(x,v)</li>
+<li>output(x)</li>
+<li>正向扫描结束后，对于所有未commit过的事务，写入&lt; abort, T &gt;</li>
+</ol>
+</li>
+</ol>
+<h4 id="Undo-vs-Redo"><a href="#Undo-vs-Redo" class="headerlink" title="Undo vs. Redo"></a>Undo vs. Redo</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">项目</th>
+<th style="text-align:left">Undo</th>
+<th style="text-align:left">Redo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">更新时间</td>
+<td style="text-align:left">立即更新（乐观）</td>
+<td style="text-align:left">延迟更新（悲观）</td>
+</tr>
+<tr>
+<td style="text-align:left">内存代价</td>
+<td style="text-align:left">低</td>
+<td style="text-align:left">高</td>
+</tr>
+<tr>
+<td style="text-align:left">恢复代价</td>
+<td style="text-align:left">高</td>
+<td style="text-align:left">低</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="Undo-Redo日志规则"><a href="#Undo-Redo日志规则" class="headerlink" title="Undo/Redo日志规则"></a>Undo/Redo日志规则</h4><ol>
+<li>在x被写到磁盘之前，对应该修改的日志记录必须已被写到磁盘上（WAL）</li>
+<li>日志中的数据修改记录：&lt; T, x, v, w &gt;<ol>
+<li>v: old value; w: new value</li>
+</ol>
+</li>
+<li>基于Undo/Redo日志的恢复<ol>
+<li>正向扫描日志，将commit的事务放入Redo列表中，将没有结束的事务放入Undo列表</li>
+<li>反向扫描日志，对于&lt; T, x, v, w &gt;，若T在Undo列表中，则<ol>
+<li>write(x,v); output(x)</li>
+</ol>
+</li>
+<li>正向扫描日志，对于&lt; T, x, v, w &gt;，若T在Redo列表中，则<ol>
+<li>write(x,w); output(x)</li>
+</ol>
+</li>
+<li>对于Undo列表中的T，写入&lt; abort, T &gt;</li>
+</ol>
+</li>
+</ol>
+<h3 id="检查点-checkpoint"><a href="#检查点-checkpoint" class="headerlink" title="检查点(checkpoint)"></a>检查点(checkpoint)</h3><ol>
+<li>提出背景：当系统故障发生时，必须扫描日志。需要搜索整个日志来确定undo列表和redo列表<ol>
+<li>搜索过程太耗时</li>
+<li>redo列表很大，使得恢复过程变得很长（所有成功commit的事务都要redo一遍；每个事务可能涉及大量值更新操作）</li>
+</ol>
+</li>
+<li>检查点技术保证检查点之前的所有commit操作的结果已经写回数据库，在恢复时不需要redo</li>
+</ol>
+<h2 id="事务处理II-并发控制"><a href="#事务处理II-并发控制" class="headerlink" title="事务处理II: 并发控制"></a>事务处理II: 并发控制</h2><p>重点内容：</p>
+<ol>
+<li>可串性、冲突可串性的概念</li>
+<li>冲突可串性的判定</li>
+<li>锁</li>
+<li>视图可串性</li>
+<li>死锁</li>
+<li>乐观并发控制技术</li>
+</ol>
+<h3 id="并发控制面临的问题"><a href="#并发控制面临的问题" class="headerlink" title="并发控制面临的问题"></a>并发控制面临的问题</h3><ol>
+<li>丢失更新</li>
+<li>脏读</li>
+<li>不一致分析<ol>
+<li>不可重复读</li>
+<li>幻读</li>
+</ol>
+</li>
+</ol>
+<h3 id="并发调度与可串性"><a href="#并发调度与可串性" class="headerlink" title="并发调度与可串性"></a>并发调度与可串性</h3><ol>
+<li>调度的定义：多个事务的读写操作按时间排序的执行序列. 例如<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">T1: r1(A)w1(A)r1(B)w1(B)</span><br><span class="line">T2: r2(A)w2(A)r2(B)w2(B)</span><br><span class="line">Sc = r1(A)w1(A)r1(B)w1(B)r2(A)w2(A)r2(B)w2(B)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>调度中的每个事务的读写操作保持原来顺序</li>
+<li>事务调度时不考虑数据库的初始状态和事务的语义</li>
+</ol>
+</li>
+<li>可串化调度：如果一个调度的结果与某一串行调度执行的结果等价，则称该调度是可串化调度，否则是不可串调度</li>
+</ol>
+<h3 id="冲突可串性"><a href="#冲突可串性" class="headerlink" title="冲突可串性"></a>冲突可串性</h3><ol>
+<li>冲突操作：涉及同一个数据库元素，并且至少有一个是写操作<ol>
+<li>r1(A)&lt;-&gt;w2(A)</li>
+<li>w2(A)&lt;-&gt;r1(A)</li>
+<li>w1(A)&lt;-&gt;w2(A)</li>
+</ol>
+</li>
+<li>冲突操作不可交换；不冲突操作可交换</li>
+<li>冲突等价：称调度S1和调度S2是冲突等价的，如果S1可以通过一系列非冲突交换转换到S2.</li>
+<li>定理：如果一个调度满足冲突可串性，则该调度是可串化调度</li>
+</ol>
+<h3 id="优先图"><a href="#优先图" class="headerlink" title="优先图"></a>优先图</h3><ol>
+<li>优先图用于冲突可串性的判断</li>
+<li>优先图的结构<ol>
+<li>节点：事务</li>
+<li>有向边：Ti-&gt;Tj,满足Ti<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.355ex" xmlns="http://www.w3.org/2000/svg" width="2.698ex" height="1.577ex" role="img" focusable="false" viewBox="0 -540 1192.6 697.1"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mo"><path data-c="3E" d="M84 520Q84 528 88 533T96 539L99 540Q106 540 253 471T544 334L687 265Q694 260 694 250T687 235Q685 233 395 96L107 -40H101Q83 -38 83 -20Q83 -19 83 -17Q82 -10 98 -1Q117 9 248 71Q326 108 378 132L626 250L378 368Q90 504 86 509Q84 513 84 520Z"></path></g><g data-mml-node="mi" transform="translate(811,-150) scale(0.707)"><path data-c="1D460" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path></g></g></g></g></svg></mjx-container>Tj<ol>
+<li>存在Ti中的操作A1和Tj中的操作A2，满足A1在A2前并且A1和A2是冲突操作</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>定理：给定一个调度S构造S的优先图P(S)，如果P(S)无环，则S满足冲突可串性</li>
+</ol>
+<h3 id="视图可串性"><a href="#视图可串性" class="headerlink" title="视图可串性"></a>视图可串性</h3><ol>
+<li>冲突可串性过于严格，原本可串的S不一定冲突可串。视图可串解决这一问题</li>
+<li>调度S1和S2视图等价，如果：<ol>
+<li>If in S1: wj(A)-&gt;ri(A)(中间无任何w(A)); then in S2: wj(A)-&gt;ri(A)</li>
+<li>If in S1: ri(A) reads initial DB value; then in S2: ri(A) also reads initial DB value</li>
+<li>IF in S1: Ti does last write on A; then in S2: Ti also does last write on A</li>
+</ol>
+</li>
+<li>视图可串是冲突可串的必要不充分条件</li>
+</ol>
+<h3 id="锁机制"><a href="#锁机制" class="headerlink" title="锁机制"></a>锁机制</h3><ol>
+<li>用途：用于实现可串化调度</li>
+</ol>
+<h4 id="两阶段锁（2PL）"><a href="#两阶段锁（2PL）" class="headerlink" title="两阶段锁（2PL）"></a>两阶段锁（2PL）</h4><ol>
+<li>事务在对任何数据进行读写之前，首先要获得该数据上的锁</li>
+<li>在释放一个锁之后，事务不再获得任何锁</li>
+<li>定理：如果一个调度S中的所有事务都是两段式事务，则该调度是可串化调度</li>
+<li>缺点：如果事务T只是读取X，也必须加锁，而且释放锁之前其他事务无法对X进行操作，影响数据库的并发性. 解决方法：引入不同的锁：S lock, X lock, Update lock, …</li>
+</ol>
+<h4 id="X-Lock"><a href="#X-Lock" class="headerlink" title="X Lock"></a>X Lock</h4><ol>
+<li>X lock: exclusive locks, 也称写锁</li>
+<li>只有获得X锁的事务，才能对封锁的数据进行<strong>修改</strong>. 其他事务不能获取X锁，也不能获取S锁</li>
+</ol>
+<h4 id="S-Lock"><a href="#S-Lock" class="headerlink" title="S Lock"></a>S Lock</h4><ol>
+<li>S lock: share locks, 也称读锁</li>
+<li>如果事务T对数据R加了S锁，则其他事务对R的X锁请求不能成功，但对R的S锁请求可以成功</li>
+<li>当事务获得S锁后，如果要对数据R进行修改，则必须在修改前执行Upgrade(R)，将S锁升级为X锁（升变？！）</li>
+</ol>
+<h4 id="Update-lock"><a href="#Update-lock" class="headerlink" title="Update lock"></a>Update lock</h4><ol>
+<li>如果事务取得了数据R上的更新锁，则可以读R，并且可以在以后升级为X锁（上一小节的S锁的可升变版本）</li>
+<li>单纯的S锁不能升级为R锁</li>
+<li>如果事务持有了R上的Update lock，则其他事务不能取到R上的S锁、X锁，以及Update锁</li>
+<li>如果事务持有了R上的S锁，则其他事务可以获取R上的Update lock</li>
+</ol>
+<h4 id="S锁、X锁、Update锁的相容性"><a href="#S锁、X锁、Update锁的相容性" class="headerlink" title="S锁、X锁、Update锁的相容性"></a>S锁、X锁、Update锁的相容性</h4><blockquote>
+<p>Y 表示相容；N表示不相容</p>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">T1 holds\T2 requrests</th>
+<th style="text-align:left">S</th>
+<th style="text-align:left">X</th>
+<th style="text-align:left">U</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">S</td>
+<td style="text-align:left">Y</td>
+<td style="text-align:left">N</td>
+<td style="text-align:left">Y</td>
+</tr>
+<tr>
+<td style="text-align:left">X</td>
+<td style="text-align:left">N</td>
+<td style="text-align:left">N</td>
+<td style="text-align:left">N</td>
+</tr>
+<tr>
+<td style="text-align:left">U</td>
+<td style="text-align:left">N</td>
+<td style="text-align:left">N</td>
+<td style="text-align:left">N</td>
+</tr>
+</tbody>
+</table>
+</div>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: document.title+document.date,
+            distractionFreeMode: false // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/LiJT-Daily/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/LiJT-Daily/2023/02/17/2023-02-17-adbs03/" rel="prev" title="高级数据库系统知识点总结（Part 3）">
+      <i class="fa fa-chevron-left"></i> 高级数据库系统知识点总结（Part 3）
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/LiJT-Daily/2023/02/21/2023-02-21-guitar/" rel="next" title="自编曲的吉他指弹·Long long ago, 20th century">
+      自编曲的吉他指弹·Long long ago, 20th century <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86I-%E6%95%85%E9%9A%9C%E4%B8%8E%E6%81%A2%E5%A4%8D"><span class="nav-number">1.</span> <span class="nav-text">事务处理I: 故障与恢复</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%80%E8%87%B4%E6%80%A7"><span class="nav-number">1.1.</span> <span class="nav-text">数据库一致性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%81ACID%E5%92%8C%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C"><span class="nav-number">1.2.</span> <span class="nav-text">事务的基本概念、ACID和原子操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84ACID%E6%80%A7%E8%B4%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text">事务的ACID性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C"><span class="nav-number">1.2.2.</span> <span class="nav-text">事务的原子操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Undo%E3%80%81Redo%E3%80%81Undo-Redo%E6%97%A5%E5%BF%97"><span class="nav-number">1.3.</span> <span class="nav-text">Undo、Redo、Undo&#x2F;Redo日志</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Undo%E6%97%A5%E5%BF%97%E8%A7%84%E5%88%99"><span class="nav-number">1.3.1.</span> <span class="nav-text">Undo日志规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redo%E6%97%A5%E5%BF%97%E8%A7%84%E5%88%99"><span class="nav-number">1.3.2.</span> <span class="nav-text">Redo日志规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Undo-vs-Redo"><span class="nav-number">1.3.3.</span> <span class="nav-text">Undo vs. Redo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Undo-Redo%E6%97%A5%E5%BF%97%E8%A7%84%E5%88%99"><span class="nav-number">1.3.4.</span> <span class="nav-text">Undo&#x2F;Redo日志规则</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E7%82%B9-checkpoint"><span class="nav-number">1.4.</span> <span class="nav-text">检查点(checkpoint)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86II-%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">事务处理II: 并发控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E9%9D%A2%E4%B8%B4%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">2.1.</span> <span class="nav-text">并发控制面临的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E8%B0%83%E5%BA%A6%E4%B8%8E%E5%8F%AF%E4%B8%B2%E6%80%A7"><span class="nav-number">2.2.</span> <span class="nav-text">并发调度与可串性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B2%E7%AA%81%E5%8F%AF%E4%B8%B2%E6%80%A7"><span class="nav-number">2.3.</span> <span class="nav-text">冲突可串性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%85%88%E5%9B%BE"><span class="nav-number">2.4.</span> <span class="nav-text">优先图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE%E5%8F%AF%E4%B8%B2%E6%80%A7"><span class="nav-number">2.5.</span> <span class="nav-text">视图可串性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%81%E6%9C%BA%E5%88%B6"><span class="nav-number">2.6.</span> <span class="nav-text">锁机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E9%98%B6%E6%AE%B5%E9%94%81%EF%BC%882PL%EF%BC%89"><span class="nav-number">2.6.1.</span> <span class="nav-text">两阶段锁（2PL）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#X-Lock"><span class="nav-number">2.6.2.</span> <span class="nav-text">X Lock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#S-Lock"><span class="nav-number">2.6.3.</span> <span class="nav-text">S Lock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Update-lock"><span class="nav-number">2.6.4.</span> <span class="nav-text">Update lock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#S%E9%94%81%E3%80%81X%E9%94%81%E3%80%81Update%E9%94%81%E7%9A%84%E7%9B%B8%E5%AE%B9%E6%80%A7"><span class="nav-number">2.6.5.</span> <span class="nav-text">S锁、X锁、Update锁的相容性</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LiJT"
+      src="/LiJT-Daily/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">LiJT</p>
+  <div class="site-description" itemprop="description">LiJT的灵质空间</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/LiJT-Daily/archives/">
+        
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/LiJT-Daily/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/LiJT-Daily/tags/">
+          
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CSLiJT" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CSLiJT" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:785160469@qq.com" title="E-Mail → mailto:785160469@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiJT</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">88k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:20</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"0M5QVskfHznsnKEorguvX4Mw-gzGzoHsz","app_key":"itcxMP5f9TIHVoeItjA7Kqob","server_url":"https://0m5qvskf.lc-cn-n1-shared.com","security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/LiJT-Daily/lib/anime.min.js"></script>
+  <script src="/LiJT-Daily/lib/velocity/velocity.min.js"></script>
+  <script src="/LiJT-Daily/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/LiJT-Daily/js/utils.js"></script>
+
+<script src="/LiJT-Daily/js/motion.js"></script>
+
+
+<script src="/LiJT-Daily/js/schemes/pisces.js"></script>
+
+
+<script src="/LiJT-Daily/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/LiJT-Daily/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/LiJT-Daily/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+  
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+  
+
+</body>
+</html>
