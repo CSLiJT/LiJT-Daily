@@ -66,7 +66,6 @@ $$
 
 1. [丁鹏.因果推断简介.PKU-MATH-00112230.2019](https://www.math.pku.edu.cn/teachers/yaoy/math112230/lecture10_DingP_causal091101.pdf)
 
-
 <section class="post-full-comments">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
@@ -78,8 +77,8 @@ $$
             repo: 'LiJT-Daily-Comments',
             owner: 'CSLiJT',
             admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
-            id: document.title+document.date,
-            distractionFreeMode: false // Facebook-like distraction free mode
+            id: decodeURI(window.location.pathname),
+            distractionFreeMode: true // Facebook-like distraction free mode
         });
         gitalk.render('gitalk-container');
     </script>

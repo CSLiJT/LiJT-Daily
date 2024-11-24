@@ -151,11 +151,7 @@ mermaid: ## mermaid url https://github.com/knsv/mermaid
   options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
     #startOnload: true  // default true
 
-gitalk:
-  enable: true # 是否启用
-  owner: CSLiJT # 用户名
-  repo: LiJT-Daily-Comments # 存放评论的仓库名
-  clientID: e1bbf465a324641f76ce # Github Application 的 clientID
-  clientSecret: b865ad952a6494eb48283884abbe479d3f89f4a4 # Github Application 的 clientSecret
-  admin: CSLiJT # 用户名
-  distractionFreeMode: false # 评论时遮照效果的开关
+mylinks:
+  nickname: Dirkie Dye's Blog
+  site: dirkiedai.github.io
+  info: Dirkie Dye

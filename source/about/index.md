@@ -1,13 +1,15 @@
 ---
 title: 关于我
+mathjax: true
 date: 2022-04-06 17:14:43
 type: "about"
 ---
 
-* 一位漫步者
-* 喜欢吃饭，做饭，散步，喝咖啡
-* 潜在宅，隐藏月厨
+* 一名来自[中国科学技术大学](https://ustc.edu.cn)的学生
+* 喜欢吃饭，做饭，散步，喝咖啡，健身，手工，折纸，乐高...
+* 最近比较想学锻刀和腌制火腿
 * <i class="far fa-envelope"></i> <satosasara@mail.ustc.edu.cn>
+
 
 <section class="post-full-comments">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">

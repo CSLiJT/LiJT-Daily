@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/LiJT-Daily/images/favicon32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/LiJT-Daily/images/favicon16.ico">
+
+<link rel="stylesheet" href="/LiJT-Daily/css/main.css">
+
+
+<link rel="stylesheet" href="/LiJT-Daily/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"cslijt.github.io","root":"/LiJT-Daily/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="个性化学习者能力建模全新范式。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WWW 2024 | 重剑无锋：个性化学习者能力建模全新范式：通用的可识别、可解释的能力诊断框架">
+<meta property="og:url" content="https://cslijt.github.io/LiJT-Daily/2024/02/01/2024-02-01-idcd/index.html">
+<meta property="og:site_name" content="LiJT的灵质空间">
+<meta property="og:description" content="个性化学习者能力建模全新范式。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-ba1f68abd2b83f3f36024d5f9adadfdb.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-0ee8897ec3d978569909d11d5f83ce50.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-f209050626df0d396f6839221005872c.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-40e4246b15789a527485beb03f6cc0d4.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-3639e3812a95c4f70b30276b61dbe7d4.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-ffc5b300ba0cd4d60cad805b005e532c.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-eca255d52feca490d7279659f3621227.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-c5612bf3c79bb312b6c7e0b2d6a85d67.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-008cce8d26bba86cf638788fe022b150.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-c8154977f8096b8b39ef4005eb715fe0.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-a34b5404ced296f220eaca2d64e880c7.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-0917427a314bd4a6645432258e1fa8e6.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-18c908dcbed6fb8bd61315e3c166042f.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-869aee8ae3e3378f05245bf6a132b061.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-c563b5cf48364584838081b57826ae37.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-23ea2d3d0c3b8cc8c2e1877f0f468836.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-f57f7cc791e5e0d53a2c95bfc11c444f.png">
+<meta property="og:image" content="https://pic4.zhimg.com/80/v2-29fe72bc28a3959fc92937d197a0c4f0.png">
+<meta property="article:published_time" content="2024-02-01T03:04:58.000Z">
+<meta property="article:modified_time" content="2024-03-08T08:26:03.055Z">
+<meta property="article:author" content="LiJT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-ba1f68abd2b83f3f36024d5f9adadfdb.png">
+
+<link rel="canonical" href="https://cslijt.github.io/LiJT-Daily/2024/02/01/2024-02-01-idcd/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>WWW 2024 | 重剑无锋：个性化学习者能力建模全新范式：通用的可识别、可解释的能力诊断框架 | LiJT的灵质空间</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-183507292-2"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-183507292-2');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/LiJT-Daily/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">LiJT的灵质空间</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/LiJT-Daily/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-news">
+
+    <a href="/LiJT-Daily/news/" rel="section"><i class="fa fa-bell fa-fw"></i>新闻</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/LiJT-Daily/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/LiJT-Daily/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/LiJT-Daily/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/LiJT-Daily/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-links">
+
+    <a href="/LiJT-Daily/links/" rel="section"><i class="fas fa-anchor fa-fw"></i>友链</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cslijt.github.io/LiJT-Daily/2024/02/01/2024-02-01-idcd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/LiJT-Daily/images/avatar.jpg">
+      <meta itemprop="name" content="LiJT">
+      <meta itemprop="description" content="LiJT的灵质空间">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LiJT的灵质空间">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WWW 2024 | 重剑无锋：个性化学习者能力建模全新范式：通用的可识别、可解释的能力诊断框架
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-02-01 11:04:58" itemprop="dateCreated datePublished" datetime="2024-02-01T11:04:58+08:00">2024-02-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-03-08 16:26:03" itemprop="dateModified" datetime="2024-03-08T16:26:03+08:00">2024-03-08</time>
+              </span>
+
+          
+            <span id="/LiJT-Daily/2024/02/01/2024-02-01-idcd/" class="post-meta-item leancloud_visitors" data-flag-title="WWW 2024 | 重剑无锋：个性化学习者能力建模全新范式：通用的可识别、可解释的能力诊断框架" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>个性化学习者能力建模全新范式。</p>
+<span id="more"></span>
+<p><img src="https://pic4.zhimg.com/80/v2-ba1f68abd2b83f3f36024d5f9adadfdb.png" alt="论文首页"></p>
+<p>论文标题：Towards the Identifiability and Explainability for Personalized Learner Modeling: An Inductive Paradigm</p>
+<p>作者：Jiatong Li, Qi Liu, Fei Wang, Jiayu Liu, Zhenya Huang, Fangzhou Yao, Linbo Zhu, Yu Su</p>
+<p>作者单位：中国科学技术大学</p>
+<p>论文链接：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2309.00300">https://arxiv.org/abs/2309.00300</a></p>
+<p>论文录用：The Web Conference 2024 Main Conference （Research Tracks）</p>
+<p>作者主页：<a href="https://cslijt.github.io/">https://cslijt.github.io/</a></p>
+<p><img src="https://pic4.zhimg.com/80/v2-0ee8897ec3d978569909d11d5f83ce50.png" alt="基于认知诊断的学习者能力建模现状"></p>
+<h2 id="论文摘要"><a href="#论文摘要" class="headerlink" title="论文摘要"></a>论文摘要</h2><p>基于认知诊断(CD)的个性化学习者建模是许多网络学习服务的一项基础而重要的任务，它旨在通过从行为数据中诊断学习者的特征来建模学习者的认知状态。现有的认知诊断模型(CDMs)遵循认知状态-答题响应范式，将学习者认知状态和题目参数视为可训练的嵌入，并通过学习者得分预测来学习它们。然而，我们注意到这种范式不可避免地导致学习者建模的不可识别性，并导致可解释性过拟合问题，这不利于学习者认知状态的量化和网络学习服务的质量。为了解决这些问题，我们提出了一个可识别的认知诊断框架(ID-CDF)，该框架基于一种全新的答题响应-认知状态-答题响应范式，该范式受到编码器-解码器模型的启发。具体而言，我们首先设计了ID-CDF的诊断模块，该模块利用归纳学习消除模型优化中的参数随机性，以确保学习者能力建模结果的可识别性，并捕获总体响应数据分布与认知状态之间的单调性，以防止可解释性过拟合。接下来，我们提出了一个灵活的ID-CDF预测模块，以保证诊断结果的准确性。我们进一步提出了一个ID-CDF的实现，即ID-CDM，以说明其可用性。在四个具有不同特征的真实数据集上进行的大量实验表明，ID-CDF可以有效解决上述研究问题，同时不失诊断结果准确性。</p>
+<h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>在各种Web学习应用（如在线学习平台、在线自适应测试）中，基于认知诊断（cognitive diagnosis, CD）的个性化学习者能力建模，是一项重要的基础任务。该任务的目标是从学习者的历史行为数据（绝大部分情况下，是答题得分记录）中诊断出学习者的认知状态（如对学科知识点的掌握水平）。诊断结果作为认知诊断模型（cognitive diagnosis model, CDM）的输出，一方面可以直接提供给学习者用户，作为其近期学习状态的反馈，另一方面可以作为用户特征（embedding），提供给下游任务挖掘进一步用途，如计算自适应测试（computerized adaptive testing, CAT）、习题推荐（item recommendation）等。需要注意的是，这里的“学习者”是指广义上的所有需要通过学习和测试过程积累知识的个体（如职业资格考试备考者、大学生），不仅仅是K-12教育中的学生。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-f209050626df0d396f6839221005872c.png" alt="传统范式与本文提出的新范式对比"></p>
+<h2 id="研究动机"><a href="#研究动机" class="headerlink" title="研究动机"></a>研究动机</h2><p><strong>从研究现状看，</strong>现有的基于深度学习的学习者能力建模认知诊断模型（cdm）都遵循“能力水平-&gt;响应”范式（proficiency-response paradigm），即把学习者认知状态以及试题特征视作可以从数据中学习的embedding，并通过预测答题得分-&gt;计算损失函数-&gt;反向传播的方式来优化embedding，从而得到预测结果。这一范式与推荐系统中的双塔模型极为类似。即便是不基于深度学习的传统认知诊断模型如DINA（Deterministic Input, Noisy “And” gate model），“能力水平-&gt;响应结果”这一逻辑依然保持。倒不如说，基于深度学习的CDM的proficiency-response paradigm，就是从传统CDM这里一脉相承的。前者通过神经网络强大的函数拟合能力，能够准确地预测学习者在试题上的答题得分。<strong>然而，这一范式容易导致两个难以解决的问题，一是无法保持诊断结果的可识别性，二是导致诊断结果可解释性的过拟合。</strong></p>
+<p>其中，可识别性是指，给定交互函数（CDM的答题得分预测函数）<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex" xmlns="http://www.w3.org/2000/svg" width="18.467ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 8162.2 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D453" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path></g><g data-mml-node="mo" transform="translate(827.8,0)"><path data-c="3A" d="M78 370Q78 394 95 412T138 430Q162 430 180 414T199 371Q199 346 182 328T139 310T96 327T78 370ZM78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path></g><g data-mml-node="mi" transform="translate(1383.6,0)"><path data-c="398" d="M56 340Q56 423 86 494T164 610T270 680T388 705Q521 705 621 601T722 341Q722 260 693 191T617 75T510 4T388 -22T267 3T160 74T85 189T56 340ZM610 339Q610 428 590 495T535 598T463 651T384 668Q332 668 289 638T221 566Q168 485 168 339Q168 274 176 235Q189 158 228 105T324 28Q356 16 388 16Q415 16 442 24T501 54T555 111T594 205T610 339ZM223 263V422H263V388H514V422H554V263H514V297H263V263H223Z"></path></g><g data-mml-node="mo" transform="translate(2383.8,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mi" transform="translate(3384,0)"><path data-c="3A8" d="M340 622Q338 623 335 625T331 629T325 631T314 634T298 635T274 636T239 637H212V683H224Q248 680 389 680T554 683H566V637H539Q479 637 464 635T439 622L438 407Q438 192 439 192Q443 193 449 195T474 207T507 232T536 276T557 344Q560 365 562 417T573 493Q587 536 620 544Q627 546 671 546H715L722 540V515Q714 509 708 509Q680 505 671 476T658 392T644 307Q599 177 451 153L438 151V106L439 61Q446 54 451 52T476 48T539 46H566V0H554Q530 3 389 3T224 0H212V46H239Q259 46 273 46T298 47T314 48T325 51T331 54T335 57T340 61V151Q126 178 117 406Q115 503 69 509Q55 509 55 526Q55 541 59 543T86 546H107H120Q150 546 161 543T184 528Q198 514 204 493Q212 472 213 420T226 316T272 230Q287 216 303 207T330 194L339 192Q340 192 340 407V622Z"></path></g><g data-mml-node="mo" transform="translate(4439.8,0)"><path data-c="2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path></g><g data-mml-node="mo" transform="translate(5717.6,0)"><path data-c="7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path></g><g data-mml-node="mn" transform="translate(6217.6,0)"><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path></g><g data-mml-node="mo" transform="translate(6717.6,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mn" transform="translate(7162.2,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path></g><g data-mml-node="mo" transform="translate(7662.2,0)"><path data-c="7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path></g></g></g></svg></mjx-container>，不同的学习者认知状态<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.439ex" xmlns="http://www.w3.org/2000/svg" width="8.282ex" height="2.156ex" role="img" focusable="false" viewBox="0 -759 3660.7 953"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path></g><g data-mml-node="mo" transform="translate(469,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="msup" transform="translate(913.7,0)"><g data-mml-node="mi"><path data-c="1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path></g><g data-mml-node="mo" transform="translate(502,363) scale(0.707)"><path data-c="2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z"></path></g></g><g data-mml-node="mo" transform="translate(1937.9,0)"><path data-c="2208" d="M84 250Q84 372 166 450T360 539Q361 539 377 539T419 540T469 540H568Q583 532 583 520Q583 511 570 501L466 500Q355 499 329 494Q280 482 242 458T183 409T147 354T129 306T124 272V270H568Q583 262 583 250T568 230H124V228Q124 207 134 177T167 112T231 48T328 7Q355 1 466 0H570Q583 -10 583 -20Q583 -32 568 -40H471Q464 -40 446 -40T417 -41Q262 -41 172 45Q84 127 84 250Z"></path></g><g data-mml-node="mi" transform="translate(2882.7,0)"><path data-c="398" d="M56 340Q56 423 86 494T164 610T270 680T388 705Q521 705 621 601T722 341Q722 260 693 191T617 75T510 4T388 -22T267 3T160 74T85 189T56 340ZM610 339Q610 428 590 495T535 598T463 651T384 668Q332 668 289 638T221 566Q168 485 168 339Q168 274 176 235Q189 158 228 105T324 28Q356 16 388 16Q415 16 442 24T501 54T555 111T594 205T610 339ZM223 263V422H263V388H514V422H554V263H514V297H263V263H223Z"></path></g></g></g></svg></mjx-container>应当导致不同的答题得分分布。换言之，取其等价的逆否命题，也即 <strong>“如果有两名学习者，他们的答题得分分布一模一样，那么在没有其他先验信息的前提下，这两名学习者的认知状态应当是相同的”</strong>。例如在Figure 1中，Adam和Paul的得分分布一模一样（答对e1,e2；答错e3,e4），那么他们本就应当具有相同的认知状态。听起来很符合直觉也很合理对不对？但这样一个重要的性质，却没有任何一个现有的CDM能够保持。这是由传统范式在参数优化过程天然存在的随机性导致的，而且难以消除。在教育测量学界，以Xu et al. 为代表，已经有一些关于传统模型DINA的可识别性条件的理论研究。但相关性质要求试题Q矩阵的特定形式，并且相比于可识别性的实现，更加关注其理论存在性，在现实中仍然难以实现。而在计算机领域，关于个性化学习者能力建模结果可识别性的研究，仍然是一片空白。</p>
+<p>另一个问题，可解释性过拟合，是指诊断结果只在训练数据上有较好的可解释性，在测试数据上却难以解释。这一现象是我们首先通过实验观测到的。这里的“可解释性”是指教育测量层面的可解释，即诊断结果能够反映学习者真实认知状态的程度，需要通过“单调性假设”来维持，即学习者诊断结果随相关习题得分单调递增。可解释性对于学习者能力建模是至关重要的，毕竟诊断结果会直接输出给学习者作为其学习情况反馈，需要令其信服，不像推荐系统中服务提供方只关注推荐效果，如CTR。然而传统范式中，学习者能力是从训练集得分中一个一个“优化”出来的，天然地会导致其单调性指标在训练集上很高（虚高），在验证集和测试集上很拉跨。相关研究中的可解释性指标也都是在训练集上计算的。因为人们不需要通过可解释性“预测”什么，只关注其“在已观测的数据上是否分布合理”。然而，这与可解释性的初衷，即“由有限的已知数据推断隐藏在背后的真实能力”，是相悖的。</p>
+<p><strong>从研究目标看，</strong>我们认为学习者能力建模这一任务本身，更应该关注<strong>由数据到认知状态的诊断过程</strong>，而非<strong>由认知状态到数据的预测过程</strong>。进一步讲，<strong>一个具有实际应用价值的学习者能力建模服务，应当更加关注诊断结果本身的质量，而非答题预测精度，并且整个诊断过程是直接的、端到端的</strong>。当一个在线学习者用户想测评其认知状态时，他只需要输入答题数据，得到输出的诊断结果。不幸的是，现有的CDM都做不到这一点。现有的CDM由于是基于参数优化来估计学习者能力结果的，因此每当一个学习者用户想要测评认知状态时，他必须将自己的答题数据放入全量答题数据中（如果之前有10,000名用户，那么现在就有10,001个用户），重新训练一遍整个模型。注意，冻结其他参数而只训练自己的能力参数这是不可取的，因为容易导致严重的过拟合，而且诊断结果完全不可识别。因此，在实际应用中，现有的CDM也是难以部署的，更多停留在实验室阶段。</p>
+<p><strong>因此，为了解决上述的棘手问题，我们首先开创了一种全新的学习者能力建模范式，Proficiency-response-proficiency paradigm</strong>，如Figure 3所示。基于这一新范式，<strong>我们提出了一种可识别的认知诊断框架ID-CDF</strong>，如Figure 4所示。在这一框架中，学习者认知状态和试题特征不再通过参数优化学习得到，而是通过诊断模块Diagnostic Module一步得到。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-40e4246b15789a527485beb03f6cc0d4.png" alt="ID-CDF框架图"></p>
+<h2 id="ID-CDF：通用的可识别认知诊断框架"><a href="#ID-CDF：通用的可识别认知诊断框架" class="headerlink" title="ID-CDF：通用的可识别认知诊断框架"></a>ID-CDF：通用的可识别认知诊断框架</h2><p>如 Figure 4 所示，ID-CDF这一框架包含两大模块：诊断模块（Diagnostic Module）和预测模块（Predictive Module）。</p>
+<h3 id="诊断模块（Diagnostic-Module）"><a href="#诊断模块（Diagnostic-Module）" class="headerlink" title="诊断模块（Diagnostic Module）"></a>诊断模块（Diagnostic Module）</h3><p><strong>诊断模块的目的是通过归纳式学习（inductive learning），彻底解决现有学习者能力建模方法的不可识别问题，并通过额外引入的约束机制（可定制，可拓展）来满足诊断结果的可解释性，并且归纳式学习本身能够有效缓解可解释性过拟合问题。</strong>具体而言，在这一模块中，学习者和试题的答题数据（本文实现中为0-1的答题得分）首先编码为向量。设有N名学生和M道试题，那么每一名学生的答题数据向量是M维的，每一维度表示在该题的得分（1 = 答对；0 = 未做； -1 = 答错）；类似地，每一道试题的答题数据向量是N维的。上述编码方式可如下公式所示形式化地表示：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-3639e3812a95c4f70b30276b61dbe7d4.png" alt="可观测量编码"></p>
+<p>接下来，诊断模块通过如下形式的诊断函数从答题数据中（归纳式地）直接计算出学习者和试题的诊断结果。其中<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.023ex" xmlns="http://www.w3.org/2000/svg" width="1.061ex" height="1.618ex" role="img" focusable="false" viewBox="0 -705 469 715"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D703" d="M35 200Q35 302 74 415T180 610T319 704Q320 704 327 704T339 705Q393 701 423 656Q462 596 462 495Q462 380 417 261T302 66T168 -10H161Q125 -10 99 10T60 63T41 130T35 200ZM383 566Q383 668 330 668Q294 668 260 623T204 521T170 421T157 371Q206 370 254 370L351 371Q352 372 359 404T375 484T383 566ZM113 132Q113 26 166 26Q181 26 198 36T239 74T287 161T335 307L340 324H145Q145 321 136 286T120 208T113 132Z"></path></g></g></g></svg></mjx-container>表示学习者的能力，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.464ex" xmlns="http://www.w3.org/2000/svg" width="1.473ex" height="2.034ex" role="img" focusable="false" viewBox="0 -694 651 899"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D713" d="M161 441Q202 441 226 417T250 358Q250 338 218 252T187 127Q190 85 214 61Q235 43 257 37Q275 29 288 29H289L371 360Q455 691 456 692Q459 694 472 694Q492 694 492 687Q492 678 411 356Q329 28 329 27T335 26Q421 26 498 114T576 278Q576 302 568 319T550 343T532 361T524 384Q524 405 541 424T583 443Q602 443 618 425T634 366Q634 337 623 288T605 220Q573 125 492 57T329 -11H319L296 -104Q272 -198 272 -199Q270 -205 252 -205H239Q233 -199 233 -197Q233 -192 256 -102T279 -9Q272 -8 265 -8Q106 14 106 139Q106 174 139 264T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Q21 299 34 333T82 404T161 441Z"></path></g></g></g></svg></mjx-container>表示试题的隐含属性如难度、区分度；<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="1.407ex" height="1.027ex" role="img" focusable="false" viewBox="0 -443 622 454"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D714" d="M495 384Q495 406 514 424T555 443Q574 443 589 425T604 364Q604 334 592 278T555 155T483 38T377 -11Q297 -11 267 66Q266 68 260 61Q201 -11 125 -11Q15 -11 15 139Q15 230 56 325T123 434Q135 441 147 436Q160 429 160 418Q160 406 140 379T94 306T62 208Q61 202 61 187Q61 124 85 100T143 76Q201 76 245 129L253 137V156Q258 297 317 297Q348 297 348 261Q348 243 338 213T318 158L308 135Q309 133 310 129T318 115T334 97T358 83T393 76Q456 76 501 148T546 274Q546 305 533 325T508 357T495 384Z"></path></g></g></g></svg></mjx-container>表示诊断函数的参数。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-ffc5b300ba0cd4d60cad805b005e532c.png" alt="诊断函数"></p>
+<p><mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="1.407ex" height="1.027ex" role="img" focusable="false" viewBox="0 -443 622 454"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D714" d="M495 384Q495 406 514 424T555 443Q574 443 589 425T604 364Q604 334 592 278T555 155T483 38T377 -11Q297 -11 267 66Q266 68 260 61Q201 -11 125 -11Q15 -11 15 139Q15 230 56 325T123 434Q135 441 147 436Q160 429 160 418Q160 406 140 379T94 306T62 208Q61 202 61 187Q61 124 85 100T143 76Q201 76 245 129L253 137V156Q258 297 317 297Q348 297 348 261Q348 243 338 213T318 158L308 135Q309 133 310 129T318 115T334 97T358 83T393 76Q456 76 501 148T546 274Q546 305 533 325T508 357T495 384Z"></path></g></g></g></svg></mjx-container>的存在是为说明，<strong>诊断函数是可以从数据中学习的</strong>。但是，诊断函数千千万万，究竟哪一个是合理的？尤其是回到本文的研究问题：怎样保证诊断结果是可识别、可解释的？这里我们就需要引入诊断函数的可识别性条件和单调性条件：</p>
+<ul>
+<li><strong>可识别性条件（Identifiability condition）：</strong> 一个诊断函数满足可识别性条件，当且仅当诊断结果是完全由可观测量决定的。换言之，该函数的计算过程不允许存在任何可能导致诊断结果改变的外部的不可观测量。<ul>
+<li>这一条件可以概括为，“所见即所得”。例如，如果学习者答题数据中仅有答题得分，那么可识别的诊断函数必须保证诊断结果是完全由答题得分决定的，不能存在随机因素或不可见的学习者个人因素（如学习者ID）。</li>
+</ul>
+</li>
+<li><strong>单调性条件（Monotonicity condition）：</strong> 一个学习者诊断函数满足单调性条件，当且仅当诊断结果相对于输入的任意一个维度是单调递增的。<ul>
+<li>单调性条件源于心理测量学中基础但重要的的“单调性假设”，即学习者的<strong>真实能力水平</strong>是随其正答概率单调递增的。由于学习者的真实能力是未知的、不可观测的，因此在单调性假设成立的前提下，通过单调性条件来保证估计出的学习者能力诊断结果的可解释性。</li>
+</ul>
+</li>
+</ul>
+<p>上述两个条件是解决本文研究问题的钥匙，也是ID-CDF对诊断函数设计的唯二约束。在满足上述两个条件的前提下，ID-CDF允许并鼓励使用者定义自己的诊断函数，以满足不同场景的需求。本文中为验证这一模块的准确性，使用了全连接神经网络来定义。使用者也可考虑使用CNN、RNN或其他定义方式，设计符合自己需求的诊断函数。</p>
+<h3 id="预测模块（Predictive-Module）"><a href="#预测模块（Predictive-Module）" class="headerlink" title="预测模块（Predictive Module）"></a>预测模块（Predictive Module）</h3><p><strong>预测模块的目的是通过利用诊断结果重建可观测量（答题数据），以保证诊断结果的准确性及其在下游任务中的潜力</strong>。ID-CDF的诊断模块就是目前已有的大多数认知诊断模型（CDM）的本体。例如DINA、IRT、MIRT、NCDM，均与ID-CDF的预测模块同构。在ID-CDF中，预测模块的本质是一个交互函数（interaction function），该函数通过模拟学习者调动自身认知状态以解决题目的过程，从诊断结果中重建答题数据。如下所示：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-eca255d52feca490d7279659f3621227.png" alt="交互函数"></p>
+<p>其中<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.666ex" xmlns="http://www.w3.org/2000/svg" width="1.856ex" height="1.666ex" role="img" focusable="false" viewBox="0 -442 820.3 736.2"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D45E" d="M33 157Q33 258 109 349T280 441Q340 441 372 389Q373 390 377 395T388 406T404 418Q438 442 450 442Q454 442 457 439T460 434Q460 425 391 149Q320 -135 320 -139Q320 -147 365 -148H390Q396 -156 396 -157T393 -175Q389 -188 383 -194H370Q339 -192 262 -192Q234 -192 211 -192T174 -192T157 -193Q143 -193 143 -185Q143 -182 145 -170Q149 -154 152 -151T172 -148Q220 -148 230 -141Q238 -136 258 -53T279 32Q279 33 272 29Q224 -10 172 -10Q117 -10 75 30T33 157ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mi" transform="translate(479,-150) scale(0.707)"><path data-c="1D457" d="M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"></path></g></g></g></g></svg></mjx-container>表示试题<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.462ex" xmlns="http://www.w3.org/2000/svg" width="0.932ex" height="1.957ex" role="img" focusable="false" viewBox="0 -661 412 865"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D457" d="M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"></path></g></g></g></svg></mjx-container>的Q向量，用来指示试题与知识点的对应关系。<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.188ex" xmlns="http://www.w3.org/2000/svg" width="1.76ex" height="1.507ex" role="img" focusable="false" viewBox="0 -583 778 666"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="2299" d="M56 250Q56 394 156 488T384 583Q530 583 626 485T722 250Q722 110 625 14T390 -83Q249 -83 153 14T56 250ZM682 250Q682 322 649 387T546 497T381 542Q272 542 184 459T95 250Q95 132 178 45T389 -42Q515 -42 598 45T682 250ZM311 250Q311 285 332 304T375 328Q376 328 382 328T392 329Q424 326 445 305T466 250Q466 217 445 195T389 172Q354 172 333 195T311 250Z"></path></g></g></g></svg></mjx-container>是逐元素乘法，意思是我们只关注所有知识点中那些被试题考察的知识点。<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex" xmlns="http://www.w3.org/2000/svg" width="1.407ex" height="1.027ex" role="img" focusable="false" viewBox="0 -443 622 454"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D714" d="M495 384Q495 406 514 424T555 443Q574 443 589 425T604 364Q604 334 592 278T555 155T483 38T377 -11Q297 -11 267 66Q266 68 260 61Q201 -11 125 -11Q15 -11 15 139Q15 230 56 325T123 434Q135 441 147 436Q160 429 160 418Q160 406 140 379T94 306T62 208Q61 202 61 187Q61 124 85 100T143 76Q201 76 245 129L253 137V156Q258 297 317 297Q348 297 348 261Q348 243 338 213T318 158L308 135Q309 133 310 129T318 115T334 97T358 83T393 76Q456 76 501 148T546 274Q546 305 533 325T508 357T495 384Z"></path></g></g></g></svg></mjx-container>表示交互函数的隐参数，可以在拟合数据的过程中学习。</p>
+<h3 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h3><p>由于答题数据的重建结果是概率化的，因此使用交叉熵作为损失函数：<br><img src="https://pic4.zhimg.com/80/v2-c5612bf3c79bb312b6c7e0b2d6a85d67.png" alt="损失函数"></p>
+<h2 id="ID-CDM：ID-CDF的一种简洁实现"><a href="#ID-CDM：ID-CDF的一种简洁实现" class="headerlink" title="ID-CDM：ID-CDF的一种简洁实现"></a>ID-CDM：ID-CDF的一种简洁实现</h2><p>ID-CDM的提出目的，是作为ID-CDF的一种简洁实现，在实验中验证ID-CDF的有效性。</p>
+<h3 id="诊断模块的实现"><a href="#诊断模块的实现" class="headerlink" title="诊断模块的实现"></a>诊断模块的实现</h3><p>在ID-CDM中，学习者诊断函数通过一个单调双层全连接神经网络实现：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-008cce8d26bba86cf638788fe022b150.png" alt="学习者诊断函数"></p>
+<p>同时，试题诊断函数通过一个三层全连接神经网络实现：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-c8154977f8096b8b39ef4005eb715fe0.png" alt="试题诊断函数"></p>
+<h3 id="预测模块的实现"><a href="#预测模块的实现" class="headerlink" title="预测模块的实现"></a>预测模块的实现</h3><p>ID-CDM中，预测模块首先通过一个降维操作，将高维稀疏的诊断结果（注意，只关注那些被试题考察的知识点维度）压缩为低维高信息密度的诊断结果隐向量：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-a34b5404ced296f220eaca2d64e880c7.png" alt="压缩操作"></p>
+<p>然后，再通过一个三层神经网络重建可观测量（答题得分）：</p>
+<p><img src="https://pic4.zhimg.com/80/v2-0917427a314bd4a6645432258e1fa8e6.png" alt="重建答题得分"></p>
+<p>以上就是ID-CDM的实现。</p>
+<h2 id="实验部分"><a href="#实验部分" class="headerlink" title="实验部分"></a>实验部分</h2><h3 id="研究问题"><a href="#研究问题" class="headerlink" title="研究问题"></a>研究问题</h3><ul>
+<li>RQ1：ID-CDM诊断结果的可识别性如何？</li>
+<li>RQ2：ID-CDM诊断结果的可解释性如何？</li>
+<li>RQ3：ID-CDM诊断结果能否精准反映学习者的真实答题表现？</li>
+<li>RQ4：（由不同诊断模型给出的）学习者的诊断结果与其答题表现有何统计关联性？</li>
+</ul>
+<p>为回答上述问题，我们设计了四个不同的实验，在四个具有不同特征的数据集上验证ID-CDM的有效性。数据集信息可见于<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2309.00300.pdf">原始论文</a>。</p>
+<h3 id="可识别性评估（RQ1）"><a href="#可识别性评估（RQ1）" class="headerlink" title="可识别性评估（RQ1）"></a>可识别性评估（RQ1）</h3><p><img src="https://pic4.zhimg.com/80/v2-18c908dcbed6fb8bd61315e3c166042f.png" alt="可识别性评估结果"></p>
+<p>针对这一问题，我们提出一种名为可识别性得分（Identifiability Score, IDS）的评价指标。该指标在增强数据集上检测具有相同可观测量的学习者或试题的诊断结果相似性以评价可识别性。IDS介于0和1之间，越接近1，则诊断结果的平均可识别性越强。<strong>当且仅当IDS = 1.0，全体诊断结果是严格可识别的。</strong></p>
+<p>如Table 1所示，我们计算了ID-CDM和诊断模型baseline各自的IDS。ID-CDM的诊断结果是所有结果中唯一可识别的。此外，ID-CDM-nEnc表示去掉诊断模块的ID-CDM，因此牺牲了可识别性条件，是用于验证可识别性条件有效性的消融实验。NCDM-Const表示使用常数初始化NCDM的诊断结果，以观察这种经典的去随机化方式能否解决传统CDM的不可识别问题。结果表明，虽然NCDM-Const的IDS相对于NCDM有一定提升，但仍然未能彻底解决不可识别问题。因此，在上述方法中，ID-CDM是唯一能够彻底解决不可识别问题的方案。</p>
+<h3 id="可解释性评估（RQ2）"><a href="#可解释性评估（RQ2）" class="headerlink" title="可解释性评估（RQ2）"></a>可解释性评估（RQ2）</h3><p><img src="https://pic4.zhimg.com/80/v2-869aee8ae3e3378f05245bf6a132b061.png" alt="可解释性评估结果"></p>
+<p>针对可解释性评估问题，我们提出两个指标以从不同角度测量诊断的可解释性：一致性程度（Degreement of Consistency, DOC）和可解释过拟合率（Rate of Explainability Overfitting, REO）。<strong>DOC介于0-1之间，测量诊断结果在测试集上的单调性程度，越高越好；REO通常介于0-1之间，测量诊断结果可解释性过拟合程度，越低越好</strong>。</p>
+<p>如Figure 5所示，ID-CDM无论在DOC还是REO上都达到了SOTA。此外，ID-CDM-nMono是去掉了单调性约束的ID-CDM，是用于验证单调性约束有效性的消融实验。实验结果表明，ID-CDM的诊断结果具有良好的可解释性，并且有效缓解了诊断模型中存在的可解释性过拟合问题。</p>
+<h3 id="学习者得分预测（RQ3）"><a href="#学习者得分预测（RQ3）" class="headerlink" title="学习者得分预测（RQ3）"></a>学习者得分预测（RQ3）</h3><p><img src="https://pic4.zhimg.com/80/v2-c563b5cf48364584838081b57826ae37.png" alt="学习者得分预测结果"></p>
+<p>学习者得分预测既可以看作分类问题，也可以看作回归问题。因此我们使用Accuracy、F1 score、RMSE三个指标，全面评估答题得分预测的精度，以比较不同模型给出的诊断结果的准确性。由Figure 6可见，即便我们没有在得分预测精度方面为ID-CDM作任何增强，其预测精度相对于baseline中的SOTA仍然没有损失。这足以验证ID-CDM在诊断结果精准度方面的有效性。</p>
+<h3 id="诊断结果聚类（RQ4）"><a href="#诊断结果聚类（RQ4）" class="headerlink" title="诊断结果聚类（RQ4）"></a>诊断结果聚类（RQ4）</h3><p><img src="https://pic4.zhimg.com/80/v2-23ea2d3d0c3b8cc8c2e1877f0f468836.png" alt="诊断结果聚类结果"></p>
+<p>为探究诊断结果与答题得分表现之间的统计关联性，我们首先使用UMAP算法将高维的学习者能力降维至2维，再将每个学习者对应的点按照其答题得分率染色（得分率越高越偏蓝色，得分率越低越偏红色），再观察学习者能力点能否按照答题得分率很好地聚类。聚类效果越好，则诊断结果与答题表现之间的统计关联性越强，可解释性越好。</p>
+<p>Figure 7 展示了正文中呈现的初步结果。其中ID-CDM的诊断结果可视化呈现条带状，且条带的延伸方向与得分率的变化方向一致，因此能够很好地按答题得分率聚类学习者。NCDM和U-AutoRec（经典的encoder-decoder用户建模模型）聚类效果也尚可，但相比ID-CDM的结果更松散。DINA的可视化中，各种得分率的学习者点则完全混杂在一起，无法聚类。上述结果说明了ID-CDM的诊断结果与答题得分表现之间有较强的统计关联性。这可以从流形的角度解释，可留给读者自行想象。</p>
+<p>我们还在附录中进一步讨论了各种baseline对于学习者的聚类能力，以及ID-CDM的不同组件对其聚类能力的影响。我们主要阐述后者的直观结论：</p>
+<ol>
+<li>ID-CDM的诊断模块（新范式中的创新点）对于聚类的影响在于，其可以将聚类结果由圆形（如NCDM诊断结果可视化）变成条带形，延长条带的长度，在答题得分变化的“纵向”上增强诊断结果与之的统计关联性。</li>
+<li>ID-CDM的单调性约束对于聚类的影响在于，其可以缩短条带的宽度，在答题得分变化的“横向”上增强诊断结果与之的统计关联性（见ID-CDM-nMono诊断结果可视化）。换言之，具有相似答题得分率的学习者，也具有相似的诊断结果。这可以视作松弛版的可识别性。</li>
+</ol>
+<p><img src="https://pic4.zhimg.com/80/v2-f57f7cc791e5e0d53a2c95bfc11c444f.png" alt="附录 p1"></p>
+<p><img src="https://pic4.zhimg.com/80/v2-29fe72bc28a3959fc92937d197a0c4f0.png" alt="附录 p2"></p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>本文研究了基于认知诊断的学习者建模任务中普遍存在的不可识别性和可解释性过拟合问题，并提出了一个通用的可识别、可解释的认知诊断框架(ID-CDF)来解决这两个问题。具体来说，我们提出了一个新的答题响应-认知状态-答题响应(R-P-R)范式，从根本上解决这两个问题。基于此，我们提出了ID-CDF，它利用诊断模块从响应数据中获得可识别和可解释的诊断结果。然后，它使用预测模块对学习者和问题之间的复杂交互进行建模，以保证诊断结果的准确性。然后，我们提出ID-CDM作为ID-CDF的实现，以显示其可用性。最后，我们通过在四个真实数据集上的大量实验证明了ID-CDF的有效性。</p>
+<section class="post-full-comments">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        var gitalk = new Gitalk({
+            clientID: 'e1bbf465a324641f76ce',
+            clientSecret: 'b865ad952a6494eb48283884abbe479d3f89f4a4',
+            repo: 'LiJT-Daily-Comments',
+            owner: 'CSLiJT',
+            admin: ['CSLiJT'], //这里可以填写具有写权限的用户名列表，用来初始化Issues的
+            id: decodeURI(window.location.pathname),
+            distractionFreeMode: true // Facebook-like distraction free mode
+        });
+        gitalk.render('gitalk-container');
+    </script>
+</section>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/LiJT-Daily/2024/01/16/2024-01-16-reimburse/" rel="prev" title="2023年一次USTC国际差旅学生报销记录">
+      <i class="fa fa-chevron-left"></i> 2023年一次USTC国际差旅学生报销记录
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">论文摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">背景介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E5%8A%A8%E6%9C%BA"><span class="nav-number">3.</span> <span class="nav-text">研究动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID-CDF%EF%BC%9A%E9%80%9A%E7%94%A8%E7%9A%84%E5%8F%AF%E8%AF%86%E5%88%AB%E8%AE%A4%E7%9F%A5%E8%AF%8A%E6%96%AD%E6%A1%86%E6%9E%B6"><span class="nav-number">4.</span> <span class="nav-text">ID-CDF：通用的可识别认知诊断框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%8A%E6%96%AD%E6%A8%A1%E5%9D%97%EF%BC%88Diagnostic-Module%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">诊断模块（Diagnostic Module）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9D%97%EF%BC%88Predictive-Module%EF%BC%89"><span class="nav-number">4.2.</span> <span class="nav-text">预测模块（Predictive Module）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0"><span class="nav-number">4.3.</span> <span class="nav-text">损失函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ID-CDM%EF%BC%9AID-CDF%E7%9A%84%E4%B8%80%E7%A7%8D%E7%AE%80%E6%B4%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.</span> <span class="nav-text">ID-CDM：ID-CDF的一种简洁实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%8A%E6%96%AD%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.1.</span> <span class="nav-text">诊断模块的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.2.</span> <span class="nav-text">预测模块的实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C%E9%83%A8%E5%88%86"><span class="nav-number">6.</span> <span class="nav-text">实验部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E9%97%AE%E9%A2%98"><span class="nav-number">6.1.</span> <span class="nav-text">研究问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%AF%86%E5%88%AB%E6%80%A7%E8%AF%84%E4%BC%B0%EF%BC%88RQ1%EF%BC%89"><span class="nav-number">6.2.</span> <span class="nav-text">可识别性评估（RQ1）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7%E8%AF%84%E4%BC%B0%EF%BC%88RQ2%EF%BC%89"><span class="nav-number">6.3.</span> <span class="nav-text">可解释性评估（RQ2）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E8%80%85%E5%BE%97%E5%88%86%E9%A2%84%E6%B5%8B%EF%BC%88RQ3%EF%BC%89"><span class="nav-number">6.4.</span> <span class="nav-text">学习者得分预测（RQ3）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%8A%E6%96%AD%E7%BB%93%E6%9E%9C%E8%81%9A%E7%B1%BB%EF%BC%88RQ4%EF%BC%89"><span class="nav-number">6.5.</span> <span class="nav-text">诊断结果聚类（RQ4）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">7.</span> <span class="nav-text">结论</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LiJT"
+      src="/LiJT-Daily/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">LiJT</p>
+  <div class="site-description" itemprop="description">LiJT的灵质空间</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/LiJT-Daily/archives/">
+        
+          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/LiJT-Daily/categories/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/LiJT-Daily/tags/">
+          
+        <span class="site-state-item-count">34</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CSLiJT" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CSLiJT" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:785160469@qq.com" title="E-Mail → mailto:785160469@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LiJT</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">88k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:20</span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"0M5QVskfHznsnKEorguvX4Mw-gzGzoHsz","app_key":"itcxMP5f9TIHVoeItjA7Kqob","server_url":"https://0m5qvskf.lc-cn-n1-shared.com","security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/LiJT-Daily/lib/anime.min.js"></script>
+  <script src="/LiJT-Daily/lib/velocity/velocity.min.js"></script>
+  <script src="/LiJT-Daily/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/LiJT-Daily/js/utils.js"></script>
+
+<script src="/LiJT-Daily/js/motion.js"></script>
+
+
+<script src="/LiJT-Daily/js/schemes/pisces.js"></script>
+
+
+<script src="/LiJT-Daily/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/LiJT-Daily/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/LiJT-Daily/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+  
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+  
+
+</body>
+</html>

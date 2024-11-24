@@ -40,15 +40,15 @@ custom_file_path:
 # ---------------------------------------------------------------
 
 favicon:
-  small: /images/favicon-16x16-next.png
-  medium: /images/favicon-32x32-next.png
-  apple_touch_icon: /images/apple-touch-icon-next.png
-  safari_pinned_tab: /images/logo.svg
+  small: /images/favicon16.ico
+  medium: /images/favicon32.ico
+  # apple_touch_icon: /images/favicon.png
+  # safari_pinned_tab: /images/favicon.png
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
 # Show multilingual switcher in footer.
-language_switcher: false
+language_switcher: true
 
 footer:
   # Specify the date when the site was setup. If not defined, current year will be used.
@@ -117,10 +117,12 @@ darkmode: false
 # External url should start with http:// or https://
 menu:
   home: / || fa fa-home
+  news: /news/ || fa fa-bell
   about: /about/ || fa fa-user
   tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
+  links: /links/ || fas fa-anchor
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
@@ -177,8 +179,8 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  #GitHub: https://github.com/yourname || fab fa-github
-  #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
+  GitHub: https://github.com/CSLiJT || fab fa-github
+  E-Mail: mailto:785160469@qq.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
@@ -566,13 +568,15 @@ comments:
   style: tabs
   # Choose a comment system to be displayed by default.
   # Available values: changyan | disqus | disqusjs | gitalk | livere | valine
-  active:
+  active: gitalk
   # Setting `true` means remembering the comment system selected by the visitor.
   storage: true
   # Lazyload all comment systems.
   lazyload: false
   # Modify texts or order for any navs, here are some examples.
   nav:
+    gitalk:
+      order: -1
     #disqus:
     #  text: Load Disqus
     #  order: -1
@@ -637,9 +641,10 @@ gitalk:
   github_id: CSLiJT # GitHub repo owner
   repo: LiJT-Daily-Comments # Repository name to store issues
   client_id: e1bbf465a324641f76ce # GitHub Application Client ID
-  client_secret: f73c0bc3c19755d1c0d886c0d8791cad24509c9a # GitHub Application Client Secret
+  client_secret: b865ad952a6494eb48283884abbe479d3f89f4a4 # GitHub Application Client Secret
   admin_user: CSLiJT # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
-  distraction_free_mode: false # Facebook-like distraction free mode
+  distraction_free_mode: true # Facebook-like distraction free mode
+  proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token
   # Gitalk's display language depends on user's browser or system environment
   # If you want everyone visiting your site to see a uniform language, you can set a force language value
   # Available values: en | es-ES | fr | ru | zh-CN | zh-TW
@@ -670,7 +675,7 @@ add_this_id:
 
 # Google Analytics
 google_analytics:
-  tracking_id: # <app_id>
+  tracking_id: UA-183507292-2 # <app_id>
   # By default, NexT will load an external gtag.js script on your site.
   # If you only need the pageview feature, set the following option to true to get a better performance.
   only_pageview: false
@@ -805,7 +810,7 @@ tabs:
 # So, you have to install the dependency of pdf.js if you want to use pdf tag and make it available to all browsers.
 # See: https://github.com/theme-next/theme-next-pdf
 pdf:
-  enable: false
+  enable: true
   # Default height
   height: 500px
 
@@ -1031,5 +1036,3 @@ darkmode_js:
   label: '🌓' # default: ''
   autoMatchOsTheme: true # default: true
   libUrl: https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js # Set custom library cdn url for Darkmode.js
-
-counter: true

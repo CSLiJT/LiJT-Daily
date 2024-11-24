@@ -46,8 +46,8 @@ a {
 }
 abbr[title] {
   border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  text-decoration: none; /* 2 */
+  text-decoration: none; /* 2 */
 }
 b,
 strong {
@@ -854,6 +854,11 @@ pre .javascript .function {
 .post-body .note.danger h6 {
   color: #d9534f;
 }
+.pdfobject-container iframe,
+.pdfobject-container embed {
+  height: 500px;
+  width: 100%;
+}
 .pagination .prev,
 .pagination .next,
 .pagination .page-number,
@@ -1219,7 +1224,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #fb69a6;
+  background: #ff9db3;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
